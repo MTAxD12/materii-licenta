@@ -1,0 +1,39 @@
+	Excepții
+2
+Constructor destructor. Scop, utilizare, cum initializam constructorul cand avem inheritance.
+3
+Relatii de asociere. Definitii, clasificari.
+4
+Constructor si Destructor. Definitie. Responsabilitati. Apelare in contextul derivarii
+5
+Clase virtuale și interfețe. Definiție, asemănări, deosebiri, implementare
+6
+Constructor si destructor, definitie, cum functioneaza, si cum se apeleaza
+7
+Principiul Open-Closed. Descriere, exemplu in care se incalca si solutia
+8
+clase si obiecte, cum sunt structurate obiectele in clase, clase abstracte, acess modifiers
+9
+Clase parametrizate. Implementare. Exemple canonice.
+10
+Open Closed. Ce e, un exemplu în care nu e respectat și o soluție pentru acel exemplu
+11
+Clase parametrizate. Definitii. Exemple canonice. Implementare
+12
+constructor si destructor - def, utilizare si cum se apeleaza din clase derivate
+13
+Suprascriere si polimorfism dinamic
+14
+Relația de asociere a claselor/obiectelor. Definiție. Clasificări. Implementare
+15
+Clase abstracte. Interfete. Definitii, asemanari, deosebiri. Metode virtuale
+16
+Suprascrierea metodelor si polimorfism dinamic
+17
+Clase abstracte. Interfețe. Asemănări. Deosebiri. Metode virtuale.
+18
+Obiecre, clase, clase abstracte, privat prot pub, inserarea obiectelor in clade? Aranjarea? Dispunerea?
+19
+Clase Parametrizate. Exemple canonice. Implementare
+20
+Suprascrierea si polimorfismul dinamic(+cum face polimorfismul acea alegere intre functii)
