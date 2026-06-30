@@ -1,27 +1,38 @@
 # SINTEZĂ COMPLETĂ OOP — LICENȚĂ
 > Acoperă toate cele 12 cursuri. Prioritizat după frecvența la exam (⭐).
+> **Stelele actualizate cu întrebări din 2021, 2022, 2023, 2024.**
 
 ---
 
 ## CUPRINS
 1. [Compilare, Memorie, Biblioteci](#1-compilare-memorie-biblioteci)
-2. [Clase și Obiecte — Fundamente](#2-clase-și-obiecte--fundamente)
+2. [Clase și Obiecte — Fundamente ⭐⭐](#2-clase-și-obiecte--fundamente)
 3. [Pointeri, Referințe, const, friend](#3-pointeri-referințe-const-friend)
-4. [Supraîncărcarea Metodelor](#4-supraîncărcarea-metodelor)
+4. [Supraîncărcarea Metodelor + Polimorfism static vs dinamic ⭐⭐⭐⭐](#4-supraîncărcarea-metodelor)
 5. [Constructori ⭐⭐⭐⭐](#5-constructori-)
 6. [Destructori și Supraîncărcarea Operatorilor ⭐⭐⭐⭐](#6-destructori-și-supraîncărcarea-operatorilor-)
-7. [Moștenire ⭐⭐⭐⭐](#7-moștenire-)
-8. [Metode Virtuale, Interfețe, Clase Abstracte ⭐⭐⭐](#8-metode-virtuale-interfețe-clase-abstracte-)
-9. [Cast-uri și RTTI ⭐⭐⭐](#9-cast-uri-și-rtti-)
+7. [Moștenire / Derivare ⭐⭐⭐](#7-moștenire-)
+8. [Metode Virtuale, Interfețe, Clase Abstracte, Polimorfism dinamic ⭐⭐⭐⭐⭐](#8-metode-virtuale-interfețe-clase-abstracte-)
+9. [Cast-uri și RTTI (reguli de conversie) ⭐⭐⭐](#9-cast-uri-și-rtti-)
 10. [Macro-uri și Preprocesare](#10-macro-uri-și-preprocesare)
-11. [Template-uri (Clase Parametrizate) ⭐⭐⭐](#11-template-uri-clase-parametrizate-)
+11. [Template-uri (Clase Parametrizate) ⭐⭐⭐⭐](#11-template-uri-clase-parametrizate-)
 12. [STL — Containere](#12-stl--containere)
 13. [Smart Pointers](#13-smart-pointers)
 14. [C++11/14/17: auto, constexpr, lambda, structured binding](#14-c111417-auto-constexpr-lambda-structured-binding)
-15. [Excepții ⭐⭐](#15-excepții-)
-16. [Relații de Asociere ⭐⭐](#16-relații-de-asociere-)
-17. [Principii SOLID ⭐⭐](#17-principii-solid-)
-18. [Design Patterns — Gang of Four](#18-design-patterns--gang-of-four)
+15. [Excepții ⭐⭐⭐](#15-excepții-)
+16. [Relații de Asociere și Agregare ⭐⭐⭐⭐](#16-relații-de-asociere-)
+17. [Principii SOLID (mai ales DIP/D, OCP/O, LSP/L) ⭐⭐⭐⭐⭐](#17-principii-solid-)
+18. [Design Patterns — GoF (Composite, Visitor, Factory) ⭐⭐⭐⭐](#18-design-patterns--gang-of-four)
+
+> **Top recurente OOP (toți anii 2021–2024):**
+> - **SOLID — Principiul Dependențelor Inversate (DIP/D)** — cel mai frecvent! (definiție, exemplu unde NU se respectă, soluție); apar și O (Open-Closed) și L (Liskov).
+> - **Suprascriere (overriding) + polimorfism dinamic** — în fiecare an (atenție: și **static vs dinamic** — vezi cap. 4).
+> - **Relații de asociere / agregare** — în fiecare an (definiție, clasificare, implementare).
+> - **Clase abstracte vs interfețe + metode virtuale** — în fiecare an.
+> - **Clase parametrizate (template-uri)** — în fiecare an.
+> - **Constructori și destructori** — frecvent.
+> - **Design patterns: Composite, Visitor, (Object) Factory** — în fiecare an.
+> - **Excepții** (mecanismul în POO), **reguli de conversie (cast)**, **derivare/moștenire**, **clase/obiecte/modificatori de acces** — recurente.
 
 ---
 
@@ -280,6 +291,30 @@ foo(5);    // foo(int) — potrivire exactă
 foo(5.0);  // foo(double) — potrivire exactă
 foo('A');  // foo(int) — promovare char→int
 ```
+
+### Polimorfism STATIC vs DINAMIC ⭐⭐⭐⭐ (întrebare frecventă!)
+> *"Suprascrierea, polimorfism dinamic — ce este asta?"* apare în fiecare an. Distincția cheie:
+
+```
+POLIMORFISM STATIC (compile-time / early binding)
+  • se rezolvă la COMPILARE
+  • se face prin OVERLOADING (supraîncărcare de metode/operatori) și TEMPLATE-uri
+  • exemplu: void print(int) vs void print(double) — compilatorul alege după tip
+
+POLIMORFISM DINAMIC (run-time / late binding)
+  • se rezolvă la EXECUȚIE (runtime), prin vfptr/vtable
+  • se face prin METODE VIRTUALE = OVERRIDING (suprascriere)
+  • apelat prin pointer/referință la clasa de bază → se execută metoda obiectului REAL
+```
+
+| | Polimorfism STATIC | Polimorfism DINAMIC |
+|--|--------------------|---------------------|
+| Când se rezolvă | la compilare | la runtime |
+| Mecanism | **overloading** (supraîncărcare) + template | **overriding** (suprascriere) + `virtual` |
+| Legare (binding) | early binding | late binding (prin vtable) |
+| Cuvânt cheie | — | `virtual` / `override` |
+
+> ⚠️ Nu confunda **overloading** (supraîncărcare = polimorfism static, aceeași metodă cu semnături diferite) cu **overriding** (suprascriere = polimorfism dinamic, redefinirea unei metode virtuale în clasa derivată). Detalii complete despre overriding și vtable — vezi **cap. 8**.
 
 ---
 
@@ -708,6 +743,18 @@ public:
     void breathe() { cout << "breathing"; }                // metodă concretă
 };
 ```
+
+**Când folosești una sau cealaltă (întrebare la examen — tip util):**
+```
+INTERFAȚĂ    → când NU știi nimic despre CUM trebuie implementat
+                (doar contractul, "ce" trebuie făcut)
+CLASĂ ABSTRACTĂ → când ai deja o IDEE de funcționalitate / comportament comun
+                (implementare parțială + lași pași abstracți)
+```
+> Perspectiva Java (apare la examen): *"Extinderea unei clase abstracte impune o relație puternică între două clase. Implementarea unei interfețe e mult mai ușoară: doar specifică faptul că o clasă respectă un anumit contract."* Nu se exclud — se folosesc împreună:
+> `List` = **contractul** (interfață) → `AbstractList` = **comportamentul comun** (clasă abstractă) → `ArrayList`, `LinkedList` = **comportament specific**.
+>
+> Implementare: în **Java** — `interface I {}` + `class C implements I {}`; `abstract class A {}` + `class C extends A {}`. În **C++** — interfața = clasă cu doar metode pure virtuale; moștenire cu `:`.
 
 ### Covarianță
 

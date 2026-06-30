@@ -10,17 +10,30 @@
 ---
 
 ## CUPRINS (după prioritatea la examen)
+> **Prioritate actualizată cu întrebări din 2021, 2022, 2023, 2024.** Aproape toate temele apar în fiecare an.
 
-| # | Temă | Întrebări | Prioritate |
-|---|------|-----------|------------|
-| 1 | [Design Patterns GoF (definiție, elemente, tipuri + toate pattern-urile)](#1-design-patterns-gof-) | Q2,8,9,11,14,17,18,20,23,25,28,35,38 | ⭐⭐⭐⭐⭐ |
-| 2 | [Principiile SOLID](#2-principiile-solid-) | Q1,10,15,16,19,31,32 | ⭐⭐⭐⭐ |
-| 3 | [Quality Assurance & Testare](#3-quality-assurance--testare-) | Q3,5,21,24,29,37 | ⭐⭐⭐ |
-| 4 | [Reverse Engineering](#4-reverse-engineering-) | Q4,27,36,39 | ⭐⭐⭐ |
-| 5 | [Ce e IP, importanță, etape, modele de dezvoltare](#5-ce-este-ip-) | Q13,30,33,40 | ⭐⭐ |
-| 6 | [Metodologii Agile (Scrum, Kanban, XP)](#6-metodologii-agile-) | Q6,7,12 | ⭐⭐ |
-| 7 | [Modelare & UML (Use Case, Diagrama de clase)](#7-modelare--uml-) | Q22,26,34 | ⭐⭐ |
-| — | [Anexe: GRASP, DRY/YAGNI/KISS, Refactoring, Estimare](#anexe) | context | — |
+| # | Temă | Recurență 2021–2024 | Prioritate |
+|---|------|---------------------|------------|
+| 1 | [Design Patterns GoF (definiție, elemente, tipuri + toate pattern-urile)](#1-design-patterns-gof-) | în fiecare an, multiple (Adapter, Observer, Proxy, Decorator, Mediator, Prototype, Chain of Resp., Composite) | ⭐⭐⭐⭐⭐ |
+| 2 | [Principiile SOLID (S, O, L, I, D)](#2-principiile-solid-) | **în fiecare an, fiecare principiu cerut** (D, L, O, S, I) | ⭐⭐⭐⭐⭐ |
+| 3 | [Quality Assurance & Testare](#3-quality-assurance--testare-) | în fiecare an (manual vs auto, code coverage, nefuncțională, unit) | ⭐⭐⭐⭐ |
+| 4 | [Reverse Engineering](#4-reverse-engineering-) | în fiecare an | ⭐⭐⭐⭐ |
+| 5 | [Ce e IP, importanță, etape, modele de dezvoltare](#5-ce-este-ip-) | **în fiecare an (×3-4)** | ⭐⭐⭐⭐ |
+| 6 | [Metodologii Agile (Scrum, Kanban, XP)](#6-metodologii-agile-) | **Scrum în fiecare an** (roluri/artefacte/evenimente) | ⭐⭐⭐⭐ |
+| 7 | [Modelare & UML (Use Case, Diagrama de clase)](#7-modelare--uml-) | recurent (use case, diagrama de clase, modelare) | ⭐⭐⭐ |
+| A,E | [Anexe: **GRASP** (coeziune/cuplaj), **Pachete + principii** (stabilitate), DRY/YAGNI/KISS, Refactoring](#anexe) | **GRASP și Pachete în fiecare an** | ⭐⭐⭐ |
+
+> **Top recurente IP (toți anii 2021–2024):**
+> - **SOLID** — în fiecare an se cere "care sunt + detaliază X"; cele mai cerute: **D (DIP)**, **L (Liskov)**, **O (Open-Closed)**, **S (SRP)**, **I (ISP)** — știi-le pe toate cu exemplu.
+> - **Design Patterns GoF** — definiție + elemente + tipuri ȘI un pattern de detaliat; cele mai cerute: Adapter, Decorator, Proxy, Mediator, Observer, Prototype, Chain of Responsibility, Composite.
+> - **Scrum** — în fiecare an: **roluri, artefacte, evenimente** (vezi cap. 6 — detaliate).
+> - **Ce e IP / etape / cel mai important pas (= analiza cerințelor)** + **importanță/statistici/exemple** + **când se folosește IP (și când NU)** — în fiecare an.
+> - **Reverse Engineering** (definiție + tipuri: cu/fără cod sursă) — în fiecare an.
+> - **QA** (manual vs automat, code coverage, testare nefuncțională, unit testing) — în fiecare an.
+> - **GRASP** (coeziune și cuplaj) și **Pachete** (principii OOP, principiul stabilității) — în fiecare an (Anexele A și E).
+> - **Modele de dezvoltare** (Cascadă, XP, Spirală), **Agile/Kanban**, **Use Case**, **Diagrame de clase**, **Modelare** — recurente.
+
+> **Notă cross-materie:** *"Arhitectura pe N straturi (N-tier/layered), beneficii"* a apărut la IP (2023) — e tratată complet în **sinteza Web, cap. 1** (avantaje/dezavantaje straturi).
 
 ---
 

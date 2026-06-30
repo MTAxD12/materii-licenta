@@ -11,18 +11,22 @@
 ---
 
 ## CUPRINS (după prioritatea la examen)
+> Frecvențele includ acum întrebări din **2021, 2022, 2023, 2024**. "×N ani" = de câte ori a apărut tema.
 
-| # | Temă | Întrebări | Prioritate |
+| # | Temă | Recurență | Prioritate |
 |---|------|-----------|------------|
-| 1 | [Arhitectura Web: server, proxy, gateway, app server + straturi](#1-arhitectura-web-) | Q3,5,13 | ⭐⭐⭐ |
-| 2 | [HTTP, MIME/Media Types, headere, Ajax](#2-http-mime-headere-ajax-) | Q1,8 | ⭐⭐⭐ |
-| 3 | [Cookie-uri, sesiuni, stocare persistentă + securitate](#3-cookie-uri-sesiuni-stocare-) | Q4,10,15 | ⭐⭐⭐ |
-| 4 | [Servicii Web, SOA, Microservicii, REST, MVC](#4-servicii-web-soa-microservicii-rest-mvc-) | Q6,16,17,18 | ⭐⭐⭐ |
-| 5 | [DOM, parsere, well-formed vs valid, XML](#5-dom-parsere-xml-) | Q2,9 | ⭐⭐ |
-| 6 | [Autentificare și autorizare în APIs](#6-autentificare-și-autorizare-în-apis-) | Q7 | ⭐⭐ |
-| 7 | [JSON vs HTML](#7-json-vs-html-) | Q14 | ⭐ |
-| 8 | [HTML, Cascade CSS și Responsive Design](#8-html-cascade-css-și-responsive-design-) | Q11,12 | ⭐ |
+| 1 | [Arhitectura Web: server, proxy, gateway, app server + straturi](#1-arhitectura-web-) | confirmat în fiecare an (×4) | ⭐⭐⭐⭐ |
+| 2 | [HTTP, MIME/Media Types, headere, Ajax](#2-http-mime-headere-ajax-) | recurent | ⭐⭐⭐ |
+| 3 | [Cookie-uri, sesiuni, stocare persistentă + securitate](#3-cookie-uri-sesiuni-stocare-) | recurent | ⭐⭐⭐ |
+| 4 | [Servicii Web, SOA, Microservicii, REST, MVC](#4-servicii-web-soa-microservicii-rest-mvc-) | **SOA vs MVC apare în fiecare an (×4+)** | ⭐⭐⭐⭐⭐ |
+| 5 | [DOM, parsere, well-formed vs valid, XML](#5-dom-parsere-xml-) | **DOM well-formed vs valid în fiecare an (×4)** | ⭐⭐⭐⭐ |
+| 6 | [Autentificare și autorizare în APIs](#6-autentificare-și-autorizare-în-apis-) | recurent | ⭐⭐ |
+| 7 | [JSON vs HTML](#7-json-vs-html-) | apare (atenție: și XML vs JSON) | ⭐⭐ |
+| 8 | [HTML, Cascade CSS și Responsive Design](#8-html-cascade-css-și-responsive-design-) | CSS cascade + responsive recurent | ⭐⭐ |
+| 9 | [Subiecte recurente 2021–2024 (template engines, static/dinamic, GET/POST, DRY, poliglot, SOAP/REST, design patterns web...)](#9-subiecte-recurente-din-anii-trecuți-20212024-) | multe ×3 ani | ⭐⭐⭐ |
 | — | [Anexe: URI, hypertext, PHP, SPA/PWA, mashup, CORS, JAMstack, GraphQL](#anexe) | context | — |
+
+> **Top recurente confirmate (toți anii):** SOA vs MVC; DOM (well-formed vs valid); server/proxy/gateway/app server; servicii web vs microservicii; conținut static vs dinamic; template engines; design patterns în web; DRY; mai multe limbaje în aplicații mari.
 
 ---
 
@@ -936,6 +940,198 @@ CÂND:
 
 > **Legătură cu PWA:** o PWA bună e **responsive** (se adaptează dispozitivului), folosește
 > caching offline (Service Workers) și poate fi instalată — vezi Anexa F.
+
+---
+
+## 9. Subiecte recurente din anii trecuți (2021–2024) ⭐⭐⭐
+> Teme apărute repetat la examen (multe de **3 ori** în 4 ani) care nu erau în întrebările din primul an analizat. Surse: cursurile web02, web04, web05, web09 + cunoștințe standard unde slide-urile sunt imagini.
+
+### 9.1 GET vs POST — securitate și navigare ⭐⭐⭐ (2023 ×3)
+> Întrebări: *"POST vs GET"*, *"Folosirea GET în defavoarea lui POST, avantaje/dezavantaje pentru securitate și navigare web."*
+
+| Aspect | **GET** | **POST** |
+|--------|---------|----------|
+| Scop | **obține** reprezentarea unei resurse | **trimite** date / creează resursă |
+| Unde sunt datele | în **URL** (query string) — vizibile | în **body**-ul mesajului — nu apar în URL |
+| Safe / Idempotent | **da / da** (nu schimbă starea serverului) | **nu / nu** (poate schimba starea) |
+| Bookmark / istoric | **da** — URL-ul poate fi salvat/refolosit | nu (datele nu-s în URL) |
+| Cache | poate fi pus în cache | de regulă nu |
+| Dimensiune date | limitată (lungimea URL-ului) | mare (upload de fișiere) |
+| Date sensibile | **NU** (parolele ar apărea în URL/istoric/loguri) | da (parole, date mari) |
+
+```
+SECURITATE:
+• GET: datele se văd în URL → apar în istoric, bookmark-uri, loguri server,
+  header Referer → NU pune parole/date sensibile în GET
+• POST: datele sunt în body → nu apar în URL (dar tot trebuie HTTPS pentru criptare)
+
+NAVIGARE:
+• GET e potrivit pentru navigare: URL-uri partajabile, bookmark-abile, cache-abile,
+  butonul "back" merge fără reefectuarea acțiunii
+• POST nu e pentru navigare: re-trimiterea unui POST cere confirmare
+  ("vrei să retrimiți formularul?")
+```
+> Din curs (web02): **GET** se folosește pentru a obține reprezentări (HTML, imagini, PDF...); utilizatorul poate pune un **bookmark**; starea serverului NU trebuie modificată. **POST** se folosește când datele sunt **mari** (upload) sau **sensibile** (parole), sau când invocarea **schimbă starea** serverului (adăugare înregistrare, modificare fișier).
+
+### 9.2 Conținut static vs dinamic ⭐⭐⭐ (2022, 2021 ×3)
+> Întrebări: *"Avantajele și dezavantajele generării de conținut static în comparație cu generarea dinamică."*
+
+```
+CONȚINUT STATIC                      CONȚINUT DINAMIC
+fișiere fixe (HTML, CSS, imagini)    generat la cerere de server (PHP, Node...)
+servite direct de serverul web       generat per request, din date/BD
+                                      (CGI / server de aplicații / framework)
+```
+
+| | **Static** | **Dinamic** |
+|--|-----------|-------------|
+| Generare | fișiere pre-existente, servite ca atare | generat la fiecare cerere (din BD/logică) |
+| Performanță | **rapid** (fără procesare), ușor de pus în CDN/cache | mai lent (procesare per request) |
+| Scalabilitate | foarte bună | necesită resurse server |
+| Securitate | suprafață de atac mică | mai expus (cod server, BD) |
+| Personalizare | **nu** (același conținut pt toți) | **da** (conținut per utilizator/context) |
+| Mentenanță | simplă; greu la conținut mult/variabil | flexibil; conținut din surse heterogene |
+| Exemplu | pagină de prezentare, blog static (JAMstack/SSG) | magazin online, dashboard, feed personalizat |
+
+> Din curs: serverul de aplicații realizează **generarea dinamică, pe server, a reprezentărilor** cerute de clienți (CGI, framework-uri). JAMstack/SSG (Anexa F) pre-randează markup-ul → conținut **static** stocat redundant în CDN (performanță).
+
+### 9.3 Template engines (sisteme de șabloane) ⭐⭐⭐ (2023, 2022, 2021 ×3)
+> Întrebări: *"Cum funcționează și în ce context sunt folosite template engines / sisteme de redare a conținutului pe baza machetelor?"*
+
+> Un **Web template system / template engine** = combină o **specificație de prezentare (un șablon/template)** cu **date persistente** (ex. din BD), folosind un **procesor (template engine)** care generează documente HTML (sau alte formate).
+
+**Cum funcționează (din curs web05):**
+```
+1. Definești un TEMPLATE (machetă HTML) cu "locuri" pentru variabile:
+   <h1 class="profile">[@username] profile</h1>
+   <img src="[@photoURL]" />
+   <div>[@firstName] [@lastName]</div>
+
+2. Programul de pe server completează variabilele cu valori reale (din BD etc.):
+   $profile = new Template('profile.tpl');
+   $profile->set('username') = 'Tux';
+   $profile->set('photoURL') = 'imgs/tux.svg';
+
+3. Procesorul (engine) SUBSTITUIE [@variabilă] cu valoarea → generează HTML-ul final
+   trimis clientului.
+```
+**Context de folosire:** separă **prezentarea** (HTML) de **logică** și **date** (separation of concerns, MVC — View-ul); reutilizare; designerii lucrează pe șabloane, programatorii pe logică.
+
+**Exemple (din curs):**
+- **Pe server:** Smarty, Blade (PHP), Twig, Mustache, Pug (Node.js), Razor (.NET), FreeMarker (Java), XSLT (XML).
+- **Pe client:** Handlebars, Mustache.js, Nunjucks.
+
+### 9.4 SOAP vs REST ⭐ (2022)
+> Întrebare: *"SOAP vs REST (asemănări, diferențe)."* — Din curs (web09): "serviciile Web pot fi dezvoltate prin **SOAP și/sau REST**."
+
+| Aspect | **SOAP** | **REST** |
+|--------|----------|----------|
+| Ce este | **protocol** (reguli stricte) | **stil arhitectural** |
+| Format mesaje | doar **XML** (plic SOAP) | orice MIME — uzual **JSON**, XML, CSV... |
+| Transport | HTTP, SMTP, TCP... | de obicei **HTTP** (folosește verbele lui) |
+| Contract | formal, strict (WSDL) | nu impune (eventual OpenAPI) |
+| Stare | poate fi stateful | **stateless** |
+| Greutate | "greu" (verbose, overhead XML) | "ușor", simplu |
+| Cache | greu | suportă caching HTTP |
+| Când | enterprise, securitate/tranzacții formale (WS-Security) | API-uri web, mobile, simplitate/performanță |
+
+> **Asemănări:** ambele permit comunicarea între aplicații prin rețea (machine-to-machine), pot folosi HTTP, suportă servicii web interoperabile.
+
+### 9.5 Principiul DRY în web ⭐⭐⭐ (2024, 2021 ×3)
+> Întrebări: *"Context unde apare principiul DRY în aplicații web."*
+
+**DRY (Don't Repeat Yourself):** "fiecare cunoaștere trebuie să aibă o reprezentare **unică**, neambiguă în sistem" — evită duplicarea.
+
+**Contexte unde apare DRY în aplicații web:**
+```
+• Template engines / componente — un layout/partial reutilizat (header, footer)
+  în loc de a copia HTML pe fiecare pagină (vezi 9.3)
+• CSS — clase reutilizabile, variabile CSS/preprocesoare (Sass) în loc de stiluri repetate
+• MVC — logica de business o singură dată în Model, nu duplicată în view-uri/controllere
+• Funcții/module/biblioteci — cod reutilizabil (DRY la nivel de cod)
+• API-uri/servicii — o singură sursă de adevăr pentru date (un endpoint), consumat
+  de mai mulți clienți (web, mobil) în loc de a reimplementa logica
+• ORM/modele — schema datelor definită o singură dată
+• Configurări — variabile de mediu/config centralizate, nu valori "magice" repetate
+```
+Beneficii: mentenanță ușoară (schimbi într-un singur loc), mai puține bug-uri din inconsistență.
+
+### 9.6 Folosirea mai multor limbaje (poliglot) în aplicații web mari ⭐⭐⭐ (2024, 2023, 2021 ×3)
+> Întrebări: *"Folosirea mai multor limbaje de programare în aplicații web mari (de ce) + dezavantaje."*
+
+> Din curs (web04, studii de caz): aplicațiile mari folosesc **mai multe limbaje**, fiecare pentru ce e mai bun. Ex: **Flickr** — PHP (logică/prezentare), Perl (validare date), Java (management noduri stocare); **Netflix** — Python (Flask), Java, Node.js, React (JS); **Facebook** — Hack/PHP, Python, Java, JS.
+
+**De ce (avantaje):**
+```
+• "Right tool for the job" — fiecare limbaj pentru ce excelează
+  (ex. Python pt ML/data, JS pt front-end, Java/Go pt backend scalabil)
+• Microservicii — fiecare serviciu poate fi în alt limbaj, independent (vezi cap. 4)
+• Reutilizarea bibliotecilor/ecosistemelor specifice
+• Performanță — limbaj rapid pt componente critice
+• Echipe — folosesc expertiza existentă
+```
+**Dezavantaje:**
+```
+• Complexitate crescută (build, deployment, tooling pt fiecare limbaj)
+• Mentenanță mai grea, integrare între componente
+• Echipa trebuie să cunoască mai multe limbaje (sau mai multe echipe)
+• Dificultăți de debugging cross-limbaj, duplicare de logică (anti-DRY)
+• Overhead de comunicare între servicii (serializare, API-uri)
+```
+
+### 9.7 Expresii regulate pentru validarea formularelor ⭐ (2023)
+> Întrebare: *"(Dez)avantaje pentru folosirea expresiilor regulate pentru validarea datelor din câmpurile unui form."*
+
+**Avantaje:**
+```
+• Concise și puternice — validezi formate complexe (email, telefon, CNP) într-o linie
+• Reutilizabile, standardizate (suport în orice limbaj)
+• Validare rapidă pe client (instant feedback) ȘI pe server
+• Atribut HTML5 pattern="..." direct pe <input>
+```
+**Dezavantaje:**
+```
+• Greu de citit/întreținut ("write-only code"), ușor de greșit
+• Pot fi prea permisive sau prea stricte (ex. regex pt email "corect" e foarte complex)
+• Risc de performanță — ReDoS (Regular expression Denial of Service) la regex prost scrise
+• Validarea pe CLIENT nu e suficientă — trebuie REPETATĂ pe server (securitate:
+  clientul poate fi ocolit)
+• Nu validează logica de business (ex. "data nașterii în trecut")
+```
+
+### 9.8 Rolul codurilor HTTP în randarea paginii ⭐⭐ (2023, 2022)
+> Întrebări: *"Rolul codurilor HTTP + ce rol au în randarea HTML-ului."*
+
+Codurile de stare (vezi cap. 2) ghidează ce face **browserul** cu răspunsul:
+```
+1xx Informational — rar relevante pt randare (ex. 101 switch la WebSocket)
+2xx Success (200 OK) — browserul PRIMEȘTE reprezentarea și o RANDEAZĂ
+3xx Redirection (301/302/303) — browserul face REDIRECT automat la altă pagină
+                                (304 Not Modified → folosește versiunea din cache)
+4xx Client Error (404, 403) — browserul randează o pagină de eroare
+                              (ex. "404 Not Found" generată automat)
+5xx Server Error (500, 503) — pagină de eroare server
+```
+> Exemplu (din practică): când accesezi un URL inexistent, serverul întoarce **404** și browserul randează automat o pagină "Not Found"; la **300/redirect** browserul navighează automat la noua adresă; la **200** randează conținutul primit.
+
+### 9.9 Rolul design patterns în dezvoltarea web ⭐⭐⭐ (2021 ×3)
+> Întrebări: *"Rolul șabloanelor de proiectare (design patterns) în contextul dezvoltării unei aplicații web. Minim 2 exemple concrete."*
+
+**Rol:** soluții reutilizabile, dovedite, la probleme comune → cod mai **mentenabil, extensibil, reutilizabil**; vocabular comun în echipă.
+
+**2+ exemple concrete în web:**
+```
+• MVC (Model-View-Controller) — arhitectura aplicației web (vezi cap. 4):
+  Controller preia cererea HTTP, Model = date, View = prezentare (template)
+• Singleton — o singură conexiune la BD / un singur obiect de configurare
+• Front Controller — un punct unic de intrare care rutează toate cererile (routing)
+• Observer — notificări/evenimente (ex. WebSocket, pub-sub, UI reactiv)
+• Factory — crearea de obiecte (ex. crearea de răspunsuri/servicii diferite)
+• Decorator — middleware (adaugă funcționalitate la request/response: auth, logging)
+• Proxy — reverse proxy / caching / control acces (vezi cap. 1)
+• Adapter — integrarea unor servicii/API-uri externe cu interfețe diferite
+```
+> (Pattern-urile sunt tratate complet la materia IP — vezi sinteza IP.)
 
 ---
 

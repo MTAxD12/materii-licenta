@@ -5,19 +5,31 @@
 ---
 
 ## CUPRINS (după prioritatea la examen)
+> **Prioritate actualizată cu întrebări din 2021, 2022, 2023, 2024.** "×N" = de câte ori a apărut.
 
-| # | Temă | Întrebări anul trecut | Prioritate |
-|---|------|----------------------|------------|
-| 1 | [Complexitate & Analiza eficienței](#1-complexitate--analiza-eficienței-) | Q13,15,19 | ⭐⭐⭐⭐⭐ |
-| 2 | [Complexitatea funcțiilor recursive (4 metode)](#2-complexitatea-funcțiilor-recursive-) | Q6,12,16,21,28,29 | ⭐⭐⭐⭐⭐ |
-| 3 | [Tipurile abstracte Stivă și Coadă](#3-tipurile-abstracte-stivă-și-coadă-) | Q2,7,22,25 | ⭐⭐⭐ |
-| 4 | [Sortare prin numărare și distribuire](#4-sortare-prin-numărare-și-distribuire-) | Q11,14,23,27 | ⭐⭐⭐ |
-| 5 | [Grafuri, digrafuri, parcurgeri, componente](#5-grafuri-digrafuri-parcurgeri-) | Q5,18,20,24 | ⭐⭐⭐ |
-| 6 | [Arbori binari de căutare (ABC)](#6-arbori-binari-de-căutare-abc-) | Q1,3,17 | ⭐⭐ |
-| 7 | [Coadă cu priorități / Heap](#7-coadă-cu-priorități--heap-) | Q8,9 | ⭐⭐ |
-| 8 | [Arbori echilibrați (AVL, Roșu-Negru)](#8-arbori-echilibrați-avl-roșu-negru-) | Q10,26 | ⭐⭐ |
-| 9 | [Arbori digitali (Trie)](#9-arbori-digitali-trie-) | Q4 | ⭐ |
-| — | [Anexe: Arbori binari, Liste, Sortări comparative, Hash, Tip abstract](#anexe) | context | — |
+| # | Temă | Recurență 2021–2024 | Prioritate |
+|---|------|---------------------|------------|
+| 1 | [Complexitate & Analiza eficienței (caz fav/nefav, O/Ω/Θ, ordine de creștere)](#1-complexitate--analiza-eficienței-) | în fiecare an (×4+) | ⭐⭐⭐⭐⭐ |
+| 2 | [Complexitatea funcțiilor recursive (4 metode + Teorema Master)](#2-complexitatea-funcțiilor-recursive-) | în fiecare an (Master ×4) | ⭐⭐⭐⭐⭐ |
+| 7bis | [**Union-Find** (colecții de mulțimi disjuncte)](#7bis-colecții-de-mulțimi-disjuncte-union-find) | **foarte frecvent (×3 într-un an!)** | ⭐⭐⭐⭐⭐ |
+| 3 | [Tipurile abstracte Stivă și Coadă](#3-tipurile-abstracte-stivă-și-coadă-) | recurent | ⭐⭐⭐ |
+| 4 | [Sortare prin numărare și distribuire](#4-sortare-prin-numărare-și-distribuire-) | recurent | ⭐⭐⭐ |
+| 5 | [Grafuri, digrafuri, parcurgeri, componente (tare) conexe](#5-grafuri-digrafuri-parcurgeri-) | **grafuri ×3 într-un an** | ⭐⭐⭐⭐ |
+| 6 | [Arbori binari de căutare (ABC)](#6-arbori-binari-de-căutare-abc-) | în fiecare an | ⭐⭐⭐⭐ |
+| 7 | [Coadă cu priorități / Heap (min/max)](#7-coadă-cu-priorități--heap-) | recurent | ⭐⭐⭐ |
+| 8 | [Arbori echilibrați (AVL, Roșu-Negru)](#8-arbori-echilibrați-avl-roșu-negru-) | în fiecare an (AVL + RB) | ⭐⭐⭐⭐ |
+| 9 | [Arbori digitali (Trie)](#9-arbori-digitali-trie-) | rar | ⭐ |
+| A,B,C | [Anexe: **Tipuri de date/clasificare**, **Tablouri/structuri**, **Liste liniare**, Sortări comparative, Hash](#anexe) | **toate recurente** (vezi mai jos) | ⭐⭐⭐ |
+
+> **Top recurente SD (toți anii 2021–2024):**
+> - **Union-Find** — printre cele mai întrebate (apare de mai multe ori chiar în același an); **învață și LA CE folosește** (componente conexe, Kruskal) — profesorii întreabă explicit.
+> - **Complexitate** (caz fav/nefav cu **exemplu de algoritm dat de tine**, O/Ω/Θ, clasificarea claselor O) + **funcții recursive** (substituție, iterație, arbori de recursie, **Teorema Master**).
+> - **Grafuri/digrafuri** (reprezentare: liste/matrice de adiacență; parcurgeri DFS/BFS) — foarte frecvent.
+> - **ABC** + **arbori echilibrați AVL și Roșu-Negru** — în fiecare an.
+> - **Liste liniare** (definiție + implementări), **Stiva și Coada**, **Coada cu priorități/Heap** — recurente.
+> - **Sortări** (prin comparație; numărare/distribuire) — recurente.
+> - **Tipuri de date — definiție și clasificare** și **Tablouri și structuri** — recurente (în Anexa A; vezi acolo).
+> - **Tabele de dispersie / coliziuni** — recurent (Anexa E).
 
 ---
 
