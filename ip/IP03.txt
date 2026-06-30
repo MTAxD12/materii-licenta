@@ -1,0 +1,427 @@
+Cursul 3 – 11 martie 2025
+adiftene@info.uaic.ro
+
+1
+
+ Din Cursurile 1, 2…
+ Modelarea
+ Limbaje de Modelare
+
+◦ Limbaje Grafice
+ UML – Istoric
+ UML – Definiţie
+ UML – Tipuri de Diagrame
+ UML – Diagrame Use Case
+ UML - Diagrame de Clase
+
+2
+
+ Ingineria programării (Software engineering)
+ Etapele dezvoltării programelor
+ Modele de dezvoltare
+ Ingineria cerinţelor
+
+3
+
+Modelul în cascadă...
+
+4
+
+Modelul în spirală
+5
+
+ XP, TDD…
+
+6
+
+ Ingineria cerințelor:
+
+◦ Actori
+◦ Scenarii
+
+7
+
+Support Engineer
+Manager/Leader
+
+Support Engineer
+
+8
+
+Support Engineer
+
+Support Engineer
+
+Support Engineer
+
+9
+
+ Ce este un model?
+
+◦ Simplificarea realităţii
+◦ Planul detaliat al unui
+sistem (blueprints)
+
+ De ce modelăm?
+
+◦ Pentru a înţelege mai bine ce avem de făcut
+◦ Pentru a ne concentra pe un aspect la un moment dat
+ Unde folosim modelarea?
+10
+
+ Vizualizarea unui sistem
+ Specificarea structurii sale şi/sau a comportării
+ Oferirea unui şablon care să ajute la construcţie
+ Documentarea deciziilor luate
+
+11
+
+ Cu ajutorul Use case-urilor: pentru a prezenta
+
+cerinţele
+ Cu ajutorul Design-ului: surprindem vocabularul şi
+
+domeniul problemei
+ Cu ajutorul Proceselor: surprindem procesele şi
+
+thread-urile
+ Cu ajutorul Implementării: avem modelarea aplicaţiei
+ Cu ajutorul Deployment: surprindem sistemul din
+
+punct de vedere ingineresc
+
+12
+
+ Modelele influenţează soluţia finală
+ Se pot folosi diferite niveluri de precizie
+ Modelele bune au corespondent în realitate
+ Nu e suficient un singur model
+
+13
+
+ Analiza şi proiectarea unui proiect trebuie făcute
+
+înainte de realizarea codului
+ În prezent, se acordă o atenţie deosebită acestei
+etape, deoarece de ele depind producerea şi
+refolosirea de software
+ Pentru analiza și proiectarea programelor s-au
+creat limbajele de modelare
+ Limbaj de modelare este un limbaj artificial care
+poate fi folosit să exprime informații sau
+cunoaștere sau sisteme
+14
+
+ Limbaje Grafice: arbori comportamentali,
+
+modelarea proceselor de business, EXPRESS
+(modelarea datelor), flowchart, ORM (modelarea
+rolurilor), reţele Petri, diagrame UML
+ Limbaje Specifice: modelare algebrică (AML)
+(pentru descrierea şi rezolvarea problemelor de
+matematică ce necesită putere computaţională
+mare), modelarea domeniilor specifice (DSL),
+modelarea arhitecturilor specifice (FSML),
+modelarea obiectelor (object modeling
+language), modelarea realităţii virtuale (VRML)
+15
+
+ Arbori comportamentali
+
+16
+
+ Modelarea proceselor de business
+
+ EXPRESS (modelarea datelor)
+
+17
+
+ Flowchart
+
+18
+
+ ORM (Object Role Modeling)
+
+19
+
+ Petri Nets
+
+20
+
+ Metoda Booch (Grady Booch) – analiza şi design oo
+
+21
+
+ OMT (object-modeling technique)
+
+22
+
+ OOSE (Object-oriented software engineering)
+
+23
+
+ Diagrame UML
+
+24
+
+ UML (Unified Modeling Language) este
+
+succesorul celor mai bune trei limbaje
+OO de modelare anterioare:
+◦ Booch (Grady Booch)
+◦ OMT (Ivar Jacobson)
+◦ OOSE (James Rumbaugh)
+
+ UML se constituie din unirea acestor
+
+limbaje de modelare şi în plus are o
+expresivitate mai mare
+
+25
+
+26
+
+The Unified Modeling Language (UML) is a
+graphical language for visualizing,
+specifying, constructing, and documenting the
+artifacts of a software-intensive system.
+ The UML offers a standard way to write a
+system's blueprints, including conceptual
+things such as business processes and system
+functions as well as concrete things such
+as programming language statements,
+database schemas, and reusable software
+components."
+ "
+
+27
+
+ Ianuarie 1997 - UML 1.0 a fost propus spre
+
+standardizare în cadrul OMG (Object
+Management Group)
+ Noiembrie 1997 - Versiunea UML 1.1 a fost
+adoptată ca standard de către OMG
+ Ultima versiune este UML 2.5.1 (Decembrie 2017)
+ Site-ul oficial: http://www.uml.org
+
+28
+
+29
+
+ Diagrame de Clasă: clasele (atributele, metodele) şi
+
+relaţiile dintre clase
+
+30
+
+ Diagramă de Componente: componentele sistemului şi
+
+legăturile între componente
+
+31
+
+ Diagrame structură composită: structura internă
+
+32
+
+ Diagramă de Deployment: modelarea structurii hardware
+
+33
+
+ Diagramă de obiecte: structura sistemului la un
+
+moment dat
+
+34
+
+ Diagramă de pachete: împărţirea sistemului în pachete şi
+
+relaţiile dintre ele
+
+35
+
+ Diagrame de activitate: prezentare business şi a
+
+fluxului de activităţi
+
+36
+
+ Diagrame de stare: pentru a prezenta stările obiectelor
+
+37
+
+ Diagrame Use Case: prezintă funţionalităţile sistemului
+
+folosind actori, use case-uri şi dependenţe între ele
+
+38
+
+ Diagrama de comunicare: arată interacţiunile între
+
+obiecte (comportamentul dinamic al sistemului) (actori:
+bucătar, aragaz, acțiuni: gătirea, aprinderea,
+deconectarea)
+
+39
+
+
+
+Diagramă de secvenţă: prezintă modul în care obiectele
+comunică între ele din punct de vedere al trimiterii de mesaje
+
+40
+
+ Scop:
+
+◦ Modelează vocabularul sistemului ce trebuie
+dezvoltat
+◦ Surprinde conexiunile semantice sau interacţiunile
+care se stabilesc între elementele componente
+◦ Folosită pentru a modela structura unui program
+
+ Conţine
+
+◦ Clase/Interfeţe
+◦ Obiecte
+◦ Relaţii (Asociere, Agregare, Generalizare,
+Dependenţă)
+
+41
+
+Modelează vocabularul = identifică conceptele pe care
+clientul sau programatorul le foloseşte pentru a descrie
+soluţia problemei
+ Elementele unei clase:
+◦ Nume: identifică o clasă
+◦ Atribute: proprietăţi ale clasei
+◦ Metode: implementarea unui serviciu care poate fi cerut
+oricărei instanţe a clasei
+
+
+Nume
+Atribute (private)
+
+Metode (private,
+protected)
+42
+
+ Modelează conceptul de moştenire între clase
+ Mai poartă denumirea de relaţie de tip is a (este
+
+un/este o)
+
+43
+
+44
+
+
+
+
+
+
+Exprimă o conexiune semantică sau o interacţiune între obiecte
+aparţinând diferitelor clase
+Pe măsura ce sistemul evoluează noi legaturi între obiecte pot fi create,
+sau legături existente pot fi distruse
+O asociere interacţionează cu obiectele sale prin intermediul capetelor
+de asociere
+Elemente:
+◦ Nume: descrie relaţia
+◦ Capete de asociere
+
+ Nume = rolul jucat de obiect în relaţie
+ Multiplicitate = câte instanţe ale unei clase corespund unei singure instanţe ale
+celeilalte clase
+
+45
+
+ Relaţia Student – Disciplină
+
+◦ Student: urmez 0 sau mai multe discipline, cunosc
+disciplinele pe care le urmez;
+◦ Disciplină: pot fi urmată de mai muIţi studenţi, nu
+cunosc studenţii care mă urmează
+
+46
+
+ Relaţia Disciplină – Profesor
+
+◦ Disciplină: sunt predată de un profesor, îmi cunosc
+titularul
+◦ Profesor: pot preda mai multe discipline, cunosc
+disciplinele pe care le predau
+
+47
+
+Este un caz particular al relaţiei de asociere
+ Modelează o relaţie de tip parte-întreg
+ Poate avea toate elementele unei relaţii de asociere, însă
+în general se specifică numai multiplicitatea
+ Se foloseşte pentru a modela situaţiile între care un obiect
+este format din mai multe componente.
+
+
+48
+
+49/27
+
+50
+
+ Obţinerea Studenţilor Bursieri
+
+◦ Actori
+◦ Scenarii de utilizare
+◦ Clase
+
+51
+
+ Modelare – De ce?
+ Limbaje grafice
+ UML
+
+◦ Structurale: clase
+◦ Comportamentale: use-case
+◦ De interacțiuni
+
+52
+
+ 1) Dați exemplu de o situație în care e
+
+suficientă doar o diagramă sau o schemă
+pentru a realiza ceva.
+
+ 2) Dați exemplu de o situație în care e nevoie
+
+de mai mult de o diagramă sau o schemă
+pentru a realiza ceva.
+
+ 3) Care e legătura dintre diagramele de tip
+
+use-case și diagramele de clase?
+
+53
+
+ OMG Unified Modeling LanguageTM (OMG
+
+UML), Infrastructure, Version 2.2, May 2008,
+http://www.omg.org/docs/ptc/08-05-04.pdf
+ ArgoUML User Manual, A tutorial and
+reference description, http://argoumlstats.tigris.org/documentation/printablehtml
+/manual/argomanual.html
+ Ovidiu Gheorghieş, Curs IP, Cursurile 3, 4
+ Diagrame UML, Regie.ro
+
+54
+
+ OOSE: http://cs-exhibitions.uni-
+
+klu.ac.at/index.php?id=448
+ ArgoUML: http://argouml-
+
+stats.tigris.org/nonav/documentation/manual-0.22/
+ Wikipedia
+
+55
+
+

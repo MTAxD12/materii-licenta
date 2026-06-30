@@ -1,0 +1,36 @@
+1
+Despre Media Types – MIME si Ajax
+2
+De ce sunt mai multe parsers care e rolul lor si ce interdependente pot fi între ele?
+3
+Principalele asemanari si deosebiri intre server web, proxy web, gateway web, server de aplicatii web
+4
+Tipurile de stocare persistenta pe care le folosesti intr-o aplicatie web
+5
+Ce este un server web, ce implica acesta
+6
+Conexiunile dintre hipermedia, URI, REST și teoria automatelor
+7
+autentificare si autorizare in cadrul APIs, definitie, ce sunt, exemple
+8
+Flow-ul/legatura dintre MIME types, header-ele HTTP si Ajax. + 3 exemple de atribute dij header request
+9
+Poate fi DOM creat daca este doar bine formatat si nu validat HTML/XML? Argumentati.
+10
+Ceva legat de securitatea in cookie uri si sesiuni
+11
+Cascade în CSS
+12
+Defineste notiunea de "design Web Responsive". Cum si cand se pune in aplicare.
+13
+Discutați (des)avantajele utilizări arhitecturi pe straturi în dezvoltarea aplicațiilor Web (e.g. N-tier, layered systems)
+14
+Diferenta dintre JSON si HTML
+15
+Ce inseamna pentru securitatea aplicatiei web recurgerea la folosirea de cookie uri si sesiuni web. Exemple.
+16
+Servicii Web vs Microservicii web, asemanari si deosebiri
+17
+(Dez)avantaje MVC
+18
+Interdependenta intre SOA si MVC

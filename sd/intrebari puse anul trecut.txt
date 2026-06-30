@@ -1,0 +1,60 @@
+1
+Arbori binari de căutare. Reprezentare și operații.
+2
+Stive si cozi
+3
+Arbori binari de cautare
+4
+Arbori digitali. Arbori digitali compactați
+5
+Grafuri. Digrafuri. Reprezentare. Parcurgere
+6
+Complexitati la functii recursive. metoda substitutiei, metoda iteratiei.
+7
+Tipurile abstracte Stiva si Coada.
+
+Extra: Ce e un tip abstract?
+8
+Coada cu prioritati. Max/min heap
+9
+Tipul abstract coada cu priorități. Structuri „Min/Max Heap”.
+10
+Arbori binari de cautare echilibrati - red black trees
+11
+Sortarea prin numarare. Sortarea prin distributie.
+12
+sa explic cum calculez costul de timp la recursie prin metodele de iteratie și substitutie
+13
+Analizati complexitati timp la algoritmi. Caz favorabil. Nefavorabil. Ordin de crestere
+14
+Sortare prin numarare. Sortare prin distribuire.
+15
+Eficiență și complexitate în timp. Caz favorabil/nefavorabil. Exemple. Ordinul de creștere.
+16
+cele 4 metode pt complexitatea recursiva(TOATE 4 M AU PUS CHIAR LA TOATE )
+17
+arboni binari de cautare
+18
+Componente conexe si componente tare conexe si alg pt a le afla
+19
+Complexitati. Notatia asimptotica. Algoritmi
+20
+grafuri digrafuri, implementare, parcurgeri
+21
+Complexitatea functiilor recursive. Arbori de recursie, Teorema Master
+22
+Tipul abstract Stiva si Coada
+23
+Sortare prin distribuire. Sortare prin numărare.
+24
+Determinarea componentelor conexe și componentelor tari conexe.
+25
+Tipurile abstracte de date Stiva si Coada.
+26
+Arbori binari de cautare echilibrati AVL
+27
+Distribution/Counting sort
+28
+Funcții recursive, metoda iterației, metoda substituției
+29
+metoda iterativa si a substitutiei pt recursivitate

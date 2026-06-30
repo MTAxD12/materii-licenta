@@ -1,0 +1,123 @@
+Arbori digitali
+
+SD 2021/2022
+
+Arbori digitali (Tries)
+I Information retrieval
+I O structură de date pentru a lucra cu s, iruri de caractere care
+beneficiază de proprietăt, ile structurale ale acestora
+I Spat, iul de memorie necesar reprezentării unui dict, ionar este redus:
+rădăcina comună este reprezentată o singură dată
+I Economie de memorie cand există multe prefixe comune
+
+FII, UAIC
+
+Curs 12
+
+SD 2021/2022
+
+2/8
+
+Arbori digitali
+I Structură de date care se bazează pe reprezentarea digitală a
+elementelor
+I Un arbore cu rădacină ordonat k-ar, unde k este numărul de cifre
+(litere din alfabet)
+I Se presupune că elementele sunt reprezentate prin secvent, e de cifre
+(litere) de aceeas, i lungime m (|U| = mk )
+
+FII, UAIC
+
+Curs 12
+
+SD 2021/2022
+
+3/8
+
+Arbori digitali - Structura de date
+
+I O colect, ie de noduri, fiecare nod având k fii
+I Presupunem alfabetul {0, . . . , k − 1}; elementele din S sunt chei, iar
+nodurile de pe frontieră memorează informat, iile asociate acestor chei
+
+FII, UAIC
+
+Curs 12
+
+SD 2021/2022
+
+4/8
+
+Arbori digitali
+
+Un arbore digital care memorează o colect, ie de cuvinte S, |S| = n dintr-un
+alfabet de mărime k, are următoarele proprietăt, i:
+I orice nod intern are cel mult k fii
+I arborele are n noduri externe
+I ı̂nălt, imea arborelui este egală cu lungimea celui mai mare cuvânt din S
+
+FII, UAIC
+
+Curs 12
+
+SD 2021/2022
+
+5/8
+
+Arbori digitali - Căutarea
+I Caută un element a ı̂n structura t: parcurge drumul descris de
+secvent, a a[0], . . . a[m − 1]
+Function cauta(a, m, t)
+begin
+i ←0
+p←t
+while (p 6= NULL AND i < m) do
+p ← p → succ[a[i]]
+i ←i +1
+return p
+end
+I Complexitatea timp pentru cazul cel mai nefavorabil: O(m)
+
+FII, UAIC
+
+Curs 12
+
+SD 2021/2022
+
+6/8
+
+Arbori digitali - Inserarea
+
+I Inserarea unui cuvant x ı̂n structura t: simulează parcurgerea
+drumului descris de secvent, a x[0], . . . x[m − 1]; pentru componentele
+pentru care nu există noduri ı̂n t, adaugă un nod nou
+
+Figura: Inserarea cheii 110
+
+FII, UAIC
+
+Curs 12
+
+SD 2021/2022
+
+7/8
+
+Arbori digitali - S, tergerea
+I Un element x care trebuie eliminat este ı̂mpărt, it ı̂n:
+I un prefix comun
+I un sufix care nu mai apart, ine niciunui element
+
+I Se parcurge drumul descris de x s, i se memorează ı̂ntr-o stivă
+I Se parcurge acest drum ı̂napoi s, i dacă pentru un nod tot, i succesorii
+sunt nil, atunci se elimină nodul
+
+Figura: Eliminarea cheii 102
+FII, UAIC
+
+Curs 12
+
+SD 2021/2022
+
+8/8
+
+

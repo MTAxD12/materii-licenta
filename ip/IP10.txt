@@ -1,0 +1,836 @@
+Curs 10 – 20 Mai
+
+ Recapitulare…
+
+◦ Design Patterns (Creational Patterns, Structural
+Patterns, Behavioral Patterns)
+◦ Other Design Patterns
+ Quality Assurance
+
+2
+
+Support Engineer
+Manager/Leader
+
+Support Engineer
+
+3
+
+Support
+Engineer
+
+Support
+Engineer
+
+Support
+Engineer
+
+4
+
+ Planned and systematic production processes
+
+that provide confidence in a product’s suitability
+for its intended purpose.
+ A set of activities intended to ensure that
+products satisfy customer requirements
+ QA cannot absolutely guarantee the production
+
+of quality products but makes this more likely
+
+ Two key principles of QA:
+
+◦ "fit for purpose" - the product should be suitable for
+the intended purpose, and
+◦ "right first time" - mistakes should be eliminated
+5
+
+Quality
+
+Time
+
+Price
+6
+
+“The process of exercising or evaluating
+
+a system by manual or automated
+means to verify that it satisfies specified
+requirements or to identify differences
+between expected and actual results.”
+(IEEE Standard Glossary, 1983)
+7
+
+ (SQA) consists of a means of monitoring the
+
+software engineering processes and methods
+used to ensure quality
+ May include ensuring conformance to one or
+more standards, such as ISO 9000 or CMMI
+
+8
+
+ SQA encompasses the entire software
+
+development process, which includes processes
+such as
+◦ software design,
+◦ coding,
+◦ source code control,
+◦ code reviews,
+◦ testing,
+◦ change management,
+◦ configuration management, and
+◦ release management
+
+9
+
+ ISO 9000 is a family of standards for quality
+
+management systems
+ Some of the requirements in ISO 9001 (from ISO
+9000 family) include
+◦ a set of procedures;
+◦ monitoring processes;
+◦ keeping adequate records;
+◦ checking output for defects;
+◦ regularly reviewing individual processes;
+◦ facilitating continual improvement
+
+10
+
+ Quality assurance is concerned with prevention
+
+◦ Defect Prevention
+◦ Processes
+◦ Continuous improvement of this processes
+ Quality control is concerned with correcting
+
+◦ Software testing is a subset of Quality control
+Image credit test-institute.org
+11
+
+ An empirical investigation conducted to provide
+
+information about the quality of the product or
+
+service under test, with respect to the context in
+which it is intended to operate.
+ Allow the business to appreciate and understand
+the risks at implementation of the software
+ Test techniques include the process of
+executing a program or application with the
+intent of finding software bugs
+ The process of validating and verifying that a
+software program/application/product meets
+the business and technical requirements that
+guided its design and development
+
+12
+
+ Can be implemented at any time in the
+
+development process
+ However the most test effort is employed after
+the requirements have been defined and coding
+process has been completed
+
+13
+
+ Software Testing is NOT a phase
+
+ It is integrated in all phases of software
+
+development
+ Each development step has an attached
+testing documentation
+
+14
+
+ We need not only to find bugs but also to
+
+prevent them (which is better)
+ To know when to stop because effectiveness
+and economics of the process is essential.
+ To know that not all system requires the same
+level of quality (mission critical against IT).
+ Testing is not only for the SOFTWARE it is for
+all DELIVERABLES
+
+15
+
+ Miscommunication
+ Misunderstanding
+ Low professional manpower
+ Time pressures
+
+16
+
+Miscommunication
+
+17
+
+18
+/3
+7
+
+ Incorrect or incomplete requirements
+
+50%
+
+ Ambiguous or incomplete modeling
+
+30%
+
+ Programming errors
+
+20%
+
+19
+
+100
+80
+60
+40
+20
+0
+Req.
+
+Modeling
+
+Impl.
+
+Int. Test.
+
+Sist.
+Test.
+
+Client
+20
+
+Late error detection greater
+repair cost
+
+21
+
+REQ.
+
+MODELING IMPLEM.
+
+CLIENT TESTING
+22
+
+Professional testing means finding
+the least amount of test cases which
+will check the most amount of system
+features.
+
+23
+
+ Never
+ When the number of errors found in a
+
+test cycle is lower than a set amount
+ When no more critical faults are found
+ When we run out of time
+
+24
+
+Test environment
+
+Designs
+Acquires
+Configures
+Utilizes
+Support
+
+Determine the
+usage of
+
+Test team
+
+Test
+processes
+
+Create
+Articulates
+Trains
+Applies
+Internalize
+
+Provides a
+Platform
+for the
+operation of
+
+Designs
+Acquires
+Configures
+Utilizes
+Support
+
+Testware
+
+25
+
+ Differences between testing and
+
+debugging
+ Layers of testing
+ Testing methods
+ Testing content
+ Manual vs Automatic Testing
+
+26
+
+Testing
+•Check compliance to
+requirements
+•Normally carried out
+by an external and
+neutral party
+•Is planned and
+controlled
+
+Debugging
+•Check validity of
+program sections
+•Run by the developer
+
+•Is a random process
+
+27
+
+ Unit testing or debugging
+ Module/Sub-System
+
+ Integration
+ System
+ Acceptance
+28
+
+ Testing a function, program screen, feature
+ Run by programmers
+ Predefined
+ Results must be documented
+ Input and Output simulators are used
+
+29
+
+ Testing of several modules at the same time
+ Testing coexistence
+ Run by programmers or testers
+ Pre-planned testing
+ Results must be documented
+
+30
+
+ System testing of software or hardware is
+
+testing conducted on a complete, integrated
+system to evaluate the system's compliance with
+its specified requirements.
+ System testing falls within the scope of black
+box testing
+ System testing is a more limiting type of testing;
+it seeks to detect defects both within the "interassemblages" and also within the system as a
+whole.
+31
+
+ White Box
+ Black Box
+ Gray Box
+ Graphical user Interface Testing
+ Acceptance Testing
+
+ Regression Testing
+
+32
+
+END
+
+DO
+
+33
+
+ The tester has access to the internal data
+
+structures and algorithms
+
+ Types of white box testing
+
+◦ api testing - Testing of the application using Public
+and Private APIs
+◦ code coverage - creating tests to satisfy some criteria
+of code coverage
+◦ fault injection methods
+◦ mutation testing methods
+◦ static testing - White box testing includes all static
+testing
+34
+
+Input
+
+Output
+
+Spec
+ "like a walk in a dark labyrinth without a flashlight,"
+35
+
+ Specification-based testing
+ Black box testing methods include: equivalence
+
+partitioning, boundary value analysis, all-pairs
+testing, fuzzy testing, model-based testing,
+traceability matrix, exploratory testing and
+specification-based testing.
+
+36
+
+ This involves having access to internal data
+
+structures and algorithms for purposes of
+designing the test cases, but testing at the user,
+or black-box level
+ Manipulating input data and formatting output
+do not qualify as "grey-box," because the input
+and output are clearly outside of the "blackbox" that we are calling "the software under
+test"
+
+37
+
+ In computer science, GUI software testing is the
+
+process of testing a product that uses a
+graphical user interface, to ensure it meets its
+written specifications.
+ The variety of errors found in GUI applications:
+
+◦ Data validation, Incorrect field defaults, Mandatory
+fields, not mandatory, Wrong fields retrieved by
+queries, Incorrect search criteria
+◦ Field order, Multiple database rows returned, single
+row expected
+◦ Currency of data on screens, Correct window modality?
+◦ Control state alignment with state of data in window?
+38
+
+ A black-box testing performed on a system
+
+prior to its delivery
+ In software development, acceptance testing by
+the system provider is often distinguished from
+acceptance testing by the customer (the user or
+client) prior to accepting transfer of ownership.
+ In such environments, acceptance testing
+performed by the customer is known as user
+acceptance testing (UAT).
+ This is also known as end-user testing, site
+(acceptance) testing, or field (acceptance)
+testing.
+
+39
+
+ Regression testing is any type of software
+
+testing which seeks to uncover software
+regressions.
+ Such regressions occur whenever software
+functionality that was previously working
+correctly, stops working as intended.
+ Typically regressions occur as an unintended
+consequence of program changes.
+ Common methods of regression testing include
+re-running previously run tests and checking
+whether previously fixed faults have re-emerged
+40
+
+ Problems are found
+
+ Solves interface issues:
+
+quickly
+correctness of text,
+messages, page layout,
+ Cheap to repeat
+element order, visibility
+ The process of writing
+etc.
+code is more flexible
+ Writing test scenarios
+ Less manual testing
+can be difficult and
+implies technical
+ Software development
+knowledge of the entire
+becomes predictable
+system
+and can be planned
+
+41
+
+
+
+Manual testing is the process of manually
+testing software for defects
+
+It requires a tester to play the role of an end
+user, and use most of all features of the
+application to ensure correct behavior
+ To ensure completeness of testing, the tester
+often follows a written test plan that leads them
+through a set of important test cases
+
+
+42
+
+ Test Strategy is developed by the "Project
+
+manager" which contains what type of technique
+to follow and which module to test
+ Test Plan is developed by the Test Lead, which
+contains "what to test", "how to test", "when to
+test", "who to test"
+ Test Scenario is a name given to test case. It is
+dealt with by the Test Engineer
+ Test Case specifies a testable condition to
+validate functionality. The test cases are dealt
+with by the Test Engineer
+43
+
+Image credit iconma.com
+44
+
+ A systematic approach to testing a system
+
+ Contains a detailed understanding of what the
+
+eventual workflow will be
+ Documents the strategy that will be used to
+verify and ensure that a product or system
+meets its design specifications and other
+requirements
+ Is usually prepared by or with significant input
+from Test Engineers
+
+45
+
+ May include one or more of the following:
+
+◦ Design Verification or Compliance test
+◦ Manufacturing or Production test
+◦ Acceptance or Commissioning test
+◦ Service and Repair test
+◦ Regression test
+
+46
+
+ Test plan identifier
+
+ Testing tasks
+
+ Introduction
+
+ Environmental needs
+
+ Test items
+
+ Responsibilities
+
+ Features to be tested
+
+ Staffing and training
+
+ Features not to be
+
+tested
+ Approach
+ Item pass/fail criteria
+ Suspension criteria
+ Test deliverables
+
+needs
+ Schedule
+ Risks and
+contingencies
+ Approvals
+
+47
+
+48
+
+ A set of conditions or variables under which a
+
+tester will determine whether an application or
+software system meets specifications
+ A sequence of steps to test the correct
+behavior/functionalities, features of an
+application
+ In order to fully test that all the requirements of
+an application are met, there must be at least
+one test case for each requirement (two
+recommended)
+49
+
+ Test case ID
+
+ Test category
+
+ Test case Description
+
+ Author
+
+ Expected Output
+
+ Check boxes for
+
+ Actual Output
+
+ Pass/Fail
+ Remarks
+
+whether the test is
+automatable and has
+been automated.
+
+ Test step or order of
+
+execution number
+ Related requirement(s)
+ Depth
+50
+
+ Need a systematic approach:
+
+1. Choose a high level test plan
+2. Write detailed test cases
+3. Assign the test cases to testers, who manually
+
+follow the steps and record the results.
+4. Author a test report, detailing the findings of
+the testers.
+ The report is used by managers to determine
+
+whether the software can be released
+
+51
+
+ A process of writing a computer program to do
+
+testing that would otherwise need to be done
+manually
+ The use of software to control the execution of
+tests, the comparison of actual outcomes to
+predicted outcomes, the setting up of test
+preconditions, and other test control and test
+reporting functions
+ Commonly, test automation involves automating
+a manual process already in place that uses a
+formalized testing process
+52
+
+ Graphical user interface testing. A testing
+
+framework generates user interface events such
+as keystrokes and mouse clicks, and observes
+the changes that result in the user interface, to
+validate that the observable behavior of the
+program is correct
+ Code-driven testing. The public (usually)
+interface to classes, modules, or libraries are
+tested with a variety of input arguments to
+validate that the results that are returned are
+correct
+53
+
+ Testing tools can help automate tasks such as
+
+product installation, test data creation, GUI
+interaction, problem detection, defect logging, etc.
+
+ Important points when thinking about TA:
+
+◦ Platform and OS independence
+◦ Data driven capability (Input Data, Output Data, Meta Data)
+◦ Customizable Reporting (DB Access, crystal reports)
+◦ Email Notifications
+◦ Easy debugging and logging
+◦ Version control friendly
+◦ Extensible & Customizable
+◦ Support distributed execution environment
+◦ Distributed application support
+54
+
+55
+
+ Manual Test Case Steps:
+
+◦ Launch Calculator
+◦ Press 2
+◦ Press +
+◦ Press 3
+◦ Press =
+◦ The screen should display 5.
+◦ Close Calculator.
+
+Example credit softwaretestinghelp.com
+56
+
+
+
+
+
+
+
+//the example is written in MS Coded UI using c# language.
+[TestMethod]
+public void TestCalculator()
+{
+
+
+
+
+
+//launch the application
+var app = ApplicationUnderTest.Launch("C:\\Windows\\System32\\calc.exe");
+
+
+
+
+
+
+
+
+//do all the operations
+Mouse.Click(button2);
+Mouse.Click(buttonAdd);
+Mouse.Click(button3);
+Mouse.Click(buttonEqual);
+
+
+
+
+
+//evaluate the results
+Assert.AreEqual("5", txtResult.DisplayText,”Calculator is not showing 5);
+
+
+
+
+
+
+//close the application
+app.Close();
+}
+
+57
+
+ A software bug is an error, flaw, mistake,
+
+failure, or fault in a computer program
+ Most bugs arise from mistakes and errors made
+by people (in program or in its design), and a
+few are caused by compilers
+ Reports detailing bugs in a program are
+commonly known as bug reports, fault reports,
+problem reports, trouble reports, change
+requests, and so forth.
+
+58
+
+Bugs in the code controlling the Therac-25 radiation
+therapy machine were directly responsible for some
+patient deaths in the 1980s.
+ Smart ship USS Yorktown was left dead in the water in
+1997 for nearly 3 hours after a divide by zero error.
+ Eve Online's deployment of the Trinity patch erased the
+boot.ini file from several thousand users' computers,
+rendering them unable to boot.
+ Valve's Steam client for Linux could accidentally delete
+all the user's files in every directory on the computer.
+ In 2002 were responsible for losses of $59 billion
+annually, or about 0.6 percent of the gross domestic
+product.
+
+
+59
+
+60
+
+ Programming style
+
+ Programming techniques
+ Development methodologies
+ Programming language support
+
+ Code analysis
+ Instrumentation
+
+61
+
+ Coding conventions are important because:
+
+◦ 80% of the work on software is maintenance
+◦ Usually, a product is not maintained by the
+persons who created it
+◦ Code conventions improve code readability
+and allow a software developer to quickly
+understand new programs
+
+62
+
+ Use comments: what do functions do, what do
+
+variables represent, explain steps of
+algorithms, etc.
+
+ Use suggestive names for variables and
+
+functions
+
+ Develop modular code
+
+ Use dual pairs: set/get, start/stop,
+
+add/remove, save/load
+
+63
+
+Software Quality Assurance:
+http://satc.gsfc.nasa.gov/assure/agbsec3.txt
+ Software Testing:
+http://en.wikipedia.org/wiki/Software_testing
+ GUI Software Testing:
+http://en.wikipedia.org/wiki/GUI_software_testing
+ Regression Testing:
+http://en.wikipedia.org/wiki/Regression_testing
+ Junit Test Example:
+http://www.cs.unc.edu/~weiss/COMP401/s08-27JUnitTestExample.doc
+ https://www.testinstitute.org/What_is_Software_Quality_Assurance.php
+
+
+64
+
+C++:
+
+
+
+◦
+◦
+
+http://www.chrislott.org/resources/cstyle/
+http://geosoft.no/development/cppstyle.
+html
+
+Java:
+
+
+
+◦
+◦
+
+http://java.sun.com/docs/codeconv/
+http://geosoft.no/development/javastyle
+.html
+65
+
+

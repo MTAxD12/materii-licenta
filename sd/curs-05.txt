@@ -1,0 +1,2631 @@
+Arbori binari
+
+SD 2021/2022
+
+Conţinut
+
+Arbori
+
+Arbori binari (ArbBin)
+
+Aplicat, ie: reprezentarea expresiilor ca arbori
+
+FII, UAIC
+
+Curs 5
+
+SD 2021/2022
+
+2 / 37
+
+Arbori: definit, ie recursivă
+
+
+A=
+
+FII, UAIC
+
+Λ – arborele vid,
+(r , {A1 , · · · , Ak }),
+
+r element s, i A1 , · · · , Ak arbori.
+
+Curs 5
+
+SD 2021/2022
+
+3 / 37
+
+Arbori: definit, ie recursivă
+
+
+A=
+
+Λ – arborele vid,
+(r , {A1 , · · · , Ak }),
+
+r element s, i A1 , · · · , Ak arbori.
+r
+
+A=Λ
+
+sau
+...
+A1
+
+FII, UAIC
+
+A2
+
+Curs 5
+
+Ak
+
+SD 2021/2022
+
+3 / 37
+
+Arbori: definit, ie recursivă
+
+
+A=
+
+Λ – arborele vid,
+(r , {A1 , · · · , Ak }),
+
+r element s, i A1 , · · · , Ak arbori.
+r
+
+A=Λ
+
+sau
+...
+A1
+
+Ak
+
+A2
+1
+
+Dacă A este ordonat (planar), atunci
+2 3
+FII, UAIC
+
+Curs 5
+
+1
+6=
+
+3 2
+SD 2021/2022
+
+3 / 37
+
+Arbori: terminologie
+
+I rădacina: nodul fără părinte.
+A
+
+I nod intern: nod cu cel put, in un fiu.
+I nod extern (frunză): nod fără fii.
+
+B
+
+C
+
+D
+
+I descendent, ii unui nod: fii, nepot, i, etc.
+I frat, i: toate celelalte noduri având
+acelas, i părinte.
+I subarbore: arborele format dintr-un
+nod s, i descendent, ii săi.
+
+FII, UAIC
+
+Curs 5
+
+E
+
+F
+
+G
+
+H
+
+subarbore
+
+I
+
+J K
+
+SD 2021/2022
+
+4 / 37
+
+Arbori: terminologie
+I adâncimea uni nod x:
+
+0,
+x este rădăcina,
+adâncime(x) =
+1 + adâncime(părinte(x)), ı̂n caz contrar.
+0–
+I ı̂nălt, imea unui arbore:
+adâncimea maximă a nodurilor
+arborelui.
+
+1–
+
+I ı̂nălt, imea unui nod: distant, a de
+la nod la cel mai depărtat
+descendent al său.
+
+2–
+3–
+
+FII, UAIC
+
+A
+
+Curs 5
+
+B
+E
+
+C
+F
+
+I
+
+G
+
+D
+H
+
+J K
+
+SD 2021/2022
+
+5 / 37
+
+Conţinut
+
+Arbori
+
+Arbori binari (ArbBin)
+
+Aplicat, ie: reprezentarea expresiilor ca arbori
+
+FII, UAIC
+
+Curs 5
+
+SD 2021/2022
+
+6 / 37
+
+Tipul abstract ArbBin
+Obiecte:
+
+arbori binari.
+
+Un arbore binar este o colect, ie de noduri cu proprietăt, ile:
+I orice nod are 0, 1 sau 2 succesori (fii, copii).
+I orice nod, exceptând unul singur — rădăcina — are un singur nod
+predecesor (tată, părinte).
+I rădăcina nu are predecesori.
+I fii sunt ordonat, i: fiul stâng, fiul drept. Dacă un nod are un singur fiu,
+atunci trebuie ment, ionat care.
+I nodurile fără fii formează frontiera arborelui.
+
+FII, UAIC
+
+Curs 5
+
+SD 2021/2022
+
+7 / 37
+
+Arbori binari: exemplu
+C
+
+E
+
+G
+
+K
+
+A
+
+B
+
+H
+
+L
+
+M
+
+F
+
+D
+
+I
+
+Arbori binari: exemplu
+C
+
+rădăcina
+
+fiu stâng
+
+E
+
+K
+
+A
+
+B
+
+H
+
+fiu drept
+
+G
+
+L
+
+M
+
+F
+
+D
+
+I
+
+Arbori binari: exemplu
+C
+
+rădăcina
+
+fiu stâng
+
+E
+
+K
+
+A
+
+B
+
+fiu drept
+
+G
+
+L
+
+M
+
+F
+
+D
+
+I
+subarbore stâng
+
+H
+
+FII, UAIC
+
+Curs 5
+
+SD 2021/2022
+
+8 / 37
+
+Arbori binari: definit, ie recursivă
+
+I Arborele vid (fără nici un nod) este arbore binar.
+I Daca v este un nod s, i t1 s, i t2 sunt arbori binari, atunci arborele care
+are pe v ca rădăcină, t1 subarbore stâng al rădăcinii s, i t2 subarbore
+drept al rădăcinii este arbore binar.
+v
+
+t1
+
+FII, UAIC
+
+t2
+
+Curs 5
+
+SD 2021/2022
+
+9 / 37
+
+Arbori binari: proprietăt, i
+Notat, ii:
+I n – numărul de noduri din arbore.
+I ne – numărul de noduri externe.
+I ni – numărul de noduri interne.
+I h – ı̂nălt, imea arborelui.
+
+h + 1 ≤ n ≤ 2h+1 − 1;
+
+log2 (n + 1) − 1 ≤ h ≤ n − 1
+
+1 ≤ ne ≤ 2h ;
+
+h ≤ ni ≤ 2h − 1
+
+FII, UAIC
+
+Curs 5
+
+SD 2021/2022
+
+10 / 37
+
+Arbori binari: proprietăt, i
+I Arbore propriu: fiecare nod intern are exact doi fii.
+2h + 1 ≤ n ≤ 2h+1 − 1;
+log2 (n + 1) − 1 ≤ h ≤ (n − 1)/2
+h + 1 ≤ ne ≤ 2h ;
+h ≤ ni ≤ 2h − 1
+ne = ni + 1
+
+I Arbore complet: arbore propriu ı̂n care frunzele au aceeaşi adâncime.
+nivelul i are 2i noduri;
+n = 2h+1 − 1 = 2ne − 1
+
+FII, UAIC
+
+Curs 5
+
+SD 2021/2022
+
+11 / 37
+
+ArbBin – operat, ii
+
+insereaza()
+I intrare:
+– un arbore binar t;
+– adresa unui nod cu cel mult un fiu (tatăl noului nod);
+– tipul fiului adăgat (stânga, dreapta);
+– informaţia e din noul nod.
+
+I ies, ire:
+– arborele t la care s-a adăugat un nod ce memorează e;
+noul nod nu are fii.
+
+FII, UAIC
+
+Curs 5
+
+SD 2021/2022
+
+12 / 37
+
+ArbBin: inserare - exemplu
+C
+
+E
+
+G
+
+K
+
+A
+
+B
+
+L
+
+M
+
+F
+
+D
+
+I
+inserează X ca fiu stâng a lui K
+
+H
+
+ArbBin: inserare - exemplu
+C
+
+E
+
+G
+
+K
+
+A
+
+B
+
+X
+
+L
+
+M
+
+F
+
+D
+
+I
+inserează X ca fiu stâng a lui K
+
+H
+
+ArbBin: inserare - exemplu
+C
+
+E
+
+G
+
+K
+
+A
+
+B
+
+X
+
+L
+
+M
+
+F
+
+D
+
+I
+inserează X ca fiu stâng a lui K
+
+H
+
+inserează Y ca fiu drept a lui L
+
+ArbBin: inserare - exemplu
+C
+
+E
+
+G
+
+K
+
+A
+
+B
+
+X
+
+L
+
+M
+
+F
+
+D
+
+I
+inserează X ca fiu stâng a lui K
+
+H
+
+FII, UAIC
+
+Y
+
+inserează Y ca fiu drept a lui L
+
+Curs 5
+
+SD 2021/2022
+
+13 / 37
+
+ArbBin – operat, ii
+
+elimina()
+I intrare:
+– un arbore binar t;
+– adresa unui nod fără fii şi adresa nodului părinte.
+
+I ies, ire:
+– arborele t din care s-a eliminat nodul dat
+(de pe frontieră).
+
+FII, UAIC
+
+Curs 5
+
+SD 2021/2022
+
+14 / 37
+
+ArbBin: eliminare - exemplu
+C
+
+E
+
+G
+
+K
+
+A
+
+B
+
+L
+
+M
+
+F
+
+D
+
+I
+
+H
+
+FII, UAIC
+
+Curs 5
+
+SD 2021/2022
+
+15 / 37
+
+ArbBin: eliminare - exemplu
+C
+
+E
+
+K
+
+G
+
+A
+
+B
+
+M
+
+F
+
+D
+
+I
+
+H
+
+FII, UAIC
+
+Curs 5
+
+SD 2021/2022
+
+16 / 37
+
+ArbBin: eliminare - exemplu
+C
+
+E
+
+K
+
+G
+
+A
+
+B
+
+M
+
+F
+
+D
+
+I
+
+H
+
+FII, UAIC
+
+Curs 5
+
+SD 2021/2022
+
+17 / 37
+
+ArbBin – parcurgerea preordine
+
+parcurgerePreordine()
+I intrare:
+– un arbore binar t;
+– o procedură viziteaza().
+
+I ies, ire:
+– arborele t, dar cu nodurile procesate cu viziteaza() ı̂n ordinea
+* (R) – rădăcina
+* (S) – subarborele stânga
+* (D) – subarborele dreapta
+
+FII, UAIC
+
+Curs 5
+
+SD 2021/2022
+
+18 / 37
+
+Parcurgere preordine - exemplu
+C
+
+E
+
+G
+
+K
+
+A
+
+B
+
+H
+
+L
+
+M
+
+F
+
+D
+
+I
+
+Parcurgere preordine - exemplu
+C
+
+E
+
+G
+
+K
+
+A
+
+B
+
+L
+
+H
+C
+
+M
+
+F
+
+D
+
+I
+
+Parcurgere preordine - exemplu
+C
+
+E
+
+G
+
+K
+
+A
+
+B
+
+L
+
+H
+C E
+
+M
+
+F
+
+D
+
+I
+
+Parcurgere preordine - exemplu
+C
+
+E
+
+G
+
+K
+
+A
+
+B
+
+L
+
+H
+C E K
+
+M
+
+F
+
+D
+
+I
+
+Parcurgere preordine - exemplu
+C
+
+E
+
+G
+
+K
+
+A
+
+B
+
+L
+
+M
+
+F
+
+H
+C E K B
+
+D
+
+I
+
+Parcurgere preordine - exemplu
+C
+
+E
+
+G
+
+K
+
+A
+
+B
+
+L
+
+M
+
+F
+
+H
+C E K B H
+
+D
+
+I
+
+Parcurgere preordine - exemplu
+C
+
+E
+
+G
+
+K
+
+A
+
+B
+
+L
+
+M
+
+F
+
+H
+C E K B H A
+
+D
+
+I
+
+Parcurgere preordine - exemplu
+C
+
+E
+
+G
+
+K
+
+A
+
+B
+
+L
+
+M
+
+F
+
+H
+C E K B H A L
+
+D
+
+I
+
+Parcurgere preordine - exemplu
+C
+
+E
+
+G
+
+K
+
+A
+
+B
+
+L
+
+M
+
+F
+
+H
+C E K B H A L F
+
+D
+
+I
+
+Parcurgere preordine - exemplu
+C
+
+E
+
+G
+
+K
+
+A
+
+B
+
+L
+
+M
+
+F
+
+H
+C E K B H A L F G
+
+D
+
+I
+
+Parcurgere preordine - exemplu
+C
+
+E
+
+G
+
+K
+
+A
+
+B
+
+L
+
+M
+
+F
+
+H
+C E K B H A L F G M
+
+D
+
+I
+
+Parcurgere preordine - exemplu
+C
+
+E
+
+G
+
+K
+
+A
+
+B
+
+L
+
+M
+
+F
+
+H
+C E K B H A L F G M D
+
+D
+
+I
+
+Parcurgere preordine - exemplu
+C
+
+E
+
+G
+
+K
+
+A
+
+B
+
+L
+
+M
+
+F
+
+D
+
+I
+
+H
+C E K B H A L F G M D I
+
+FII, UAIC
+
+Curs 5
+
+SD 2021/2022
+
+19 / 37
+
+ArbBin – parcurgerea inordine
+
+parcurgereInordine()
+I intrare:
+– un arbore binar t;
+– o procedură viziteaza().
+
+I ies, ire:
+– arborele t, dar cu nodurile procesate cu viziteaza() ı̂n ordinea
+* (S) – subarborele stânga
+* (R) – rădăcina
+* (D) – subarborele dreapta
+
+FII, UAIC
+
+Curs 5
+
+SD 2021/2022
+
+20 / 37
+
+Parcurgere inordine - exemplu
+C
+
+E
+
+G
+
+K
+
+A
+
+B
+
+H
+
+L
+
+M
+
+F
+
+D
+
+I
+
+Parcurgere inordine - exemplu
+C
+
+E
+
+G
+
+K
+
+A
+
+B
+
+L
+
+H
+K
+
+M
+
+F
+
+D
+
+I
+
+Parcurgere inordine - exemplu
+C
+
+E
+
+G
+
+K
+
+A
+
+B
+
+L
+
+H
+K H
+
+M
+
+F
+
+D
+
+I
+
+Parcurgere inordine - exemplu
+C
+
+E
+
+G
+
+K
+
+A
+
+B
+
+L
+
+H
+K H B
+
+M
+
+F
+
+D
+
+I
+
+Parcurgere inordine - exemplu
+C
+
+E
+
+G
+
+K
+
+A
+
+B
+
+L
+
+M
+
+F
+
+H
+K H B E
+
+D
+
+I
+
+Parcurgere inordine - exemplu
+C
+
+E
+
+G
+
+K
+
+A
+
+B
+
+L
+
+M
+
+F
+
+H
+K H B E L
+
+D
+
+I
+
+Parcurgere inordine - exemplu
+C
+
+E
+
+G
+
+K
+
+A
+
+B
+
+L
+
+M
+
+F
+
+H
+K H B E L A
+
+D
+
+I
+
+Parcurgere inordine - exemplu
+C
+
+E
+
+G
+
+K
+
+A
+
+B
+
+L
+
+M
+
+F
+
+H
+K H B E L A F
+
+D
+
+I
+
+Parcurgere inordine - exemplu
+C
+
+E
+
+G
+
+K
+
+A
+
+B
+
+L
+
+M
+
+F
+
+H
+K H B E L A F C
+
+D
+
+I
+
+Parcurgere inordine - exemplu
+C
+
+E
+
+G
+
+K
+
+A
+
+B
+
+L
+
+M
+
+F
+
+H
+K H B E L A F C M
+
+D
+
+I
+
+Parcurgere inordine - exemplu
+C
+
+E
+
+G
+
+K
+
+A
+
+B
+
+L
+
+M
+
+F
+
+H
+K H B E L A F C M G
+
+D
+
+I
+
+Parcurgere inordine - exemplu
+C
+
+E
+
+G
+
+K
+
+A
+
+B
+
+L
+
+M
+
+F
+
+H
+K H B E L A F C M G I
+
+D
+
+I
+
+Parcurgere inordine - exemplu
+C
+
+E
+
+G
+
+K
+
+A
+
+B
+
+L
+
+M
+
+F
+
+D
+
+I
+
+H
+K H B E L A F C M G I D
+
+FII, UAIC
+
+Curs 5
+
+SD 2021/2022
+
+21 / 37
+
+ArbBin – parcurgerea postordine
+
+parcurgerePostordine()
+I intrare:
+– un arbore binar t;
+– o procedură viziteaza().
+
+I ies, ire:
+– arborele t, dar cu nodurile procesate cu viziteaza() ı̂n ordinea
+* (S) – subarborele stânga
+* (D) – subarborele dreapta
+* (R) – rădăcina
+
+FII, UAIC
+
+Curs 5
+
+SD 2021/2022
+
+22 / 37
+
+Parcurgere postordine - exemplu
+C
+
+E
+
+G
+
+K
+
+A
+
+B
+
+H
+
+L
+
+M
+
+F
+
+D
+
+I
+
+Parcurgere postordine - exemplu
+C
+
+E
+
+G
+
+K
+
+A
+
+B
+
+L
+
+H
+H
+
+M
+
+F
+
+D
+
+I
+
+Parcurgere postordine - exemplu
+C
+
+E
+
+G
+
+K
+
+A
+
+B
+
+L
+
+H
+H B
+
+M
+
+F
+
+D
+
+I
+
+Parcurgere postordine - exemplu
+C
+
+E
+
+G
+
+K
+
+A
+
+B
+
+L
+
+H
+H B K
+
+M
+
+F
+
+D
+
+I
+
+Parcurgere postordine - exemplu
+C
+
+E
+
+G
+
+K
+
+A
+
+B
+
+L
+
+M
+
+F
+
+H
+H B K L
+
+D
+
+I
+
+Parcurgere postordine - exemplu
+C
+
+E
+
+G
+
+K
+
+A
+
+B
+
+L
+
+M
+
+F
+
+H
+H B K L F
+
+D
+
+I
+
+Parcurgere postordine - exemplu
+C
+
+E
+
+G
+
+K
+
+A
+
+B
+
+L
+
+M
+
+F
+
+H
+H B K L F A
+
+D
+
+I
+
+Parcurgere postordine - exemplu
+C
+
+E
+
+G
+
+K
+
+A
+
+B
+
+L
+
+M
+
+F
+
+H
+H B K L F A E
+
+D
+
+I
+
+Parcurgere postordine - exemplu
+C
+
+E
+
+G
+
+K
+
+A
+
+B
+
+L
+
+M
+
+F
+
+H
+H B K L F A E M
+
+D
+
+I
+
+Parcurgere postordine - exemplu
+C
+
+E
+
+G
+
+K
+
+A
+
+B
+
+L
+
+M
+
+F
+
+H
+H B K L F A E M I
+
+D
+
+I
+
+Parcurgere postordine - exemplu
+C
+
+E
+
+G
+
+K
+
+A
+
+B
+
+L
+
+M
+
+F
+
+H
+H B K L F A E M I D
+
+D
+
+I
+
+Parcurgere postordine - exemplu
+C
+
+E
+
+G
+
+K
+
+A
+
+B
+
+L
+
+M
+
+F
+
+H
+H B K L F A E M I D G
+
+D
+
+I
+
+Parcurgere postordine - exemplu
+C
+
+E
+
+G
+
+K
+
+A
+
+B
+
+L
+
+M
+
+F
+
+D
+
+I
+
+H
+H B K L F A E M I D G C
+
+FII, UAIC
+
+Curs 5
+
+SD 2021/2022
+
+23 / 37
+
+ArbBin – parcurgerea BFS (pe lăţime)
+
+parcurgereBFS()
+I intrare:
+– un arbore binar t;
+– o procedură viziteaza().
+
+I ies, ire:
+– arborele t, dar cu nodurile procesate cu viziteaza() ı̂n ordinea BFS
+(pe lăţime / pe niveluri).
+
+FII, UAIC
+
+Curs 5
+
+SD 2021/2022
+
+24 / 37
+
+Parcurgere BFS - exemplu
+C
+
+E
+
+G
+
+K
+
+A
+
+B
+
+H
+
+L
+
+M
+
+F
+
+D
+
+I
+
+Parcurgere BFS - exemplu
+C
+
+E
+
+G
+
+K
+
+A
+
+B
+
+L
+
+H
+C
+
+M
+
+F
+
+D
+
+I
+
+Parcurgere BFS - exemplu
+C
+
+E
+
+G
+
+K
+
+A
+
+B
+
+L
+
+H
+C E
+
+M
+
+F
+
+D
+
+I
+
+Parcurgere BFS - exemplu
+C
+
+E
+
+G
+
+K
+
+A
+
+B
+
+L
+
+H
+C E G
+
+M
+
+F
+
+D
+
+I
+
+Parcurgere BFS - exemplu
+C
+
+E
+
+G
+
+K
+
+A
+
+B
+
+L
+
+M
+
+F
+
+H
+C E G K
+
+D
+
+I
+
+Parcurgere BFS - exemplu
+C
+
+E
+
+G
+
+K
+
+A
+
+B
+
+L
+
+M
+
+F
+
+H
+C E G K A
+
+D
+
+I
+
+Parcurgere BFS - exemplu
+C
+
+E
+
+G
+
+K
+
+A
+
+B
+
+L
+
+M
+
+F
+
+H
+C E G K A M
+
+D
+
+I
+
+Parcurgere BFS - exemplu
+C
+
+E
+
+G
+
+K
+
+A
+
+B
+
+L
+
+M
+
+F
+
+H
+C E G K A M D
+
+D
+
+I
+
+Parcurgere BFS - exemplu
+C
+
+E
+
+G
+
+K
+
+A
+
+B
+
+L
+
+M
+
+F
+
+H
+C E G K A M D B
+
+D
+
+I
+
+Parcurgere BFS - exemplu
+C
+
+E
+
+G
+
+K
+
+A
+
+B
+
+L
+
+M
+
+F
+
+H
+C E G K A M D B L
+
+D
+
+I
+
+Parcurgere BFS - exemplu
+C
+
+E
+
+G
+
+K
+
+A
+
+B
+
+L
+
+M
+
+F
+
+H
+C E G K A M D B L F
+
+D
+
+I
+
+Parcurgere BFS - exemplu
+C
+
+E
+
+G
+
+K
+
+A
+
+B
+
+L
+
+M
+
+F
+
+H
+C E G K A M D B L F I
+
+D
+
+I
+
+Parcurgere BFS - exemplu
+C
+
+E
+
+G
+
+K
+
+A
+
+B
+
+L
+
+M
+
+F
+
+D
+
+I
+
+H
+C E G K A M D B L F I H
+
+FII, UAIC
+
+Curs 5
+
+SD 2021/2022
+
+25 / 37
+
+ArbBin: implementarea cu structuri ı̂nlănţuite
+C • •
+
+E • •
+
+K • •
+
+B • •
+
+G • •
+
+A • •
+
+L • •
+
+M • •
+
+F • •
+
+D • •
+
+I • •
+
+H • •
+
+FII, UAIC
+
+Curs 5
+
+SD 2021/2022
+
+26 / 37
+
+ArbBin: structura unui nod
+
+Un nod v (aflat la adresa de memorie v) este o structură cu trei câmpuri:
+I v->inf – informaţia memorată ı̂n nod;
+I v->stg – adresa fiului stânga;
+I v->drp – adresa fiului dreapta.
+
+FII, UAIC
+
+Curs 5
+
+SD 2021/2022
+
+27 / 37
+
+ArbBin:
+
+parcurgePreordine()
+
+procedure parcurgePreordine(v , viziteaza)
+begin
+if (v == NULL) then
+return
+else
+viziteaza(v )
+parcurgePreordine(v − > stg , viziteaza)
+parcurgePreordine(v − > drp, viziteaza)
+end
+
+FII, UAIC
+
+Curs 5
+
+SD 2021/2022
+
+28 / 37
+
+Implementarea parcurgerii BFS
+C
+
+E
+
+K
+
+G
+
+A
+
+M
+
+D
+
+Implementarea parcurgerii BFS
+C
+
+E
+
+K
+
+G
+
+A
+
+M
+
+D
+
+BFS =
+Coada = (
+
+)
+
+Implementarea parcurgerii BFS
+C
+
+E
+
+K
+
+G
+
+A
+
+M
+
+D
+
+BFS =
+Coada = ( C
+
+)
+
+Implementarea parcurgerii BFS
+C
+
+E
+
+K
+
+G
+
+A
+
+M
+
+D
+
+BFS = C
+Coada = ( C E G
+
+)
+
+Implementarea parcurgerii BFS
+C
+
+E
+
+K
+
+G
+
+A
+
+M
+
+D
+
+BFS = C E
+Coada = ( C E G K A
+
+)
+
+Implementarea parcurgerii BFS
+C
+
+E
+
+K
+
+G
+
+A
+
+M
+
+D
+
+BFS = C E G
+Coada = ( C E G K A M D
+
+)
+
+Implementarea parcurgerii BFS
+C
+
+E
+
+K
+
+G
+
+A
+
+M
+
+D
+
+BFS = C E G K
+Coada = ( C E G K A M D
+
+)
+
+Implementarea parcurgerii BFS
+C
+
+E
+
+K
+
+G
+
+A
+
+M
+
+D
+
+BFS = C E G K A
+Coada = ( C E G K A M D
+
+)
+
+Implementarea parcurgerii BFS
+C
+
+E
+
+K
+
+G
+
+A
+
+M
+
+D
+
+BFS = C E G K A M
+Coada = ( C E G K A M D
+
+)
+
+Implementarea parcurgerii BFS
+C
+
+E
+
+K
+
+G
+
+A
+
+M
+
+D
+
+BFS = C E G K A M D
+Coada = ( C E G K A M D
+
+FII, UAIC
+
+Curs 5
+
+)
+
+SD 2021/2022
+
+29 / 37
+
+Implementarea parcurgerii BFS
+procedure parcurgeBFS(t, viziteaza)
+begin
+if (t == NULL) then
+return
+else
+Coada ← coadaVida()
+insereaza(Coada, t)
+while not esteVida(Coada) do
+citeste(Coada, v )
+viziteaza(v )
+if (v − > stg ! = NULL) then
+insereaza(Coada, v − > stg )
+if (v − > drp ! = NULL) then
+insereaza(Coada, v − > drp)
+elimina(Coada)
+end
+FII, UAIC
+
+Curs 5
+
+SD 2021/2022
+
+30 / 37
+
+ArbBin: implementarea cu liste
+
+I tablou de părinţi: reprezentarea relaţiei
+“părinte”.
+
+-1 0 0 1 1 2 2 4 4 5
+0 1 2 3 4 5 6 7 8 9
+
+0A
+
+I Avantaje:
+- simplitate;
+- acces uşor de la un nod spre rădăcină;
+- economie de memorie.
+
+3 C
+
+I Inconveniente:
+- acces dificil de la rădăcină spre
+noduri.
+
+FII, UAIC
+
+1B
+
+Curs 5
+
+2D
+4 E
+
+7M 8 N
+
+5 J
+
+6K
+
+9W
+
+SD 2021/2022
+
+31 / 37
+
+ArbBin: implementarea cu tablouri
+I Nodurile sunt memorate ı̂ntr-un tablou.
+
+0A
+
+I Indexul unui nod este:
+1B
+
+- index(rădăcină) = 0
+- index(x) = 2*index(părinte(x))+1,
+dacă x este fiu stâng
+
+3 C
+
+- index(x) = 2*index(părinte(x))+2,
+dacă x este fiu drept
+
+A B D C E J K
+
+2D
+4 E
+
+9M
+
+MN
+
+5 J
+N 10
+
+6K
+W 12
+
+W
+
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14
+
+FII, UAIC
+
+Curs 5
+
+SD 2021/2022
+
+32 / 37
+
+Conţinut
+
+Arbori
+
+Arbori binari (ArbBin)
+
+Aplicat, ie: reprezentarea expresiilor ca arbori
+
+FII, UAIC
+
+Curs 5
+
+SD 2021/2022
+
+33 / 37
+
+Aplicaţie: expresii ı̂ntregi
+
+I Expresii ı̂ntregi
+– definiţie;
+– exemple.
+
+I Reprezentarea expresiilor ca arbori
+– similarităţi ı̂ntre cele două definiţii;
+– arborele asociat unei expresii;
+– notaţiile prefixate, infixate şi postfixate şi parcurgeri ale arborilor.
+
+FII, UAIC
+
+Curs 5
+
+SD 2021/2022
+
+34 / 37
+
+Definiţia expresiilor ı̂ntregi
+
+<int> ::= ... -2 | -1 | 0 | 1 | 2 ...
+<op_bin> ::= + | - | * | / | %
+<exr_int> ::= <int>
+| (<exp_int>)
+| <exp_int> <op_bin> <exp_int>
+I reguli de precedenţă
+12 − 5 ∗ 2 este (12 − 5) ∗ 2
+
+sau
+
+I reguli de asociere
+15/4/2 este (15/4)/2 sau
+15/4 ∗ 2 este (15/4) ∗ 2 sau
+
+15/(4/2)?
+15/(4 ∗ 2)?
+
+FII, UAIC
+
+Curs 5
+
+12 − (5 ∗ 2) ?
+
+SD 2021/2022
+
+35 / 37
+
+Expresiile reprezentate ca arbori
+−12 + 17 ∗ 5–(43 + 34/21 ∗ 66)
+
+FII, UAIC
+
+Curs 5
+
+SD 2021/2022
+
+36 / 37
+
+Expresiile reprezentate ca arbori
+−12 + 17 ∗ 5–(43 + 34/21 ∗ 66)
+–
++
+-12
+
++
+43
+
+*
+17
+
+/
+
+5
+34
+
+FII, UAIC
+
+*
+
+Curs 5
+
+66
+21
+
+SD 2021/2022
+
+36 / 37
+
+Notaţiile postfixate şi prefixate
+I Notaţia postfixată se obţine prin parcurgerea postordine
+−12, 17, 5, ∗, +, 43, 34, 21, /, 66, ∗, +, −
+I Notaţia prefixată se obţine prin parcurgerea preordine
+−, +, −12, ∗, 17, 5, +, 43, ∗, /, 34, 21, 66
+–
++
+-12
+
++
+43
+
+*
+17
+
+/
+
+5
+34
+
+FII, UAIC
+
+*
+
+Curs 5
+
+66
+21
+SD 2021/2022
+
+37 / 37
+
+

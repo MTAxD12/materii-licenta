@@ -1,0 +1,80 @@
+1
+SOLID, de detaliat principiul S
+2
+Design Patterns. GoF. De detaliat Flyweigh.
+3
+QA. Ce este code coverage? Cum se calculeaza?
+4
+Ce inseamna reverse engineering. Ce tipuri de reverse engineering exista
+5
+Testare automată vs testare manuală
+6
+Ce e SCRUM. ROLURI. ARTEFACTE. EVENIMENTE
+7
+Metodologia Kanban - caracteristici, detalii
+8
+Design Patterns. GOF. Design Patterns comportamentale. Detaliaza Mediator.
+9
+Design Patterns. GoF. Structurale. Detaliati decorator
+10
+SOLID. Ce principii are? Detaliază D
+11
+DP Structurale. GOF. Adapter
+12
+Agile, ce este, caracteristici
+13
+Care e scopul Ingineriei Programarii? Care sunt pasii dezvoltarii unei aplicatii de dimensiuni mari? Care e cel important pas.
+14
+Design Patterns. GOF. Design patterns comportalementale. Descrie Visitor
+15
+Open/Closed Principle - definitie, exemplu in care nu se respecta, solutia
+16
+SOLID. detaliaza S
+17
+Design Patterns. GOF. Design patternuri creationale. Detaliere Prototype
+18
+Design pattern - Mediator
+19
+Principiile SOLID. De detaliat I
+20
+Design Patternuri. Definitie. Elemente ce alcatuiesc un design pattern. Tipuri de design patternuri. Exemple.
+21
+Ce este Unit testing și un exemplu.
+22
+use case: definitie si exemple
+23
+Design patterns. Gof. Dp comportamentale. Chain of responsability
+24
+Quality Assurance; Testare Nefunctionala
+25
+Design Patterns. GOF. Design comportamentale.Observer
+26
+Modelare, de ce e folositoare ea. Exemple de limbaje de modelare
+27
+Reverse engineering a proiectelor software. Definitie, metode, exemple in care a avut loc
+28
+Design Patterns. GOF. Design pattern-uri comportamentale. Explicati Mediator
+29
+Quality Assurance. Testare nefunctionala.
+30
+Importanta IP-ului, statistici, exemple (cursul 1)
+31
+L-ul din SOLID
+32
+Principiile SOLID si descrierea pentru principiul I.
+33
+Ce este ingineria programării. Care sunt etapele realizării unui proiect și care este cea mai importantă etapă.
+34
+Ce este o diagramă de clase, tipuri de relații într-o astfel de diagramă. Un exemplu de diagramă de clase pe care m-au rugat să o desenez pe tablă.
+35
+GOF. Despre design pattern structural si Flyweight
+36
+Ce este reverse engineering? Cate tipuri de reverse engineering sunt?
+37
+Definiție QA. Testare manuala și testare automată
+38
+gof, dp structurale, adapter
+39
+Ce este reverse engineering în contextul dezvoltării produselor software? Dați un exemplu unde a fost folosit reverse engineering.
+40
+Modelele de dezvoltare în ingineria software. Descrieți, la alegere, unul dintre modelele: în Cascadă, Extreme Programming, în Spirală.

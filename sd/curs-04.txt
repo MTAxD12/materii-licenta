@@ -1,0 +1,2698 @@
+Liste. Stive. Cozi
+
+SD 2021/2022
+
+Conţinut
+
+Tipurile abstracte LLin, LLinOrd, Stiva, Coada
+Liste liniare
+Implementarea cu tablouri
+Implementarea cu liste simplu ı̂nlănt, uite
+Liste liniare ordonate
+Stive
+Cozi
+Aplicat, ie la conversie de expresii aritmetice
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+2 / 58
+
+Conţinut
+
+Tipurile abstracte LLin, LLinOrd, Stiva, Coada
+Liste liniare
+Implementarea cu tablouri
+Implementarea cu liste simplu ı̂nlănt, uite
+Liste liniare ordonate
+Stive
+Cozi
+Aplicat, ie la conversie de expresii aritmetice
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+3 / 58
+
+Liste liniare – exemple
+
+I Student, i
+I (Adriana, George, Luiza, Maria, Daniel)
+
+I Examene
+I (Mate, Logică, SD, ACSO, IP, ENG)
+
+I Zilele săptămânii
+I (L, M, Mi, J, V, S, D)
+
+I Lunile anului
+I (Ian, Feb, Mar, Apr, Mai, Iun, Iul, Aug, Sep, Oct, Nov, Dec)
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+4 / 58
+
+Tipul abstract LLin
+
+I Obiecte:
+
+L = (e0 , · · · , en−1 ),
+
+n≥0
+
+I ei ∈ Elt (tipul abstract al elementelor)
+I Relat, ii:
+– e0
+– en−1
+– ei
+
+FII, UAIC
+
+primul element al listei;
+ultimul element al listei;
+elementul predecesor lui ei+1 .
+
+Curs 4
+
+SD 2021/2022
+
+5 / 58
+
+LLin – operat, ii
+
+I listaVida()
+I intrare: nimic
+I ies, ire: L = () (lista cu zero elemente)
+
+I insereaza()
+I intrare:
+I L = (e0 , · · · , en−1 ),
+
+k ∈ Nat,
+
+e ∈ Elt
+
+I ies, ire:
+I L = (· · · , ek−1 , e, ek , · · · ), dacă 0 ≤ k ≤ n
+I eroare ı̂n caz contrar
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+6 / 58
+
+insereaza() – exemple
+L = (a, b, c, d, e, f , g )
+I insereaza(L, 0, x)
+
+⇒
+
+L = (x, a, b, c, d, e, f , g )
+
+Obs. indexul elementelor a, · · · , g cres, te cu 1.
+I insereaza(L, 2, x)
+
+⇒
+
+L = (a, b, x, c, d, e, f , g )
+
+I insereaza(L, 7, x)
+
+⇒
+
+L = (a, b, c, d, e, f , g , x)
+
+I insereaza(L, 10, x)
+
+⇒
+
+eroare
+
+I insereaza(L, −7, x)
+
+⇒
+
+eroare
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+7 / 58
+
+LLin – operat, ii
+I elimina()
+I intrare:
+I L = (e0 , · · · , en−1 ),
+
+k ∈ Nat
+
+I ies, ire:
+I L = (· · · , ek−1 , ek+1 , · · · ), dacă 0 ≤ k ≤ n − 1
+I eroare ı̂n caz contrar
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+8 / 58
+
+LLin – operat, ii
+I elimina()
+I intrare:
+I L = (e0 , · · · , en−1 ),
+
+k ∈ Nat
+
+I ies, ire:
+I L = (· · · , ek−1 , ek+1 , · · · ), dacă 0 ≤ k ≤ n − 1
+I eroare ı̂n caz contrar
+
+Exemple:
+L = (a, b, c, d, e, f , g )
+I elimina(L, 2) ⇒ L = (a, b, d, e, f , g )
+Obs. indexul elementelor d, · · · , g descres, te cu 1.
+I elimina(L, 10)
+
+⇒
+
+eroare
+
+I elimina(L, −7)
+
+⇒
+
+eroare
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+8 / 58
+
+LLin – operat, ii
+I alKlea()
+I intrare:
+I L = (e0 , · · · , en−1 ),
+
+k ∈ Nat
+
+I ies, ire:
+I ek , dacă 0 ≤ k ≤ n − 1
+I eroare ı̂n caz contrar
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+9 / 58
+
+LLin – operat, ii
+I alKlea()
+I intrare:
+I L = (e0 , · · · , en−1 ),
+
+k ∈ Nat
+
+I ies, ire:
+I ek , dacă 0 ≤ k ≤ n − 1
+I eroare ı̂n caz contrar
+
+Exemple:
+L = (a, b, c, d, e, f , g )
+I alKlea(L, 0)
+
+⇒
+
+a
+
+I alKlea(L, 2)
+
+⇒
+
+c
+
+I alKlea(L, 6)
+
+⇒
+
+g
+
+I alKlea(L, 20)
+
+⇒
+
+eroare
+
+I alKlea(L, −2)
+
+⇒
+
+eroare
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+9 / 58
+
+LLin – operat, ii
+I elimTotE()
+I intrare:
+I L = (e0 , · · · , en−1 ),
+
+e ∈ Elt
+
+I ies, ire:
+I lista L din care s-au eliminat toate elementele egale cu e
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+10 / 58
+
+LLin – operat, ii
+I elimTotE()
+I intrare:
+I L = (e0 , · · · , en−1 ),
+
+e ∈ Elt
+
+I ies, ire:
+I lista L din care s-au eliminat toate elementele egale cu e
+
+Exemple:
+L = (a, b, c, a, b, c, a)
+I elimTotE(L, a)
+
+⇒
+
+(b, c, b, c)
+
+I elimTotE(L, c)
+
+⇒
+
+(a, b, a, b, a)
+
+I elimTotE(L, d)
+
+⇒
+
+(a, b, c, a, b, c, a)
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+10 / 58
+
+LLin – operat, ii
+I parcurge()
+I intrare:
+I L = (e0 , · · · , en−1 ), o procedură / funct, ie viziteaza()
+
+I ies, ire:
+I lista L ı̂n care toate elementele au fost procesate aplicând viziteaza()
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+11 / 58
+
+LLin – operat, ii
+I parcurge()
+I intrare:
+I L = (e0 , · · · , en−1 ), o procedură / funct, ie viziteaza()
+
+I ies, ire:
+I lista L ı̂n care toate elementele au fost procesate aplicând viziteaza()
+
+Exemple:
+L = (1, 2, 3, 1, 2, 3)
+I parcurge(L, oriDoi())
+
+⇒
+
+(2, 4, 6, 2, 4, 6)
+
+I parcurge(L, incrementeaza())
+
+FII, UAIC
+
+Curs 4
+
+⇒
+
+(2, 3, 4, 2, 3, 4)
+
+SD 2021/2022
+
+11 / 58
+
+LLin – operat, ii
+I poz()
+I intrare:
+I L = (e0 , · · · , en−1 ),
+
+e ∈ Elt,
+
+I ies, ire:
+I prima pozit, ie pe care apare e ı̂n L sau
+I −1 dacă e nu apare ı̂n L.
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+12 / 58
+
+LLin – operat, ii
+I poz()
+I intrare:
+I L = (e0 , · · · , en−1 ),
+
+e ∈ Elt,
+
+I ies, ire:
+I prima pozit, ie pe care apare e ı̂n L sau
+I −1 dacă e nu apare ı̂n L.
+
+Exemple:
+L = (a, b, c, a, b, c, d)
+I poz(L, a)
+I poz(L, c)
+I poz(L, d)
+I poz(L, x)
+FII, UAIC
+
+⇒
+⇒
+⇒
+⇒
+
+0
+2
+6
+−1
+Curs 4
+
+SD 2021/2022
+
+12 / 58
+
+LLin – operat, ii
+
+I lung()
+I intrare:
+I L = (e0 , · · · , en−1 ),
+
+I ies, ire:
+I n – lungimea listei L.
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+13 / 58
+
+LLin – operat, ii
+
+I lung()
+I intrare:
+I L = (e0 , · · · , en−1 ),
+
+I ies, ire:
+I n – lungimea listei L.
+
+Exemple:
+L = (a, b, c, a, b, c, d)
+I lung(L)
+
+FII, UAIC
+
+⇒
+
+7
+
+Curs 4
+
+SD 2021/2022
+
+13 / 58
+
+Conţinut
+
+Tipurile abstracte LLin, LLinOrd, Stiva, Coada
+Liste liniare
+Implementarea cu tablouri
+Implementarea cu liste simplu ı̂nlănt, uite
+Liste liniare ordonate
+Stive
+Cozi
+Aplicat, ie la conversie de expresii aritmetice
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+14 / 58
+
+LLin – implementarea cu tablouri
+
+I Reprezentarea obiectelor L = (e0 , · · · , en−1 )
+Max-1
+
+L.tab
+
+Elt[Max]
+
+L.ultim
+
+int
+
+e0
+
+...
+
+en−1
+
+I L este o structură
+I L.tab – un câmp de tip tablou pentru memorarea elementelor;
+I L.ultim – un câmp pentru memorarea pozit, iei ultimului element.
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+15 / 58
+
+LLin – implementarea cu tablouri
+
+I insereaza()
+I deplasează elementele de pe poziţiile k, k + 1, . . . la dreapta cu o
+poziţie;
+I inserează e pe poziţia k;
+I excepţii:
+I k < 0,
+
+k > L.ultim + 1
+
+(n)
+
+I L.ultim = Max − 1.
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+16 / 58
+
+LLin – implementarea cu tablouri
+procedure insereaza(L, k, e)
+begin
+if (k < 0 or k > L.ultim + 1) then
+throw “eroare-pozitie incorecta”
+if (L.ultim >= Max − 1) then
+throw “eroare-spatiu insuficient”
+for j ← L.ultim downto k do
+L.tab[j + 1] ← L.tab[j]
+L.tab[k] ← e
+L.ultim ← L.ultim + 1
+end
+I Timpul de execut, ie:
+
+FII, UAIC
+
+O(n).
+
+Curs 4
+
+SD 2021/2022
+
+17 / 58
+
+LLin – implementarea cu tablouri
+
+I parcurge()
+procedure parcurge(L, viziteaza())
+begin
+for i ← 0 to L.ultim do
+viziteaza(L.tab[i])
+end
+
+I Dacă viziteaza() procesează un element ı̂n O(1), atunci parcurge()
+procesează lista ı̂n O(n) (n este numărul elementelor listei).
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+18 / 58
+
+Conţinut
+
+Tipurile abstracte LLin, LLinOrd, Stiva, Coada
+Liste liniare
+Implementarea cu tablouri
+Implementarea cu liste simplu ı̂nlănt, uite
+Liste liniare ordonate
+Stive
+Cozi
+Aplicat, ie la conversie de expresii aritmetice
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+19 / 58
+
+LLin – implementarea cu structuri ı̂nlănt, uite
+I Reprezentarea obiectelor L = (e0 , · · · , en−1 )
+L.prim
+
+•
+e0 •
+
+e1 •
+
+L.ultim
+
+•
+
+...
+
+en−1 •
+
+I L este o structură cu două câmpuri
+I L.prim – pointer la primul element al listei;
+I L.ultim – pointer la ultimul element al listei.
+
+I un nod * p (aflat la adresa din p) are două câmpuri:
+I p− > elt(= ei ) – memorează informat, ia utilă din nod;
+I p− > succ – memorează adresa nodului succesor.
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+20 / 58
+
+LLin – implementarea cu structuri ı̂nlănt, uite
+I insereaza()
+I parcurge elementele de pe pozit, iile 0, 1, . . . , k − 1;
+I inserează un nou element după poziţia k − 1;
+I creează noul nod;
+I memorează informat, ii;
+I reface legături.
+
+I excepţii:
+I lista vidă;
+I k = 0;
+I k = n;
+I k < 0, k > n.
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+21 / 58
+
+LLin – implementarea cu structuri ı̂nlănt, uite
+
+I Cazul general
+ek−1 •
+
+FII, UAIC
+
+ek
+
+•
+
+Curs 4
+
+SD 2021/2022
+
+22 / 58
+
+LLin – implementarea cu structuri ı̂nlănt, uite
+
+I Cazul general
+ek−1 •
+
+FII, UAIC
+
+ek
+
+•
+
+Curs 4
+
+SD 2021/2022
+
+22 / 58
+
+LLin – implementarea cu structuri ı̂nlănt, uite
+
+I Cazul general
+ek−1 •
+
+ek
+
+•
+
+e
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+22 / 58
+
+LLin – implementarea cu structuri ı̂nlănt, uite
+
+I Cazul general
+ek−1 •
+
+ek
+
+e
+
+FII, UAIC
+
+•
+
+•
+
+Curs 4
+
+SD 2021/2022
+
+22 / 58
+
+LLin – implementarea cu structuri ı̂nlănt, uite
+
+I Cazul general
+ek−1 •
+
+ek
+
+e
+
+FII, UAIC
+
+•
+
+•
+
+Curs 4
+
+SD 2021/2022
+
+22 / 58
+
+LLin – implementarea cu structuri ı̂nlănt, uite
+
+I Cazul particular: lista vidă
+L.prim
+
+FII, UAIC
+
+•
+
+L.ultim
+
+Curs 4
+
+•
+
+SD 2021/2022
+
+23 / 58
+
+LLin – implementarea cu structuri ı̂nlănt, uite
+
+I Cazul particular: lista vidă
+L.prim
+
+FII, UAIC
+
+•
+
+L.ultim
+
+Curs 4
+
+•
+
+SD 2021/2022
+
+23 / 58
+
+LLin – implementarea cu structuri ı̂nlănt, uite
+
+I Cazul particular: lista vidă
+L.prim
+
+•
+
+L.ultim
+
+•
+
+e
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+23 / 58
+
+LLin – implementarea cu structuri ı̂nlănt, uite
+
+I Cazul particular: lista vidă
+L.prim
+
+•
+
+L.ultim
+e
+
+FII, UAIC
+
+•
+
+•
+
+Curs 4
+
+SD 2021/2022
+
+23 / 58
+
+LLin – implementarea cu structuri ı̂nlănt, uite
+
+I Cazul particular: lista vidă
+L.prim
+
+•
+
+L.ultim
+e
+
+FII, UAIC
+
+•
+
+•
+
+Curs 4
+
+SD 2021/2022
+
+23 / 58
+
+LLin – implementarea cu structuri ı̂nlănt, uite
+
+I Cazul particular: inserarea la ı̂nceputul listei
+L.prim
+
+•
+
+e0 •
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+24 / 58
+
+LLin – implementarea cu structuri ı̂nlănt, uite
+
+I Cazul particular: inserarea la ı̂nceputul listei
+L.prim
+
+•
+
+e0 •
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+24 / 58
+
+LLin – implementarea cu structuri ı̂nlănt, uite
+
+I Cazul particular: inserarea la ı̂nceputul listei
+L.prim
+
+•
+
+e
+
+e0 •
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+24 / 58
+
+LLin – implementarea cu structuri ı̂nlănt, uite
+
+I Cazul particular: inserarea la ı̂nceputul listei
+L.prim
+
+e
+
+•
+
+FII, UAIC
+
+•
+
+e0 •
+
+Curs 4
+
+SD 2021/2022
+
+24 / 58
+
+LLin – implementarea cu structuri ı̂nlănt, uite
+
+I Cazul particular: inserarea la ı̂nceputul listei
+L.prim
+
+e
+
+•
+
+FII, UAIC
+
+•
+
+e0 •
+
+Curs 4
+
+SD 2021/2022
+
+24 / 58
+
+LLin – implementarea cu structuri ı̂nlănt, uite
+procedure insereaza(L, k, e)
+begin
+if (k < 0) or (k! = 0 and L.prim == NULL) then
+throw “eroare-pozitie incorecta”
+new(q); q− > elt ← e
+if (k == 0 or L.prim == NULL) then
+q− > succ ← L.prim; L.prim ← q
+if (L.ultim == NULL) then
+L.ultim ← q
+else
+p ← L.prim; j ← 0
+while (j < k − 1 and p! = L.ultim) do
+p ← p− > succ; j ← j + 1
+if (j < k − 1) then
+throw “eroare-pozitie incorecta”
+q− > succ ← p− > succ; p− > succ ← q
+if (p == L.ultim) then
+L.ultim ← q
+end
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+25 / 58
+
+LLin – aplicat, ie
+I Linie poligonală de puncte.
+I Punct: structură cu două câmpuri x s, i y ;
+I crearea unei liste
+procedure creeazaLista(L)
+begin
+L ← listaVida()
+/* citeste n */
+for i ← 0 to n − 1 do
+/* citeste p.x, p.y */
+insereaza(L, 0, p)
+end
+
+I Obs. Timpul de execut, ie depinde de implementare.
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+26 / 58
+
+LLin – aplicat, ie
+I Multiplică cu 2 coordonatele unui punct:
+procedure ori2Punct(p)
+begin
+p.x ← p.x ∗ 2
+p.y ← p.y ∗ 2
+end
+I Multiplică cu 2 coordonatele unei linii poligonale:
+procedure ori2Linie(p)
+begin
+parcurge(L, ori2Punct())
+end
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+27 / 58
+
+LLin – aplicat, ie
+I translatează punct:
+procedure trPunct(p, dx, dy )
+begin
+p.x ← p.x + dx
+p.y ← p.y + dy
+end
+I translatează linie poligonală:
+procedure trLinie(L, dx, dy )
+begin
+parcurge(L, trPunct())
+end
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+28 / 58
+
+Conţinut
+
+Tipurile abstracte LLin, LLinOrd, Stiva, Coada
+Liste liniare
+Implementarea cu tablouri
+Implementarea cu liste simplu ı̂nlănt, uite
+Liste liniare ordonate
+Stive
+Cozi
+Aplicat, ie la conversie de expresii aritmetice
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+29 / 58
+
+Liste liniare ordonate: LLinOrd
+
+I Obiecte:
+L = (e0 , · · · , en−1 ),
+
+n ≥ 0,
+
+ei ∈ Elt,
+
+e0 ≤ e1 ≤ · · · ≤ en−1
+
+I Operat, ii:
+I listaVida()
+I intrare: nimic
+I ies, ire: L = () (lista cu zero elemente)
+
+I insereaza()
+I intrare: L = (e0 , . . . , en−1 ),
+
+e ∈ Elt
+
+I ies, ire: L = (· · · , ek−1 , e, ek , · · · ), dacă ek−1 ≤ e ≤ ek
+(e−1 = −∞, en = +∞)
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+30 / 58
+
+Liste liniare ordonate: LLinOrd
+
+I elimina()
+I intrare: L = (e0 , . . . , en−1 ),
+
+e ∈ Elt
+
+I ies, ire: L = (· · · , ek−1 , ek+1 , · · · ), dacă e = ek
+eroare ı̂n caz contrar
+
+I alKlea()
+I parcurge()
+I poz()
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+31 / 58
+
+LLinOrd – implementarea cu tablouri
+function poz(L, e)
+begin
+p ← 0; q ← L.ultim
+m ← (p + q)/2
+while (L.tab[m]! = e and p < q) do
+if (e < L.tab[m]) then
+q ← m–1
+else
+p ←m+1
+m ← (p + q)/2
+if (L.tab[m] == e) then
+return m
+else
+return −1
+end
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+32 / 58
+
+LLinOrd – complexitatea căutării
+
+I Implementarea cu tablouri:
+
+O(log2 n);
+
+I Implementarea cu liste ı̂nlănt, uite:
+
+FII, UAIC
+
+Curs 4
+
+O(n);
+
+SD 2021/2022
+
+33 / 58
+
+Conţinut
+
+Tipurile abstracte LLin, LLinOrd, Stiva, Coada
+Liste liniare
+Implementarea cu tablouri
+Implementarea cu liste simplu ı̂nlănt, uite
+Liste liniare ordonate
+Stive
+Cozi
+Aplicat, ie la conversie de expresii aritmetice
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+34 / 58
+
+Stiva
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+35 / 58
+
+Stiva – aplicat, ii
+
+I Aplicat, ii directe
+I Istoricul paginilor web vizitate ı̂ntr-un browser;
+I Sevent, a “undo” ı̂ntr-un editor de text;
+I S, iruri de apeluri recursive ale unui subprogram.
+
+I Aplicat, ii indirecte
+I Structură de date auxiliară ı̂n anumit, i algoritmi;
+I Componentă a altor structuri de date.
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+36 / 58
+
+Tipul abstract Stiva
+I Obiecte:
+Liste ı̂n care se cunoas, te vechimea elementelor introduse:
+liste LIFO (Last-In-First-Out).
+
+I Operat, ii:
+I stivaVida()
+I intrare: nimic
+I ies, ire: S = () (lista vidă)
+
+I esteVida()
+I intrare: S ∈ Stiva
+I ies, ire:
+– true dacă S este vidă;
+– false dacă S nu este vidă.
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+37 / 58
+
+Tipul abstract Stiva
+I Operat, ii:
+I push()
+I intrare: S ∈ Stiva,
+
+e ∈ Elt
+
+I ies, ire: S la care s-a adăugat e ca ultim element introdus
+(cel cu vechimea cea mai mică).
+
+I pop()
+I intrare: S ∈ Stiva
+I ies, ire:
+– S din care s-a eliminat ultimul element introdus
+(cel cu vechimea cea mai mică);
+– eroare dacă S este vidă.
+
+I top()
+I intrare: S ∈ Stiva
+I ies, ire:
+– ultimul element introdus ı̂n S (cel cu vechimea cea mai mică);
+– eroare dacă S este vidă.
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+38 / 58
+
+Stiva – implementare cu liste
+
+tipul Stiva
+push(S, e)
+pop(S)
+top(S)
+
+=
+=
+=
+
+tipul LLin
+insereaza(S, 0, e)
+elimina(S, 0)
+alKlea(S, 0)
+
+sau
+tipul Stiva
+push(S, e)
+pop(S)
+top(S)
+
+FII, UAIC
+
+=
+=
+=
+
+tipul LLin
+insereaza(S, lung (S), e)
+elimina(S, lung (S) − 1)
+alKlea(S, lung (S) − 1)
+
+Curs 4
+
+SD 2021/2022
+
+39 / 58
+
+Stiva – implementarea cu tablouri
+I Reprezentarea obiectelor
+S.tab
+
+Elt[Max]
+
+S.varf
+
+int
+
+Max-1
+
+e0
+
+...
+
+en−1
+
+n−1
+
+I implementarea operat, iilor
+procedure push(S, e)
+begin
+if S.varf == Max − 1 then
+throw “eroare”
+else
+S.varf ← S.varf + 1
+S.tab[varf ] ← e
+end
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+40 / 58
+
+Stiva – implementarea cu structuri ı̂nlănt, uite
+I Reprezentarea obiectelor
+S
+
+•
+
+en−1 •
+en−2 •
+..
+.
+e0
+
+FII, UAIC
+
+Curs 4
+
+•
+
+SD 2021/2022
+
+41 / 58
+
+Stiva – implementarea cu structuri ı̂nlănt, uite
+I Implementarea operat, iilor
+I push()
+procedure push(S, e)
+begin
+new(q)
+q− > elt ← e
+q− > succ ← S
+S ←q
+end
+I pop()
+procedure pop(S)
+begin
+if S == NULL then
+throw “eroare”
+q←S
+S ← S− > succ
+delete(q) end
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+42 / 58
+
+Conţinut
+
+Tipurile abstracte LLin, LLinOrd, Stiva, Coada
+Liste liniare
+Implementarea cu tablouri
+Implementarea cu liste simplu ı̂nlănt, uite
+Liste liniare ordonate
+Stive
+Cozi
+Aplicat, ie la conversie de expresii aritmetice
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+43 / 58
+
+Coada
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+44 / 58
+
+Coada – aplicat, ii
+
+I Aplicat, ii directe
+I Liste / fire de as, teptare;
+I Accesul la resurse partajate.
+Exemplu: imprimante.
+
+I Aplicat, ii indirecte
+I Structură de date auxiliară ı̂n anumit, i algoritmi.
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+45 / 58
+
+Tipul abstract Coada
+I Obiecte:
+Liste ı̂n care se cunoas, te vechimea elementelor introduse:
+liste FIFO (First-In-First-Out).
+
+I Operat, ii:
+I coadaVida()
+I intrare: nimic
+I ies, ire: C = () (lista vidă)
+
+I esteVida()
+I intrare: C ∈ Coada
+I ies, ire:
+– true dacă C este vidă;
+– false dacă C nu este vidă.
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+46 / 58
+
+Tipul abstract Coada
+I Operat, ii:
+I insereaza()
+I intrare: C ∈ Coada,
+
+e ∈ Elt
+
+I ies, ire: C la care s-a adăugat e ca ultim element introdus
+(cel cu vechimea cea mai mică).
+
+I elimina()
+I intrare: C ∈ Coada
+I ies, ire:
+– C din care s-a eliminat primul element introdus
+(cel cu vechimea cea mai mare);
+– eroare dacă C este vidă.
+
+I citeste()
+I intrare: C ∈ Coada
+I ies, ire:
+– primul element introdus ı̂n C (cel cu vechimea cea mai mare);
+– eroare dacă C este vidă.
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+47 / 58
+
+Coada – implementare cu liste
+
+tipul Coada
+insereaza(C , e)
+elimina(C )
+citeste(S)
+
+FII, UAIC
+
+=
+=
+=
+
+tipul LLin
+insereaza(C , lung (C ), e)
+elimina(C , 0)
+alKlea(C , 0)
+
+Curs 4
+
+SD 2021/2022
+
+48 / 58
+
+Coada – implementarea cu tablouri
+
+I Reprezentarea obiectelor
+C.tab
+
+Max-1
+
+e0
+
+Elt[Max]
+
+C.prim
+
+FII, UAIC
+
+Curs 4
+
+p
+
+...
+
+en−1
+
+q
+
+C.ultim
+
+SD 2021/2022
+
+49 / 58
+
+Coada – implementarea cu tablouri
+
+I Reprezentarea obiectelor
+C.tab
+
+Max-1
+
+e0
+
+Elt[Max]
+
+p
+
+C.prim
+
+...
+
+en−1
+
+q
+
+C.ultim
+Max-1
+
+C.tab
+
+...
+
+Elt[Max]
+
+C.ultim
+
+FII, UAIC
+
+Curs 4
+
+en−1
+
+e0
+
+q
+
+p
+
+...
+
+ei
+
+C.prim
+
+SD 2021/2022
+
+49 / 58
+
+Coada – implementarea cu tablouri
+
+I Implementarea operat, iilor
+I insereaza()
+procedure insereaza(C , e)
+begin
+if (C .ultim + 1)%Max == C .prim then
+throw “eroare”
+else
+C .ultim ← (C .ultim + 1)%Max
+C .tab[ultim] ← e
+end
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+50 / 58
+
+Coada – implementarea cu structuri ı̂nlănt, uite
+
+I Reprezentarea obiectelor
+
+C.prim
+
+•
+e0 •
+
+FII, UAIC
+
+e1 •
+
+Curs 4
+
+C.ultim
+
+•
+
+...
+
+en−1 •
+
+SD 2021/2022
+
+51 / 58
+
+Coada – implementarea cu structuri ı̂nlănt, uite
+I Implementarea operat, iilor
+I insereaza()
+procedure insereaza(C , e)
+begin
+new(q)
+q− > elt ← e
+q− > succ ← NULL
+if C .ultim == NULL then
+C .prim ← q
+C .ultim ← q
+else
+C .ultim− > succ ← q
+C .ultim ← q
+end
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+52 / 58
+
+Conţinut
+
+Tipurile abstracte LLin, LLinOrd, Stiva, Coada
+Liste liniare
+Implementarea cu tablouri
+Implementarea cu liste simplu ı̂nlănt, uite
+Liste liniare ordonate
+Stive
+Cozi
+Aplicat, ie la conversie de expresii aritmetice
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+53 / 58
+
+Aplicat, ie – notat, ia postfixată a expresiilor
+I notat, ia infixată
+I a+b
+I a + (b ∗ 2)
+
+I notat, ia postfixată
+I ab+
+I a b 2 ∗+
+
+I reguli de precedent, ă
+I a+b∗2
+
+I reguli de asociere: 7/3 ∗ 2
+I la stânga: (7/3) ∗ 2
+I la dreapta: 7/(3 ∗ 2)
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+54 / 58
+
+Conversia infixat → postixat
+Exemplu: a + b ∗ (c + d) + e
+
+inf.tab
+
+Elt[Max]
+
+postf.tab
+
+Elt[Max]
+
+↓
+a + b ∗ ( c + d ) + e
+
+S (stiva)
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+55 / 58
+
+Conversia infixat → postixat
+Exemplu: a + b ∗ (c + d) + e
+
+inf.tab
+
+Elt[Max]
+
+↓
+a + b ∗ ( c + d ) + e
+
+postf.tab
+
+Elt[Max]
+
+a
+
+S (stiva)
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+55 / 58
+
+Conversia infixat → postixat
+Exemplu: a + b ∗ (c + d) + e
+
+inf.tab
+
+Elt[Max]
+
+↓
+a + b ∗ ( c + d ) + e
+
+postf.tab
+
+Elt[Max]
+
+a
+
+S (stiva)
+
++
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+55 / 58
+
+Conversia infixat → postixat
+Exemplu: a + b ∗ (c + d) + e
+
+inf.tab
+
+Elt[Max]
+
+↓
+a + b ∗ ( c + d ) + e
+
+postf.tab
+
+Elt[Max]
+
+a b
+
+S (stiva)
+
++
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+55 / 58
+
+Conversia infixat → postixat
+Exemplu: a + b ∗ (c + d) + e
+
+inf.tab
+
+Elt[Max]
+
+↓
+a + b ∗ ( c + d ) + e
+
+postf.tab
+
+Elt[Max]
+
+a b
+
+S (stiva)
+
+∗
++
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+55 / 58
+
+Conversia infixat → postixat
+Exemplu: a + b ∗ (c + d) + e
+
+inf.tab
+
+Elt[Max]
+
+↓
+a + b ∗ ( c + d ) + e
+
+postf.tab
+
+Elt[Max]
+
+a b
+
+S (stiva)
+(
+∗
++
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+55 / 58
+
+Conversia infixat → postixat
+Exemplu: a + b ∗ (c + d) + e
+
+inf.tab
+
+Elt[Max]
+
+↓
+a + b ∗ ( c + d ) + e
+
+postf.tab
+
+Elt[Max]
+
+a b c
+
+S (stiva)
+(
+∗
++
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+55 / 58
+
+Conversia infixat → postixat
+Exemplu: a + b ∗ (c + d) + e
+
+inf.tab
+
+Elt[Max]
+
+↓
+a + b ∗ ( c + d ) + e
+
+postf.tab
+
+Elt[Max]
+
+a b c
+
+S (stiva)
++
+(
+∗
++
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+55 / 58
+
+Conversia infixat → postixat
+Exemplu: a + b ∗ (c + d) + e
+
+inf.tab
+
+Elt[Max]
+
+↓
+a + b ∗ ( c + d ) + e
+
+postf.tab
+
+Elt[Max]
+
+a b c d
+
+S (stiva)
++
+(
+∗
++
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+55 / 58
+
+Conversia infixat → postixat
+Exemplu: a + b ∗ (c + d) + e
+
+inf.tab
+
+Elt[Max]
+
+↓
+a + b ∗ ( c + d ) + e
+
+postf.tab
+
+Elt[Max]
+
+a b c d +
+
+S (stiva)
+(
+∗
++
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+55 / 58
+
+Conversia infixat → postixat
+Exemplu: a + b ∗ (c + d) + e
+
+inf.tab
+
+Elt[Max]
+
+↓
+a + b ∗ ( c + d ) + e
+
+postf.tab
+
+Elt[Max]
+
+a b c d +
+
+S (stiva)
+
+∗
++
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+55 / 58
+
+Conversia infixat → postixat
+Exemplu: a + b ∗ (c + d) + e
+
+inf.tab
+
+Elt[Max]
+
+↓
+a + b ∗ ( c + d ) + e
+
+postf.tab
+
+Elt[Max]
+
+a b c d +
+
+S (stiva)
+
+∗
++
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+55 / 58
+
+Conversia infixat → postixat
+Exemplu: a + b ∗ (c + d) + e
+
+inf.tab
+
+Elt[Max]
+
+↓
+a + b ∗ ( c + d ) + e
+
+postf.tab
+
+Elt[Max]
+
+a b c d + ∗
+
+S (stiva)
+
++
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+55 / 58
+
+Conversia infixat → postixat
+Exemplu: a + b ∗ (c + d) + e
+
+inf.tab
+
+Elt[Max]
+
+↓
+a + b ∗ ( c + d ) + e
+
+postf.tab
+
+Elt[Max]
+
+a b c d + ∗ +
+
+S (stiva)
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+55 / 58
+
+Conversia infixat → postixat
+Exemplu: a + b ∗ (c + d) + e
+
+inf.tab
+
+Elt[Max]
+
+↓
+a + b ∗ ( c + d ) + e
+
+postf.tab
+
+Elt[Max]
+
+a b c d + ∗ +
+
+S (stiva)
+
++
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+55 / 58
+
+Conversia infixat → postixat
+Exemplu: a + b ∗ (c + d) + e
+
+inf.tab
+
+Elt[Max]
+
+↓
+a + b ∗ ( c + d ) + e
+
+postf.tab
+
+Elt[Max]
+
+a b c d + ∗ + e
+
+S (stiva)
+
++
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+55 / 58
+
+Conversia infixat → postixat
+Exemplu: a + b ∗ (c + d) + e
+↓
+inf.tab
+
+Elt[Max]
+
+a + b ∗ ( c + d ) + e
+
+postf.tab
+
+Elt[Max]
+
+a b c d + ∗ + e +
+
+S (stiva)
+
++
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+55 / 58
+
+Conversia infixat → postixat
+Exemplu: a + b ∗ (c + d) + e
+↓
+inf.tab
+
+Elt[Max]
+
+a + b ∗ ( c + d ) + e
+
+postf.tab
+
+Elt[Max]
+
+a b c d + ∗ + e +
+
+S (stiva)
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+55 / 58
+
+Conversia infixat → postfixat
+procedure convInfix2Postfix(infix, postfix)
+/* infix s, i postfix sunt cozi*/
+begin
+S ← stivaVida()
+while (not esteVida(infix)) do
+x ← citeste(infix); elimina(infix)
+if (operand(x) then
+insereaza(postfix, x)
+else
+if (x ==0 )0 ) then
+while (top(S)! =0 (0 ) do
+insereaza(postfix, top(S)); pop(S)
+pop(S)
+else
+while (not estevida(S) and top(S)! =0 (0 and
+priorit(top(S)) >= priorit(x)) do
+insereaza(postfix, top(S)); pop(S)
+push(S, x)
+while (not estevida(S)) do
+insereaza(postfix, top(S)); pop(S)
+end
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+56 / 58
+
+Evaluarea expresiilor postixate
+
+Exemplu: a b c d + ∗ + e+
+
+postf.tab
+
+Elt[Max]
+
+↓
+a b c d + ∗ + e +
+
+S (stiva)
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+57 / 58
+
+Evaluarea expresiilor postixate
+
+Exemplu: a b c d + ∗ + e+
+
+postf.tab
+
+Elt[Max]
+
+↓
+a b c d + ∗ + e +
+
+S (stiva)
+
+a
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+57 / 58
+
+Evaluarea expresiilor postixate
+
+Exemplu: a b c d + ∗ + e+
+
+postf.tab
+
+Elt[Max]
+
+↓
+a b c d + ∗ + e +
+
+S (stiva)
+
+b
+a
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+57 / 58
+
+Evaluarea expresiilor postixate
+
+Exemplu: a b c d + ∗ + e+
+
+postf.tab
+
+Elt[Max]
+
+↓
+a b c d + ∗ + e +
+
+S (stiva)
+c
+b
+a
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+57 / 58
+
+Evaluarea expresiilor postixate
+
+Exemplu: a b c d + ∗ + e+
+
+postf.tab
+
+Elt[Max]
+
+↓
+a b c d + ∗ + e +
+
+S (stiva)
+d
+c
+b
+a
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+57 / 58
+
+Evaluarea expresiilor postixate
+
+Exemplu: a b c d + ∗ + e+
+
+postf.tab
+
+Elt[Max]
+
+↓
+a b c d + ∗ + e +
+
+S (stiva)
+c
+b
+a
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+57 / 58
+
+Evaluarea expresiilor postixate
+
+Exemplu: a b c d + ∗ + e+
+
+postf.tab
+
+Elt[Max]
+
+↓
+a b c d + ∗ + e +
+
+S (stiva)
+
+b
+a
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+57 / 58
+
+Evaluarea expresiilor postixate
+
+Exemplu: a b c d + ∗ + e+
+
+postf.tab
+
+Elt[Max]
+
+↓
+a b c d + ∗ + e +
+
+S (stiva)
+c +d
+b
+a
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+57 / 58
+
+Evaluarea expresiilor postixate
+
+Exemplu: a b c d + ∗ + e+
+
+postf.tab
+
+Elt[Max]
+
+↓
+a b c d + ∗ + e +
+
+S (stiva)
+
+b
+a
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+57 / 58
+
+Evaluarea expresiilor postixate
+
+Exemplu: a b c d + ∗ + e+
+
+postf.tab
+
+Elt[Max]
+
+↓
+a b c d + ∗ + e +
+
+S (stiva)
+
+a
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+57 / 58
+
+Evaluarea expresiilor postixate
+
+Exemplu: a b c d + ∗ + e+
+
+postf.tab
+
+Elt[Max]
+
+↓
+a b c d + ∗ + e +
+
+S (stiva)
+
+b ∗ (c + d)
+a
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+57 / 58
+
+Evaluarea expresiilor postixate
+
+Exemplu: a b c d + ∗ + e+
+
+postf.tab
+
+Elt[Max]
+
+↓
+a b c d + ∗ + e +
+
+S (stiva)
+
+a
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+57 / 58
+
+Evaluarea expresiilor postixate
+
+Exemplu: a b c d + ∗ + e+
+
+postf.tab
+
+Elt[Max]
+
+↓
+a b c d + ∗ + e +
+
+S (stiva)
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+57 / 58
+
+Evaluarea expresiilor postixate
+
+Exemplu: a b c d + ∗ + e+
+
+postf.tab
+
+Elt[Max]
+
+↓
+a b c d + ∗ + e +
+
+S (stiva)
+
+a + b ∗ (c + d)
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+57 / 58
+
+Evaluarea expresiilor postixate
+
+Exemplu: a b c d + ∗ + e+
+
+postf.tab
+
+Elt[Max]
+
+↓
+a b c d + ∗ + e +
+
+S (stiva)
+
+e
+a + b ∗ (c + d)
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+57 / 58
+
+Evaluarea expresiilor postixate
+
+Exemplu: a b c d + ∗ + e+
+
+postf.tab
+
+Elt[Max]
+
+↓
+a b c d + ∗ + e +
+
+S (stiva)
+
+a + b ∗ (c + d)
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+57 / 58
+
+Evaluarea expresiilor postixate
+
+Exemplu: a b c d + ∗ + e+
+
+postf.tab
+
+Elt[Max]
+
+↓
+a b c d + ∗ + e +
+
+S (stiva)
+
+a + b ∗ (c + d) + e
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+57 / 58
+
+Evaluarea expresiilor postixate
+
+Exemplu: a b c d + ∗ + e+
+↓
+postf.tab
+
+Elt[Max]
+
+a b c d + ∗ + e +
+
+S (stiva)
+
+a + b ∗ (c + d) + e
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+57 / 58
+
+Evaluarea expresiilor postfixate
+function valPostfix(postfix)
+begin
+S ← stivaVida()
+while (not esteVida(postfix)) do
+x ← citeste(postfix); elimina(infix)
+if (operand(x) then
+push(S, x)
+else
+drp ← top(S); pop(S)
+stg ← top(S); pop(S)
+val ← stg op(x) drp
+push(S, val)
+val = top(S); pop(S)
+return val
+end
+
+FII, UAIC
+
+Curs 4
+
+SD 2021/2022
+
+58 / 58
+
+

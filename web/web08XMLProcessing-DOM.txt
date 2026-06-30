@@ -1,0 +1,3605 @@
+Web Technologies
+
+
+XML/HTML data processing
+
+DOM
+Document Object Model
+
+
+
+
+
+
+
+
+"The golden rule is that there are no golden rules."
+
+
+
+George Bernard Shaw
+
+(re)discover...
+
+
+
+
+
+
+
+
+
+
+
+how can we process the XML documents details regarding the processing of
+XML/HTML documents via DOM
+ processing XML/HTML documents via DOM
+at Web client level
+asynchronous data transfer between Web
+client(s) and server(s)
+
+
+
+
+
+
+
+
+
+
+
+
+< />
+How can we process the XML documents?
+
+preamble
+
+comment node
+
+
+
+
+
+
+processing instruction
+
+
+
+
+
+attribute node
+
+
+
+start tag
+
+end tag
+
+
+
+XML element marked with a start tag and an end tag
+
+
+
+
+
+ text node (characters)
+
+
+
+
+
+
+
+
+
+
+Types of XML processing
+
+manual processing
+e.g., regular expressions 
+
+
+
+
+
+
+
+
+
+
+Types of XML processing
+
+object-oriented processing
+
+DOM (Document Object Model) non-DOM
+
+
+
+
+
+
+
+
+
+
+Types of XML processing
+
+event-driven processing
+
+SAX (Simple API for XML) XPP (XML Pull Parsing)
+
+details in S. Buraga, Tehnologii XML, Polirom, 2006
+profs.info.uaic.ro/sabin.buraga/teach/courses/web/presentations/Sabin_Buraga-Tehnologii_XML.pdf
+
+
+
+
+
+
+
+
+
+
+Types of XML processing
+
+simpli=ied processing
+
+Simple XML
+
+
+details in S. Buraga, Tehnologii XML, Polirom, 2006
+profs.info.uaic.ro/sabin.buraga/teach/courses/web/presentations/Sabin_Buraga-Tehnologii_XML.pdf
+
+
+
+
+
+
+
+
+
+
+Types of XML processing
+
+specific processing
+
+via specialized APIs in order to process particular document types
+e.g., KML, RSS, MathML, SVG,...
+
+
+
+
+
+
+
+
+
+
+XML (parsers) processors
+without validation
+
+verify only if the document is well formed Expat, libxml, MSXML,...
+
+
+
+
+
+
+
+
+
+
+XML (parsers) processors
+with validation
+
+verify if the document is valid, according to an XML validation method:
+DTD - Document Type DeXinition, XML Schema Apache Xerces, JAXP, libxml, MSXML,...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Details regarding the processing of XML/HTML documents via DOM
+
+
+
+
+
+
+
+DOM model
+introduction speciXication levels DOM interfaces DOM Core implementations examples
+DOM in the Web browser
+
+dom: intro
+
+
+
+Goal:
+object-oriented - standardized - processing of XML and/or HTML documents
+
+
+
+
+
+
+
+
+
+
+ An abstract API for XML/HTML platform- and language-independent standardized by the Web Consortium
+
+
+
+
+
+
+
+
+
+
+De=ines a logical tree-like structure of XML documents
+
+
+document = hierarchy of a set of objects
+based on which we can access/modify XML nodes and data
+
+
+
+
+
+
+
+DOM 1 (1998), DOM 2 (2001),
+DOM 3 (2004), DOM 4 (2015)
+
+DOM Core for XML
+
+DOM HTML for standardized processing of Web pages - usually, on client-side (browser)
+
+
+
+
+
+
+
+DOM Living Standard
+
+dom.spec.whatwg.org
+
+HTML specific - current version
+
+  in continuous development (latest update: 15 March 2026)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+an HTML document and its DOM tree represented via Live DOM Viewer software.hixie.ch/utilities/js/live-dom-viewer/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Why does this node appear?
+
+
+
+
+
+
+
+
+
+
+
+
+an HTML document and its DOM tree represented via Live DOM Viewer software.hixie.ch/utilities/js/live-dom-viewer/
+
+
+
+
+
+
+
+
+
+
+An abstract manner to access and modify an XML document's internal representation
+
+
+data is encapsulated by objects,
+hidden and/or protected from direct external processing
+
+
+
+
+
+
+
+
+
+
+
+Does not imply a concrete, specific implementation
+
+DOM provides implementation-independent interfaces for data access/processing
+
+dom: interfaces - IDL
+
+
+  These interfaces are de=ined via IDL (Interface Description Language)
+
+deXines object types by specifying their interfaces (properties + public methods)
+
+
+current speciXication (2018): www.omg.org/spec/IDL/
+
+modules, interfaces, methods, types, attributes, exceptions, constants can be declared
+
+
+
+
+integer
+
+Short UShort Long ULong
+
+
+scalar
+
+
+real
+ 
+Float Double
+
+
+IDL
+data types
+
+
+
+
+
+
+
+
+structured
+
+
+
+
+other Struct Sequence
+
+Boolean Char String Enum
+
+
+reference
+
+Union
+
+Any
+
+dom: interfaces - WebIDL
+
+
+WebIDL - of=icial speci=ication for HTML part of HTML Living Standard (27 March 2026) webidl.spec.whatwg.org
+
+
+
+
+
+
+
+
+
+Declaring the interface regarding the list of nodes (elements, attributes, characters, comments,...) of the XML tree: NodeList
+
+interface NodeList {
+getter Node? item (unsigned long index); readonly attribute unsigned long length;
+};
+
+
+method for retrieving info regarding a node in a list of nodes
+
+
+
+
+interface NodeList {
+getter Node? item (unsigned long
+
+input: an unsigned long int parameter
+
+result: a value of Node type
+index);
+
+readonly attribute unsigned long length;
+};
+
+
+
+
+
+
+Specifying the interface regarding an XML
+attribute: Attr
+
+interface Attr : Node {
+readonly attribute DOMString name; readonly attribute boolean specified; attribute DOMString value;
+};
+
+
+
+
+
+
+
+
+interface Attr : Node {
+readonly attribute DOMString name; readonly attribute boolean specified; attribute DOMString value;
+};
+
+
+
+name designates the name of the XML attribute
+specified indicates whether the attribute was actually speci=ied
+value represents the current value of the attribute
+
+
+
+
+
+
+A document ? hierarchy of node-objects
+that can implement (specialized) interfaces
+
+
+nodes have descendants or are leaf nodes
+
+tree traversal is performed in preorder, depth-Xirst - tree order
+
+
+
+
+
+
+
+
+The access to data
+- node lists, attributes, values,... -
+is performed by using specific methods for each node type of the tree
+
+dom: core - node types
+
+
+
+
+
+DocumentElement, ProcessingInstruction, Comment, DocumentTypeDocument FragmentElement, ProcessingInstruction, Comment, Text, CDATASection,...Element    Element, Text, Comment, CDATASection, EntityReference,...AttrText, EntityReferenceText-
+(leaf node of the DOM tree)
+
+
+
+
+
+
+
+
+Fundamental interfaces:
+
+DOMException
+
+manages the processing exceptions
+
+
+
+
+
+
+
+ Fundamental interfaces:
+DocumentFragment : Node
+     access to tree fragments (minimal object without a root node)
+
+
+
+
+
+
+
+
+
+
+Fundamental interfaces:
+
+Document
+
+provides document access for reading and/or changing
+
+
+
+
+
+
+
+
+Fundamental interfaces:
+
+Document
+
+useful properties:
+doctype - indicates the document type (DTD)
+documentElement - specifies the root element
+
+Essential methods of the Document interface
+
+createElement() - creates a node of type element createTextNode() - creates a node of type text (actual content) createAttribute() - creates a node of type attribute (Attr)
+getElementsByTagName() - provides the list of elements
+having a speci:ic name (tag)
+getElementById() - provides the element identi:ied by the value of the id attribute
+importNode() - imports a node from another document by cloning the data of this node
+
+etc.
+
+dom: core
+
+
+Fundamental interfaces:
+Node
+allows access to tree nodes
+
+node types
+         - e.g., Document, Element, CharacterData (Text, Comment, CDATASection),
+DocumentFragment, DocumentType, EntityReference,... - processed in a unitary manner
+
+
+Important properties of the Node interface nodeName - provides the name of the current node nodeValue - offers the current value of the node
+nodeType - provides the type of the node: element,
+attribute,...
+
+parentNode - designates the parent node of the current node
+
+parentElement - speciXies the parent element of the node
+
+
+Node types (nodeType property)	Value
+
+ATTRIBUTE_NODE	2
+CDATA_SECTION_NODE	4
+ENTITY_NODE	6
+COMMENT_NODE	8
+DOCUMENT_TYPE_NODE	10
+NOTATION_NODE	12
+
+
+Important properties of the Node interface
+
+childNodes - provides the list of child nodes of the current node
+firstChild - designates the first child of the current node lastChild - specifies the last child of the current node nextSibling - indicates the next node (sibling)
+on the same level as the current node
+previousSibling - represents the previous node (sibling) on the same level as the current node
+
+etc.
+
+Useful methods provided by the Node interface
+
+insertBefore() - inserts a node before the current one
+cloneNode() - clone the data of the current node
+compareDocumentPosition() - compare the position of the current node with another node in the document
+isEqualNode() - test whether the current node is equivalent to another node (same node type, belongs to the same namespace, has the same value, both nodes have the same number of children, each child node has the same
+   index for both nodes, etc.) - also see isSameNode() contains() - checks if the node includes a specific node
+
+
+
+
+
+
+
+Useful methods provided by the Node interface
+
+hasChildNodes() - checks if the current node has child nodes
+appendChild() - add a child node replaceChild() - replace a child node removeChild() - removes a child node
+
+dom: core
+
+
+Fundamental interfaces:
+Element
+facilitates the access to XML elements
+
+
+
+Useful properties of the Element interface
+
+tagName - provides the name of the element (start-tag)
+id - specifies the value of the identifier (the value of the id attribute)
+childNodes - provides the list of child nodes of the element
+firstChild lastChild - indicates the first/last child node
+attributes - provides the list of attributes associated to the element
+nextElementSibling - indicates the next element (sibling) on the same level in the tree as the current element
+previousElementSibling - idem, but for the preceding one
+
+
+
+getAttribute() - provides the value of an attribute associated to the current element
+getAttributeNode() - provides the node of type attribute
+setAttribute() - sets the value of an attribute
+removeAttribute() - removes an attribute associated with the element
+hasAttribute() - checks the existence of a specific attribute
+
+
+
+getAttribute() - provides the value of an attribute associated to the current element
+getAttributeNode() - provides the node of type attribute
+setAttribute() - sets the value of an attribute
+removeAttribute() - removes an attribute associated with the element
+hasAttribute() - checks the existence of a specific attribute
+
+to process attributes belonging to a given XML namespace,
+NS-suffixed methods will be used e.g., getAttributeNS() setAttributeNS() etc.
+
+
+
+
+
+
+
+
+
+Fundamental interfaces:
+Attr : Node
+access to the attributes of an element
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Fundamental interfaces:
+
+NodeList - access to collections of nodes through indexes
+(vector)
+
+NamedNodeMap - access based on keys (associative array) in case of HTML, for attribute lists
+
+
+
+
+
+
+
+
+
+
+
+Fundamental interfaces:
+
+        NodeList + NamedNodeMap property: length - the length of the list of nodes
+methods: item() getNamedItem() getNamedItemNS() setNamedItem() removeNamedItem() and others
+
+
+
+
+
+
+
+
+
+
+
+Other interfaces of interest:
+ParentNode - the parent node speci=ic to a node ChildNode - the child node belonging to a node Elements - collection of nodes of type Element
+
+
+
+
+
+
+
+Accessing data from a document
+XPath 1.0 - W3C Recommendation (1999) later versions - less often used:
+XPath 2 (2010), XPath 3 (2014), XPath 3.1 (2017)
+
+
+www.w3.org/TR/xpath/all/
+
+
+
+
+
+
+
+
+
+XPath expression - the basic construct
+
+
+evaluation depends on the context:
+a node of the XML document position
+a function (predefined or programmer-defined)
+a namespace declaration
+
+
+
+
+
+
+
+
+
+XPath expression - the basic construct
+
+
+after expression evaluation, an object is returned:
+a node-set
+a Boolean value - true/false
+a number (a floating-point number) a string
+
+
+
+
+
+
+
+Descendent /
+
+
+/html/body/article
+/game/platform
+
+
+
+
+
+
+
+
+
+Recursive traversal //
+
+//platform
+//div/a
+
+child nodes are traversed in the order given by the DFS (depth-Xirst search) algorithm
+
+
+
+
+
+
+
+
+
+Wildcard *
+
+selects all child elements of the node in the current context
+(context node)
+
+/game/*/identity player/*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/html/body/*/section
+the evaluation of XPath expressions in Web browser's console via the $x object
+
+
+
+
+
+
+
+
+
+Current node .
+
+./player
+
+
+
+
+
+
+
+
+
+Attribute @
+
+platform/@min-version table/@*
+
+
+
+
+
+
+Filter/index [ ]
+/game/platform[2]
+//li[@class = "lab"]
+
+
+
+general form: [expression]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//li[@class = "lab"]
+
+
+
+
+
+
+
+
+
+13 <li> nodes(Element items) having the string "lab"
+as the value of the class attribute
+
+dom: xpath - operators
+
+
+  For logical and numerical values, the common operators could be used:
+or	and	=	!=	<=	<	>=	>
++	-	* div	mod
+
+
+
+string comparison is case sensitive
+
+
+
+
+
+
+
+
+Current node (context node)	self Parent node	parent
+Children nodes	child
+Descendant nodes	descendant
+Attribute nodes	attribute
+Namespace nodes	namespace
+
+
+
+
+
+
+
+
+Ascendant nodes	ancestor
+
+Ascendant nodes
+or current node	ancestor-or-self
+
+Descendant nodes
+or current node	descendant-or-self
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+using the preceding axis to access all the above nodes
+a Web testing tool: www.freeformatter.com/xpath-tester.html
+
+xsl: xpath - axes
+
+
+
+
+
+
+
+
+
+The result of the XPath expression
+/game/player/identity/preceding::*
+
+
+dom: xpath - short syntax
+
+
+
+
+
+
+self?.parent?..attribute?@namespace?:
+
+
+
+dom: xpath - functions
+
+Nodes: id(), position(), count(), name(), namespace-uri(), last(), ...
+Node types: node(), text(), comment(), processing-instruction()
+Strings: concat(), starts-with(), contains(), substring(), string-length(), translate(), ...
+Booleans: not(), true(), false()
+Numbers: sum(), round(), floor(), number(), ...
+
+
+
+counting the nodes satisfying a given condition
+
+count(/game/platform[@min-version >= 9])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+XML Tools extension for Visual Studio Code
+
+dom: xpath - functions
+
+count(//a[@href]) = count(//a)?true
+all <a> elements include the href attribute
+
+     count(//li[@class]) = count(//li)?false there are <li> elements without class attribute
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//*[contains(text(), "Demo")] getting all nodes containing the "Demo" string
+
+<projects>
+<project>
+<title>Super</title>
+<desc>A super project for super students!</desc>
+<stud>3</stud>
+<url>http://super.info/</url>
+</project>
+<project>
+<title>Super--</title>
+<desc>A not so super project...</desc>
+<stud>2</stud>
+</project>
+</projects>
+the average number of students assigned per project:
+sum(/projects/project/stud/text()) div count(/projects/project/stud)
+
+<projects>
+<project>
+<title>Super</title>
+
+evaluating XPath expressions via command line interface
+
+<desc>A super project for super students!</desc>
+<stud>3</stud>
+<url>http://super.info/</url>
+</project>
+<project>
+<title>Super--</title>
+<desc>A not so super project...</desc>
+<stud>2</stud>
+</project>
+</projects>
+
+
+
+xmllint tool (uses LibXML)
+provided by GNU/Linux distributions + macOS
+xmllint projects-dtd.xml --xpath "substring(/projects/project[1]/desc/text(), 4, 7)"
+
+(instead of) break
+
+dom: xpath - programming
+
+Example:
+
+using XPath for processing an RSS news feed in a PHP program which uses the DOMDocument, DOMXpath, DOMNode classes
+
+
+
+
+
+
+
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+<channel>
+<title>InfoQ</title>
+<link>https://www.infoq.com</link>
+<description>InfoQ feed</description>
+<item>
+<title>TigerFS Mounts PostgreSQL Databases as a Filesystem for Developers...</title>
+<link>https://www.infoq.com/news/2026/04/tigerfs-postgresql-filesystem/</link>
+   <description>&lt;p&gt; TigerFS is a new experimental filesystem that mounts a database as a directory and stores files directly in PostgreSQL	&lt;/p&gt;</description>
+<category>Database</category>
+<category>Linux</category>
+<category>Development</category>
+<category>AI, ML &amp; Data Engineering</category>
+<category>Open Source</category>
+<pubDate>Sat, 04 Apr 2026 08:18:00 GMT</pubDate>
+<guid>https://www.infoq.com/news/2026/04/tigerfs-postgresql-filesystem/</guid>
+<dc:creator>Renato Losio</dc:creator>
+<dc:date>2026-04-04T08:18:00Z</dc:date>
+<dc:identifier>/news/2026/04/tigerfs-postgresql-filesystem/en</dc:identifier>
+
+</item>
+<!-- alte nouta?i... (i.e., elemente <item>) -->
+</channel>
+</rss>
+
+the general structure of a RSS feed can be studied at www.rssboard.org
+
+define ('FEED', 'https://feed.infoq.com/'); // RSS feed address define ('XPATH', '/rss/channel/item');	// used XPath expression
+try {
+$dom = new DomDocument ();
+$dom->load (FEED); // loading the XML document
+$xpath = new DOMXpath ($dom);
+// go through each result (here, the <item> elements) foreach ($xpath->query (XPATH) as $news) {
+// get the tutle of each news: the value of the <title> element echo '<p>Noutate: <em>' .
+ $news->getElementsByTagname('title')->item(0)->nodeValue . '</p>'; echo '<p>Calea nodului: <code>' .
+$news->getElementsByTagname('title')->item(0)->getNodePath() .
+'</code></p>';
+}
+}
+catch (RuntimeException $e) { echo $e->getMessage ();
+}
+
+Date RSS de la InfoQ
+Noutate: Pinterest Reduces Spark OOM Failures by 96% Through Auto Memory Retries
+Calea nodului: /rss/channel/item[l]/title Noutate: Presentation: Duolingo's Kubernetes Leap Calea nodului: /rss/channel/item[2]/title
+Noutate: Article: A Better Alternative to Reducing Cl Regression Test Suite Sizes
+Calea   nodului:  /rss/channel/item[3]/title
+Noutate: Podcast: Context Engineering with Adi Polak
+Calea   nodului:  /rss/channel/item[4]/title
+Noutate: Dynamic Languages Faster and Cheaper in 73-Language Claude Code Benchmark
+Calea   nodului:  /rss/channel/item[S]/title
+Noutate: Java News Roundup: TornadoVM 4.0, Google ADK for Java 7.0,
+Grails, Tomcat, Log4j, Gradle
+Calea   nodului:  /rss/channel/item[6]/title
+Noutate: Anthropic Designs Three-Agent Harness Supports Long-Running Full-Stack Al Development
+Calea   nodului:  /rss/channel/item[7]/title
+Noutate: TigerFS Mounts PostgreSQL Databases as a Filesystem for Developers and Al Agents
+Calea   nodului:  /rss/channel/item[S]/title
+
+
+
+
+
+
+
+
+The query() method of the class DOMXpath provides the list of nodes determined by evaluating the XPath expression (an instance of NodeList type is returned)
+
+To get results of a different type
+- for example, the evaluation of an XPath expression can be of type integer -, the method evaluate() is used
+
+$items = $xpath->query (XPATH);
+echo '<p>Total apari?ii de elemente <code>&lt;item&gt;</code>:</p>'; echo '<p>Folosind proprietatea length (DOMNodeList): ' .
+$items->length . '</p>';
+echo '<p>Folosind func?ia XPath count(): ' .
+$xpath->evaluate ("count(" . XPATH . ")") . '</p>';
+
+
+
+
+
+
+
+
+
+
+DOMDocument - PHP class
+php.net/manual/en/book.dom.php
+
+Dom\Document - new DOM implementation (PHP 8.4+)
+php.net/manual/en/class.dom-document.php
+details: wiki.php.net/rfc/dom_additions_84
+evaluating Xpath expressions: Dom\XPath class
+php.net/manual/en/class.dom-xpath.php
+for HTML: Dom\HTMLDocument
+php.net/manual/en/class.dom-htmldocument.php
+
+
+
+
+
+
+HXT (Haskell XML Toolbox) - DOM processing in Haskell
+wiki.haskell.org/HXT
+JAXP (Java Architecture for XML Processing)
+docs.oracle.com/javase/tutorial/jaxp/
+QDOM - from Qt (C++): doc.qt.io/qt-6/qdomdocument.html
+libxml - XML processor written in C: xmlsoft.org
+foundation for C++, Perl, PHP, Python, Ruby,... libraries
+org.w3c.dom.Document -DOM interface (Android)
+developer.android.com/reference/org/w3c/dom/Document.html
+
+
+
+
+
+
+Xerces DOM API - project focused on XML processing (C++ and Java): xerces.apache.org
+XmlDocument - .NET Framework class (C# et al.)
+learn.microsoft.com/en-us/dotnet/api/system.xml.xmldocument
+XMLDocument - Objective-C / Swift class
+developer.apple.com/documentation/foundation/xmldocument
+xml.dom - Python module
+docs.python.org/3/library/xml.dom.html
+
+dom: specific apis (examples)
+
+node-xmpp - Node.js (JavaScript) library for XMPP (Extensible Messaging and Presence Protocol) github.com/xmppjs/xmpp.js
+OpenDocument Format (ODF) SDKs - ODF document processing in C#, Java, PHP, Python,... www.oasis-open.org/tc-opendocument/
+      Open Street Map API - access to XML data provided by the OpenStreetMap cartographic free service
+wiki.openstreetmap.org/wiki/OSM_XML
+
+dom: speci?c apis (examples)
+
+
+
+
+
+SVG DOM API - SVG document processing in Java (Apache Batik): xmlgraphics.apache.org/batik/ developer.mozilla.org/en-US/docs/Web/API/SVG_API
+ TwiML (Twilio Markup Language) API - accessing Twilio telephony services via C#, Java, Node.js, PHP, Python, Ruby libraries: www.twilio.com/docs/voice/twiml
+.NET MAUI (Multi-platform App UI) - specifying user- interfaces for cross-platform applications (iOS, Android, macOS, Windows) via C# and XAML: dotnet.microsoft.com/apps/maui
+
+dom: implementations
+
+XML/HTML document processing
+
+
+
+
+
+
+
+
+XML
+ML
+data
+
+
+
+
+
+
+
+
+Case study: processing - in PHP - the information about
+the list of project proposals
+
+the processed XML document:
+
+<?xml version="1.0" ?>
+<!-- XML document about project proposals -->
+<projects>
+
+
+
+
+<desc>...</desc>
+<stud>2</stud>
+<url>http://web.info/</url>
+</project>
+
+
+
+
+<desc />
+<stud>3</stud>
+</project>
+</projects>
+
+$modified = 0;	// indicates whether the DOM tree has been modified
+$dom = new DomDocument;	// instantiate a DOM object
+$dom->load("projects.xml");	// load the XML document
+$projs = $dom->getElementsByTagName("project"); foreach ($projs as $proj) {	// process every <project>
+// get all <title> elements and select the first one
+$titles = $proj->getElementsByTagName("title");
+echo "<p>Proiect: <em>" . $titles[0]->nodeValue . "</em>";
+if ($proj->hasAttribute("class")) {	// is the project's class specified? echo " of class " . $proj->getAttribute("class") . "</p>";
+} else {
+echo " of unknown class</p>";
+// the attribute "class" does not exist, we are creating it - the project
+// will be of class D
+$attr = $proj->setAttribute("class", "D");
+$modified = 1;	// mark the tree as modified
+}
+}
+if ($modified) { // if the DOM has been modified, display its textual representation
+$xmldoc = $dom->saveXML(); // serialization echo "<pre>" . htmlentities($xmldoc) . "</pre>";
+}
+
+the result obtained after DOM processing done by the PHP program:
+Project: MegaProj of class M Project: Web4all of unknown class
+<?xml version="1.0"?>
+<!-- XML document about project proposals -->
+<projects>
+<project class="M">
+<title>MegaProj</title>
+<desc>...</desc>
+<stud>2</stud>
+<url>http://web.info/</url>
+</project>
+
+<title>Web4all</title>
+<desc/>
+<stud>3</stud>
+</project>
+</projects>
+
+  XML documents processing through DOM in a Web client?
+
+The architecture of a Web browser
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+display back-end
+
+generic + particular XML processing: SVG, RSS,...
+
+dom: browser
+
+
+The accessing/processing of HTML and XML documents - without validation - is performed
+via DOM by using JavaScript (ECMAScript) programs
+interpreted by the Web browser
+
+
+
+
+
+
+
+A JavaScript program has access to the DOM (Document Object Model) tree corresponding to the HTML document
+
+mainly DOM Living Standard is used HTML5 speciXic, in continuous development
+
+
+
+
+
+
+
+
+
+
+
+
+The JS program uses objects which implement DOM interfaces to access and change the internal representation of an HTML document
+(i.e. the DOM tree)
+
+advanced
+
+
+
+
+
+
+
+
+Shadow DOM (shadow tree)
+
+The DOM tree whose root element is a node (shadow root) of another tree corresponding to a document
+
+always attached to a tree of nodes (cannot exist on its own,
+but only encapsulated by a document)
+
+advanced
+
+
+
+
+
+
+
+
+
+
+
+
+
+shadow root
+
+shadow host
+
+shadow tree
+
+
+
+
+girliemac.com/presentation-slides/webcomponents/shadowdom.html
+shadow DOM
+
+described in DOM Living Standard (15 March 2026) dom.spec.whatwg.org/#shadow-trees developer.mozilla.org/Web/Web_Components/Using_shadow_DOM
+
+advanced
+
+
+
+
+
+
+
+
+JavaScript programs also have access
+to various objects offered by the execution environment provided by the browser
+
+e.g., information regarding the execution context (browser's characteristics, network latency), browsing history, content display window, (a)synchronous data transfer,...
+
+advanced
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+technologies provided by browser - html-now.github.io
+also explore caniuse.com
+
+
+
+
+
+
+
+The DOM tree associated with the HTML document can be accessed/altered via the
+document object
+
+instance of the class that implements the HTMLDocument interface
+
+interface HTMLDocument : Document {
+attribute DOMString title;	// document title
+readonly attribute DOMString referrer; // URL of the referring resource readonly attribute DOMString domain; // document domain
+readonly attribute DOMString URL;		// absolute URL of the document attribute HTMLElement body;	// access to <body> element
+
+attribute DOMString cookie;	// access to cookies
+// emits an exception if a value is assigned
+
+void open ();	// opens a writing stream (alters the current DOM) void close (); // closes writing flow & forces content rendering
+void write (in DOMString text);	// writes a string (e.g., HTML markups) void writeln (in DOMString text); // idem, but insert also a new line
+// provides a list of elements according to the name attribute NodeList getElementsByName (in DOMString numeElement);
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Because the HTMLDocument interface extends Document,
+we can use the functionalities stipulated by the
+general DOM speci=ication
+
+for example, the documentElement property designates the root node of an HTML document
+
+
+
+
+
+
+
+HTMLElement interface extends the general interface
+provided by DOM
+
+each speciXic HTML element derives from it
+
+
+
+
+
+
+
+an interface speciXic to each HTML element
+
+<!DOCTYPE html>
+<html>
+<body>
+<p>Web</p>
+<div>
+<img src="web.svg">
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+HTML
+
+
+HTML
+HtmlElement
+
+
+HTML
+BodyElement
+
+ParagraphElement
+
+
+
+
+
+
+
+// a generic HTML element interface HTMLElement : Element {
+attribute DOMStringid;// identifier associated to this elementattribute DOMStringtitle;// explanatory titleattribute DOMStringlang;// content languageattribute DOMStringclassName;// CSS class name used for rendering};
+// specifying a Web form
+interface HTMLFormElement : HTMLElement {
+readonly attribute HTMLCollection elements; // HTML elements included by this form readonly attribute long	length;	// number of form fields
+attribute DOMString	action;	// URI of the resource that process the data attribute DOMString	enctype;	 // MIME type used for data encoding
+                                  // (e.g., application/x-www-form-urlencoded) attribute DOMString	method;	// used HTTP method (GET or POST)
+void	submit(); // sends data to URI specified by 'action'
+};
+// an image (raster graphical content)
+interface HTMLImageElement : HTMLElement {
+attribute DOMString	alt;		// alternative text describing the content attribute DOMString	src;	// URL of the image resource
+};
+
+
+
+
+
+The HTMLCollection interface models a list of nodes
+
+A node can be accessed using a numeric index or based on an identifier (e.g., set via the id attribute)
+
+interface HTMLCollection {
+// represents the length of the list readonly attribute unsigned long length;
+// offers a node via a numeric index Node	item (in unsigned long index);
+// provides a node based on the name Node	namedItem (in DOMString name);
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+DOM HTML speci=ic properties:
+
+innerHTML
+
+(mutable) property providing the HTML code of an Element node
+
+
+
+
+
+
+
+
+
+
+
+
+
+DOM HTML speci=ic properties:
+
+textContent
+
+property that gets/sets the textual content of a node and
+its possible descendants
+
+JS Fiddle
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function addControl (element, type, name, explanation) {
+// create an <input> element attaching its essential attributes let control = document.createElement ('input');
+control.type = type; control.id = name; control.name = name;
+let label = document.createElement ('label');	// an explanatory label... label.htmlFor = name;
+label.innerHTML = explanation;
+label.style.background = 'lightgray';	// ...plus various CSS styles label.style.color = '#333';
+label.style.padding = '0.2em';
+// place the <label> and <input> elements in a container let container = document.createElement ('div'); container.className = "interactiv"; container.appendChild (label);
+container.appendChild (control);
+// add the container node to the element specified as parameter element.appendChild (container);
+}
+
+// get the element of type form
+let form = document.getElementById ('unFormular');
+
+// add the desired interaction controls addControl (form, 'text', 'nume', 'Numele meu: ');
+addControl (form, 'password', 'parola', '<em>Codul secret</em>: '); addControl (form, 'checkbox', 'particip', 'Particip? ');
+for (let year = 2021; year <= 2025; year++) {
+addControl (form, 'radio', 'year', 'Web Hackathon ' + year);
+}
+
+
+
+
+
+Support for processing CSS properties
+
+based on a specific object model CSSOM (CSS Object Model)
+
+draft specification - 23 February 2026
+
+drafts.csswg.org/cssom/
+
+
+
+
+
+Support for processing CSS properties
+
+   currently, changing the style properties can be done via the HTMLElement.style property
+
+// associating several CSS styles
+elem.style.cssText = "color: blue; border: 1px solid #000";
+// similar to the line - has the effect of altering the DOM tree: elem.setAttribute ("style", "color: blue; border: 1px solid #000;");
+
+
+developer.mozilla.org/Web/API/CSSStyleDeclaration
+
+
+
+
+
+
+
+Finding nodes via CSS selectors
+
+Selectors API
+
+     initially, W3C recommendation (2013) currently, part of the DOM Living Standard (2026)
+
+
+
+
+
+
+
+Finding nodes via CSS selectors
+
+
+querySelector (selectors)
+provides the Xirst element - using pre-order depth traversal - which matches the group of selectors
+(comma delimited)
+
+querySelectorAll (selectors)
+provides the list of type NodeList of all elements found
+
+
+
+
+
+
+
+Finding nodes via CSS selectors
+
+
+// all <li> elements selected via CSS (data of type NodeList) let elements = document.querySelectorAll ("ul.menu > li"); for (var i = 0; i < elements.length; i++) {
+process (elements.item (i));   // process each node
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+selectori CSS3
+
+
+
+
+
+
+example - use the Web browsers's console:
+document.querySelectorAll ("section[id^=\"week\"]:nth-child(odd) > h2");
+
+
+
+
+
+
+
+
+
+
+Event handling
+
+defining callbacks to be executed when an event occurs
+
+event = action triggered within the runtime environment that can conduct to a reaction from a program
+
+
+
+
+
+
+
+
+
+Event handling
+
+the JavaScript code invoked when an event occurs can be encapsulated in a function that handles the event
+(event handler)
+
+
+
+
+
+
+
+
+
+Event handling
+
+traditionally, JavaScript code to be executed is attached when a basic event occurs
+(e.g., onclick, onmouseover, onchange, onload, onkeypress,...)
+on an element
+
+
+
+
+
+
+
+Event handling
+
+
+
+<button onclick="alert ('Auch!');">Press me!</button>
+
+
+
+
+
+
+
+Event handling
+
+
+
+<button onclick="alert ('Auch!');">Press me!</button>
+
+to inhibit the execution of the default action, the JavaScript code must return false
+
+
+
+
+
+
+
+Event handling
+
+
+
+more "evolved" via DOM 1:
+
+document.getElementById ("identifier").onclick
+= treatClick;
+
+
+
+
+
+
+
+Event handling
+
+
+
+standardized event handling:
+minimum, according to the DOM Level 2 Events spec
+
+www.w3.org/TR/DOM-Level-2-Events/
+
+
+
+
+
+
+
+Event handling
+
+
+
+specifying activities performed when an event occurs
+
+object.addEventListener ("event", function, mode);
+
+
+
+
+
+
+
+Event handling
+
+
+
+hierarchical description of the event Xlow capture versus bubble
+
+see javascript.info/bubbling-and-capturing
+
+
+study the tutorial Introduction to events
+developer.mozilla.org/docs/Learn/JavaScript/Building_blocks/Events
+
+
+
+
+
+
+
+Event handling
+
+
+
+hierarchical description of the event Xlow
+
+mode = true
+try to handle the event starting from the root to the target
+object - capture phase
+
+
+
+
+
+
+
+Event handling
+
+
+
+hierarchical description of the event Xlow
+
+mode = false
+try to handle the event when it is propagated from the object where it occurred to its superior entities -
+bubbling phase
+
+
+
+
+
+
+
+Event handling
+
+
+
+a standard set of events will be used
+
+Event types - user interaction
+
+mouse: click dblclick mouseenter mousedown mouseup mouseover mousemove contextmenu select wheel
+touch: touchstart touchend touchcancel touchmove
+keyboard: keypress keydown keyup
+clipboard: copy cut paste
+view: resize scroll fullscreenchange fullscreenerror
+drag & drop: dragstart drag dragenter dragover dragleave dragend drop
+form: focus blur select submit reset
+document (page lifecycle): load DOMContentLoaded beforeunload unload abort cancel
+
+advanced
+Event types - regarding resources
+network: online offline
+session history: pagehide pageshow popstate
+printing: beforeprint afterprint
+media: canplay play playing pause suspend waiting seeking seeked stalled complete ended emptied durationchange
+ratechange volumechange timeupdate ...
+progress: loadstart progress error timeout abort load loaded
+storage: change storage
+Web socket: open message error close
+
+Event types - others
+
+CSS transitions: transitionstart transitionrun transitionend transitioncancel
+CSS animations: animationstart animationend
+animationiteration
+value change: broadcast hashchange input readystatechange...
+
+
+for details, also explore
+developer.mozilla.org/Web/Events
+
+
+
+Event types - speci=ic to modern HTML
+
+associated to the available APIs:
+
+Barcode Detection, Bluetooth, Canvas, Clipboard, Device Memory, Fetch, File System Access, Fullscreen, Geolocation, Image Capture, IndexedDB, Media Capture & Streams, NotiXications, Page Visibility, Payment Request, Push, Sensor, Streams, Touch Events, URL, Vibration, Web Animations, Web Audio, WebGL, WebRTC, Web Workers, WebSocket, Web Storage, WebXR Device etc.
+
+developer.mozilla.org/docs/Web/API
+
+
+
+
+
+
+
+Event handling
+
+useful properties of the Event object
+
+
+type
+
+specifies the event's type as string e.g., "click", "load", "scroll", "submit"
+
+
+
+
+
+
+
+Event handling
+
+useful properties of the Event object
+
+target
+
+designates the node
+on which the event was initially triggered
+
+
+
+
+
+
+
+Event handling
+
+useful properties of the Event object
+
+currentTarget
+
+indicates the node that handles the event
+
+
+
+
+
+
+
+Event handling
+
+useful properties of the Event object
+
+bubbles
+
+indicates whether the event is propagating towards ascending elements (true value) or towards descendants (false value)
+
+
+
+
+
+
+
+Event handling
+
+useful properties of the Event object
+
+bubbles
+
+    e.g., abort, error, select, submit, resize, scroll, click, mousedown, mouseover, mousemove, mouseout,
+touchstart, touchend events can have bubbles = true
+
+
+
+
+
+
+
+Event handling
+
+useful properties of the Event object
+
+bubbles
+
+in case of the focus, blur, load, unload events, the bubbles property has the value false
+
+
+
+
+
+
+
+Event handling
+
+useful properties of the Event object
+
+cancelable
+
+speciXies whether the event can be interrupted
+
+
+
+
+
+
+
+Event handling
+
+useful properties of the Event object
+
+cancelable
+
+for example, for the load, unload, abort, error, select, focus, blur, resize, scroll, touchcancel events,
+the cancelable property is set as false
+
+
+
+
+
+
+
+Event handling
+
+useful properties of the Event object
+
+cancelable
+
+for events like click, mousedown, mouseup, mouseover, mousemove, mouseout, touchstart, touchend, touchmove the cancelable property can be true
+
+
+
+
+
+
+
+Event handling
+
+
+
+eliminating the handling of an event
+
+
+removeEventListener ()
+
+
+
+
+
+
+
+Event handling
+
+
+
+ignoring the default behavior
+
+
+preventDefault ()
+
+
+
+
+
+
+
+Event handling
+
+
+
+         sending the event to be processed according to the model offered by the implementation
+
+dispatchEvent ()
+
+
+
+
+
+
+
+Event handling
+
+
+
+stopping the propagation of an event within the DOM tree
+
+stopPropagation ()
+
+<html>
+<head><title>Evenimente JS</title></head>
+<body>
+<form>
+<textarea id="editor"></textarea>
+<input type="text" id="text" />
+</form>
+</body>
+<script type="application/javascript"> const infoEv = e => { console.log (
+`Eveniment: ${e.type}\n
+Caracter: ${String.fromCharCode (e.charCode)}\n Element ?inta al evenim.: ${e.target}\n
+?inta curenta: ${e.currentTarget}`);
+};
+document.addEventListener("keypress", infoEv);
+</script>
+</html>
+
+advanced
+
+
+example: displaying data regarding an event
+
+advanced
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+key press in the
+<textarea> field
+
+
+
+
+
+key press in the <input>
+field
+
+
+
+
+
+key press in the body of the Web page
+
+advanced
+// adaptation after https://eloquentjavascript.net/14_event.html const trateazaEveniment = ev => {
+// place a 'dot' at the coordinates of the mouse cursor let pct = document.createElement ('div');
+pct.className = (ev.type === 'dblclick') ? 'punct roz' : 'punct'; pct.style.left = (ev.pageX - 5) + 'px';
+pct.style.top = (ev.pageY - 5) + 'px'; document.body.appendChild (pct);
+console.log (`${ev.type}: Am plasat un punct la coord.
+(${ev.pageX}, ${ev.pageY}).`);
+};
+// "ascultam" evenimentele click ?i dblclick document.addEventListener ('click', trateazaEveniment); document.addEventListener ('dblclick', trateazaEveniment);
+
+example: handling the click and dblclick events
+
+n click (dublu) de mouse, te rog...	•
+• div_puruct 	10>< 10
+•
+
+
+
+
+
+
+
+Elements	Console	Sources	Network
+
+Performance
+
+Memory	Application	"	•	X
+
+E html>
+<html>
+? <head>... </head>
+... T	body == $0
+<p>Un click (dublu) de mouse, te rog...</p>
+? <script	type="application/j avascript">...
+</script>
+<div class="punct" style="left: 311pxj top: 107pxj"></div>
+<div class="punct" style="left: 143px; top: 18lpx;"></div>
+<div class="punct" style="left: 143px; top: 181px;"></div>
+<div class="punct roz" style="left: 143px; top: 181px;"></div>
+<div class="punct" style="left: 95px; top: 71px;"></div>
+<div class="punct" style="left: 694px; top: 22px;"></div>
+</body>
+
+...
+
+
+
+
+
+
+
+
+
+
+
+
+
+...
+
+Styles	Computed	Event Listeners	"
+C	Ancestors	All	T	({) Framework listeners
+T click
+T document	clicks. html:25 useCapture: false
+passive: false once: false
+T handler: ev => {. .. }
+? [[Scopes]]: Scopes[2]
+((Functionlocation]]: <unknown>
+? _proto_: f	()
+name: "trateazaEveniment" length: 1
+caller:(...)
+arguments: ( ...)
+? dblclick
+
+
+
+
+
+
+
+Remark:
+modern Web browsers support the handling of non- standard + programmer-defined events
+
+CustomEvent
+
+dom.spec.whatwg.org/#interface-customevent developer.mozilla.org/Web/API/CustomEvent
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+inspecting - via the tools included in the browser - the standard + programmer-defined events (only those written in capital letters), plus the propagation mode: bubbling versus capturing
+
+practical example: GitHub
+
+dom: additional resources
+
+
+
+
+
+
+Marijn Haverbeke, Eloquent JavaScript (4th Edition), 2024 - the "The Document Object Model" chapter eloquentjavascript.net/14_dom.html
+
+Ilya Kantor, The Modern JavaScript Tutorial, 2026 - the "DOM Tree" section javascript.info/dom-nodes
+
+EventTarget
+developer.mozilla.org/Web/API/EventTarget
+
+dom: custom attributes
+
+
+
+
+
+
+
+Attributes defined by the programmer (custom HTML5 attributes)
+in an HTML document custom attributes can be included, which are prefixed with data- and manipulated via
+HTMLElement.dataset
+       can store private values available at Web page/application level
+developer.mozilla.org/Learn/HTML/Howto/Use_data_attributes
+
+
+
+<script>
+let elem = document.querySelector ('#person'); // get data
+// elem.id == 'person'
+// elem.dataset.id === '69'
+// elem.dataset.dateOfBirth === '' (date of birth was nost specified) elem.dataset.dateOfBirth = '2001-04-01'; // set the date of birth
+// include another custom attribute set in the program elem.dataset.size = 'big';
+</script>
+
+
+
+<script>
+let elem = document.querySelector ('#person'); // get data
+// elem.id == 'person'
+// elem.dataset.id === '69'
+// elem.dataset.dateOfBirth === '' (date of birth was nost specified) elem.dataset.dateOfBirth = '2001-04-01'; // set the date of birth
+// include another custom attribute set in the program elem.dataset.size = 'big';
+</script>
+
+
+
+
+
+
+
+
+
+
+use of the Web browser's console to access and modify
+data- attributes using dataset
+
+(instead of) break
+
+
+
+
+
+
+
+
+www.andrewscottart.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+What is the way to transfer data asynchronously
+between Web client(s) and server(s)?
+
+
+
+
+
+
+
+
+Enabling asynchronous data transfer between an HTML document displayed in the client (browser)
+and an application running on a Web server
+
+AJAX - Asynchronous JavaScript and XML (Jeese James Garrett)
+via the XMLHttpRequest object and/or Fetch API
+
+
+
+
+
+
+A suite of open technologies:
+
+standardized languages for data structuring - usually, HTML - and presentation: CSS
+
+
+
+
+
+
+A suite of open technologies:
+
+view + interaction on the Web client (browser) via the DOM standard
+
+
+
+
+
+
+A suite of open technologies:
+
+exchange and manipulation of data represented through: JSON
+various XML dialects (e.g., RSS, KML,...)
+HTML
+other formats - e.g., CSV
+
+
+
+
+
+
+A suite of open technologies:
+
+processing using the ECMAScript (JavaScript) language
+
+
+
+
+
+
+A suite of open technologies:
+
+(a)synchronous data transfer via HTTP facilitated by the XMLHttpRequest object available via JavaScript in the Web browser
+
+HTML Living Standard, 15 March 2026
+xhr.spec.whatwg.org
+
+
+
+
+
+
+Basic component: XMLHttpRequest object
+
+can send HTTP requests - e.g., GET, POST,... - from a program running on client (browser)
+to a Web application/service existing on a server,
+in an asynchronous or synchronous way
+
+
+
+
+
+
+Basic component: XMLHttpRequest object
+
+it is not required anymore for the Web pages to be completely reloaded, their content - structured via HTML - being manipulated with DOM in the browser, in accordance with the data received from server
+
+
+
+
+
+
+Important methods provided by XMLHttpRequest open ( )
+initiates - opens - an HTTP connection to the server,
+issuing a request: GET, POST,...
+
+
+
+
+
+
+Important methods provided by XMLHttpRequest send ( )
+(asynchronously) transmits data - e.g., JSON, XML, etc. -,
+to the application/service running on server
+
+
+
+
+
+
+Important methods provided by XMLHttpRequest send ( )
+(asynchronously) transmits data - e.g., JSON, XML, etc. -,
+to the application/service running on server
+
+any listener (associated to the loadstart, progress, load, loadend, timeout, abort, error events)
+should be set before sending data
+
+
+
+
+
+
+Important methods provided by XMLHttpRequest abort ( )
+cancels the current data transfer
+
+
+
+
+
+
+Important methods provided by XMLHttpRequest setRequestHeader ( )
+specifies various HTTP header fields
+
+examples: Cookie, Keep-Alive, User-Agent,...
+
+
+
+
+
+
+Important methods provided by XMLHttpRequest getResponseHeader ( )
+provides the value of a certain Xield from the header of the
+HTTP response message sent by the server
+
+
+
+
+
+
+Important methods provided by XMLHttpRequest getAllResponseHeaders ( )
+provides all the HTTP Xields sent by the server,
+except Set-Cookie
+
+
+
+
+
+
+Basic properties of XMLHttpRequest readyState
+provides the code of transfer state:
+0 - UNSENT
+1 - OPENED
+2 - HEADERS_RECEIVED
+3 - LOADING
+4 - DONE
+
+
+
+
+
+
+Basic properties of XMLHttpRequest status
+provides the HTTP code returned by the Web server:
+200 (Ok)
+404 (Not Found)
+500 (Internal Server Error)
+...
+
+
+
+
+
+
+Basic properties of XMLHttpRequest statusText
+contains the message corresponding to
+the HTTP status code provided by the Web server
+
+
+
+
+
+
+Basic properties of XMLHttpRequest
+
+responseText responseXML
+stores the response (data) obtained from server
+
+
+
+
+
+
+Basic properties of XMLHttpRequest onreadystatechange
+specifies the function to be called at each change of state regarding data transfer between server and client
+
+
+
+
+
+advanced
+web interaction: ajax
+
+Exceptions that could be emitted
+
+AbortError InvalidAccessError InvalidStateError NetworkError SecurityError TimeoutError
+...
+
+
+Other features:
+
+advanced
+
+
+
+the data transmitted can be of several types (ArrayBuffer, Blob, Document, DOMString, FormData)
+
+the process of transmitting data to the server (upload) can have a handler associated via the upload property
+
+the upload progress can be tracked based on the features speciXied by the ProgressEvent interface
+
+setting a timeout for making a request (in milliseconds)
+
+web interaction: ajax - case study
+
+
+Verifying the existence of a username in order to create an account
+that provides access to a Web application
+
+
+
+
+Client
+
+
+open ("GET")
+
+open ("POST")
+send (...)
+ 
+Web server
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+browser's window
+
+XML data (on server)
+
+	checking asynchronously if an account exists on server	
+
+
+
+
+
+
+
+
+Checking the existence of a username in order to create an account
+that provides access to a Web application
+
+by handling with DOM the blur event, we can detect - by asynchronously querying the backend - if
+the account name entered by the user in a Web form already exists
+
+
+
+
+
+
+
+
+Checking the existence of a username in order to create an account
+that provides access to a Web application
+
+the Web application on the server will provide an XML document modeling the response
+to the question: "Does a user exist having that name?"
+
+<?php	// a PHP program, as a Web service, running on server define ('DOCXML', './particip.xml'); // location of the XML document
+// sending content type; here, XML header ('Content-type: text/xml');
+// function that verifies if a participant name already exists
+// returns 1 if name exists, 0 otherwise function checkIfNameExists ($aName) {
+// load data about participants by using SimpleXML
+if (!($xml = simplexml_load_file (DOCXML))) { return 0; }
+// scanning all participants' names found with XPath...
+foreach ($xml->xpath('/participants/participant/name') as $name) {
+// compare names; case insensitive
+if (!strcasecmp($aName, $name)) { return 1; }
+}
+return 0;
+}
+?>
+<response>
+<result><?php echo checkIfNameExists ($_REQUEST['name']); ?></result>
+</response>
+
+<!-- a Web form getting data from user -->
+<form action="add.php" method="get">
+<div>
+<label for="name">Account name:</label>
+<input type="text" name="name" id="name" placeholder="Enter the desired account name" onblur="javascript:signalNameExists (this.value, '')" />
+<!-- a message, initially hidden -->
+<span class="hidden" id="errName">
+Name already exists, choose another one...	
+
+</span>
+</div>
+
+<div>
+<label for="adr">Address:</label>
+<input type="text" name="adr" id="adr" />
+</div>
+
+<input type="submit" value="Apply" />
+</form>
+
+/* CSS styles */
+.err { /* error message */ display: inline;
+color: red;
+background-color: yellow; font-family: sans-serif;
+}
+.hidden { /* hidden message */ display: none;
+}
+
+// a JS program - the classic version - executed by the browser var request; // encapsulates the HTTP request to the Web server
+
+function loadXML (url) { // loads an XML document denoted by 'url'
+// checking the availability of XMLHttpRequest object if (window.XMLHttpRequest) {
+request = new XMLHttpRequest (); // there is native support
+} else
+if (window.ActiveXObject) { // we can use ActiveX object from MSIE request = new ActiveXObject ("Microsoft.XMLHTTP");
+}
+if (request) { // Ajax is supported
+// set the function that handles data transfer state request.onreadystatechange = handleResponse;
+// retrieving the document by using GET method
+request.open ("GET", url, true);
+request.send (null); // not sending anything to the Web service
+}
+}
+
+// handles the change of transfer state function handleResponse () {
+// verify if the transfer is successful
+if (request.readyState == 4) {
+if (request.status == 200) { // did we get '200 Ok' status code?
+// process received data with DOM
+// (get the root element of the XML document)
+var response = request.responseXML.documentElement;
+var res = response.getElementsByTagName('result')[0].firstChild.data;
+// calling a function that will modify the DOM tree of the Web page
+// according to the response transmitted by the invoked service
+// to signal the (in)existence of the username signalNameExists ('', res);
+}
+ // eventually, other HTTP status codes (404, 500, etc.) could be handled else {
+alert ("A problem occurred (XML data transfer):\n" +
+request.statusText);
+}
+}
+
+// function that checks the existence of a username function signalNameExists (name, exist) {
+// do we have an answer? if (exist != '') {
+// get via DOM methods the element having the id='errName'
+// to display the error message
+var msg = document.getElementById ('errName');
+// change the style (in case of error, the CSS properties
+// in the class 'eroare' will be applied, otherwise the text will be hidden) msg.className = exist == 1 ? 'err' : 'hidden';
+} else {
+// there is no answer set, will check asynchronously
+// by sending a request to the server loadXML ('verify.php?name=' + name);
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+the user provides an account name; via Ajax, (s)he will be notiMied
+if this name already exists, according to the XML response sent by the Web service
+HTTP request using the URL: http://web.info/verify.php?name=tux
+XML response: <response><result>1</result></response>
+
+
+
+
+
+
+
+
+Complementary, Fetch can be used
+(HTML Living Standard, 1 April 2026)
+
+API provided by any modern web browser for specifying access to data (resource representations) after initiating an HTTP request and
+getting a response from the server
+
+fetch.spec.whatwg.org
+
+
+
+
+
+
+
+
+
+
+The new Fetch API implemented by the browser is based on the concept of
+promise = a result that could be offered after executing
+an asynchronous operation
+
+represents an operation that has not completed yet, but is expected in the future
+
+advanced
+
+
+
+
+
+
+
+pending
+
+settled
+
+.then (onFullfilment)
+
+async actions
+
+pending
+
+
+
+Promise	Promise
+
+.then ()	...
+.catch ()
+
+
+
+
+
+
+error handling
+
+
+
+
+
+
+
+developer.mozilla.org/Web/JavaScript/Guide/Using_promises exploringjs.com/es6/ch_promises.html
+web.dev/promises/
+
+case study: RandomAjax (Fetch)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+gets asynchronously using Fetch API
+a sequence of random numbers generated by random.org - sent as plain text jsfiddle.net/busaco/a2q9regd/
+
+
+
+  We use promises to perform processings depending on the received HTTP status code
+
+function status(response) {
+if (response.status >= 200 && response.status < 300) {
+// the request can be fulfilled return Promise.resolve (response)
+} else {
+// the request was rejected
+return Promise.reject (new Error (response.statusText))
+}
+}
+
+let numbers = document.getElementById ('numbers');
+
+fetch (URL)
+.then (status) // check if data was successfully received
+// transform the object of the answer into a string
+.then (response => response.text ())
+// process the sequence of numbers
+.then (response => {
+// replace whitespaces with comma and put the content
+// into the HTML element identified by 'numbers' numbers.textContent = response.trim().replace (/\W+/g, ', ');
+})
+.catch (error => {	// an error occurred :( numbers.textContent = 'An error occurred: ' + error;
+
+});
+
+
+developer.mozilla.org/Web/API/Fetch_API
+
+
+case study: PostJSON
+
+
+
+
+
+
+
+
+Scenario - modern JS implementation (ES6):
+get characters from the client - inserted in <textarea> - and send them asynchronously via POST to a Web application that runs on a server which sends them back
+
+data transferred in JSON format
+{ "key": "character", "date": "seconds" }
+
+handle the keypress event to capture the keys pressed by the user
+
+// ES6 code interpreted by the Web browser
+// handle the key press event const trateazaEveniment = ev => {
+// the message sent to the server via POST
+// when the event occurs
+let msg = `{ "tasta": "${String.fromCharCode (ev.charCode)}", "data": "${Date.now()}" }`;
+// create a POST request, encapsulated in a Request object let request = new Request ('/ajax/post.php', {
+method: 'POST',
+// convert JSON data intro string body: JSON.stringify (msg),
+// no header fields headers: {}
+});
+
+fetch (request) // we promise to execute the code, by sending the request...
+.then (response => {	// check if we received JSON data from the server let contentType = response.headers.get ('Content-Type');
+if (contentType && contentType.includes('application/json')) {
+return response.json ();
+};
+throw new TypeError ("Datele primite nu-s JSON");
+})
+.then (json => {	// process date
+// create via DOM a text node which indicates the key that was pressed let elem = document.createTextNode (json.tasta); document.getElementById ('tasteApasate').appendChild (elem);
+// log received data into browser's console console.log
+(`Date JSON primite: tasta=${json.tasta}, data=${Date(json.data)}`);
+})
+};
+// via DOM, handle keypress event document.addEventListener ('keypress', trateazaEveniment);
+
+// post.php - PHP program which receives JSON data
+// sent via POST by a client and sends them back (echo)
+
+function eJSONValid ($sir) {	// check if JSON data is correct json_decode ($sir);
+return json_last_error () == JSON_ERROR_NONE;
+}
+
+// get from standard input the data sent by the client (raw data)
+// (here, the one in a POST request)
+$date = trim (file_get_contents ("php://input"));
+
+if (eJSONValid ($date)) { // if ok, send the data back header ("Content-type: application/json");
+echo json_decode ($date);
+} else
+die ("Date incorecte");
+the Web application (service) invoked on the server
+
+Redare taste apasate (trimise si unei aplicatii pe server)
+Web
+Taste: Web
+5' 0	ln1spector	[)	Console	D Debugger	(j) Performance	t+ Network	>>	(ID	oJ ••• X
+
+lffi1	'fl	Filter URLs
+
+All	HTML	CSS	JS	XHR	Fonts	Images	Media	WS	Other
+
+11	tS)	Disable Cache	No Throttling !
+
+
+
+St...	Met...	File	Initiator	Transferred	Size	Headers	Cookies	Request	Response	,,..
+
+200 POST	post.pl
+
+
+post-chars.html:26 (fetch)	228 B	41 B
+
+V Filter properties
+
+fimJ POST	post.pl  post-chars.html:26 (fetch)
+
+228 B
+
+41 B
+
+
+JSON
+
+Text
+
+Raw a)
+
+fimJ POST	post.pl  post-chars.html:26 (fetch)
+
+228 B
+
+41 B
+
+1	{	11tasta11:	11W11,	11data11:	11162092051416811  }
+
+
+
+
+5' 0	Inspector	[)	Console	D Debugger	(j) Performance	f.j, Network	>>
+
+Cfil	6J ••• X
+
+1ffiJ	V Filter Output	Errors	Warnings	Logs	Info	Debug	CSS	XHR	Requests	i),
+
+? fZID    POST      http://loca1host:8080/post.php
+? 
+
+[HTTP/1.1 flmJ OK 0ms]
+
+
+European Summer Time)
+? 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+inspecting transferred data using the Web developer tools provided by the browser
+
+
+
+
+ data transfer can be monitored (+intercepted) via dedicated tools
+
+
+
+
+
+
+
+
+Ajax offers the premises for asynchronous invocation of REST Web (micro-)services
+
+
+
+
+
+
+
+
+Ajax offers the premises for asynchronous invocation of REST Web (micro-)services
+using various representations of transferred data: POX (Plain Old XML)
+JSON (JavaScript Object Notation) AHAH (Asynchronous HTML and HTTP) plain text
+
+advanced
+web interaction: ajax
+
+
+
+
+
+       Alternative solutions: adopting various HTML5 technologies
+server-sent events
+developer.mozilla.org/docs/Web/API/Server-sent_events
+
+WebSockets (living standard - 15 March 2026) websockets.spec.whatwg.org developer.mozilla.org/docs/Web/API/WebSockets_API
+
+summary
+
+
+XML/HTML access via DOM
+
+
+
+characterization, specification, interfaces, XPath, events, data- attributes, Ajax, examples
+
+
+
+
+
+
+representation
+
+representation2
+
+representation3
+
+1
+(HTML)
+
+resource1
+
+
+GET
+
+(HTML)
+
+resource2
+
+POST
+
+(HTML)
+
+resource3
+
+
+
+
+
+
+
+
+GET
+
+representation4 (Atom)
+
+resource4
+
+
+
+
+
+
+
+next episode: Web services
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

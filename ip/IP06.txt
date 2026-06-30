@@ -1,0 +1,538 @@
+Cursul 6 – 1 Aprilie 2025
+adiftene@info.uaic.ro
+
+1
+
+ Din Cursurile trecute…
+ SOLID Principles
+ Design Patterns
+
+◦ Definitions
+◦ Elements
+◦ Example
+◦ Classification
+ JUnit Testing
+
+◦ Netbeans (Exemplu 1)
+◦ Eclipse (Exemplu 2)
+
+2
+
+ Etapele Dezvoltării Programelor
+ Ingineria Cerinţelor
+ Diagrame UML
+ SOLID
+ GRASP
+
+3
+
+ Principii, responsabilități
+ Information Expert
+ Creator
+ Low Coupling
+ High Cohesion
+ Controller
+
+4
+
+ SOLID Principles
+
+◦ SRP – Single Responsibility Principle
+◦ OCP – Open/Closed Principle
+◦ LSP – Liskov Substitution Principle
+
+◦ ISP – Interface Segregation Principle
+◦ DIP – Dependency Inversion Principle
+ DRY – Don't Repeat Yourself
+ YAGNI – You Aren't Gonna Need It
+ KISS – Keep It Simple, Stupid
+5
+
+ Din Cursurile trecute…
+ Design Patterns
+
+◦ Definitions
+◦ Elements
+◦ Example
+◦ Classification
+ JUnit Testing
+
+◦ Netbeans (Exemplu 1)
+◦ Eclipse (Exemplu 2)
+
+6
+
+ If a problem occurs over and over again, a
+
+solution to that problem has been used
+effectively (solution = pattern)
+
+ When you make a design, you should know the
+
+names of some common solutions. Learning
+design patterns is good for people to
+communicate each other effectively
+
+7
+
+ “Design patterns capture solutions that have
+
+developed and evolved over time” (GOF - Gang-OfFour (because of the four authors who wrote it),
+
+Design Patterns: Elements of Reusable ObjectOriented Software)
+
+ In software engineering (or computer science), a
+
+design pattern is a general repeatable solution to a
+commonly occurring problem in software design
+
+ The design patterns are language-independent
+
+strategies for solving common object-oriented
+design problems
+
+8
+
+ Initial was the name given to a leftist political
+
+faction composed of four Chinese Communist party
+officials
+ The name of the book (“Design Patterns: Elements
+of Reusable Object-Oriented Software”) is too long
+for e-mail, so “book by the gang of four” became a
+shorthand name for it
+ That got shortened to "GOF book“. Authors are:
+
+Erich Gamma, Richard Helm, Ralph Johnson, John
+Vlissides
+ The design patterns in their book are descriptions
+of communicating objects and classes that are
+customized to solve a general design problem in a
+particular context
+
+9
+
+1.
+
+Pattern name
+
+2.
+
+Problem
+
+3.
+
+Solution
+
+4.
+
+Consequences
+
+10
+
+ A handle used to describe a design problem,
+
+its solutions, and consequences in a word or
+two
+ Naming a pattern immediately increases our
+design vocabulary. It lets us design at a higher
+level of abstraction
+ Having a vocabulary for patterns lets us talk
+about them with our colleagues, in our
+documentation
+ Finding good names has been one of the
+hardest parts of developing our catalog
+11
+
+ Describes when to apply the pattern. It
+
+explains the problem and its context
+ It might describe specific design problems
+such as how to represent algorithms as
+objects
+ It might describe class or object structures
+that are symptomatic of an inflexible design
+ Sometimes the problem will include a list of
+conditions that must be met before it makes
+sense to apply the pattern
+12
+
+ Describes the elements that make up the design,
+
+their relationships, responsibilities, and
+collaborations
+ The solution doesn’t describe a particular
+concrete design or implementation, because a
+pattern is like a template that can be applied in
+many different situations
+ Instead, the pattern provides an abstract
+description of a design problem and how a
+general arrangement of elements (classes and
+objects in our case) solves it
+
+13
+
+ Are the results and trade-offs of applying the
+
+pattern
+ They are critical for evaluating design alternatives
+and for understanding the costs and benefits of
+applying the pattern
+ The consequences for software often concern
+space and time trade-offs, they can address
+language and implementation issues as well
+ Include its impact on a system's flexibility,
+extensibility, or portability
+ Listing these consequences explicitly helps you
+understand and evaluate them
+14
+
+ Pattern name: Initialization
+ Problem: It is important for some code
+
+sequence to be executed only once at the
+beginning of the execution of the program.
+
+ Solution: The solution is to use a static variable
+
+that holds information on whether or not the
+code sequence has been executed.
+
+ Consequences: The solution requires the
+
+language to have a static variable that can be
+allocated storage at the beginning of the
+execution, initialized prior to the execution and
+remain allocated until the program termination.
+15
+
+ Pattern Name and Classification
+
+ Intent - the answer to question: What does the
+
+design pattern do?
+
+ Also Known As
+ Motivation - A scenario that illustrates a design
+
+problem and how the class and object structures in
+the pattern solve the problem
+ Applicability - What are the situations in which the
+design pattern can be applied? How can you
+recognize these situations?
+ Related Patterns
+16
+
+ Structure - A graphical representation of the classes in
+
+the pattern
+ Participants - The classes and/or objects participating
+in the design pattern and their responsibilities
+ Collaborations - How the participants collaborate to
+carry out their responsibilities
+ Consequences - How does the pattern support its
+objectives?
+ Implementation – What techniques should you be
+aware of when implementing the pattern?
+ Sample Code
+ Known Uses - Examples of the pattern found in real
+systems
+
+17
+
+ Creational patterns
+ Structural patterns
+ Behavioral patterns
+ NOT in GOF: Fundamental, Partitioning, GRASP,
+
+GUI, Organizational Coding, Optimization
+Coding, Robustness Coding, Testing,
+Transactions, Distributed Architecture,
+Distributed Computing, Temporal, Database,
+Concurrency patterns
+
+18
+
+ Abstract Factory groups object factories that have
+
+a common theme
+ Builder constructs complex objects by separating
+construction and representation
+ Factory Method creates objects without specifying
+the exact class to create
+ Prototype creates objects by cloning an existing
+object
+ Singleton restricts object creation for a class to
+only one instance
+ Not in GOF book: Lazy initialization, Object pool,
+Multiton, Resource acquisition (is initialization)
+
+19
+
+ Adapter allows classes with incompatible interfaces to
+
+work together
+ Bridge decouples an abstraction from its
+implementation so that the two can vary independently
+ Composite composes zero-or-more similar objects so
+that they can be manipulated as one object.
+ Decorator dynamically adds/overrides behavior in an
+existing method of an object
+ Facade provides a simplified interface to a large body
+of code
+ Flyweight reduces the cost of creating and
+manipulating a large number of similar objects
+ Proxy provides a placeholder for another object to
+control access, reduce cost, and reduce complexity
+20
+
+ Chain of responsibility delegates commands to a
+
+chain of processing objects
+ Command creates objects which encapsulate
+actions and parameters
+ Interpreter implements a specialized language
+ Iterator accesses the elements sequentially
+ Mediator allows loose coupling between classes by
+being the only class that has detailed knowledge of
+their methods
+ Memento provides the ability to restore an object
+to its previous state
+21
+
+ Observer allows to observer objects to see an event
+ State allows an object to alter its behavior when its
+
+internal state changes
+ Strategy allows one of a family of algorithms to be
+selected on-the-fly at runtime
+ Template defines an algorithm as an abstract class,
+allowing its subclasses to provide concrete
+behavior
+ Visitor separates an algorithm from an object
+structure
+ Not in GOF book: Null Object, Specification
+22
+
+ Patterns
+ Creational
+ Structural
+ Behavioral
+
+23
+
+ With more than 20 design patterns to choose from,
+
+it might be hard to find the one that addresses a
+particular design problem
+
+ Approaches to finding the design pattern that’s
+
+right for your problem:
+1.
+2.
+3.
+4.
+5.
+6.
+
+Consider how design patterns solve design problems
+Scan Intent sections
+Study relationships between patterns
+Study patterns of like purpose (comparison)
+Examine a cause of redesign
+Consider what should be variable in your design
+24
+
+1.
+2.
+3.
+4.
+5.
+6.
+7.
+
+Read the pattern once through for an overview
+Go back and study the Structure, Participants,
+and Collaborations sections
+
+Look at the Sample Code section to see a
+concrete example
+Choose names for pattern participants that are
+meaningful in the application context
+Define the classes
+Define application-specific names for operations
+in the pattern
+Implement the operations to carry out the
+responsibilities and collaborations in the pattern
+
+25
+
+ Din Cursurile trecute…
+ Design Patterns
+
+◦ Definitions
+◦ Elements
+◦ Example
+◦ Classification
+ JUnit Testing
+
+◦ Netbeans (Exemplu 1)
+◦ Eclipse (Exemplu 2)
+
+26
+
+ Testarea unei funcţii, a unui program, a unui ecran,
+
+a unei funcţionalităţi
+ Se face de către programatori
+ Predefinită
+ Rezultatele trebuie documentate
+ Se folosesc simulatoare pentru Input şi Output
+
+27
+
+28
+
+29
+
+30
+
+31
+
+32
+
+33
+
+34
+
+35
+
+36
+
+37
+
+ NetBeans - TikiOne JaCoCoverage:
+ http://plugins.netbeans.org/plugin/48570/tikio
+
+ne-jacocoverage
+
+ Java Code Coverage for Eclipse:
+ http://www.eclemma.org/
+ IntelliJ – Running with coverage:
+ https://www.jetbrains.com/help/idea/2016.3/r
+
+unning-with-coverage.html
+
+38
+
+39
+
+40
+
+41
+
+ Using AI Coding assistant (GitHub Copilot,
+
+Microsoft Copilot, ChatGPT)
+
+ Prompt based Testing Code Generation
+
+(Claude)
+
+ Custom AI models (fine tunned GPT models)
+
+
+
+
+create a Java class for student with a method that verify the year of
+a student
+Develop a comprehensive suite of unit tests for the student. Write
+multiple test methods that cover a wide range of scenarios,
+including edge cases, exception handling, and data validation. 42
+
+https://github.com/copilot/
+
+43
+
+44
+
+https://copilot.cloud.microsoft/
+
+45
+
+46
+
+ SOLID
+ Design Patterns
+
+◦ Definitions, Elements, Example, Classification
+ JUnit Testing
+
+47
+
+ Clients
+
+◦ A general description of the objectives is sufficient to
+begin writing program
+◦ Requirements are constantly changing, but the
+software is flexible and can easy adapts
+ Developers
+
+◦ Once the program is written and it is functional, our
+role has ended
+◦ Until the program doesn’t work, we can not assess the
+quality
+◦ The only good product is the functional program
+◦ Software Engineering will create voluminous and
+unnecessary documentation and will cause delays
+48
+
+ 1) Argumentați pentru folosirea DP.
+ 2) Veniți cu argumente pentru a nu folosi DP.
+ Criticism:
+
+http://sourcemaking.com/design_patterns
+
+49
+
+ Erich Gamma, Richard Helm, Ralph Johnson, and
+
+John Vlissides: Design Patterns: Elements of
+
+Reusable Object-Oriented Software
+
+(GangOfFour)
+ Ovidiu Gheorghieş, Curs 7 IP
+ Adrian Iftene, Curs 9 TAIP:
+http://thor.info.uaic.ro/~adiftene/Scoala/2011/
+TAIP/Courses/TAIP09.pdf
+
+50
+
+Gang-Of-Four: http://c2.com/cgi/wiki?GangOfFour,
+http://www.uml.org.cn/c%2B%2B/pdf/DesignPatterns.pdf
+ Design Patterns Book: http://c2.com/cgi/wiki?DesignPatternsBook
+ About Design Patterns: http://www.javacamp.org/designPattern/
+ Design Patterns – Java companion:
+http://www.patterndepot.com/put/8/JavaPatterns.htm
+ Java Design patterns:
+http://www.allapplabs.com/java_design_patterns/java_design_patter
+ns.htm
+ Overview of Design Patterns:
+http://www.mindspring.com/~mgrand/pattern_synopses.htm
+ Gang of Four: http://en.wikipedia.org/wiki/Gang_of_four
+ JUnit in Eclipse: http://www.vogella.de/articles/JUnit/article.html
+ JUnit in NetBeans: http://netbeans.org/kb/docs/java/junit-intro.html
+
+
+51
+
+Vă Mulţumesc!
+Pentru prezenţă,
+răbdare,
+colaborare...
+
+52
+
+

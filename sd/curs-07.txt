@@ -1,0 +1,1103 @@
+Grafuri
+
+SD 2021/2022
+
+Conţinut
+
+Tipul abstract Graf
+Tipul abstract Digraf
+Implementarea cu matrici de adiacenţă
+Implementarea cu liste de adiacenţă ı̂nlănţuite
+Algoritmi de parcurgere (DFS, BFS)
+Determinarea componentelor (tare) conexe
+
+FII, UAIC
+
+Curs 7
+
+SD 2021/2022
+
+2 / 51
+
+Grafuri
+I G = (V , E )
+I V mulţime de vârfuri
+I E mulţime de muchii; o muchie = o pereche neordonată de vârfuri
+distincte
+
+V = {0, 1, 2, 3}
+E = {{0, 1}, {0, 2}, {1, 2}, {2, 3}}
+u = {0, 1} = {1, 0}
+
+0,1 - extremităţile lui u
+u este incidentă ı̂n 0 şi 1
+0 şi 1 sunt adiacente (vecine)
+
+FII, UAIC
+
+Curs 7
+
+SD 2021/2022
+
+3 / 51
+
+Grafuri
+I Mers de la u la v (walk): u = i0 , {i0 , i1 }, i1 , · · · , {ik−1 , ik }, ik = v
+3, {3,2}, 2, {2,0}, 0, {0,1}, 1, {1,3},3, {3,2}, 2
+I parcurs (trail): mers ı̂n care oricare două muchii sunt distincte
+I circuit = parcurs ı̂nchis ı̂n care oricare două muchii intermediare sunt
+distincte
+I drum (path): mers ı̂n care oricare două vârfuri sunt distincte
+I ciclu (cycle): drum ı̂nchis i0 = ik
+
+FII, UAIC
+
+Curs 7
+
+SD 2021/2022
+
+4 / 51
+
+Subgraf indus
+
+I G = (V , E ) – graf, W – submulţime a lui V
+I Subgraf indus de W : G 0 (W , E 0 ), unde
+E 0 = {{i, j}|{i, j} ∈ E şi i ∈ W , j ∈ W }
+
+FII, UAIC
+
+Curs 7
+
+SD 2021/2022
+
+5 / 51
+
+Grafuri - Conexitate
+Orice graf poate fi exprimat ca fiind reuniunea disjunctă de subgrafuri
+induse, conexe s, i maximale (componente conexe).
+I i R j dacă şi numai dacă există drum de la i la j
+I R este relaţie de echivalenţă
+I V1 , · · · , Vp clasele de echivalenţă
+I G1 , · · · , Gp componente conexe, Gi = (Vi , Ei ) subgraful indus de Vi
+
+I graf conex = graf cu o singură componentă conexă
+FII, UAIC
+
+Curs 7
+
+SD 2021/2022
+
+6 / 51
+
+Tipul de date abstract Graf
+I obiecte:
+I grafuri G = (V , E ), V = {0, 1, · · · , n − 1}
+
+I operaţii:
+I grafVid()
+I intrare: nimic
+I ieşire: graful vid (∅, ∅)
+
+I esteGrafVid()
+I intrare: G = (V , E ),
+I ieşire: true daca G = (∅, ∅), false ı̂n caz contrar
+
+I insereazaMuchie()
+I intrare: G = (V , E ), i, j ∈ V
+I ieşire: G = (V , E ∪ {i, j})
+
+I insereazaVarf()
+I intrare: G = (V , E ), V = {0, 1, · · · , n − 1}
+I ieşire: G = (V 0 , E ), V 0 = {0, 1, · · · , n − 1, n}
+
+FII, UAIC
+
+Curs 7
+
+SD 2021/2022
+
+7 / 51
+
+Tipul de date abstract Graf
+I eliminaMuchie()
+I intrare: G = (V , E ), i, j ∈ V
+I ieşire: G = (V , E \ {i, j})
+
+I eliminaVarf()
+I intrare: G = (V , E ), V = {0, 1, · · · , n − 1}, k
+I ieşire: G = (V 0 , E 0 ), V 0 = {0, 1, · · · , n − 2}
+{i 0 , j 0 } ∈ E 0 ⇔ (∃{i, j} ∈ E ) i 6= k, j 6= k,
+i 0 = if (i < k) then i else i − 1,
+j 0 = if (j < k) then j else j − 1
+
+FII, UAIC
+
+Curs 7
+
+SD 2021/2022
+
+8 / 51
+
+Tipul de date abstract Graf
+
+I listaDeAdiacenta()
+I intrare: G = (V , E ), i ∈ V
+I ieşire: lista vârfurilor adiacente cu i
+
+I listaVarfurilorAccesibile()
+I intrare: G = (V , E ), i ∈ V
+I ieşire: lista vârfurilor accesibile din i
+
+FII, UAIC
+
+Curs 7
+
+SD 2021/2022
+
+9 / 51
+
+Conţinut
+
+Tipul abstract Graf
+Tipul abstract Digraf
+Implementarea cu matrici de adiacenţă
+Implementarea cu liste de adiacenţă ı̂nlănţuite
+Algoritmi de parcurgere (DFS, BFS)
+Determinarea componentelor (tare) conexe
+
+FII, UAIC
+
+Curs 7
+
+SD 2021/2022
+
+10 / 51
+
+Digraf (graf orientat)
+
+I D = (V , A)
+I V mulţime de vârfuri
+I A mulţime de arce; un arc = o pereche ordonată de vârfuri distincte
+
+V = {0, 1, 2, 3}
+A = {(0, 1), (2, 0), (1, 2), (3, 2)}
+a = (0, 1) 6= (1, 0)
+
+0 – sursa lui a
+1 – destinaţia lui a
+
+FII, UAIC
+
+Curs 7
+
+SD 2021/2022
+
+11 / 51
+
+Digraf
+I mers (walk): i0 , (i0 , i1 ), i1 , · · · , (ik−1 , ik ), ik
+3, (3,2), 2, (2,0), 0, (0,1), 1, (1,2), 2, (2,0), 0
+I parcurs (trail): mers ı̂n care oricare două arce sunt distincte
+I circuit = parcurs ı̂nchis ı̂n care oricare două arce intermediare sunt
+distincte
+I drum (path): mers ı̂n care oricare două vârfuri sunt distincte
+I ciclu (cycle): drum ı̂nchis i0 = ik
+
+FII, UAIC
+
+Curs 7
+
+SD 2021/2022
+
+12 / 51
+
+Digraf - Conexitate
+I i R j dacă şi numai dacă există drum de la i la j şi drum de la j la i
+I R este relaţie de echivalenţă
+I V1 , · · · , Vp clasele de echivalenţă
+I G1 , · · · , Gp componente tare conexe, Gi = (Vi , Ai ) subdigraful indus
+de Vi
+I digraf tare conex = digraf cu o singură componentă tare conexă
+I digraf conex
+V 1 = {0, 1, 2}
+A1 = {(0, 1), (1, 2), (2, 0)}
+V 2 = {3}
+A2 = ∅
+
+FII, UAIC
+
+Curs 7
+
+SD 2021/2022
+
+13 / 51
+
+Tipul de date abstract Digraf
+I obiecte: digrafuri D = (V , A)
+I operaţii:
+I digrafVid()
+I intrare: nimic
+I ieşire: digraful vid (∅, ∅)
+
+I esteDigrafVid()
+I intrare: D = (V , A),
+I ieşire: true dacă D = (∅, ∅), false ı̂n caz contrar
+
+I insereazaArc()
+I intrare: D = (V , A), i, j ∈ V
+I ieşire: D = (V , A ∪ (i, j))
+
+I insereazaVarf()
+I intrare: D = (V , A), V = {0, 1, · · · , n − 1}
+I ieşire: D = (V 0 , A), V 0 = {0, 1, · · · , n − 1, n}
+
+FII, UAIC
+
+Curs 7
+
+SD 2021/2022
+
+14 / 51
+
+Tipul de date abstract Digraf
+
+I eliminaArc()
+I intrare: D = (V , A), i, j ∈ V
+I ieşire: D = (V , A \ (i, j))
+
+I eliminaVarf()
+I intrare: D = (V , A), V = {0, 1, · · · , n − 1}, k
+I ieşire: D = (V 0 , A0 ), V 0 = {0, 1, · · · , n − 2}
+{i 0 , j 0 } ∈ A0 ⇔ (∃{i, j} ∈ A) i 6= k, j 6= k,
+i 0 = if (i < k) then i else i − 1,
+j 0 = if (j < k) then j else j − 1
+
+FII, UAIC
+
+Curs 7
+
+SD 2021/2022
+
+15 / 51
+
+Tipul de date abstract Digraf
+
+I listaDeAdiacentaExterioara()
+I intrare: D = (V , A), i ∈ V
+I ieşire: lista vârfurilor destinatare ale arcelor care pleacă din i
+
+I listaDeAdiacentaInterioara()
+I intrare: D = (V , A), i ∈ V
+I ieşire: lista vârfurilor sursă ale arcelor care sosesc ı̂n i
+
+I listaVarfurilorAccesibile()
+I intrare: D = (V , A), i ∈ V
+I ieşire: lista vârfurilor accesibile din i
+
+FII, UAIC
+
+Curs 7
+
+SD 2021/2022
+
+16 / 51
+
+Reprezentarea grafurilor ca digrafuri
+G = (V , E ) =⇒ D(G ) = (V , A)
+{i, j} ∈ E =⇒ (i, j), (j, i) ∈ A
+I topologia este păstrată
+I lista de adiacenţă a lui i ı̂n G = lista de adiacenţă exterioară
+(=interioară) a lui i ı̂n D
+
+FII, UAIC
+
+Curs 7
+
+SD 2021/2022
+
+17 / 51
+
+Conţinut
+
+Tipul abstract Graf
+Tipul abstract Digraf
+Implementarea cu matrici de adiacenţă
+Implementarea cu liste de adiacenţă ı̂nlănţuite
+Algoritmi de parcurgere (DFS, BFS)
+Determinarea componentelor (tare) conexe
+
+FII, UAIC
+
+Curs 7
+
+SD 2021/2022
+
+18 / 51
+
+Implementarea cu matrici de adiacenţă a digrafurilor
+
+I reprezentarea digrafurilor
+I n numărul de vârfuri
+I m numărul de arce (opţional)
+I o matrice (a[i, j]| 1 ≤ i, j ≤ n)
+a[i, j] = if (i, j) ∈ A then 1 else 0
+I dacă digraful reprezintă un graf, atunci a[i, j] este simetrică
+I lista de adiacenţă exterioară a lui i ⊆ linia i
+I lista de adiacenţă interioară a lui i ⊆ coloana i
+
+FII, UAIC
+
+Curs 7
+
+SD 2021/2022
+
+19 / 51
+
+Implementarea cu matrici de adiacenţă
+
+0
+1
+2
+3
+
+0
+0
+0
+1
+0
+
+1
+1
+0
+0
+1
+
+2
+0
+1
+0
+1
+
+FII, UAIC
+
+3
+0
+0
+0
+0
+
+Curs 7
+
+SD 2021/2022
+
+20 / 51
+
+Implementarea cu matrici de adiacenţă
+
+I operaţii
+I digrafVid
+n ← 0; m ← 0
+I insereazaVarf: O(n)
+I insereazaArc: O(1)
+I eliminaArc: O(1)
+
+FII, UAIC
+
+Curs 7
+
+SD 2021/2022
+
+21 / 51
+
+Implementarea cu matrici de adiacenţă
+
+I eliminaVarf()
+Procedure eliminaVarf(a, n, k)
+begin
+for i ← 0 to n − 1 do
+for j ← 0 to n − 1 do
+if (i > k) then
+a[i − 1, j] ← a[i, j]
+if (j > k) then
+a[i, j − 1] ← a[i, j]
+n ←n−1
+end
+timp de execuţie: O(n2 )
+
+FII, UAIC
+
+Curs 7
+
+SD 2021/2022
+
+22 / 51
+
+Implementarea cu matrici de adiacenţă
+
+I listaVarfurilorAccesibile()
+I Dacă i = j atunci j este accesibil din i
+Dacă i 6= j atunci există drum i
+j dacă există arc i → j sau există k:
+∃i
+k, k
+j
+
+FII, UAIC
+
+Curs 7
+
+SD 2021/2022
+
+23 / 51
+
+Lista vârfurilor accesibile
+Procedure inchReflTranz(a, n, b) // (Warshall, 1962)
+begin
+for i ← 0 to n − 1 do
+for j ← 0 to n − 1 do
+b[i, j] ← a[i, j]
+if (i = j) then
+b[i, j] ← 1
+for k ← 0 to n − 1 do
+for i ← 0 to n − 1 do
+if (b[i, k] = 1) then
+for j ← 0 to n − 1 do
+if (b[k, j] = 1) then
+b[i, j] ← 1
+end
+timp de execut, ie: O(n3 )
+FII, UAIC
+
+Curs 7
+
+SD 2021/2022
+
+24 / 51
+
+Conţinut
+
+Tipul abstract Graf
+Tipul abstract Digraf
+Implementarea cu matrici de adiacenţă
+Implementarea cu liste de adiacenţă ı̂nlănţuite
+Algoritmi de parcurgere (DFS, BFS)
+Determinarea componentelor (tare) conexe
+
+FII, UAIC
+
+Curs 7
+
+SD 2021/2022
+
+25 / 51
+
+Implementarea cu liste de adiacenţă
+
+I reprezentarea digrafurilor cu liste de adiacenţă exterioară
+
+I un tablou a[0..n − 1] de liste ı̂nlănţuite (pointeri)
+I a[i] este lista de adiacenţă exterioară corespunzătoare lui i
+
+FII, UAIC
+
+Curs 7
+
+SD 2021/2022
+
+26 / 51
+
+Implementarea cu liste de adiacenţă
+I operaţii
+I digrafVid
+I insereazaVarf: O(1)
+I insereazaArc: O(1)
+I eliminaVarf: O(n + m)
+I eliminaArc: O(m)
+
+FII, UAIC
+
+Curs 7
+
+SD 2021/2022
+
+27 / 51
+
+Conţinut
+
+Tipul abstract Graf
+Tipul abstract Digraf
+Implementarea cu matrici de adiacenţă
+Implementarea cu liste de adiacenţă ı̂nlănţuite
+Algoritmi de parcurgere (DFS, BFS)
+Determinarea componentelor (tare) conexe
+
+FII, UAIC
+
+Curs 7
+
+SD 2021/2022
+
+28 / 51
+
+Digrafuri: explorare sistematică
+
+I se gestionează două mulţimi
+I S = mulţimea vârfurilor vizitate deja
+I SB ⊆ S submulţimea vârfurilor pentru care există şanse să găsim vecini
+nevizitaţi ı̂ncă
+
+I lista de adiacenţă (exterioară) a lui i este divizată ı̂n două:
+
+FII, UAIC
+
+Curs 7
+
+SD 2021/2022
+
+29 / 51
+
+Digrafuri: explorare sistematică
+
+I pasul curent
+I citeşte un vârf i din SB
+I extrage un j din lista de “aşteptare” a lui i (dacă este nevidă)
+I dacă j nu este ı̂n S, atunci ı̂l adaugă la S şi la SB
+I dacă lista de “aşteptare” a lui i este vidă, atunci elimină i din SB
+
+I iniţial
+I S = SB = {i0 }
+I lista de “aşteptare a lui i” = lista de adiacenta a lui i
+
+I terminare SB = ∅
+
+FII, UAIC
+
+Curs 7
+
+SD 2021/2022
+
+30 / 51
+
+Digrafuri: explorare sistematică
+Procedure explorare(a, n, i0)
+begin
+for i ← 0 to n − 1 do
+p[i] ← a[i]
+SB ← (i0)
+viziteaza(i0); S ← (i0)
+while (SB 6= ∅) do
+i ← citeste(SB)
+if (p[i] = NULL) then
+SB ← SB \ {i}
+else
+j ← p[i] → varf
+p[i] ← p[i] → succ
+if (j 6∈ S) then
+SB ← SB ∪ {j}
+viziteaza(j)
+S ← S ∪ {j}
+end
+FII, UAIC
+
+Curs 7
+
+SD 2021/2022
+
+31 / 51
+
+Explorare sistematică: complexitate
+
+Teorema
+În ipoteza că operaţiile peste S şi SB precum şi viziteaza() se realizează ı̂n
+O(1), complexitatea timp, ı̂n cazul cel mai nefavorabil, a algoritmului
+explorare este O(n + m).
+
+FII, UAIC
+
+Curs 7
+
+SD 2021/2022
+
+32 / 51
+
+Explorarea DFS (Depth First Search)
+
+I SB este implementată ca stivă
+SB ← (i0) ⇔SB ← stivaVida()
+push(SB, i0)
+i ← citeste(SB) ⇔i ← top(SB)
+SB ← SB \ {i} ⇔pop(SB)
+SB ← SB ∪ {j} ⇔push(SB, j)
+
+FII, UAIC
+
+Curs 7
+
+SD 2021/2022
+
+33 / 51
+
+Explorarea DFS: exemplu
+
+FII, UAIC
+
+Curs 7
+
+SD 2021/2022
+
+34 / 51
+
+Explorarea BFS (Breadth First Search)
+
+I SB este implementată ca o coadă
+SB ← (i0) ⇔SB ← coadaVida();
+insereaza(SB, i0)
+i ← citeste(SB) ⇔citeste(SB, i)
+SB ← SB \ {i} ⇔elimina(SB)
+SB ← SB ∪ {j} ⇔insereaza(SB, j)
+
+FII, UAIC
+
+Curs 7
+
+SD 2021/2022
+
+35 / 51
+
+Explorarea BFS: exemplu
+
+FII, UAIC
+
+Curs 7
+
+SD 2021/2022
+
+36 / 51
+
+Conţinut
+
+Tipul abstract Graf
+Tipul abstract Digraf
+Implementarea cu matrici de adiacenţă
+Implementarea cu liste de adiacenţă ı̂nlănţuite
+Algoritmi de parcurgere (DFS, BFS)
+Determinarea componentelor (tare) conexe
+
+FII, UAIC
+
+Curs 7
+
+SD 2021/2022
+
+37 / 51
+
+Determinarea componentelor conexe (grafuri neorientate)
+
+Function CompConexeDFS(D)
+begin
+for i ← 0 to n − 1 do
+culoare[i] ← 0
+k ←0
+for i ← 0 to n − 1 do
+if (culoare[i] = 0) then
+k ←k +1
+DfsRecCompConexe(i, k)
+return k
+end
+
+FII, UAIC
+
+Curs 7
+
+SD 2021/2022
+
+38 / 51
+
+Determinarea componentelor conexe (grafuri neorientate)
+
+Procedure DfsRecCompConexe(i, k)
+begin
+culoare[i] ← k
+for (fiecare vârf j ı̂n listaDeAdiac(i)) do
+if (culoare[j] = 0) then
+DfsRecCompConexe(j, k)
+end
+
+FII, UAIC
+
+Curs 7
+
+SD 2021/2022
+
+39 / 51
+
+Componente tare conexe (digrafuri)
+O componentă tare conexă este o mult, ime maximală de vârfuri a.ı̂. pentru
+fiecare u, v : u
+v, v
+u.
+
+FII, UAIC
+
+Curs 7
+
+SD 2021/2022
+
+40 / 51
+
+Componente tare conexe: exemplu
+
+FII, UAIC
+
+Curs 7
+
+SD 2021/2022
+
+41 / 51
+
+Determinarea componentelor tare conexe
+
+Procedure DfsCompTareConexe(D)
+begin
+for i ← 0 to n − 1 do
+culoare[i] ← 0
+tata[i] ← −1
+timp ← 0
+for i ← 0 to n − 1 do
+if (culoare[i] = 0) then
+DfsRecCompTareConexe(i)
+end
+
+FII, UAIC
+
+Curs 7
+
+SD 2021/2022
+
+42 / 51
+
+Determinarea componentelor tare conexe
+
+Procedure DfsRecCompTareConexe(i)
+begin
+timp ← timp + 1
+culoare[i] ← 1
+for (fiecare vârf j in listaDeAdiac(i)) do
+if (culoare[j] = 0) then
+tata[j] ← i
+DfsRecCompTareConexe(j)
+timp ← timp + 1
+timpFinal[i] ← timp
+end
+
+FII, UAIC
+
+Curs 7
+
+SD 2021/2022
+
+43 / 51
+
+Determinarea componentelor tare conexe
+
+Notaţie: D T = (V , AT ), (i, j) ∈ A ⇔ (j, i) ∈ AT
+Procedure CompTareConexe(D)
+begin
+1. DFSCompTareConexe(D)
+2. calculează D T
+3. DFSCompTareConexe(D T ) dar considerând ı̂n bucla for
+principală vârfurile ı̂n ordinea descrescătoare a timpilor finali de
+vizitare timpFinal[i]
+4. returnează fiecare arbore calculat la pasul 3 ca fiind o
+componentă tare conexă separată
+end
+
+FII, UAIC
+
+Curs 7
+
+SD 2021/2022
+
+44 / 51
+
+Determinarea componentelor tare conexe: complexitate
+
+I DFSCompTareConexe(D): O(n + m)
+I calculează D T : O(m)
+I DFSCompTareConexe(D T ): O(n + m)
+I Total: O(n + m)
+
+FII, UAIC
+
+Curs 7
+
+SD 2021/2022
+
+45 / 51
+
+Aplicaţii
+Problema celor şapte poduri din Konigsberg (1736): identificarea unui
+drum, pornind dintr-o zonă a oras, ului pentru a traversa cele 7 poduri o
+singură dată?
+
+Zonele: vârfuri, podurile: muchii
+Este posibil să alegem un vârf, să parcurgem muchiile şi să ne intoarcem ı̂n
+varful ales, acoperind toate muchiile o dată?
+FII, UAIC
+
+Curs 7
+
+SD 2021/2022
+
+46 / 51
+
+Aplicaţii
+
+Algoritmică, inteligenţă artificială (satisfacerea restricţiilor), etc.
+Probleme de planificare
+I Digrafurile aciclice pot modela precedent, a ı̂ntre evenimente
+I O sortare topologică a unui digraf D = (V , A) este o ordonare a
+vârfurilor sale a.ı̂. dacă (i, j) ∈ A, atunci i apare ı̂naintea lui j.
+
+FII, UAIC
+
+Curs 7
+
+SD 2021/2022
+
+47 / 51
+
+Aplicaţii
+I Motorul de căutare Google: algoritmul PageRank - pentru a
+determina cât de importantă este o anumită pagină
+I Sistem informaţional geografic (GIS): Google Maps, Bing Maps
+
+I Reţele sociale
+
+FII, UAIC
+
+Curs 7
+
+SD 2021/2022
+
+48 / 51
+
+DNA word design
+
+I Proiectarea de coduri ADN care satisfac anumite restrict, ii
+combinatoriale; utilizare: ı̂n calculul biomolecular pentru a memora
+informat, ii sau pentru manipularea moleculelor
+I Determină cea mai mare mult, ime S de cuvinte de lungime n peste
+alfbetul {A, C , G , T } a.ı̂.:
+I GC Content Constraint: fiecare cuvânt are 50% simboluri din {C , G }
+I Hamming Distance Constraint: fiecare pereche de cuvinte w1 6= w2
+diferă ı̂n cel put, in d pozit, ii: H(w1 , w2 ) ≥ d
+I Reverse Complement Hamming Distance Constraint:
+H(R(w1 ), C (w2 )) ≥ d, unde R(w ) inversul cuvântului w s, i C (w )
+complementul lui w (C ↔ G , A ↔ T )
+
+FII, UAIC
+
+Curs 7
+
+SD 2021/2022
+
+49 / 51
+
+Modelare
+I pentru fiecare cuvânt ADN asignăm un vârf vi
+I E = EHD ∪ ERC (EHD perechi de cuvinte care au un conflict HD, ERC
+perechi de cuvinte cu un conflict RC)
+I solut, ie: o mult, ime independentă maximală
+Figura: Grafurile pentru cuvinte de dimensiune 2 s, i distant, a Hamming d = 2
+(stânga) s, i d = 3 (dreapta)
+
+TG
+
+AG
+
+CA
+CT
+
+FII, UAIC
+
+TG
+
+TC
+
+CA
+
+AC
+GA
+
+AG
+
+CT
+
+GT
+
+Curs 7
+
+TC
+AC
+
+GA
+
+GT
+
+SD 2021/2022
+
+50 / 51
+
+Solut, ie de 136 cuvinte pentru instant, a n = 8, d = 4
+AAACCACC
+AGTCCTCT
+CAAGCAGT
+CATGACTG
+CGAAGGTT
+CGGTGTAT
+CTGCAAGT
+GAAGGATC
+GAGTACAG
+GCGATCAT
+GGATAACG
+GTAACCAG
+GTGAGATG
+TAAGCTCG
+TAGTGTGC
+TCATGCTC
+TCGAGTAG
+TCTCTGAG
+TGCAGTCA
+TGGCTATG
+TGTTCGTC
+TTCGCCAT
+TTGTTGGG
+
+FII, UAIC
+
+ACCAGTGT
+AGTTGGCA
+CACAGTTG
+CATTCGCT
+CGACACAT
+CGTAAAGG
+CTTACCGT
+GACATGAG
+GATGCAAG
+GCGGAATT
+GGCAACTT
+GTAGAGTG
+GTGCTTCT
+TACACAGC
+TATCGACG
+TCCATGCT
+TCGCAAAC
+TCTGCACT
+TGCGTTAG
+TGGGATTC
+TTAAGGGC
+TTCGGGTA
+TTTCAGCC
+
+ACCCAAGA
+ATCCCGTT
+CACCAATC
+CCAGTCTT
+CGATTTGG
+CGTGTGAT
+CTTCCTAG
+GACCTAGT
+GATGTCCT
+GCTCGAAT
+GGGTTGTT
+GTATCGGT
+GTTAGGCT
+TACCGCTT
+TATGTGGC
+TCCCATTG
+TCGGTTGT
+TGAACCCT
+TGCTACAC
+TGTAGCTG
+TTACCAGG
+TTCTGACC
+TTTGGTGG
+
+ACGTAGTG
+ATGGGCTT
+CAGATGGT
+CCCTGATT
+CGCACAAT
+CTATGCCT
+GAAAGCGT
+GACTGTCT
+GCAATAGG
+GCTTATGG
+GGTATTCG
+GTCAGTAC
+GTTCTCTG
+TAGATCCG
+TCAACGTG
+TCCGTATC
+TCGTACCT
+TGACCTAC
+TGCTCTGT
+TGTCTCGT
+TTAGTCCC
+TTGACTCC
+TTTTCCCG
+
+Curs 7
+
+ACTGACGT
+CAAACCTC
+CAGGATCT
+CCGACTTT
+CGCCTTTT
+CTCGTACT
+GAACAGCT
+GAGAAGTC
+GCAGCTAT
+GGAAATGC
+GGTTCCAT
+GTCCAAAG
+GTTGACAC
+TAGGAAGG
+TCACGTCT
+TCCTCAAG
+TCTACCAC
+TGAGAGGT
+TGGAGAGT
+TGTGACCA
+TTCAACGG
+TTGCCCTA
+
+AGGAAGCT
+CAAGAGAC
+CATCGTGT
+CCTCAGTT
+CGCTAGTA
+CTGAAGAG
+GAACGTAG
+GAGACACT
+GCCTAGAT
+GGACCATT
+GGTTTAGC
+GTCGATGT
+TAACACGC
+TAGGCGTT
+TCAGACAG
+TCGAAGGA
+TCTCCTGA
+TGATGGAG
+TGGATGAC
+TGTGGAAC
+TTCCTTGC
+TTGCGGAT
+
+SD 2021/2022
+
+51 / 51
+
+

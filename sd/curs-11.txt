@@ -1,0 +1,542 @@
+Tabele de dispersie
+
+SD 2021/2022
+
+Cont, inut
+
+Tabele cu adresare directă
+Tabele de dispersie
+Dispersie externă
+Funcţii de dispersie
+Dispersie internă
+
+FII, UAIC
+
+Curs 11
+
+SD 2021/2022
+
+2 / 29
+
+Tabele de simboluri
+I Tabela de simboluri S cu n ı̂nregistrări;
+I Fiecare ı̂nregistrare are asociată o cheie (unică);
+I Operat, ii: cauta(S, k), insereaza(S, x), sterge(S, x);
+I Cum poate fi organizată structura de date S?
+
+FII, UAIC
+
+Curs 11
+
+SD 2021/2022
+
+3 / 29
+
+Tabela cu adresare directă
+
+I U = {0, 1, ..., m − 1} mult, imea univers a cheilor;
+I Un tablou T [0..m − 1]:
+
+T [k] =
+
+x
+NULL
+
+daca x ∈ S s, i x.cheie = k
+altfel.
+
+I Fiecare pozit, ie (slot) din tablou corespunde unei chei din universul U.
+I Dacă |S| = n, atunci n ≤ m.
+
+FII, UAIC
+
+Curs 11
+
+SD 2021/2022
+
+4 / 29
+
+Tabela cu adresare directă - Operat, ii
+I Operat, ii
+Function cauta(T , k)
+begin
+return T [k]
+end
+Procedure insereaza(T , x)
+begin
+T [x.cheie] = x
+end
+Procedure sterge(T , x)
+begin
+T [x.cheie] = NULL
+end
+I Complexitatea timp a operat, iilor: Θ(1)
+FII, UAIC
+
+Curs 11
+
+SD 2021/2022
+
+5 / 29
+
+Tabela cu adresare directă
+I Spat, iul de memorare: Θ(|U|).
+I Probleme:
+I cheile pot să nu fie numere ı̂ntregi;
+I domeniul de valori al cheilor este foarte mare:
+I numere pe 64 de bit, i (18.446.744.073.709.551.616 chei diferite)
+I s, iruri de caractere;
+
+I mult, imea de chei memorate este foarte mică relativ la U.
+
+I Solut, ie: tabela de dispersie
+I o generalizare a not, iunii de tabelă cu adresare directă;
+I o structură de date eficientă pentru implementarea dict, ionarelor.
+
+FII, UAIC
+
+Curs 11
+
+SD 2021/2022
+
+6 / 29
+
+Cont, inut
+
+Tabele cu adresare directă
+Tabele de dispersie
+Dispersie externă
+Funcţii de dispersie
+Dispersie internă
+
+FII, UAIC
+
+Curs 11
+
+SD 2021/2022
+
+7 / 29
+
+Tabela de dispersie
+I Utilizează o funct, ie de dispersie (hash) h pentru a asocia cheilor din
+universul U o valoare din mult, imea {0, 1, · · · , m − 1}.
+
+I Un element cu cheia k are asociată pozit, ia h(k) ı̂n tabela T .
+I Funct, ia de dispersie reduce domeniul de valori a indicilor s, i implicit
+dimensiunea vectorului memorat.
+I Coliziune: ∃ x1 , x2 ∈ S astfel ı̂ncât h(x1 .cheie) = h(x2 .cheie)
+FII, UAIC
+
+Curs 11
+
+SD 2021/2022
+
+8 / 29
+
+Cont, inut
+
+Tabele cu adresare directă
+Tabele de dispersie
+Dispersie externă
+Funcţii de dispersie
+Dispersie internă
+
+FII, UAIC
+
+Curs 11
+
+SD 2021/2022
+
+9 / 29
+
+Rezolvarea coliziunilor prin ı̂nlănt, uire (dispersie externă)
+I Înregistrările care au asociate acelas, i slot vor fi memorate ı̂ntr-o listă
+liniară. T devine tablou de pointeri.
+
+I Solut, ie simplă, dar necesită spat, iu suplimentar de memorie.
+I Cazul cel mai nefavorabil: toate cheile au asociate acelas, i slot
+I timpul de acces: Θ(n).
+FII, UAIC
+
+Curs 11
+
+SD 2021/2022
+
+10 / 29
+
+Dispersie externă – Operat, ii
+Function cauta(T , k)
+begin
+caută elementul cu cheia k ı̂n lista T [h(k)]
+end
+Procedure insereaza(T , x)
+begin
+inserează x la ı̂nceputul listei T [h(x.cheie)]
+end
+Procedure sterge(T , x)
+begin
+s, terge x din lista T [h(x.cheie)]
+end
+
+FII, UAIC
+
+Curs 11
+
+SD 2021/2022
+
+11 / 29
+
+Dispersie externă – analiza complexităt, ii
+I Căutare:
+Complexitatea ı̂n cazul cel mai nefavorabil depinde de lungimea listei.
+
+I Inserare:
+Complexitatea ı̂n cazul cel mai nefavorabil: O(1).
+
+I S, tergere:
+O(1) dacă avem liste liniare dublu ı̂nlănt, uite; dacă lucrăm cu liste
+liniare simplu ı̂nlănt, uite, trebuie ı̂ntâi să căutăm x s, i să ret, inem
+predecesorul acestuia pentru a putea reface legatura.
+
+FII, UAIC
+
+Curs 11
+
+SD 2021/2022
+
+12 / 29
+
+Dispersie externă – analiza complexităt, ii ı̂n cazul mediu
+I Ipoteza dispersiei uniforme simple: fiecare cheie k ∈ U are o
+probabilitate egală de a fi memorată ı̂n oricare locat, ie din tabela T s, i
+independent de locat, iile altor chei.
+
+I Factorul de ı̂ncărcare al tabelei T este
+α = n/m,
+unde n este numărul de chei (|S|), iar m numărul de locat, ii
+(dimensiunea tabloului T ).
+
+I Timpul de calcul al funct, iei de dispersie este Θ(1).
+FII, UAIC
+
+Curs 11
+
+SD 2021/2022
+
+13 / 29
+
+Dispersie externă – analiza complexităt, ii ı̂n cazul mediu
+Teoremă:
+Considerând o tabelă de dispersie ı̂n care coliziunile sunt rezolvate prin
+ı̂nlănt, uire, ı̂n ipoteza dispersiei uniforme simple, o căutare fără succes are
+complexitatea timp ı̂n cazul mediu Θ(1 + α).
+
+Teoremă:
+Într-o tabelă de dispersie ı̂n care coliziunile sunt rezolvate prin ı̂nlănt, uire,
+ı̂n ipoteza dispersiei uniforme simple, o căutare cu succes are
+complexitatea timp ı̂n cazul mediu Θ(1 + α).
+
+Corolar:
+Dacă numărul de sloturi este cel put, in proport, ional cu numărul de
+elemente (n = O(m) sau, echivalent, α = O(1)), atunci operat, ia de
+căutare are complexitatea, ı̂n medie, O(1).
+FII, UAIC
+
+Curs 11
+
+SD 2021/2022
+
+14 / 29
+
+Cont, inut
+
+Tabele cu adresare directă
+Tabele de dispersie
+Dispersie externă
+Funcţii de dispersie
+Dispersie internă
+
+FII, UAIC
+
+Curs 11
+
+SD 2021/2022
+
+15 / 29
+
+Funct, ia de dispersie
+
+I Deterministă: pentru o cheie k, funct, ia trebuie să furnizeze
+ı̂ntotdeauna aceas, i valoare h(k).
+I Aleatoare: vizează minimizarea coliziunilor.
+I O funct, ie hash bună distribuie cheile uniform ı̂n locat, iile tabelei.
+I Ipoteza dispersiei uniforme simple este dificil de garantat, dar există
+tehnici euristice care funct, ionează bine ı̂n practică (atât timp cât
+deficient, ele acestora pot fi evitate).
+
+FII, UAIC
+
+Curs 11
+
+SD 2021/2022
+
+16 / 29
+
+Funct, ii de dispersie – Metoda diviziunii
+h(k) = k mod m
+I Presupunem că toate cheile sunt numere naturale.
+I dacă cheile nu sunt numere naturale, atunci trebuie gasită o modalitate
+de a le interpreta ca numere naturale;
+I Exemplu: presupunem un identificator de forma (112, 116); ı̂n baza
+128, acesta devine (112 × 128) + 116 = 14452.
+
+I Nu se alege pentru m o valoare care are un divizor mic d.
+Preponderent, a cheilor congruente modulo d poate afecta ı̂n mod
+negativ uniformitatea.
+I Dacă m = 2r , atunci valoarea funct, iei depinde doar de ultimii r bit, ii
+ai lui k.
+I Exemplu: k = 1011000111011010 s, i r = 6 7→ h(k) = 011010.
+
+I Se alege m un numar prim care nu este apropiat de o putere a lui 2
+sau 10.
+FII, UAIC
+
+Curs 11
+
+SD 2021/2022
+
+17 / 29
+
+Funct, ii de dispersie – Metoda ı̂nmult, irii
+
+h(k) = bm(kA − bkAc)c
+I A ∈ (0, 1) este o constantă.
+I Valoarea lui m nu este critică (de obicei o putere a lui 2).
+h(k) = (kA mod 2w )rsh(w − r )
+I m = 2r , (mas, ină ı̂n care cuvintele sunt pe w –bit, i).
+I A este un numar impar din intervalul (2w −1 , 2w ).
+I rsh este operatorul de deplasare la dreapta pe biti.
+
+FII, UAIC
+
+Curs 11
+
+SD 2021/2022
+
+18 / 29
+
+Funct, ii de dispersie – Metoda ı̂nmult, irii
+I Exemplu: m = 23 s, i cuvinte pe w = 7 bit, i.
+
+I Nu se alege A prea aproape de 2w −1 sau 2w .
+√
+I Knuth: A = ( 5 − 1)/2.
+I Înmult, irea modulo 2w este mai rapidă ı̂n comparat, ie cu ı̂mpărt, irea;
+operatorul rsh este rapid.
+FII, UAIC
+
+Curs 11
+
+SD 2021/2022
+
+19 / 29
+
+Funct, ii de dispersie – Dispersia universală
+
+h(k) = [(ak + b) mod p] mod m
+
+I p număr prim cu p > |U|;
+I a, b numere aleatoare din {0, ..., p − 1}.
+
+I k1 6= k2 , Pra,b {h(k1 ) = h(k2 )} = 1/m.
+
+FII, UAIC
+
+Curs 11
+
+SD 2021/2022
+
+20 / 29
+
+Cont, inut
+
+Tabele cu adresare directă
+Tabele de dispersie
+Dispersie externă
+Funcţii de dispersie
+Dispersie internă
+
+FII, UAIC
+
+Curs 11
+
+SD 2021/2022
+
+21 / 29
+
+Rezolvarea coliziunilor prin adresare deschisă
+I Dispersie internă
+I Toate elementele sunt memorate ı̂n interiorul tabelei T ; nu este
+utilizat spat, iu suplimentar de memorie, ı̂n afara tabelei de dispersie.
+I Functia de inserare examinează tabela până când este găsită o locat, ie
+liberă.
+I Funct, ia de dispersie depinde atât de cheie cât s, i de numărul
+examinarii:
+h : U × {0, 1, ..., m − 1} 7→ {0, 1, ..., m − 1}
+I Secvent, a de examinări < h(k, 0), h(k, 1), · · · , h(k, m − 1) > trebuie
+să fie o permutare a {0, 1, .., m − 1}.
+I Dezavantaje: tabela se poate umple; s, tergerea poate deveni dificilă.
+FII, UAIC
+
+Curs 11
+
+SD 2021/2022
+
+22 / 29
+
+Dispersie internă – Operat, ii
+
+Function cauta(T , k)
+begin
+i ←0
+repeat
+j ← h(k, i)
+if T [j] == k then
+return j
+else
+i ←i +1
+until T [j] == NULL OR i == m;
+return NULL
+end
+
+FII, UAIC
+
+Curs 11
+
+SD 2021/2022
+
+23 / 29
+
+Dispersie internă – Operat, ii
+
+Function insereaza(T , k)
+begin
+i ←0
+repeat
+j ← h(k, i)
+if T [j] == NULL then
+T [j] ← k
+return j
+else
+i ←i +1
+until i == m;
+return −1
+end
+
+FII, UAIC
+
+Curs 11
+
+SD 2021/2022
+
+24 / 29
+
+Dispersie internă – Strategii pentru examinare
+Examinare liniară:
+h(k, i) = (h0 (k) + i) mod m
+I h0 (k) o funct, ie de dispersie uzuală.
+I Pentru o cheie k, secvent, a de examinare este
+h0 (k), h0 (k) + 1, h0 (k) + 2, ..., m − 1, 0, 1, ..., h0 (k) − 1.
+I Avantaj: metodă simplă.
+I Dezavantaj: grupare primară (primary clustering ) – se formează s, iruri
+lungi de locat, ii ocupate; cres, te timpul mediu de căutare.
+
+FII, UAIC
+
+Curs 11
+
+SD 2021/2022
+
+25 / 29
+
+Dispersie internă – Strategii pentru examinare
+Examinare pătratică:
+h(k, i) = (h0 (k) + c1 i + c2 i 2 ) mod m
+I h0 (k) o funct, ie de dispersie uzuală.
+I Pentru o cheie k, prima locat, ie examinată este h0 (k), iar următoarele
+pozit, ii examinate sunt decalate cu cantităt, i ce depind ı̂ntr-o manieră
+pătratică de pozit, ia anterior examinată.
+I Dezavantaj: grupare secundară – dacă două chei au aceeas, i pozit, ie de
+start a examinării, atunci secvent, ele de verificare coincid.
+I Funct, ionează mai bine decât verificarea liniară.
+
+FII, UAIC
+
+Curs 11
+
+SD 2021/2022
+
+26 / 29
+
+Dispersie internă – Strategii pentru examinare
+Dispersie dublă:
+h(k, i) = (h1 (k) + ih2 (k)) mod m
+I h1 (k) si h2 (k) două funct, ii de dispersie uzuale.
+I Pentru o cheie k, prima locat, ie examinată este h1 (k), iar următoarele
+pozit, ii examinate sunt decalate fat, ă de pozit, ia anterioară cu h2 (k)
+mod m.
+I Această metodă produce ı̂n general rezultate foarte bune, cu condit, ia
+ca h2 (k) să fie relativ prim cu m. O modalitate de a realiza acest
+lucru este să considerăm m o putere a lui 2 s, i să alegem h2 (k) astfel
+ı̂ncât să rezulte doar numere impare.
+
+FII, UAIC
+
+Curs 11
+
+SD 2021/2022
+
+27 / 29
+
+Dispersie internă – Analiza complexităt, ii
+Ipoteza dispersiei uniforme: fiecare cheie poate avea, cu aceeas, i
+probabilitate, oricare din cele m! permutări ca secvent, ă de examinare.
+
+Teoremă:
+Într-o tabelă de dispersie cu adresare deschisă, ı̂n ipoteza dispersiei
+uniforme, cu factor de ı̂ncărcare α < 1, numărul mediu de verificări este
+cel mult
+1
+I 1−α
+pentru operat, ia de căutare fără succes, s, i
+1
+I α1 ln 1−α
+pentru operat, ia de căutare cu succes.
+
+Corolar:
+Daca α este constant, atunci accesarea unei tabele de dispersie cu
+adresare deschisă necesită ı̂n medie un timp constant, Θ(1).
+FII, UAIC
+
+Curs 11
+
+SD 2021/2022
+
+28 / 29
+
+Utilizări
+
+I Tabelele de dispersie sunt folosite la indexarea ı̂n baze de date,
+compilatoare - tabela de simboluri, cache, etc.
+I Aplicat, ii ale funct, iilor de dispersie: CRC, Cryptographic hash
+functions, etc.
+
+FII, UAIC
+
+Curs 11
+
+SD 2021/2022
+
+29 / 29
+
+

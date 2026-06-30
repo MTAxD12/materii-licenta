@@ -1,0 +1,4088 @@
+Web Technologies
+
+
+
+Web programming (IV)
+Web application servers
+PHP language and environment
+
+
+
+
+
+
+
+
+
+
+
+Prof. Sabin Corneliu Buraga - profs.info.uaic.ro/sabin.buraga/
+Assoc. Prof. Andrei Panu - profs.info.uaic.ro/andrei.panu/
+
+
+
+
+
+
+
+
+"Poor is the pupil
+who does not surpass his master."
+
+
+Leonardo da Vinci
+
+(re)discover...
+
+
+
+
+
+
+
+
+
+
+
+ how do we use a Web application server essential information about PHP
+PHP as a procedural programming language object-oriented programming in PHP
+PHP features regarding Web interaction how can databases be accessed in PHP useful tools for Web developers
+case studies of Web applications developed in PHP
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+How do we use an application server for developing a Web application?
+
+
+
+
+
+
+
+
+
+Purpose:
+increasing the efficiency of all processes involved in the development of Web applications
+
+
+
+
+
+
+
+
+
+Integrated in one/many Web servers
+
+can also provide its own Web server or runtime environment
+
+
+
+
+
+
+
+
+
+Can encourage or enforce an architectural vision regarding Web application development
+
+typical situation: MVC or variants
+
+
+
+
+
+
+
+
+
+
+
+SimpliAies the invocation of programs (scripts) concerning a Web application
+? dynamic content generation on the server side
+
+
+
+
+
+
+
+
+
+Aspects of interest:
+
+programming language(s) core API
+persistent storage of data models
+Web interaction cookies and sessions
+development environments + frameworks, components,...
+specific characteristics
+
+
+
+
+
+
+
+
+
+Persistent storage
+
+in relational databases - using SQL
+
+
+
+
+
+
+
+
+
+Persistent storage
+in relational databases - using SQL examples:
+ADO.NET for ASP.NET
+Java - JDBC (Java DataBase Connectivity)
+PHP - predeUined functions/modules, plus included libraries (SQLite + mysqli) or various extensions
+
+web application server
+
+
+Persistent storage
+
+in relational databases - using SQL
+
+ORM (Object-Relational Mapping): Data Mapper pattern
+Go - Xorm framework
+Java - JPA (Java Persistence API) speci<ication
++ implementations: EclipseLink, Hibernate, OpenJPA,... Node.js - Sequelize library
+PHP - frameworks: Cycle ORM, Doctrine, Propel, RedBean, etc.
+
+web application server
+
+
+Persistent storage
+
+in relational databases - using SQL
+
+Active Record - architectural pattern used in ORM to encapsulate a table or a view into a class
+examples:
+active_record, TypeORM (Node.js modules), Castle Project (.NET), DBIx::Class (Perl), Django ORM and Orator (Python),
+Play Framework (Java, Scala), Rails (Ruby)
+
+web application server
+
+
+Persistent storage
+tree-based models: XML (semi)structured data
+transformations in other formats: XPath, XSLT processing: DOM, SAX, SimpleXML, etc.
+data validation: DTD, XML Schema, RELAX,...
+querying: XQuery
+
+advanced
+web application server
+
+
+Persistent storage
+
+using other non-relational paradigms (based on graphs and/or key-value)
+distributed on Internet, scalable - NoSQL
+github.com/erictleung/awesome-nosql-guides
+dbdb.io ï github.com/igorbarinov/awesome-data-engineering#databases
+
+examples:
+Cassandra, MarkLogic, MongoDB, Neo4j, OpenLink Virtuoso, Redis
+
+
+
+
+
+
+
+
+
+Web interaction
+
+facilitated by specific controls specified in the source code invoked on the server
+
+
+
+
+
+
+
+
+
+Web interaction
+
+facilitated by speciUic controls speciUied in the source code invoked on the server
+
+can emulate HTML form Uields and/or provide new interactive controls - e.g., calendar, slideshow,...
+
+? generation of processable code at client level (front-end)
+Web components (HTML + CSS + JavaScript) executed by the browser
+
+advanced
+web application server
+
+
+Web interaction
+
+examples:
+ASP.NET (<asp:control> - e.g., FileUpload, ListBox, Table,...) PRADO framework (PHP)
+formidable, form-data, forms - Node.js modules Java platform: JSF (Jakarta Server Faces)
+
+
+
+
+
+
+
+
+
+Web interaction
+
+encourages the use of templates based on a speciUic processor
+
+Web template system
+
+
+
+
+
+
+
+
+
+Web interaction
+
+Web template system
+
+using speciUications of content presentation
+(a Web template), persistent data (e.g., retrieved from a database) is used by a processor (template engine) in order to generate HTML documents
+or representations in other formats
+
+<!-- HTML template -->
+<h1 class="profile">[@username] profile</h1>
+<img src="[@photoURL]" alt="photo"/>
+<div class="identity">[@firstName] [@lastName]</div>
+<div class="location">[@location]</div>
+
+<!-- PHP program: template processing -->
+$profile = new Template ('templates/profile.tpl');
+$profile->set ('username') = 'Tux';
+$profile->set ('photoURL') = 'imgs/tux.svg';
+$profile->set ('firstName') = 'Tuxy';
+$profile->set ('lastName') = 'Pinguinesscool';
+$profile->set ('location') = 'Romania';
+
+
+
+
+
+
+
+
+
+
+Tuxy Pinguinesscool
+Romania
+
+example:
+the speciUication of content presentation (HTML template - .tpl) includes variable names
+- here, using [@variable] syntax - that will be substituted by actual values obtained from the program as a result
+of the Web template system invocation
+
+
+
+
+
+
+
+
+
+Web interaction Web template system on the server
+Apache FreeMarker (Java), Blade (PHP), Haml (Ruby), Mustache (C++, JS, PHP, Python, Scala,...), Pug (Node.js), Razor (.NET), Smarty (PHP), Tonic (PHP), XSLT (XML)
+
+
+
+
+
+
+
+
+
+Web interaction Web template system on the client
+available for JavaScript:
+HandleBars, Mustache.js, Nunjucks,...
+github.com/sorrycc/awesome-javascript#templating-engines
+
+advanced
+web application server
+
+
+Web interaction
+
+cookie and session management
+
+via data structures/types - examples:
+HttpSession class (ASP.NET), HttpSession interface (Java servlets), HTTP::Session (Perl), session (Flask - Python framework), web.session (web.py), HttpFoundation (Symfony component - PHP framework), SessionComponent class (CakePHP), session array (Ruby on Rails), play.mvc.Http.Cookie (Play for Java/Scala), sessions (Gorilla - Go)
+cookie-parser and express-session (Node.js modules for Express)
+
+web application server
+
+
+Web interaction
+
+asynchronous data transfer via Ajax technology suite
+
+eventually, via additional frameworks/modules/classes
+
+advanced
+web application server
+
+
+Support for software engineering
+
+encouraging/enforcing the use of design patterns (arhitectural, behavioral, structural, targeting concurrent and/or distributed processing and others)
+AMI (asynchronous method invocation), broker,
+CBD (components-based development), DAO (data access object), DDD (domain-driven design), DTO (data transfer object), faÁade, MOM (message-oriented middleware), microservice, MV*,
+publish-subscribe, SOA (service-oriented architecture), singleton,...
+
+
+example: Spaghetti Code anti-pattern
+usually, specific to Web applications that mix business logic with content presentation (view)
+and data model access mechanism
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+inspecting the technologies used by a Web application with the instruments Wapplyzer and WhatRuns
+
+
+
+
+
+
+
+
+
+Integrated into a software stack
+
+software stack (servers, tools,...) offering support for developing complex Web applications
+
+
+
+
+
+
+
+
+
+Integrated into a software stack
+
+software stack (servers, tools,...) offering support for developing complex Web applications
+
+available - usually, open source - for a speciUic platform
+(operating system, Web server, database server,
+application server, programming language)
+
+
+
+
+
+
+
+
+
+Integrated into a software stack
+
+LAMP
+(Linux, Apache HTTP Server, MariaDB/MongoDB, Perl/PHP/Python)
+
+alternatives:
+FAMP (FreeBSD), MAMP (macOS),
+WAMP (Windows), XAMPP (multi-platform)
+
+www.apachefriends.org
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+wamp.net
+   tools for Web developers
+
+web application server
+
+
+Integrated into a software stack
+
+based on JavaScript - full stack Web development MEAN (MongoDB, Express, Angular, Node.js) MERN (MongoDB, Express, React, Node.js)
+
+web application server
+
+
+Integrated into a software stack
+
+complementary approaches:
+LAPP (Linux, Apache, PostgreSQL, Perl/PHP/Python)
+TALL (Tailwind CSS, Alpine.js, Laravel, Livewire)
+tallstack.dev
+
+
+
+inspecting the technologies used by a Web application with the instrument WhatRuns
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ Essential information about PHP?
+
+php
+
+        History Important characteristics
+PHP as programming language
+paradigms: procedural, object-oriented, functional
+
+PHP as Web development platform interaction, database access, frameworks, libraries and tools, case studies
+
+Personal Home Page Tools (1995) Rasmus Lerdorf
+PHP 3 (1998)
+developed by Zend - Zeev Suraski & Andi Gutmans
+PHP 4 (2000)
+support for object-oriented programming
+PHP 5 (2004) - most recent version: PHP 5.6 (2014) new features inspired by Java
+PHP 7 (2015), PHP 7.2 (2017), PHP 7.4 (2019)
+strong typing, support for Unicode, performance,...
+PHP 8 (2020), PHP 8.4 (2024) , PHP 8.5 (2025)
+major update: real-time compilation, new data types and syntactic constructs, improvements, etc.
+
+
+
+
+
+
+Web application server
+
+provides a script-based interpreted programming language
+
+can be directly included into HTML documents
+
+
+
+
+
+
+PHP is a procedural language, offering support for other programming paradigms
+(object-oriented and, more recently, functional)
+
+can be used as a general purpose language, too
+
+reference book - freely available on the Web: Josh Lockhart, PHP: The Right Way, 2026 phptherightway.com
+
+
+
+
+
+
+Syntax inspired by C, Perl and Java - case sensitive
+
+whitespaces (space character, Tab, New Line) have no effect on the execution of the program
+
+usually, the files which contain PHP source code have the extension .php
+
+
+
+
+
+
+
+
+
+
+
+
+Freely available - open source - for various platforms (FreeBSD, Linux, Windows, macOS, etc.)
+and Web servers: Apache, IIS, Nginx,...
+
+
+www.php.net www.zend.com
+
+
+Web Server
+
+
+
+ Web Client
+
+HTTP request (GET, POST,...)
+
+
+HTML, PNG, PDF, SVG, JSON, ZIP,...
+response (representation)
+
+
+PHP
+application server
+
+.php
+
+
+Zend processor (engine)
+
+
+
+I
+
+
+
+
+
+ê??¬
+(external) resources
+
+
+Web Server
+
+
+
+ Web Client
+
+HTTP request (GET, POST,...)
+
+
+HTML, PNG, PDF, SVG, JSON, ZIP,...
+response (representation)
+
+
+PHP
+application server
+
+.php
+
+
+Zend processor (engine)
+
+
+
+I
+
+
+
+
+
+eventually, various extensions (modules) can be integrated
+
+    
+(external) resources
+
+php: characteristics
+
+
+
+
+
+
+
+
+
+
+A PHP program is interpreted by Zend Engine 2 which generate internal instructions - opcodes
+
+www.php.net/manual/en/internals2.opcodes.php
+
+J. Pauli, N. Popov, A. Ferrara, PHP Internals Book, 2025
+www.phpinternalsbook.com
+
+
+
+important phases of
+interpreting PHP programs vs. compiling Java code
+PHP code is interpreted each time when it must be executed
+
+<?php
+class Greeting {
+public function sayHello ($to)
+{
+echo "Hello $to";
+
+advanced
+transforming PHP code into opcodes
+php.watch/articles/php-dump-opcodes
+
+}
+}
+
+
+$greeter = new Greeting ();
+$greeter->sayHello ("World");
+?>
+
+
+
+line#*	opfetchextreturnoperands30>	EXT_NOP1RECV	!052EXT_STMT3ADD_STRING	~0	'Hello+'4ADD_VAR	~0	~0, !05ECHO	opcodes	~066EXT_STMT7	> RETURN	null
+
+advanced
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+for efficiency, the opcodes
+are stored into a
+shared memory
+
+precision = 14	; precision for float values - details at php.net/precision safe_mode = Off	 ; processing control - study php.net/safe-mode
+disable_functions = "allow_url_fopen, eval" ; unallowed functions (e.g., security reasons) max_execution_time = 30	; max. number of seconds allocated to program execution memory_limit = 128M ; max. size of the memory allowed for a script
+post_max_size = 8M	; max. size of data transmitted via POST method default_mimetype = "text/html" ; default MIME type for the content generated by a script file_uploads = On	 ; file uploads are permitted
+upload_max_filesize = 32M	 ; max. size of an uploaded file session.use_cookies = 1	; Web sessions will be stored in cookies session.name = PHPSESSID ; default cookie name regarding Web sessions
+...
+; specifying the extensions loaded during the PHP server application initialization extension_dir="./php/extensions" ; directory including extensions
+extension=curl	; HTTP + other Internet protocols using libcurl library extension=pdo_sqlite	; support for SQLite via PDO (PHP Data Objects) extension=mysqli	; support for MySQL
+...
+
+       various behaviors of PHP platform, including loaded extensions (.so/.dll shared libraries),
+can be globally configured by using the php.ini file
+
+php: characteristics
+
+
+
+
+
+
+
+
+
+
+PHP program execution behavior can be adjusted via declare directive - possibly, for a block of code www.php.net/manual/en/control-structures.declare.php
+
+// charset encoding used for generated content declare (encoding='UTF-8');
+
+// strict datatype checking - PHP 7+ declare (strict_types=1);
+
+php: characteristics
+
+
+
+
+
+
+
+
+To increase performance, the just-in-time compilation (JIT) could be adopted
+HHVM - HipHop Virtual Machine (Facebook)
+
+PHP source-code?opcodes?machine code (e.g., x86-64)
+
+
+www.hhvm.com
+
+php: characteristics
+
+
+
+
+
+
+
+
+To increase performance, the just-in-time compilation (JIT) could be adopted
+HHVM - HipHop Virtual Machine (Facebook)
+
+includes a high-performance server: Proxygen allows the upload of extensions written in PHP/C++ used by Baidu, Box, Etsy, Facebook, Wikipedia,... research.facebook.com/publications/the-hiphop-virtual-machine/
+
+php: characteristics
+
+
+
+
+
+
+
+
+To increase performance, the just-in-time compilation (JIT) could be adopted
+PHP 8 offers native support
+
+www.zend.com/blog/exploring-php-8 www.zend.com/blog/exploring-new-php-jit-compiler
+
+
+
+
+
+
+
+User interaction:
+
+retrieving the values entered into Web form Uields cookies
+sessions
+user authentication
+
+access to global variables - created "on the Uly"
+
+
+
+
+
+
+
+Features regarding Web technologies:
+
+URL processing
+HTTP support - including cURL
+caching via memcached
+Web services development - e.g. REST APIs
+
+...and others
+
+
+
+
+
+
+
+Support for database access:
+
+abstract layers
+
+DBAL (DataBase Abstraction layer)
+iODBC (Independent Open DataBase Connectivity) PDO (PHP Data Objects)
+
+www.phptherightway.com/#databases_abstraction_layers
+
+
+
+
+
+
+
+Support for database access:
+
+specific to a database server
+
+relational: DB2, MySQL, Oracle, PostgreSQL, SQLite,... NoSQL - e.g., MongoDB
+
+
+consult www.phptherightway.com/#databases
+
+
+
+
+
+
+
+Resource content processing:
+
+audio Uiles - via various libraries: ktaglib, oggvorbis, etc. bzip2, LZF, RAR, ZIP, ZLIB archives
+PDF documents
+graphical content in various formats JSON Uiles
+XML documents - creating, processing, validating, etc.
+information regarding credit cards
+...
+
+
+
+
+
+
+
+Support for Internet + system resources:
+
+       Uile systems, including FTP processes - with Libevent, PCNTL, pthreads,...
+event processing - via Event
+sockets
+e-mail - e.g., IMAP, POP3
+
+...and many others
+
+(instead of) break
+
+
+
+
+
+
+
+
+
+wronghands1.files.wordpress.com/2023/01/a-brief-history-of-hand-held-weaponry.jpg
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PHP as procedural programming language
+
+php: characteristics
+
+Procedural programming
+paradigm based on procedure calls (routines, functions) containing a series of steps for making the calculations
+procedural languages are imperative, using instructions (commands) that change the state of the program
+
+examples: FORTRAN (1954), ALGOL (1958),
+BASIC (1964), Pascal (1970), C (1972), Ada (1978)
+
+
+
+
+
+
+boolean
+
+true or false
+
+
+
+
+
+
+int
+   integer values speciUied in... 10 (decimal)	3734
+16 (hex)	0xE96
+8 (octal)	07226
+2 (binary)	0b111010010110
+
+
+www.php.net/manual/en/language.types.integer.php
+
+
+
+
+
+
+float
+
+real numbers
+usually, conforming to IEEE 754 (double precision)
+
+the size of the representation is platform dependent (the precision can be adjusted in the conUig Uile php.ini)
+
+www.php.net/manual/en/language.types.float.php floating-point-gui.de
+
+
+
+
+
+
+float
+
+special value:
+NAN (not a number) constant
+
+useful predefined functions:
+ is_nan() is_finite() is_infinite()
+
+
+
+
+
+
+string
+
+ASCII character strings
+(starting with PHP 7, native Unicode support exists)
+
+
+
+
+www.php.net/manual/en/language.types.string.php
+
+
+
+
+
+
+string
+
+ASCII character strings
+(starting with PHP 7, native Unicode support exists)
+
+escape characters can be used, like
+\n (New Line) \r (Carriage Return) \t (Tab)
+\\ (Backslash) \$ (Dollar) \" (Double Quote) \' (Quote)
+
+
+
+
+
+
+string
+
+common delimiters:
+" or '
+
+
+
+
+
+
+array
+
+association between values (of any type) and keys (of integer or string types)
+
+
+
+
+www.php.net/manual/en/language.types.array.php
+
+
+
+
+
+
+array
+
+     there is no clear distinction between indexed and associative arrays
+
+   an array could represent various data structures: list (vector), associative array - hash (implementation of
+an association of values - mapping), dictionary, collection, stack, queue,...
+
+
+
+
+
+
+array
+
+// an indexed array (vector of values) - initial syntax
+$gifts = array ("watch", "cookie", "necklace", "axe");
+
+// associative array - <key, value> pairs
+array ( "name" => "Tux", "size" => 17, "offer" => TRUE );
+
+// simplified syntax (starting with PHP 5.4)
+[ "name" => "Tux", "size" => 17, "offer" => TRUE ];
+
+
+
+
+
+
+object
+
+     instance of a class created with the new operator
+
+
+www.php.net/manual/en/language.types.object.php
+
+
+
+
+
+
+resource
+
+denotes a reference to an external resource
+
+examples: bzip2, curl, ftp, gd, mysql link, mysql result, pdf document, printer, stream, socket, xml, zlib
+
+   a resource is created by using specific functions e.g., a stream resource is initiated by the fopen() function
+and used by functions like fread(), feof(), fgets(), etc.
+
+
+
+
+
+
+resource
+denotes a reference to an external resource predefined functions:
+is_resource() get_resource_type()
+
+details at www.php.net/manual/en/resource.php
+
+
+
+
+
+
+null
+
+        speciUies the null value representing a variable that has no value
+
+useful functions: is_null() unset()
+
+
+
+
+
+
+Variables have names composed by letters, digits, and _ characters preAixed by the $ symbol
+can store values - having a speciAic data type - or references (speciAied with &)
+
+
+www.php.net/manual/en/language.variables.php
+
+
+
+
+
+
+Variables are created "on the fly"
+data type is inferred according to the context
+
+data type automatic conversion (type casting) is similar to the C language
+
+$age = 21;	/* a variable of Integer type */
+$connected = TRUE;	# a Boolean datatype one
+$prefer["color"] = "gray";	// an associative array
+
+$nume = 'Tux';
+
+// different behavior regarding the substitution of the actual
+// value of a variable depending on the delimiters used
+// for strings
+echo "Salut $nume!\n"; echo 'Salut $nume!\n';
+
+
+
+
+
+
+
+
+
+online execution of PHP code via Ideone Web tool
+
+
+
+
+
+
+Useful predefined functions:
+
+var_dump() settype()
+is_bool(), is_int(), is_float(), is_array(), is_string() is_scalar(), is_numeric()
+...and others
+
+
+
+
+
+
+Scope (variables visibility)
+
+in order to be accessed in the entire program, the variables should be declared as global
+
+
+
+
+php.net/manual/en/language.variables.scope.php
+
+
+
+
+
+
+
+$score = 33;
+
+function getScore () {
+echo "Current score: " . $score;
+}
+
+$score = 33;
+
+function getScore () {
+
+
+echo "Current score: " . $score;
+// similar to $GLOBALS["score"]
+
+getScore();
+
+
+? Undefined variable:
+score in prog.php on line 4
+
+}
+
+getScore();
+
+? Current score: 33
+
+
+
+
+
+
+Scope (variables visibility)
+
+a variable can also be declared as static
+
+exists only in a local scope (e.g., inside a function), but it does not lose its value
+when program execution leaves this scope
+
+
+
+
+
+
+Allocated memory is automatically freed (garbage collection)
+
+each variable has a container associated with it in memory (zval)
+
+see xdebug_debug_zval() function provided by Xdebug extension
+
+www.php.net/manual/en/features.gc.php
+
+php: prede?ned variables
+
+Variables available in the whole program (superglobals)
+$GLOBALS [ ]
+an associative array containing references to all variables defined as global
+
+
+
+
+
+
+$_SERVER [ ]
+
+$_GET [ ] $_POST [ ] $_FILES [ ] $_REQUEST [ ]
+
+$_SESSION [ ]
+
+$php_errormsg
+
+$argc $argv
+
+...
+
+
+
+
+
+
+$_SERVER [ ]
+
+$_GET [ ] $_POST [ ] $_FILES [ ] $_REQUEST [ ]
+client specific
+
+ data about Web session
+
+
+
+command line arguments
+
+$_SESSION [ ]
+
+$php_errormsg
+
+$argc $argv
+
+...
+
+HTTP requests
+
+
+  reported error message
+
+php: constants
+
+Specified with define ( )
+
+globally available in the program
+define ( string $name , mixed $value) : bool define ("MIN_DIMENS", 13);
+
+www.php.net/manual/en/function.define.php
+
+php: prede?ned constants
+
+Examples:
+
+PHP_VERSION PHP_OS PHP_EOL PHP_INT_MAX PHP_INT_SIZE
+DIRECTORY_SEPARATOR
+true false null
+
+php: predefined constants
+
+Error reporting control:
+
+E_ERROR	fatal errors (script execution is ended)
+E_WARNING	warnings
+E_PARSE	code processing errors (parsing)
+E_NOTICE	notiUications at runtime
+E_STRICT	suggestions on code improvement
+E_DEPRECATED	notiUications about deprecated aspects
+
+www.php.net/manual/en/errorfunc.constants.php www.phptherightway.com/#errors_and_exceptions
+
+advanced
+php: predefined constants
+
+Runtime environment offers access to "magical" constants their values can be used in a given program
+
+
+	LINE	
+	FILE	
+	DIR	
+	FUNCTION	
+	CLASS	
+	TRAIT	
+	METHOD	
+	NAMESPACE	
+
+
+
+
+
+
+Majority of them are similar to the C language ones
+
+arithmetic: + - * / % ++ --
+value assignation: = and => (for arrays) reference: &
+reference assignation: =&
+bit-wise: & | ^ << >>
+comparisons: == === != <> !== < > <= >= ?: ?? <=>
+error reporting control: @
+logic: and or xor ! && ||
+string (concatenation) - same as Perl: . .=
+
+
+
+
+
+
+Starting with PHP 7, new operators can be used:
+
+<=> (spaceship)
+comparing expressions (of a scalar type), and returning -1, 0 or 1
+
+echo 15.5 <=> 15.5;	// 0 (equality)
+echo 15.5 <=> 16.5;	// -1 (right value is greater) echo 17.5 <=> 15.5;	// 1 (left value is greater)
+
+
+
+
+
+
+Starting with PHP 7, new operators can be used:
+
+?? (null coalescing)
+offers the value of first operand if exists and it's not NULL, otherwise returns the value of second operand
+
+// as username, we'll use the value provided by a Web form
+// (retrieved with GET or POST);
+// if it doesn't exist, the value is 'tux'
+$username = $_GET['user'] ?? $_POST['user'] ?? 'tux';
+
+php: control statements
+
+
+if, switch, while, do, for, break, continue
+similar to the C instructions
+
+if (!$name) {
+echo ("No name was given...");
+} else {
+echo ("Welcome, " . $name . "!\n");
+}
+
+
+
+<?php
+
+php: example
+
+// filling up an array with values from 1 to 10 for ($index = 1; $index <= 10; $index++) {
+$values[$index] = $index;
+}
+// computing the sum of values
+$sum = 0;
+foreach ($values as $item)
+$sum += $item;
+/* showing the obtained sum on the standard output to be sent to the Web client */
+echo ("<p>Sum of first 10 numbers is <strong>" .
+$sum . "</strong>.</p>");
+?>
+
+
+
+
+
+
+
+
+Invoking (running) the PHP program from the command line:
+saving source-code into a text Uile - values.php
+calling PHP interpreter from the command line interface
+
+php values.php
+<p>Sum of first 10 numbers is <strong>55</strong>.</p>
+
+Invoking (running) the PHP program on the Web server:
+placing the source code - having read and execution rights
+
+in the browser, specifying the URL to the program
+to be invoked via the GET method of the HTTP protocol
+
+
+
+
+
+
+
+
+
+
+
+Including source-code from other files (support for modularization)
+include
+searches the source file in predefined directories specified via include_path and evaluates it
+if the file does not exist, a warning is generated
+include_once - to include it only once
+
+
+
+
+
+
+
+
+Including source-code from other files (support for modularization)
+require
+searches the source file in predefined directories specified via include_path and evaluates it
+if the file does not exist, a fatal error is generated
+require_once - to include it only once
+
+php: functions
+
+
+
+
+
+User deAined functions:
+
+function sendMessage ($to="", $from="", $subject="Web") {
+// body...
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+php.net/manual/en/language.functions.php
+
+define ('MAX', 10);	// maximum number of values
+
+function square ($number) { // a function to square a number return $number * $number;
+}
+$number = 0;
+while ($number < MAX) {
+$number++;	// incrementing...
+if ($number % 2)	// is odd number...
+continue;	// continuing to next iteration
+// it is an even number, so we show its square
+echo "Square $number is " . square ($numar) . "\n";
+} // end of while
+
+php: functions
+
+
+
+
+
+User defined functions:
+
+
+
+         a function name is case-insensitive parameters can be specified by reference - prefixed by &
+a variable number of parameters is indicated by ...
+
+
+php.net/manual/en/functions.arguments.php
+
+
+
+
+ The functions are visible anywhere in the program:
+
+
+
+infomagic ();
+
+function infomagic () {
+printf("<p>I'm <code>%s()</code> and I'm executing line %d
+
+from <code>%s</code>.</p>",
+
+	FUNCTION	,
+
+	LINE	,
+
+	FILE	);
+
+printf("<Using PHP <code>%s</code> on <code>%s</code> with the Web server <code>%s</code>.</p>",
+PHP_VERSION, php_uname(), $_SERVER['SERVER_SOFTWARE']);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+rapid testing of the code:
+PHP Sandbox onlinephp.io PHPTester phptester.net
+
+<?php
+declare (strict_types=1);
+
+// arguments should be integers, returned value must be of integer type function add (int ...$numbers): int {
+$sum = 0;
+foreach ($numbers as $number) {
+$sum += $number;
+}
+return $sum;
+}
+
+echo add (7, 3, 74, 1); echo add (pi (), '?');
+?>
+PHP 7+: data type can be specified for each argument and for the value returned by the function
+(scalar type declarations)
+
+
+
+
+
+
+Anonymous functions can also be defined
+? functional programming (e.g., closures)
+
+$hello = function ($name) {	 // variable of type function printf ("Hello %s...\n", $name);	// without collateral effects
+};
+$hello ('world');
+$hello ('Tuxy');
+
+
+
+
+www.phptherightway.com/pages/Functional-Programming.html
+
+
+
+
+
+
+Anonymous functions
+can be specified in a shorter way
+starting with PHP 7.4
+
+? short closures
+concept similar to arrow functions
+
+functional construction available
+in the JavaScript language (ECMAScript 6 - ES6)
+
+declare (strict_types=1);	// strict data type check
+header ('Content-type: text/plain'); // send unformatted text to the client
+
+// short declaration of an anonymous function
+// which has one string argument and returns an int
+// variable of function type: fn(argument) => body
+// (for the body, a single expression is allowed; 'return' is not allowed)
+$hello = fn(string $name): int => printf("Hello %s! [la %s].\n",
+$nume, date("j-m-Y H:i:s T", time()));
+$hello('world');
+sleep (2); // wait 2 seconds...
+$hello('Tuxy');
+
+
+
+
+
+
+
+
+
+
+
+
+mathematical & conversion character string manipulation array processing
+access to resources and file processing database manipulation
+regarding network connections
+cryptographic
+XML, PDF, JPEG,... resource processing operating system specific
+general purpose
+
+
+
+
+
+
+Math:
+abs(), mod(), fmod()
+ceil(), Uloor(), round(), max(), min() exp(), log10(), log()
+pow(), sqrt()
+sin(), cos(), tan(), asin(), ..., sinh(), ..., pi() rand(), srand()
+bindec(), octdec(), dechex(),..., base_convert()
+is_Uinite(), is_inUinite(), is_nan()
+
+php.net/manual/en/refs.math.php
+
+
+
+
+
+
+Strings:
+echo(), print(), printf(), sprintf(), etc.
+strlen(), chr(), ord(), substr(), strstr(), strpos(),... strcmp(), strcasecmp(), strnatcmp(), etc. strcat(), str_replace(), str_ireplace(), strrev(), etc. trim(), ltrim(), rtrim()
+explode(), implode(), split(), join(), strtok()
+PHP 8: str_contains(), str_starts_with(), str_ends_with()
+details about text processing:
+php.net/manual/en/refs.basic.text.php
+
+
+
+
+
+
+Regular expressions:
+conforming to POSIX standard ereg(), ereg_replace(), split(), etc.
+
+Perl compatible - PCRE: www.pcre.org
+preg_filter(), preg_grep(), preg_match(), preg_split(),...
+
+
+
+
+
+
+Regular expressions:
+conforming to POSIX standard ereg(), ereg_replace(), split(), etc.
+
+Perl compatible - PCRE: www.pcre.org
+preg_filter(), preg_grep(), preg_match(), preg_split(),...
+
+PHP 8+: new match() construction
+www.php.net/manual/en/control-structures.match.php
+
+
+
+
+
+
+Arrays:
+array_count_values(), array_search(), array_Uilter(),  array_slice(), array_chunk()
+array_Uill(), array_combine(), array_shift(), array_reverse(), array_multisort(), array_sum(),...
+array_merge(), array_intersect(), array_diff() array_keys(), array_key_exists() array_push(), array_pop()
+array_map(), array_reduce()
+
+php.net/manual/en/book.array.php
+
+/* filters certain values from an array
+  by using a programmer defined function */ function value_less_than ($number) {
+// returns an expression of function type
+
+advanced
+
+return function ($item) use ($number) { // a closure (functional approach) return $item < $number;
+};
+}
+
+
+$marks = [ 7, 8, 9, 10, 7.5, 3, 10, 8.75, 4 ];
+// using array_filter(), a predefined function, on marks array
+// to obtain the values less than a given value (here: 7)
+$values = array_filter ($marks, value_less_than (7)); print_r ($values);
+
+also study wiki.php.net/rfc/closures
+
+advanced
+   In PHP 7.4+ the operator ... can be used within arrays (similar with ECMAScript 2018)
+
+
+
+
+
+
+
+$web = [ 'JS', 'PHP' ];
+$whims = [ 'Lua', 'Rust', 'Scala' ];
+$languages = [ 'C#', ...$web, 'Java' ];
+
+print_r ($languages);
+// fusion - similar with array_merge() print_r ([ ...$whims, ...$web ]);
+
+php: prede?ned functions
+
+Arrays
+new functions available since PHP 8.4: array_find()
+array_find_key() array_any() array_all()
+wiki.php.net/rfc/array_find
+new functions in PHP 8.5 - 2025: array_first() array_last()
+wiki.php.net/rfc/array_first_last
+
+
+
+
+
+
+Character manipulation:
+ctype_digit(), ctype_xdigit(), ctype_print(), ctype_punct(), ctype_space(),...
+ctype_alpha(), ctype_alnum(), ctype_lower(), ctype_upper()
+
+
+
+
+
+
+Date & time:
+getdate(), localtime(), gettimeofday(), time(), etc. date(), idate(), gmdate(),...
+checkdate() strftime(), strtotime()
+
+
+see also Calendar, DateTime, HRTime extensions
+
+
+
+
+
+
+PHP variables:
+empty(), isset(), unset() strval(), print_r(), var_dump() serialize(), unserialize()
+
+
+
+
+
+also, consult php.net/manual/en/book.var.php
+
+
+
+
+
+Files and directories:
+using FILE data type - similar to C language: fopen(), fread(), fscanf(), fgets(), fwrite(), fprintf(),
+  fseek(), ftell(), feof(), fclose(), ftruncate(), fstat(),... file(), copy(), rename(), delete(),
+move_uploaded_file(), tmpfile()
+file_exists(), filesize(), filetype(), fileperms(),..., stat() is_dir(), is_file(), is_readable(), is_writeable(),... chdir(), mkdir(), rmdir()
+disk_free_space(), disk_total_space()
+study php.net/manual/en/refs.fileprocess.file.php
+
+php: predefined functions
+
+
+URLs:
+urldecode(), urlencode(), parse_url() base64_decode(), base64_encode() http_build_query()
+
+starting with PHP 8.5,
+the URL manipulation can be done via the URI extension
+thephp.foundation/blog/2025/10/10/php-85-uri-extension/
+
+define('URL', 'http://somewhere.info:8080/offer/toys/product/?name=Tux&size=17#offer'); header('Content-type: text/plain'); // content sent to the client will be plain text
+// dividing the URL into components of an associative array
+$WebAddress = parse_url(URL);
+foreach(array_keys($WebAddress) as $component) { printf("%s=%s\n", $component, $WebAddress[$component]);
+}
+// processing the URL's query string
+// each parameter will be stored in $parameters array parse_str($WebAddress['query'], $parameters);
+if ($parameters['size'] < 13) { echo "Toy is not ok...\n";
+} else {
+echo "Toy is ok (" . $parameters['size'] . ")
+and has the name " . $parameters['name'] . ".\n";
+}
+
+define('URL', 'http://somewhere.info:8080/offer/toys/product/?name=Tux&size=17#offer'); header('Content-type: text/plain'); // content sent to the client will be plain text
+// dividing the URL into components of an associative array
+$WebAddress = parse_url(URL);
+foreach(array_keys($WebAddress) as $component) { printf("%s=%s\n", $component, $WebAddress[$component]);
+
+}
+// processing the URL's query string
+// each parameter will be stored in $parameters array parse_str($WebAddress['query'], $parameters);
+if ($parameters['size'] < 13) { echo "Toy is not ok...\n";
+} else {
+echo "Toy is ok (" . $parameters['size'] . ")
+and has the name " . $parameters['name'] . ".\n";
+}
+
+
+
+
+
+scheme=http host=somewhere.info port=8080 path=/offer/toys/product/ query=name=Tux&size=17 fragment=offer
+Toy is ok (17)
+and has the name Tux.
+
+php: predefined functions
+
+Web resource processing (HTML, JSON):
+nl2br(), htmlentities(), htmlspecialchars(), strip_tags() get_browser(), show_source(), highlight_string(),... json_encode(), json_decode(), json_last_error()
+
+
+
+
+
+(de/en)coding internal data ? JSON data:
+
+
+
+// songs from the album 'Animals' by Pink Floyd (1977) expressed in Unicode
+$animals = [ "	on the Wing #1", "Dogs	",
+[ "" => "Pigs (Three Different Ones)" ], "Sheep ", " on the Wing #2" ];
+
+$json = json_encode($animals);	// encoding (serializing) in JSON
+
+$animals2 = json_decode($json); // decoding JSON data
+
+// information regarding used variables var_dump($animals, $animals2, $json);
+
+$animals array(5) { [0]=>
+ string(19) " on the Wing #1" [1]=>
+ string(16) "Dogs " [2]=>
+
+$animals2 array(5) { [0]=>
+string(19) " on the Wing #1"
+[1]=>
+ string(16) "Dogs " [2]=>
+
+
+
+[""]=>
+string(27) "Pigs (Three Different Ones)"
+}
+
+[""]=>
+string(27) "Pigs (Three Different Ones)"
+}
+
+[3]=>
+ string(10) "Sheep " [4]=>
+string(19) " on the Wing #2"
+}
+
+[3]=>
+ string(10) "Sheep " [4]=>
+string(19) " on the Wing #2"
+}
+
+
+
+$json
+string(191) "["\ud83d\udc37 on the Wing #1","Dogs \ud83d\udc15\u200d\ud83e\uddba",
+{"\ud83d\udc16\ud83d\udc16\ud83d\udc16":"Pigs (Three Different Ones)"}, "Sheep \ud83d\udc11","\ud83d\udc37 on the Wing #2"]"
+
+php: prede?ned functions
+
+Support for cryptographic operations:
+
+password hashing - password_*() functions useful extensions
+Hash (hash_*() digest functions)
+OpenSSL (functionalities for SSL/TLS)
+Sodium (advanced encrypt/decrypt operations)
+Random (work with pseudo-random numbers - in PHP 8.2+)
+
+php.net/manual/en/refs.crypto.php
+
+
+
+
+
+
+Support for graphical content (raster/vector):
+
+preinstalled extensions
+Cairo - vector/raster processing: www.cairographics.org
+EXIF - access to JPEG meta-data
+GD - raster processing (GIF, JPEG, PNG): libgd.github.io
+ImageMagick - multi-format processing: www.imagemagick.org
+
+
+www.php.net/manual/en/refs.utilspec.image.php
+
+
+
+
+
+
+Other useful functions:
+die(), eval(), exit(), sleep(), usleep(), time_sleep_until() uniqid(), sys_getloadavg()
+php_info(), php_check_syntax()
+
+php: other features
+
+SPL (Standard PHP Library)
+access to standard ways of data processing
+defined data structures:
+SplStack, SplQueue, SplHeap, SplPriorityQueue,...
+iterators:
+ArrayIterator, FilesystemIterator, RegexIterator, etc.
+
+www.php.net/spl www.phptherightway.com/#standard_php_library
+
+php: other features
+
+Internationalisation & localization of applications
+lexical checking (spelling): Enchant support for translating messages: Gettext
+internationalisation (i18n): intl
+classes: NumberFormatter MessageFormatter IntlDateFormatter IntlTimeZone IntlCalendar Locale
+
+www.php.net/manual/en/refs.international.php
+
+php: other features
+
+Other preinstalled basic extensions
+support for efUicient data structures interfaces:
+Collection Hashable Sequence
+
+classes:
+Vector Deque Map Pair Set Stack Queue PriorityQueue
+
+www.php.net/manual/en/book.ds.php
+
+
+
+
+
+
+Other preinstalled basic extensions
+
+DS - various data structures: Map, Pair, Set, Stack, Vector,... FANN (Fast Arti,icial Neural Network) - neural networks GeoIP - geographical localization based on IP address SeasLog - journaling features (logging)
+Streams - work with data streams
+Swoole - network access: TCP, UDP, HTTP, WebSocket YAML - support for YAML Ain't Markup Language
+
+www.php.net/manual/en/refs.basic.other.php
+
+
+
+
+
+
+Process execution control
+
+extensions of interest
+(some available only on Linux systems)
+
+Eio, Ev, Expect, Libevent, PCNTL, POSIX, parallel, pthreads, pht, Semaphore, Shared Memory, Sync
+
+
+www.php.net/manual/en/refs.fileprocess.process.php
+
+
+
+
+
+
+Process execution control
+
+Asynchronous code execution can be done via additional libraries
+
+example:
+ReactPHP
+facilitates asynchronous - non-blocking - event-based input/output operations reactphp.org
+
+
+
+
+
+
+
+
+
+
+
+Program execution from command line
+PHP CLI
+
+
+
+
+
+www.php.net/manual/en/features.commandline.php
+
+
+
+
+
+
+
+
+
+
+
+
+Embedded Web server
+
+run with:
+php -S localhost:8000 -t phpwebapp/
+
+
+www.php.net/features.commandline.webserver
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+How about PHP support
+for object-oriented programming?
+
+php: characteristics
+
+Object-oriented programming
+paradigm based on the concept of object - including data (attributes, properties) and code (methods, procedures)
+usually, objects interact with each other and represent class instances
+
+examples: Smalltalk (1972), Objective-C (1984),
+C++ (1985), Python (1990), Java (1995), C# (2000)
+
+php: classes
+
+Class definition via class
+and instantiation by using new operator
+objects are treated similar to references
+(a variable of object type contains a reference to an object, not a copy of it)
+
+
+
+www.php.net/language.oop5
+
+
+
+class Student { // specifying a class
+// properties (data members) private $year;
+private $email; public $name;
+// public methods
+public function setYear ($aYear) {
+$this->year = $aYear;
+}
+public function getYear () { return $this->year;
+}
+}
+        $this is a pseudo-variable specifying a reference to the current object
+
+
+
+class Student { // specifying a class
+// properties (data members) private $year;
+private $email; public $name;
+// public methods
+public function setYear ($aYear) {
+$this->year = $aYear;
+}
+public function getYear () { return $this->year;
+}
+}
+
+php: classes
+
+Similar to C++, members - properties or methods - can be declared as
+
+ public private protected
+
+
+class CleverStudent	Student {
+private $marks;	// obtained marks (property)
+
+public function setMarks ($m) {
+$this->marks = (array) $m;
+}
+public function getMarks () { return (array) $this->marks;
+}
+}
+
+$otherStud = new CleverStudent ();
+// calling a method from base class
+$otherStud->setYear (2);
+// calling a method from derived class
+$otherStud->setMarks ( ['Web' => 10, 'SoftEng' => 9]
+);
+
+
+class CleverStudent extends Student {
+private $marks;	// obtained marks (property)
+
+public function setMarks ($m) {
+$this->marks = (array) $m;
+}
+public function getMarks () { return (array) $this->marks;
+}
+}
+
+$otherStud = new CleverStudent ();
+// calling a method from base class
+$otherStud->setYear (2);
+// calling a method from derived class
+$otherStud->setMarks ( ['Web' => 10, 'SoftEng' => 9]
+);
+
+
+
+
+
+
+        Special methods: constructors are named 	construct()
+destructors are named 	destruct()
+
+
+
+
+
+
+Accessing static, constant, or overloaded properties/methods
+::
+scope resolution operator (Paamayim Nekudotayim)
+
+
+
+www.php.net/manual/en/language.oop5.paamayim-nekudotayim.php
+
+
+
+
+
+
+Accessing static, constant, or overloaded properties/methods
+::
+self - current class
+parent - parent class
+
+starting with PHP 7.4 the data type of the properties defined by a class can be explicitly specified
+declare (strict_types=1);
+
+
+
+class Student {
+// properties having a type private int $year;
+private string $email;
+public string $name;
+// etc.
+}
+
+$stud = new Student ();
+$stud->name = true;
+
+
+
+
+
+
+
+Fatal error: Uncaught TypeError: Cannot assign bool to property Student::$name of type string
+
+
+
+
+
+
+Properties or methods declared as static
+can be accessed without class instantiation
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ for examples, study
+www.php.net/manual/en/language.oop5.static.php
+
+
+
+
+
+
+Abstract classes/methods are declared with abstract
+   abstract classes cannot be instantiated each class having at least one abstract method
+is considered abstract
+
+abstract methods must be implemented in a child class (speciUied by extends) of an abstract class
+
+php: interfaces
+
+Specifying methods that will be implemented by a class (similar to Java)
+
+// interface regarding a content template interface iTemplate {
+// setting a variable to be substituted with its value public function setVar ($name, $var);
+// getting the template representation public function getRep ($template);
+}
+
+
+
+www.php.net/manual/en/language.oop5.interfaces.php
+
+// a class implementing the interface
+class Template	iTemplate {
+// associative array including variables to be replaced by their values private $variables = array ();
+
+public function setVar ($name, $var) {
+$this->variables[$name] = $var;
+}
+
+public function getRep ($template) {
+foreach ($this->variables as $name => $val) {
+// replacing a variable name with its value
+$template = str_replace ('{' . $name . '}', $val, $template);
+}
+return $template;
+}
+}
+
+
+advanced aspects: www.phptherightway.com/#templating
+
+
+
+
+
+
+Traversable Iterator IteratorAggregate Throwable ArrayAccess Serializable Closure Generator
+
+
+www.php.net/manual/en/reserved.interfaces.php
+
+
+
+
+
+
+
+// example: Iterator interface Iterator extends Traversable {
+
+// methods to be written by programmer
+// in the class implementing the interface abstract public mixed current ( void ) abstract public scalar key ( void ) abstract public void	next ( void ) abstract public void	rewind ( void ) abstract public boolean valid ( void )
+}
+
+
+
+
+
+
+Access to information regarding a class:
+
+a PHP program can get data about classes, interfaces, functions, methods, extensions - reverse engineering
+
+ReflectionClass implements Reflector
+
+
+
+www.php.net/manual/en/book.reflection.php
+
+
+
+
+
+
+$a_class = new	('CleverStudent');
+// display information about the specified class printf ("<p>Class <em>%s</em> extends %s
+and is declared in file <tt>%s</tt>.</p>",
+$a_class->getName (),
+
+var_export ($a_class->
+$a_class->
+Class CleverStudent extends
+
+(), 1),
+
+ReflectionClass::	set_state(array( 'name' => 'Student', ))
+and is declared in <ile /home/profs/busaco/html/php/introspect.php
+
+
+
+
+
+
+Trait
+        concept borrowed from Self language collection of methods that can be reused in other classes
+
+
+
+
+www.php.net/manual/en/language.oop5.traits.php
+
+
+
+
+
+
+Trait
+
+considered as a (C++) class template
+
+in contrast to interfaces, offers implementations of methods, not just their signature
+
+thus, support is provided for multiple pseudo-inheritance
+
+formal aspects: scg.unibe.ch/research/traits
+
+// traits (behaviors) that will be associated to 2D geometrical shapes
+trait Rotating {
+public function rotate ($angle) {	// implements rotation
+}
+}
+
+trait Moving {
+public function moveTo ($x, $y) {	// move to other coordinates
+}
+}
+
+trait Filling {
+public function fill ($color) {	// performs filling
+}
+}
+
+
+abstract class Shape { // geometrical shapes class public function draw() {
+echo ('I am drawing a ' . get_class());
+}
+}
+
+
+class Rectangle extends Shape { // uses desired traits
+use Filling, Moving, Rotating;	// can be filled, moved, rotated
+
+public function transform () {	// plus, a specific transformation
+}
+}
+
+
+// Circle class cannot be extended class Circle extends Shape {
+// a circle can be moved or filled use Moving, Filling;
+
+// constant declaration const PI = 3.1415265;
+// method specification
+public function computeArea () {
+}
+}
+
+php: traits
+
+
+
+
+
+
+// 2 shapes (a circle and a rectangle) are instantiated
+$aCircle = new Circle ();
+$aRect = new Rectangle ();
+$aCircle->draw ();
+$aCircle->rotate ();	// an error will be emitted
+$aRect->draw ();
+? I am drawing a Circle
+PHP Fatal error: Call to undefined method Circle::rotate() in /home/dMdWgn/prog.php on line 47
+
+php: special properties
+
+A class has special ("magical") properties associated that can be overloaded
+	construct ()
+	destruct ()
+toString () get ()
+	set ()
+others at www.php.net/manual/en/language.oop5.magic.php
+
+
+
+
+
+
+Objects can be "cloned" via clone
+Objects can be compared by using the === operator
+
+
+
+
+
+
+Functions for class & object manipulation
+
+get_class() will return an object name, instance of a given class
+get_parent_class() gets the parent class of an object
+method_exists() tests if a method exists for a certain object
+class_exists() tests the existence of a class
+is_subclass_of() determines if a heritage relation between two classes exists
+
+php: exceptions
+
+try catch throw Exception class
+similar to Java exceptions
+
+
+
+www.php.net/manual/en/language.exceptions.php
+
+
+
+
+
+
+Used to avoid name collisions and to create aliases
+
+declared with namespace (first line of a program)
+
+
+
+
+
+
+Used to avoid name collisions and to create aliases
+
+declared with namespace (Uirst line of a program)
+
+
+
+example: namespace Facebook; // Facebook SDK for PHP
+
+
+www.php.net/language.namespaces
+
+
+
+
+
+
+Used to avoid name collisions and to create aliases same namespace can be deUined in multiple Uiles namespace hierarchies are permitted
+
+
+
+namespace Project\Module\Submodule; class SVGGen { ... };
+
+
+refer with
+Project\Module\Submodule\SVGGen
+
+
+
+
+
+
+Used to avoid name collisions and to create aliases
+
+using a speciUic construct: use
+(optionally, specifying an alias)
+
+use Project\Module\Submodule;
+
+
+
+
+
+
+Used to avoid name collisions and to create aliases
+
+using a specific construct: use
+(optionally, specifying an alias)
+
+use Project\Module\Submodule;
+
+real examples:
+use Facebook\Authentication\AccessToken;
+use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler; use Wikimedia\Timestamp\TimestampFormat as TS;
+
+
+
+
+
+
+Used to avoid name collisions and to create aliases
+
+without any namespace definition, all class and function definitions are placed into the global space
+
+namespace WebProject;
+function cosh () {	// specifying our own function
+...
+$value = \cosh (...); // calling a predefined function (from global space)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ?
+How about the features regarding Web interaction?
+
+
+
+
+
+
+Data transmitted by the client (browser) is stored into (global) predefined associative arrays:
+$_GET[ ] - data transmitted via GET
+$_POST[ ] - data transmitted via POST
+$_COOKIE[ ] - received cookies
+$_REQUEST[ ] - data retrieved from client (content of $_GET, $_POST and $_COOKIE)
+$_SESSION[ ] - session data
+
+
+
+
+
+
+Other useful global variables:
+
+$_SERVER[ ]
+offers info about Web server
+
+$_SERVER['PHP_SELF'] indicates the PHP script name
+$_SERVER['REQUEST_METHOD'] - used HTTP method
+$_SERVER['HTTP_REFERER'] - URL referring the resource
+$_SERVER['HTTP_USER_AGENT'] - client details
+
+www.php.net/manual/en/reserved.variables.server.php
+
+
+
+
+
+
+Other useful global variables:
+
+$_ENV[ ] - data provided by the runtime environment
+
+$_FILES[ ] - data about the uploaded Uiles
+www.php.net/manual/en/features.file-upload.php
+
+
+
+
+<input type="text" name="name" />
+<input type="text" name="age" />
+<input type="submit" value="Send" />
+</form>
+
+<input type="text" name="name" />
+<input type="text" name="age" />
+<input type="submit" value="Send" />
+</form>
+
+<?php
+// display.php - a program invoked via POST if (!$_REQUEST["name"])
+ display ("Name is not specified!", "err"); else
+display ("Name is" . $_REQUEST["name"]);
+?>
+each name field in the form represents a key in $_REQUEST [ ]
+associative array (depending on the HTTP method, it could be consulted by using $_GET[ ] or $_POST[ ])
+
+
+
+
+ Setting a cookie via setcookie () function
+
+
+
+setcookie ( string $name,
+string $value = "",
+int $expires_or_options = 0, string $path = "",
+string $domain = "",
+bool $secure = false, bool $httponly = false
+) : bool
+
+Starting with PHP 7.3+,
+an array of associated options (attributes) can be provided:
+setcookie ( string $name,
+string $value = "", array $options = [ ]
+): bool
+
+
+
+
+ Setting a cookie via setcookie () function
+
+
+// persistent - set that the cookie will expire in 10 days setcookie ('color', 'tan', time() + 60 * 60 * 24 * 10);
+
+
+
+// non-persistent
+setcookie ('authenticated', 'true');
+
+why?
+
+php: cookies - expiration
+
+
+
+
+
+
+
+ Deleting a cookie:
+       cancel value and time; eventually, also other cookie attributes
+
+setcookie ($cookie_name, "", 0);
+
+
+
+
+www.php.net/manual/en/function.setcookie.php
+
+php: cookies - access
+
+
+
+
+
+
+
+
+ A cookie is specified (accessed) like a variable of type associative array - $_COOKIE ['cookie_name']
+
+
+<!-- the background color is given by the previously set cookie value -->
+<style>
+body {
+background: <?php echo $_COOKIE['color']; ?>
+}
+</style>
+
+
+
+
+
+
+
+
+ Session management: session_start(), session_register(), session_id(), session_unset(), session_destroy() functions
+
+session_start (); // start a Web session if (!isset ($_SESSION['visits'])) {
+$_SESSION['visits'] = 0; }
+else {
+$_SESSION['visits']++; }
+
+
+
+
+
+
+
+
+ Session management: SessionHandler class
+SessionHandler implements SessionHandlerInterface {
+public bool	open ( string $save_path , string $session_name ) : bool public string create_sid ( void ) : string
+public string read ( string $session_id ) : string
+public bool	write ( string $session_id , string $session_data ) : bool public bool	gc ( int $maxlifetime ) : bool	// remove old sessions public bool	destroy ( string $session_id ) : bool
+public bool	close ( void ) : bool
+}
+www.php.net/manual/en/book.session.php
+
+
+
+
+
+
+
+
+
+NRTURRL LRNGURGE IN5TRUCTIONS	M0NKE USER.COM
+HERE'S T E
+PROBLEM! 8OU WROTE EVIL INSTEAD OF
+EVAL
+,,,,,,
+
+
+
+
+
+
+
+
+
+...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+How can databases be accessed from PHP?
+
+php: db
+
+
+Native support for multiple database servers/technologies:
+MongoDB - classes: MongoDB MongoClient MongoCursor
+MySQL / MariaDB - mysqli class Oracle -oci_*() functions + OCILob class
+PostgreSQL - pg_*() functions + PgSql class
+SQLite - SQLite3 class
+
+connections can be persistent
+
+php: db - mysql
+
+Functions/methods to access MySQL/MariaDB connecting to server: mysql_connect (), mysql_pconnect () selecting (using) a database: mysql_select_db () executing a SQL statement: mysql_query ()
+error reporting: mysql_errno (), mysql_error () getting results into an array: mysql_fetch_array () many others...
+
+in the present, a deprecated approach - eliminated in PHP 7+
+
+
+
+
+Aim: easy and flexible access to MySQL/MariaDB
+
+procedural or object-oriented approach
+-> facilitates code maintenance compatible with MySQL API ensures security and performance
+
+docs available at www.php.net/mysqli
+
+
+
+
+
+
+
+
+Important methods:
+
+initiating a connection to a MySQL server - mysqli ( ) issuing SQL statements - query ( ), prepare ( ), execute ( ) processing the response - fetch ( ), fetch_assoc ( ) closing connection - close ( )
+etc.
+
+
+
+
+Initially, we'll create a MariaDB account to allow authenticated access from PHP programs
+to the students database:
+
+(console)$ mysql -u root -p mysql Enter password: **********
+Welcome to the MariaDB monitor. Commands end with ; or \g. Server version: 10.11.2-MariaDB Source distribution
+
+MariaDB [mysql]> GRANT SELECT, INSERT, UPDATE, DELETE, CREATE,
+DROP ON students.* TO 'tux@localhost' IDENTIFIED BY 'p@rola' WITH GRANT OPTION;
+Query OK, 0 rows affected (0.001 sec)
+
+
+
+
+
+
+
+By using the mysql client in the command line or a Web administration application, we create the students table, having the structure:
+
+
+
++	+	+	+	+	+	+
+| Field | Type	| Null | Key | Default | Extra	|
++	+	+	+	+	+	+
+| name  | varchar(50)	| NO	|	| NULL	|	|
+| year  | enum('1','2','3')	| NO	|	| NULL	|	|
+| id	| int(11) unsigned	| NO	| PRI | NULL	| auto_increment |
+| age	| tinyint(3) unsigned | NO	|	| NULL	|	|
++	+	+	+	+	+	+
+
+for easy administration, use the Web tool Adminer - www.adminer.org
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+alternative: phpMyAdmin - www.phpmyadmin.net
+
+
+
+
+
+
+
+
+
+
+// a mysqli object instantiation
+$mysql = new mysqli ('localhost', 'tux', 'pa$$w0Rd', 'students');
+if (	()) {
+die ('Connection failed...');
+}
+
+
+// specifying & executing a query
+if (!($res =	('select name, year from students'))) {
+die ('A query error occurred');
+}
+
+
+
+
+// a mysqli object instantiation
+$mysql = new mysqli ('localhost', 'tux', 'pa$$w0Rd', 'students');
+if (	()) {
+die ('Connection failed...');
+}
+
+
+// specifying & executing a query
+if (!($res =	('select name, year from students'))) {
+die ('A query error occurred');
+}
+The password is speciUied in clear text!
+? pay attention to security issues that may arise
+
+
+
+
+// generating a numbered list of student-related data
+// (HTML spaghetti code - not a recommended practice!) echo ('<ol>');
+// results will be available into an associative array while ($row = $res->fetch_assoc ()) {
+// table column ? array key
+echo ('<li>Student ' . $row['name'] .
+' is enrolled in ' . $row['year'] . ' year</li>');
+}
+echo ('</ol>');
+
+// closing connection to MySQL/Maria DB server
+$mysql->close ();
+
+php: db
+
+In practice, an abstraction layer is used in order to access a storage system
+DBAL - DataBase Abstraction Layer
+
+   usual approach: PDO (PHP Data Objects)
+
+pragmatic aspects: (The only proper) PDO tutorial, 2026
+phpdelusions.net/pdo
+
+// connection data regarding MySQL/MariaDB database server
+$host = '127.0.0.1';
+$db	= 'students';
+$user = 'tux';
+$pass = 'pa$$w0Rd'; // important: clear text password
+$charset = 'utf8';
+
+// setting the DSN (Data Source Name)
+$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+
+// options concerning the connection manner
+$opt = [
+// errors will be reported as exceptions
+PDO::ATTR_ERRMODE	=> PDO::ERRMODE_EXCEPTION,
+// results will be stored by an associative array PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+// connection is persistent PDO::ATTR_PERSISTENT	=> true
+];
+www.php.net/manual/en/book.pdo.php
+
+// retrieve from the Web client the year of study (default: 2)
+$year = $_REQUEST['year'] ? $_REQUEST['year'] : 2;
+try {
+$pdo = new PDO ($dsn, $user, $pass, $opt); // instantiating a PDO object
+
+// preparing a parametrized SQL statement
+$sql = $pdo->prepare ('SELECT year, name, age FROM students
+WHERE year=? ORDER BY age');
+
+if ($sql->execute ([$year])) {		// SQL statement can be executed? while ($row = $sql->fetch()) {	// getting each found record
+// ...and showing it (table column is a key of associative array)
+echo '<p>' . $row['name'] . ' is enrolled in year ' . $row['year'] . '</p>';
+}
+}
+} catch (PDOException $e) {
+echo "Error: " . $e->getMessage(); // the message of occurred exception
+};
+
+php: db - pdo extension
+
+
+ A possible result provided by the execution of the PHP program invoked by using a URL as https://somewhere.info/php/pdo-test.php?year=2
+
+Tuxy Pinguinesscool is enrolled in year 2 Grace Hopper is enrolled in year 2 Margaret Hamilton is enrolled in year 2
+
+
+php: db
+
+Usually, an ORM - Object-Relational Mapping solution (component, library)
+will be used on top of DBAL
+
+examples:
+Doctrine - www.doctrine-project.org Propel - propelorm.org RedBeanPHP - redbeanphp.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Useful tools for Web developers?
+
+
+
+
+
+
+
+Features:
+     MV* and various design patterns database access (ORM, DAO, ActiveRecord,...)
+input data validation and Uiltering authentication + access control cookie & session management
+
+
+
+
+
+
+
+Features:
+data presentation - templating performance - i.e. caching
+asynchronous data transfer (Ajax, WebSocket) support for Web services and REST APIs
+extensibility - e.g., user-deUined modules, managed with
+the Composer tool
+
+
+
+
+
+
+
+
+
+.php
+program
+
+
+
+routing	security caching		view
+
+
+appli- cation con- troller
+ 
+models libraries helpers plugins others
+
+
+
+
+workflows performed by a framework
+
+
+
+
+
+CakePHP - cakephp.org CodeIgniter - codeigniter.com FuelPHP - fuelphp.com Laravel - laravel.com
+Nette - nette.org
+Phalcon - phalcon.io
+PRADO - www.pradoframework.net
+Symfony - symfony.com
+Yii - www.yiiframework.com
+
++---Config
+¶	+---Boot
++---Controllers
++---Database
+¶	+---Migrations
+¶	+---Seeds
++---Filters
++---Helpers
++---Language
+¶	+---en
+¶	+---ro
++---Libraries
++---Models
++---ThirdParty
++---Views
++---errors
++---cli
++---html
+
+advanced
+
+
+
+
+
+
+
+
+directory structure of
+a Web application developed by using a MVC framework
+
+CodeIgniter 4
+codeigniter.com/user_guide/
+
+
+tools: frameworks
+
+
+
+
+
+
+Some frameworks like Laravel can beneUit from the facilities offered by a virtualization platform like Docker
+
+packaging an (Web) application and its dependencies in a virtual container that can run on any operating system installed on a host (on premises) and/or conUigured by a vendor - usually, in cloud
+
+laravel.com/docs/ laracasts.com
+
+
+
+
+
+
+
+
+
+A micro-framework represents a minimalist Web framework
+
+
+
+
+
+
+
+
+A micro-framework represents a minimalist Web framework
+    does not include complex features often, is focused on a single aspect regarding
+Web development - e.g., creating an API, microservice,...
+
+
+
+
+Fat-Free Framework (F3) fatfreeframework.com Flight
+flightphp.com
+Fresh Squeezed Limonade github.com/yesinteractive/fsl Leaf PHP
+leafphp.dev
+Slim
+www.slimframework.com
+
+tools: packages
+
+
+Managing dependencies between libraries and packages
+
+Composer
+getcomposer.org
+
+
+www.phptherightway.com/#dependency_management
+
+tools: packages
+
+
+
+
+
+
+
+
+Meta-data + dependencies of other (versions of) packages are speciUied in the Uile composer.json
+placed in the / root directory of the PHP project according to the scheme MAJOR.MINOR.PATCH
+(semantic versioning - semver.org),
+dependency versions may have constraints speciUied via the symbols * < <= > >= ~ ^
+details at getcomposer.org/doc/articles/versions.md
+
+{
+"name": "org/package", "description": "...",
+"homepage": "http://package.org/", "minimum-stability": "stable",
+
+advanced
+
+"version": "1.9.74",	// current version of the package "license": [ "LGPL-2.1-only", "GPL-3.0-or-later" ], // license
+"authors": [ { "name": "Tuxy", "role": "Developer" } ], // author(s) "require": {
+"php" : "^5.5 || >=7.4",	// PHP versions required to execute the code "namespace/otherpackage": "~2.0", // external dependency version "org/package2": "*"		// another package (any vers.)
+},
+"repositories": [	// download source
+{ "type": "composer", "url": "http://packages.some.where/package" } ]
+}
+
+tools: packages
+
+Packages are encapsulated in PHAR (PHP Archive) and can be public/private
+
+tools: packages
+
+Packages are encapsulated in PHAR (PHP Archive) and can be public/private
+php composer.phar command
+where command can be:
+install - local/global installation including dependencies update - package update	remove - package deletion search - package search
+show - display all available packages
+depends - display the packages that depend on a speci<ic package
+outdated - search for old packages
+help - help information	diagnose - diagnostic
+...and others
+
+advanced
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+public packages can be downloaded from the Web from Packagist - package repository: packagist.org
+
+
+tools: packages
+
+advanced
+
+
+
+
+
+
+
+
+
+Dependency management between libraries and packages
+alternative - older:
+PEAR (PHP Extension and Application Repository)
+pear.php.net
++
+   extensions offered by third parties: PECL (PHP Extension Community Library)
+pecl.php.net
+
+
+
+
+
+
+
+
+
+Pre-conAigured Web development environments
+Web server + PHP + database server(s) + tools
+
+
+
+
+
+
+
+
+
+Apache, PHP 8, MySQL/MongoDB...
+
+AMPPS
+www.ampps.com
+
+XAMPP
+www.apachefriends.org
+with support for various con<igurations of Web systems like Drupal, Joomla!, MediaWiki, Magento, Moodle, WordPress
+
+
+
+
+
+
+
+
+
+Automatic documentation generators
+
+Daux - daux.io
+phpDocumentor - www.phpdoc.org
+phpDox - phpdox.net
+
+
+
+github.com/ziadoz/awesome-php#documentation
+
+
+
+
+
+
+
+
+
+Special markups in PHP comments:
+
+
+@author @category @version @copyright @license @see @todo @since
+@deprecated
+
+@var @global @method @package
+@subpackage @param @return @throws @inheritdoc
+
+@example @source @uses @used-by @link @internal @property
+@property-read @property-write
+
+docs.phpdoc.org/guide/references/phpdoc/
+
+/**
+* WordPress User Page: Handles authentication et al.
+* @package WordPress
+*/
+...
+/**
+* Output the login page header.
+* @since 2.1.0
+* @global string	$error	Login error message set by ...
+* @global bool | string $interim_login A login modal is being displayed...
+* @global string	$action	The action that brought the visitor to the login page.
+* 
+* @param string	$title	Optional. WordPress login Page title to display
+in the `<title>` element. Default 'Log In'.
+* @param string	$message Optional. Message to display in header.
+* @param WP_Error $wp_error Optional. The error to pass.
+*/
+function login_header($title = 'Log In', $message = '', $wp_error = null ) {
+// ...
+}
+...
+github.com/WordPress/WordPress/blob/master/wp-login.php
+
+
+
+
+
+/**
+* The root application instance.
+*
+* @var \Illuminate\Foundation\Application
+*/
+protected $app;
+...
+/**
+* Handle an incoming request and send the response to the client.
+* 
+* @param \Illuminate\Http\Request $request
+* @param \Laravel\Octane\RequestContext $context
+* @return void
+*/
+public function handle(Request $request, RequestContext $context): void
+...
+
+
+
+github.com/laravel/octane/
+
+tools: code analysis
+
+
+PHP source-code static analysis
+
+for discovering various programming bugs, verifying the conformance to various coding standards, automatic correction (Uixers), determining code metrics: complexity,  number of lines,...
+
+
+github.com/exakat/php-static-analysis-tools
+
+
+tools: code analysis
+
+advanced
+
+
+
+
+
+
+PHP Standards Recommendations - www.php-fig.org/psr/
+written by PHP FIG (Framework Interop Group)
+PSR1: Basic Coding Standard, PSR3: Logger Interface, PSR4: Autoloading, PSR6: Caching Interface,
+PSR7: HTTP Message Interface, PSR11: Container Interface,
+       PSR12: Extended Coding Style Guide, PSR13: Hypermedia Links, PSR14: Event Dispatcher,
+PSR15: HTTP Handlers,...
+
+tools: phan, PHP_CodeSniffer, PHP-CS-Fixer, Rector
+
+tools: code analysis
+
+PSR12: Extended Coding Style Guide - example rules:
+All PHP <iles MUST use the Unix LF (linefeed) line ending only.
+The closing ?> tag MUST be omitted from <iles containing only PHP. Lines SHOULD NOT be longer than 80 characters.
+There MUST NOT be more than one statement per line.
+All PHP reserved keywords and types MUST be in lower case. Visibility MUST be declared on all properties and methods.
+There MUST be one space after the control structure keyword.
+
+
+www.php-fig.org/psr/psr-12/
+
+instrumente: analizarea codului-sursa
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+atoum - atoum.org
+Codeception - codeception.com
+ParaTest (parallel testing) - github.com/brianium/paratest
+Peridot - peridot-php.github.io
+PHP Debugger - www.php.net/manual/en/book.phpdbg.php
+PHPUnit - phpunit.de
+
+
+others at github.com/ziadoz/awesome-php#testing
+
+
+
+
+
+
+
+
+
+Pro;iling - analyzing and reporting slow-running code snippets
+
+PhpBench - github.com/phpbench/phpbench
+Tracy - tracy.nette.org
+Xdebug extension for PHP - xdebug.org/docs/profiler
+
+
+
+github.com/ziadoz/awesome-php#debugging-and-profiling
+
+tools: continuous integration
+
+
+CircleCI - circleci.com/docs/code-coverage/#php Jenkins - www.jenkins.io/solutions/php/ Semaphore - semaphore.io/blog/php-microservices
+
+
+
+
+
+github.com/ziadoz/awesome-php#continuous-integration
+
+extensions
+
+Hack (Facebook, from 2014)
+a programming language for HHVM, extending PHP
+
+goal: increasing the Web developer productivity
+
+features: explicit data types (type annotations), generics, ? expressions, asynchronous programming
+(async), and others
+
+hacklang.org docs.hhvm.com
+
+major critics
+
+
+
+
+
+
+many years: lack of language formal speciUication now: github.com/php/php-langspec
+inconsistency - e.g., foreach, predeUined function names, multiple code writing conventions
+lack of native support for Unicode (except PHP 7+) lack of native support for multi-threading,
+but possible via extensions like pthreads et al.
+
+PHP Sadness
+
+
+
+Function naming (underscores)
+
+" Previous Sadness	Sadness Index	Next Sadness "
+
+
+Even between similar/related functions, some use underscores between words, while others do not. Here are some examples:
+
+
+get:	et class 
+
+∑	tr pad
+-	rm
+
+
+
+str repeat	le	
+
+count
+
+ strcasecm
+
+strcoll
+
+
+
+
+quoted printable encode gzencode
+
+ session encode 
+
+
+
+hp sapi name ion
+
+php logo guid	phpinfo
+
+
+PHP Sadness - phpsadness.com
+
+
+
+Language consistency is very important for developer efficiency. Every inconsistent languag1e feature means that developers have one more thing to remember, one more reason to rely on the documentation, or one more situation that breaks their focus. A consistent language lets developers create habits and expectations that work throughout the language, learn the language much more quickly, more easily locate errors, and have fewer things to keep track of at once.
+
+USELESS ERROR REPORTING
+
+#44	Detail in error messages
+
+#16	Exception thrown without a stack frame #1	Unexpected T_PAAMAYIM_NEKUDOTAYIM
+#7	Parse error: syntax error, unex	MISSINGF.EATURES
+
+
+#54	Empty T_ENCAPSED_AND_WHITESPAC
+
+
+INCONSISTENCY
+
+ #4	Function naming (underscores) #15	Function naming (prefixes)
+#48	Function naming (to/2)
+
+#6	Order of arguments (array mani
+
+#17	 Standard libc process control (fork/exec/etc) #20	(<5.4) No string escape code for ESC {ascii 27),
+normally	e
+
+       Can't decode php-session-format serialization outside a session
+
+#49	(<5.5) No support for finally-type error handling
+
+OBJECT-ORIENTED SYSTEM ISSUES
+	#9	Order of arguments (array/strin 
+       Implementing all the right methods {array) still doesn't work in array functions
+
+  #18	(intended) Static variables in methods are bound to all instances of the class
+
+"	Seemingly redundant reflection methods with no
+documentation
+
+major critics
+
+
+
+
+
+
+In PHP, we can - easily/involuntarily? - create applications that "adopt"
+the Spaghetti Code anti-pattern
+
+study Unix Sheikh et al., PHP The Wrong Way, 2025
+phpthewrongway.com
+
+
+
+
+PHP for data access and processing
+
+PHP for
+data presentation
+
+HTML
+  Web interface
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+A few case studies of Web applications developed in PHP?
+
+
+
+
+
+
+
+
+
+
+
+
+Aim: providing open content by using a group of collaborative Web applications - wikis
+
+
+
+
+
+
+
+
+
+
+Aim: providing open content by using a group of collaborative Web applications - wikis
+
+Wikipedia Foundation
+also maintains Wikipedia, Wiktionary, Wikibooks, Wikiquote, Wikivoyage, Wikisource, Wikimedia Commons, Wikispecies, Wikinews, Wikiversity, Wikidata en.wikipedia.org/wiki/Wikimedia_Foundation
+
+
+
+
+
+Complex version of the LAMP technology stack
+MediaWiki - wiki system used for all services implemented in PHP (8.2+ versions) + JavaScript MariaDB (main storage solution;
+alternatives: SQLite, PostgreSQL)
+ImageMagick, DjVu, TeX, rsvg, ploticus, etc.
+(for graphical content processing within MediaWiki) Apache HTTP Server + NGINX (Web servers)
+also provides an API to be used by Web developers:
+www.mediawiki.org/wiki/API:Main_page
+
+case study: wikipedia
+
+PHP-FPM (FastCGI Process Manager for PHP) Apache TrafMic Server + Varnish (proxy + caching) Memcached (caching for database queries) OpenSearch (textual search -Java implementation) gdnsd (C++ solution for DNS)
+Apache KaMka (event streaming - Java + Scala)
+Linux Virtual Server (load balancing); PyBal (local monit.) Debian GNU/Linux (OS)
+Graphana+Icinga (monitoring): www.wikimediastatus.net
+Phabricator (bug tracking)
+meta.wikimedia.org/wiki/Wikimedia_servers
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+main hosting:
+USA, Virginia secondary hosting:
+USA, Texas
+replication (caching) in Europe: Amsterdam Europe: Marseille USA: San Francisco
+    Asia: Singapore South America: S„o Paulo
+
+advanced
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+monitoring the health of sta?rii Wikipedia systems grafana.wikimedia.org
+larger context: SRE
+(Site Reliability Engineering): sre.xyz
+
+case studies
+
+
+Various Web sites use Content Management Systems (CMS) developed in PHP
+
+general:
+Drupal, Joomla, WordPress, etc. wiki:
+DokuWiki, MediaWiki, pmWiki, etc. for e-commerce:
+Magento, OpenCart, PrestaShop,...
+
+summary
+
+
+PHP overview
+
+._ |_ ._
+|_)| ||_)
+|	|
+
+characteristics, features, tools, examples
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+next episode:
+a data model for Web: XML family
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

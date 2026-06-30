@@ -1,0 +1,532 @@
+Cursul 4 – 18 Martie 2025
+adiftene@info.uaic.ro
+
+1
+
+ Din Cursurile trecute…
+ Diagrame UML - Exemple
+ C4 Model
+ Forward & Reverse Engineering
+
+2
+
+ Diagrame
+ Diagrame UML
+ Diagrame Use Case
+ Diagrame de Clase
+
+3
+
+4
+
+5
+
+6
+
+ Diagrama de secvenţă curprinde secvenţa
+
+acţiunilor care au loc în sistem, invocarea
+metodelor fiecărui obiect ca şi ordinea în timp în
+care aceste invocări au loc
+
+ O diagramă de secvenţă este bidimensională
+
+◦ Pe axa verticală se prezintă viaţa obiectului
+
+ linia vieţii obiectelor (grafic: linie punctată)
+ perioada de activare în care un obiect preia controlul
+execuţiei (grafic: dreptunghi pe linia vieţii)
+
+◦ Pe axa orizontală se arată secvenţa creării sau
+invocărilor
+ mesaje ordonate în timp (grafic: săgeţi)
+
+7
+
+8
+
+9
+
+ Pune accentul pe organizarea structurală a
+
+obiectelor care participă la interacţiune
+
+ Ilustrează mai bine ramificări complexe, iteraţii
+
+şi comportament concurent
+
+ Poate conţine:
+
+◦ Obiecte, clase, actori
+◦ Legături între acestea
+◦ Mesaje
+
+10
+
+11
+
+12
+
+ Diagrame de stări, diagrame de activități
+ Elemente de bază
+
+◦ Eveniment
+◦ Acțiune
+◦ Activitate
+
+13
+
+ Conține:
+
+◦ Stări
+◦ Tranziții
+
+14
+
+ Stare compusă cu substări secvențial active:
+
+15
+
+ Stare compusă cu substări paralel active:
+
+16
+
+ Folosită pentru a modela dinamica unui proces
+
+sau a unei operații
+
+ Evidențiază controlul execuției de la o activitate
+
+la alta
+
+ Se atașează:
+
+◦ Unei clase (modelează un caz de utilizare)
+◦ Unui pachet
+◦ Implementării unei operații
+
+17
+
+18
+
+19
+
+ Modelează mediul hardware în care va funcționa
+
+proiectul
+ Exemplu: pentru a descrie un site web o diagramă
+de deployment va conține componentele hardware
+◦ server-ul web,
+◦ server-ul de aplicații,
+◦ server-ul de baze de date
+
+ Componentele software de pe fiecare din acestea
+
+◦ Aplicația web
+◦ Baza de date
+
+ Modul în care acestea sunt conectate:
+
+◦ JDBC, REST, RMI
+
+20
+
+21
+
+ Pachetul:
+
+◦ Este un container logic pentru elemente între care se
+stabilesc legături
+◦ Definește un spațiu de nume
+◦ Toate elementele UML pot fi grupate în pachete (cel
+mai des pachetele sunt folosite pentru a grupa clase)
+◦ Un pachet poate conține subpachete => se creează o
+structură arborescentă (similară cu organizarea
+fișierele/directoarelor)
+22
+
+ Relații:
+
+◦ dependență <<access>> = import privat
+◦ dependență <<import>> = import public
+ Ambele relații permit folosirea elementelor
+
+aflate în pachetul destinație de către elementele
+aflate în pachetul sursă fără a fi necesară
+calificarea numelor elementelor din pachetul
+destinație (similar directivei import din java)
+
+ Aceste tipuri de diagrame se realizează în cadrul
+
+diagramelor de clasă
+
+23
+
+Elementele din Types sunt importate în ShoppingCart și apoi sunt
+importate mai departe de către WebShop
+ Elementele din Auxiliary pot fi accesate însă doar din ShoppingCart și
+nu pot fi referite folosind nume necalificate din WebShop
+
+
+24
+
+ Împart sisteme mari în subsisteme mai mici și
+
+mai ușor de gestionat
+
+ Permit dezvoltare paralelă iterativă
+ Definirea unor interfețe clare între pachete
+
+promovează refolosirea codului (ex. pachet care
+oferă funcții grafice, pachet care oferă
+posibilitatea conectării la BD, etc...)
+
+25
+
+ Diagramele să nu fie nici prea complicate, dar
+
+nici prea simple: scopul este comunicarea
+eficientă
+ Dați nume sugestive elementelor componente
+ Aranjați elementele astfel încât liniile să nu se
+intersecteze
+ Încercați să nu arătați prea multe tipuri de relații
+odată (evitați diagramele foarte complicate)
+ Dacă este nevoie, realizați mai multe diagrame
+de același tip
+26
+
+ Context, Containers, Components and Code
+
+ Provides different levels of abstraction, each of
+
+which is relevant to a different audience
+ Avoid ambiguity in your diagrams by including a
+
+sufficient amount of text as well as a key/legend
+for the notation you use
+27
+
+ Shows the software
+
+system you are
+building
+ How it fits into the
+world in terms of the
+people who use it and
+the other software
+systems it interacts
+with
+ Colours - Systems
+already exist (the grey
+boxes) and those to be
+built (blue)
+28
+
+ Zooms into the software system, and shows the
+
+containers (applications, data stores, microservices, etc.)
+
+29
+
+ Zooms into an individual container to show the
+
+components inside it
+
+30
+
+ Zoom into an individual component to show how
+
+that component is implemented
+
+31
+
+ https://tobiashochguertel.github.io/c4-
+
+draw.io/
+ https://structurizr.com/express
+ https://www.infoq.com/articles/C4architecture-model
+ https://c4model.com/
+
+32
+
+33
+
+ A traditional process of moving from high-level
+
+abstractions and logical to the implementationindependent designs to the physical
+implementation of a system
+
+ FE follows a sequence of going from requirements
+
+through designing its implementation
+
+34
+
+ Reverse engineering (RE) is the process of
+
+discovering the technological principles of a
+device, object or system through analysis of its
+structure, function and operation
+
+ To try to make a new device or program that
+
+does the same thing without copying anything
+from the original
+
+ Reverse engineering has its origins in the
+
+analysis of hardware for commercial or military
+advantage
+35
+
+ Interoperability
+
+ Lost documentation
+ Product analysis
+
+ Security auditing
+
+ Removal of copy protection, circumvention of access
+
+restrictions
+ Creation of unlicensed/unapproved duplicates
+ Academic/learning purposes
+ Curiosity
+ Competitive technical intelligence (understand what
+your competitor is actually doing versus what they
+say they are doing)
+ Learning: Learn from others mistakes
+
+36
+
+ RE1: Reverse engineering of mechanical devices
+ RE2: Reverse engineering of integrated
+
+circuits/smart cards
+ RE3: Reverse engineering for military
+
+applications
+ RE4: Reverse engineering of software
+
+37
+
+38
+
+39
+
+ Rapid prototyping
+
+ FullCure materials
+
+40
+
+41
+
+42
+
+ RE is an invasive and destructive form of
+
+analyzing a smart card
+
+ The attacker grinds away layer by layer of the
+
+smart card and takes pictures with an electron
+microscope
+
+ Engineers employ sensors to detect and prevent
+
+this attack
+
+43
+
+44
+
+45
+
+ Satellite TV
+ Security card
+ Phone card
+ Ticket card
+ Bank card
+
+46
+
+ Reverse engineering is often used by militaries in
+
+order to copy other nations' technologies, devices or
+information that have been obtained by regular
+troops in the fields or by intelligence operations
+
+ It was often used during the Second World War and
+
+the Cold War
+
+ Well-known examples from WWII and later include:
+
+rocket, missile, bombers, China has reversed many
+examples of US and Russian hardware, from fighter
+aircraft to missiles and HMMWV cars
+47
+
+ US – B-29
+
+URSS – Tupolev Tu-4
+
+48
+
+
+
+Chinese J-20, Black Eagle US F-22, Russian Sukhoi T-50
+
+49
+
+ US -AIM-9 Sidewinder
+
+Soviet - Vympel K-13
+
+50
+
+51
+
+52
+
+ Reverse engineering is the process of analyzing
+
+a subject system to create representations of the
+system at a higher level of abstraction
+
+ In practice, two main types of RE emerge:
+
+◦ Source code is available (but it is poorly documented)
+◦ There is no source code available for the software
+ Black box testing in software engineering has a
+
+lot in common with reverse engineering
+
+53
+
+54
+
+55
+
+public class Test
+{
+private int n;
+private int m;
+
+}
+
+public static void main(String
+args[])
+{
+for(int i=1;i<10;i++)
+System.out.println("Test");
+}
+
+56
+
+ Link: http://www.steike.com/code/java-reverse-
+
+engineering/
+ jad.exe NumeFisier.class => NumeFisier.jad
+
+57
+
+58
+
+59
+
+ File -> Import Sources...
+
+60
+
+61
+
+ Using AI Coding assistant (GitHub Copilot,
+
+Microsoft Copilot, ChatGPT)
+
+ Prompt based Code Generation (Claude)
+ Custom AI models (fine tunned GPT models)
+
+62
+
+https://github.com/copilot/
+
+63
+
+https://copilot.cloud.microsoft/
+
+64
+
+https://gemini.google.com/
+
+65
+
+https://chatgpt.com/
+
+66
+
+https://claude.ai/
+
+67
+
+ Diagrame UML:
+
+◦ Interacțiuni
+◦ Comportamentale
+◦ Structură
+ C4 Model: context, container, component,
+
+code
+
+68
+
+ 1) Până unde trebuie să modelați un proiect la
+
+care lucrați? (un proiect cu 4-5 persoane)
+
+ 2) Cu ce ar trebui începută modelarea unui
+
+proiect?
+
+ 3) E etic ca o firmă (mare) să facă RE pe un
+
+produs de la concurență?
+
+ 4) De ce nu trebuie încurajat RE? Care sunt
+
+efectele RE?
+
+69
+
+ Ovidiu Gheorghieş, Curs 5 IP
+
+ www.uml.org
+ Reverse Engineering and Design Discovery: A
+
+Taxonomy, Chikofsky, E.J. and Cross, J.,
+January, 1990
+
+70
+
+DJ Java Decompiler 3.10.10.93:
+http://www.softpedia.com/progDownload/DJ-Java-DecompilerDownload-13481.html
+ Open Office: http://ro.wikipedia.org/wiki/OpenOffice.org
+ UML Reverse Engineering for Existing Java, C# , and Visual Basic .NET Code :
+http://www.altova.com/umodel/uml-reverse-engineering.html
+ Reverse Engineering:
+http://en.wikipedia.org/wiki/Reverse_engineering
+ PROTO 3000 3D Engineering Solutions:
+http://www.proto3000.com/services.aspx
+ HAR2009: http://www.degate.org/HAR2009/
+ Degate: http://www.degate.org/screenshots/
+ Inteligent: http://www.intelligentrd.com/
+ Smartphones RE: http://www.cytraxsolutions.com/2011/
+01/smartphones-security-and-reverse.html
+
+
+71
+
+

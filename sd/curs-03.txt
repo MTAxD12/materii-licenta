@@ -1,0 +1,1000 @@
+Analiza eficient, ei algoritmilor
+
+SD 2021/2022
+
+Conţinut
+
+Analiza eficient, ei algoritmilor
+
+Analiza funct, iilor recursive
+Funct, ii recursive
+Metoda substitut, iei
+Metoda iterat, iei
+Arborele de recursie
+Teorema Master
+
+FII, UAIC
+
+Curs 3
+
+SD 2021/2022
+
+2 / 40
+
+Clase de eficient, ă
+
+Clasa
+
+Notat, ie
+
+logaritmic
+
+O(log n)
+
+Exemplu
+căutare binară
+
+liniar
+
+O(n)
+
+căutare secvent, ială
+
+pătratic
+
+O(n2 )
+
+sortare prin insert, ie
+
+cubic
+
+O(n3 )
+
+ı̂nmult, irea a două matrici n × n
+
+exponent, ial
+
+O(2n )
+
+prelucrarea submult, imilor unei mult, imi cu
+n elemente
+
+factorial
+
+O(n!)
+
+prelucrarea permutărilor de ordin n
+
+FII, UAIC
+
+Curs 3
+
+SD 2021/2022
+
+3 / 40
+
+Analiza empirică a eficient, ei algoritmilor
+
+I Utilizată atunci când analiza teoretică a eficient, ei este dificilă.
+
+I Scop:
+I formularea unei ipoteze init, iale privind eficient, a algoritmului;
+I verificarea unei afirmat, ii (ipoteze) privind eficient, a;
+I compararea algoritmilor;
+I analiza eficient, ei unei implementări.
+
+FII, UAIC
+
+Curs 3
+
+SD 2021/2022
+
+4 / 40
+
+Analiza empirică a eficient, ei algoritmilor
+I Se stabiles, te scopul analizei.
+I Se alege o masură a eficient, ei
+Exemplu: numărul de execut, ii ale unor operat, ii, timpul, etc.
+I Se stabilesc caracteristicile setului de date de intrare.
+I Se implementează algoritmul.
+I Se generează datele de intrare.
+I Se execută programul pentru toate datele de intrare; se ı̂nregistrează
+rezultatele.
+I Se analizează rezultatele.
+
+FII, UAIC
+
+Curs 3
+
+SD 2021/2022
+
+5 / 40
+
+Conţinut
+
+Analiza eficient, ei algoritmilor
+
+Analiza funct, iilor recursive
+Funct, ii recursive
+Metoda substitut, iei
+Metoda iterat, iei
+Arborele de recursie
+Teorema Master
+
+FII, UAIC
+
+Curs 3
+
+SD 2021/2022
+
+6 / 40
+
+Conţinut
+
+Analiza eficient, ei algoritmilor
+
+Analiza funct, iilor recursive
+Funct, ii recursive
+Metoda substitut, iei
+Metoda iterat, iei
+Arborele de recursie
+Teorema Master
+
+FII, UAIC
+
+Curs 3
+
+SD 2021/2022
+
+7 / 40
+
+Funct, ii recursive
+
+I Funct, ia f() apelează direct funct, ia g() dacă ı̂n definit, ia lui f() există
+un apel la g().
+I Funct, ia f() apelează indirect funct, ia g() dacă f() apelează direct o
+funct, ie h(), iar h() apelează direct sau indirect funct, ia g().
+I Funct, ia f() este definită recursiv dacă ea se auto-apelează direct sau
+indirect.
+
+FII, UAIC
+
+Curs 3
+
+SD 2021/2022
+
+8 / 40
+
+Funct, ii recursive
+
+Definit, ia unei funct, ii recursive cuprinde:
+I Testarea cazului de bază – condit, ia de oprire a apelului recursiv.
+I Apelul recursiv (cazul general): o variabilă (ı̂ntreagă) este
+transmisă ca parametru funct, iei ı̂nsăs, i, ı̂n as, a fel ca după un număr de
+pas, i să se atingă cazul de bază.
+
+Observat, ie: Există s, i funct, ii recursive fără parametri.
+
+FII, UAIC
+
+Curs 3
+
+SD 2021/2022
+
+9 / 40
+
+Funct, ii recursive
+
+Exemplul 1. Definit, ia funct, iei factorial:
+I Cazul de bază: 0! = 1;
+I Cazul general: n! = n × ((n − 1)!), n > 0.
+
+Function factorial(n)
+begin
+if n <= 1 then
+return 1
+else
+return (n ∗ factorial(n − 1))
+end
+
+FII, UAIC
+
+Curs 3
+
+SD 2021/2022
+
+10 / 40
+
+factorial(4) - apel recursiv
+
+FII, UAIC
+
+Curs 3
+
+SD 2021/2022
+
+11 / 40
+
+factorial(4) - apel recursiv
+
+I algoritmii recursivi: us, or de implementat;
+I costuri suplimentare: la fiecare apel recursiv se plasează o serie de
+informat, ii ı̂ntr-o zonă de memorie specifică (stiva programului).
+FII, UAIC
+
+Curs 3
+
+SD 2021/2022
+
+11 / 40
+
+factorial(n) - varianta iterativă
+
+Function factorial(n)
+begin
+produs ← 1
+while n > 1 do
+produs ← produs ∗ n
+n ←n−1
+return produs
+end
+
+Observat, ie: Valoarea returnată de factorial(n) este corectă doar pentru
+valorile lui n pentru care n! este mai mic sau egal decât cea mai mare
+constantă ı̂ntreagă pe care o putem reprezenta !
+
+FII, UAIC
+
+Curs 3
+
+SD 2021/2022
+
+12 / 40
+
+Recursie vs. iterat, ie. Fibonacci recursiv
+Exemplul 2. S, irul lui Fibonacci:
+I f (0) = 0, f (1) = 1,
+I f (n) = f (n − 1) + f (n − 2), n > 1.
+
+Function fib(n)
+begin
+if n <= 1 then
+return n
+else
+return fib(n − 1) + fib(n − 2)
+end
+
+FII, UAIC
+
+Curs 3
+
+SD 2021/2022
+
+13 / 40
+
+Fibonacci recursiv: arbore apeluri
+
+O(φn )
+
+FII, UAIC
+
+Curs 3
+
+SD 2021/2022
+
+14 / 40
+
+Număr de apeluri
+
+n
+
+fib(n)
+
+apeluri
+
+2
+
+1
+
+3
+
+24
+
+46’368
+
+150’049
+
+42
+
+267’914’296
+
+866’988’873
+
+43
+
+433’494’437
+
+1’402’817’465
+
+FII, UAIC
+
+Curs 3
+
+SD 2021/2022
+
+15 / 40
+
+Recursie vs. iterat, ie: Fibonacci iterativ
+
+Function ifib(n)
+begin
+f0←0
+f1←1
+if n <= 1 then
+return n
+else
+for k ← 2 to n do
+temp ← f 1
+f1←f1+f0
+f 0 ← temp
+return f 1
+end
+
+FII, UAIC
+
+Curs 3
+
+SD 2021/2022
+
+16 / 40
+
+Comparat, ie Fibonacci recursiv/iterativ
+
+timp de executie (secunde)
+
+60
+Ruby
+Scheme
+Python
+C
+Java
+C-gcc
+(Python) Fibonacci iterativ
+
+40
+
+20
+
+0
+20
+
+FII, UAIC
+
+40
+
+60
+
+80
+
+100 120 140 160 180 200
+n
+
+Curs 3
+
+SD 2021/2022
+
+17 / 40
+
+Eficient, a algoritmilor recursivi
+
+I Pentru estimarea timpului de execut, ie:
+I se stabiles, te relat, ia de recurent, ă care exprimă legatura dintre timpul de
+execut, ie corespunzător problemei init, iale s, i timpul de execut, ie
+corespunzător problemei reduse;
+I se rezolvă relat, ia de recurent, ă.
+
+I Exemplu: pentru calculul factorialului, relat, ia de recurent, ă pentru
+timpul de execut, ie este:
+
+0,
+n=0
+T (n) =
+T (n − 1) + 1, n ≥ 1
+
+FII, UAIC
+
+Curs 3
+
+SD 2021/2022
+
+18 / 40
+
+Rezolvarea recurent, elor
+1. Metoda substitut, iei. Se ghices, te o limită s, i apoi se utilizează
+induct, ia matematică pentru a demonstra corectitudinea.
+2. Metoda iterat, iei. Se iterează recurent, a s, i se exprimă ca o sumă de
+termeni care depind doar de dimensiunea problemei s, i de condit, iile
+init, iale.
+3. Arborele de recursie. Convertes, te recurent, a ı̂ntr-un arbore (nodurile
+reprezintă costuri).
+4. Metoda master. Furnizează limite pentru recurent, e de forma
+T (n) = aT (n/b) + f (n)
+.
+FII, UAIC
+
+Curs 3
+
+SD 2021/2022
+
+19 / 40
+
+Conţinut
+
+Analiza eficient, ei algoritmilor
+
+Analiza funct, iilor recursive
+Funct, ii recursive
+Metoda substitut, iei
+Metoda iterat, iei
+Arborele de recursie
+Teorema Master
+
+FII, UAIC
+
+Curs 3
+
+SD 2021/2022
+
+20 / 40
+
+1. Metoda substitut, iei
+
+I Se ghices, te solut, ia.
+
+I Se utilizează induct, ia matematică pentru a determina constantele s, i
+pentru a demonstra că solut, ia este corectă.
+
+FII, UAIC
+
+Curs 3
+
+SD 2021/2022
+
+21 / 40
+
+Metoda substitut, iei - exemplu
+Determinarea unei limite superioare pentru relat, ia T (n) = 2T (bn/2c) + n
+
+FII, UAIC
+
+Curs 3
+
+SD 2021/2022
+
+22 / 40
+
+Metoda substitut, iei - exemplu
+Determinarea unei limite superioare pentru relat, ia T (n) = 2T (bn/2c) + n
+I Ghicim solut, ia: T (n) = O(n log n).
+I Demonstrăm prin induct, ie că T (n) ≤ cn log n, pentru c > 0.
+
+FII, UAIC
+
+Curs 3
+
+SD 2021/2022
+
+22 / 40
+
+Metoda substitut, iei - exemplu
+Determinarea unei limite superioare pentru relat, ia T (n) = 2T (bn/2c) + n
+I Ghicim solut, ia: T (n) = O(n log n).
+I Demonstrăm prin induct, ie că T (n) ≤ cn log n, pentru c > 0.
+Presupunem că limita are loc pentru toate valorile pozitive m < n, ı̂n
+particular pentru m = bn/2c: T (bn/2c) ≤ cbn/2c log(bn/2c).
+T (n) ≤ 2(cbn/2c log(bn/2c)) + n
+≤ cn log(bn/2c) + n
+= cn log n − cn log 2 + n
+= cn log n − cn + n
+≤ cn log n, pentru c ≥ 1
+
+FII, UAIC
+
+Curs 3
+
+SD 2021/2022
+
+22 / 40
+
+Metoda substitut, iei - exemplu
+Determinarea unei limite superioare pentru relat, ia T (n) = 2T (bn/2c) + n
+I Ghicim solut, ia: T (n) = O(n log n).
+I Demonstrăm prin induct, ie că T (n) ≤ cn log n, pentru c > 0.
+Presupunem că limita are loc pentru toate valorile pozitive m < n, ı̂n
+particular pentru m = bn/2c: T (bn/2c) ≤ cbn/2c log(bn/2c).
+T (n) ≤ 2(cbn/2c log(bn/2c)) + n
+≤ cn log(bn/2c) + n
+= cn log n − cn log 2 + n
+= cn log n − cn + n
+≤ cn log n, pentru c ≥ 1
+Trebuie să arătăm că solut, ia este validă s, i pentru condit, iile limită.
+T (1) = 1 ≤ c1 log 1 = 0
+Cazuri de bază: T(2) s, i T(3) ( n0 = 2 )
+T (2) = 4 s, i T (3) = 5, T (2) ≤ c2 log 2 s, i T (3) ≤ c3 log 3 ⇒ c ≥ 2.
+FII, UAIC
+
+Curs 3
+
+SD 2021/2022
+
+22 / 40
+
+Metoda substitut, iei - subtilităt, i
+I Scăderea unui termen de ordin inferior (pentru a consolida ipoteza
+inductivă).
+Exemplu: T (n) = T (bn/2c) + T (dn/2e) + 1
+I Ghicim solut, ia: T (n) = O(n).
+I Demonstrăm prin induct, ie că T (n) ≤ cn, pentru c > 0.
+T (n) ≤ cbn/2c + cdn/2e + 1
+= cn + 1
+I Demonstrăm prin induct, ie că T (n) ≤ cn − d, d >= 0 const.
+T (n) ≤ (cbn/2c − d) + (cdn/2e − d) + 1
+= cn − 2d + 1
+≤ cn − d, pentru d ≥ 1
+Trebuie să alegem constanta c suficient de mare pentru a satisface
+condit, iile limită.
+FII, UAIC
+
+Curs 3
+
+SD 2021/2022
+
+23 / 40
+
+Metoda substitut, iei - subtilităt, i
+
+I Evitarea capcanelor
+Exemplu: T (n) = 2T (bn/2c) + n
+Demonstrăm “fals” ca T (n) = O(n) ghicind T (n) ≤ cn s, i
+argumentând:
+T (n) ≤ 2(cbn/2c) + n
+≤ cn + n
+= O(n), ⇐ fals!!
+Eroarea: nu am demonstrat forma exactă a ipotezei inductive.
+
+FII, UAIC
+
+Curs 3
+
+SD 2021/2022
+
+24 / 40
+
+Metoda substitut, iei - subtilităt, i
+
+I Schimbare de variabilă.
+Exemplu: T (n) = 2T (bsqrt(n)c) + log n
+Simplificăm recurent, a printr-o schimbare de variabilă m = log n.
+T (2m ) = 2T (2m/2 ) + m
+Redenumim S(m) = T (2m ), s, i avem S(m) = 2S(m/2) + m.
+S(m) = O(m log m),
+T (n) = T (2m ) = S(m) = O(m log m) = O(log n log log n).
+
+FII, UAIC
+
+Curs 3
+
+SD 2021/2022
+
+25 / 40
+
+Conţinut
+
+Analiza eficient, ei algoritmilor
+
+Analiza funct, iilor recursive
+Funct, ii recursive
+Metoda substitut, iei
+Metoda iterat, iei
+Arborele de recursie
+Teorema Master
+
+FII, UAIC
+
+Curs 3
+
+SD 2021/2022
+
+26 / 40
+
+Iterarea unei recurent, e
+Metoda substitut, iei: implică ghicirea solut, iei (!)
+Iterarea relat, iei de recurent, ă:
+I directă
+I se pornes, te de la cazul particular s, i se construiesc termeni succesivi
+folosind relat, ia de recurent, ă;
+I se identifică forma termenului general T (n);
+I se verifică prin calcul direct sau induct, ie matematică.
+
+I inversă
+I se pornes, te de la cazul T (n) s, i se inlocuies, te T (h(n)) cu valoarea
+corespunzătoare, apoi se inlocuies, te T (h(h(n))) s, i as, a mai departe,
+până se ajunge la cazul particular;
+I se efectuează calculele s, i se obt, ine T (n).
+
+FII, UAIC
+
+Curs 3
+
+SD 2021/2022
+
+27 / 40
+
+Iterarea unei recurent, e - exemplu n!
+
+
+T (n) =
+
+FII, UAIC
+
+0,
+n=1
+T (n − 1) + 1, n > 1
+
+Curs 3
+
+SD 2021/2022
+
+28 / 40
+
+Iterarea unei recurent, e - exemplu n!
+
+
+T (n) =
+
+0,
+n=1
+T (n − 1) + 1, n > 1
+
+Iterare directă
+T (1) = 0
+T (2) = 1
+T (3) = 2
+...
+T (n) = n − 1
+
+FII, UAIC
+
+Curs 3
+
+SD 2021/2022
+
+28 / 40
+
+Iterarea unei recurent, e - exemplu n!
+
+
+T (n) =
+
+0,
+n=1
+T (n − 1) + 1, n > 1
+
+Iterare directă
+
+Iterare inversă
+
+T (1) = 0
+T (2) = 1
+T (3) = 2
+...
+T (n) = n − 1
+
+T (n) = T (n − 1) + 1
+T (n − 1) = T (n − 2) + 1
+...
+T (2) = T (1) + 1
+T (1) = 0
+——————
+T (n) = n − 1
+
+FII, UAIC
+
+Curs 3
+
+SD 2021/2022
+
+28 / 40
+
+Iterarea unei recurent, e - exemplu
+T (n) = 3T (b n4 c) + n
+n 
+n
+T (n) = n + 3 b c + 3T (b c)
+4
+16
+n
+n
+n
+= n + 3b c + 9(b c + 3T (b c))
+4
+16
+64
+n
+n
+n
+= n + 3b c + 9b c + 27T (b c)
+4
+16
+64
+...
+∞
+X
+3
+≤n
+( )i + Θ(nlog4 3 xT (1))
+4
+i=0
+
+= 4n + Θ(nlog4 3 xT (1))
+= O(n)
+Observat, ie: utilizarea seriilor geometrice:
+n+1
+
+1 + x + x 2 + ... + x n = 1−x
+1−x , pentru x 6= 1
+1
+1 + x + x 2 + ... = 1−x
+, pentru |x| < 1
+FII, UAIC
+
+Curs 3
+
+SD 2021/2022
+
+29 / 40
+
+Conţinut
+
+Analiza eficient, ei algoritmilor
+
+Analiza funct, iilor recursive
+Funct, ii recursive
+Metoda substitut, iei
+Metoda iterat, iei
+Arborele de recursie
+Teorema Master
+
+FII, UAIC
+
+Curs 3
+
+SD 2021/2022
+
+30 / 40
+
+2. Arborele de recursie
+
+I Arborele de recursie:
+I permite vizualizarea ieterării unei recurent, e;
+I fiecare nod reprezintă costul unei subprobleme;
+I se calculează suma costurilor pe nivele s, i apoi se ı̂nsumează aceste
+costuri pentru a determina costul total al recursiei.
+
+I Arborele de recursie poate fi utilizat pentru a genera o valoare pentru
+metoda substitut, iei.
+
+FII, UAIC
+
+Curs 3
+
+SD 2021/2022
+
+31 / 40
+
+Arborele de recursie - exemplu
+
+T (n) = 3T (bn/4c) + Θ(n2 )
+
+FII, UAIC
+
+Curs 3
+
+SD 2021/2022
+
+32 / 40
+
+Arborele de recursie - exemplu
+
+T (n) = 3T (bn/4c) + Θ(n2 )
+I Creăm arborele de recursie pentru T (n) = 3T (n/4) + cn2 , c > 0
+
+FII, UAIC
+
+Curs 3
+
+SD 2021/2022
+
+32 / 40
+
+Arborele de recursie - exemplu
+
+FII, UAIC
+
+Curs 3
+
+SD 2021/2022
+
+33 / 40
+
+Arborele de recursie - exemplu
+
+I Dimensiunea unei subprobleme corespunzătoare unui nod de
+adâncime i: n/4i ⇒ dimensiunea subproblemei ajunge la n = 1 cand
+n/4i = 1 ⇔ i = log4 n ⇒ arborele are log4 n + 1 nivele.
+I Numărul de noduri de la nivelul i: 3i .
+I Fiecare nod de pe nivelul i are costul: c(n/4i )2 .
+I Costul total al nodurilor de la nivelul i: 3i c(n/4i )2 = (3/16)i cn2
+(Ultimul nivel log4 n: nlog4 3 T (1).)
+
+FII, UAIC
+
+Curs 3
+
+SD 2021/2022
+
+34 / 40
+
+Arborele de recursie - exemplu
+
+3
+3
+3 2
+cn + ( )2 cn2 + ... + ( )log4 n−1 cn2 + Θ(nlog4 3 )
+16
+16
+16
+
+T (n) = cn2 +
+=
+
+logX
+4 n−1
+
+(
+
+i=0
+
+3 i 2
+) cn + Θ(nlog4 3 )
+16
+
+∞
+X
+3
+( )i cn2 + Θ(nlog4 3 )
+<
+16
+i=0
+
+1
+cn2 + Θ(nlog4 3 )
+1 − (3/16)
+16
+= cn2 + Θ(nlog4 3 )
+13
+= O(n2 )
+=
+
+FII, UAIC
+
+Curs 3
+
+SD 2021/2022
+
+35 / 40
+
+Arborele de recursie - exemplu
+I Utilizăm metoda substitut, iei pentru a verifica că T (n) = O(n2 ) este o
+limită superioară pentru relat, ia T (n) = 3T (bn/4c) + Θ(n2 ).
+I Arătăm ca T (n) ≤ dn2 , pentru d > 0
+T (n) ≤ 3T (bn/4c) + cn2
+≤ 3dbn/4c2 + cn2
+≤ 3d(n/4)2 + c(n2 )
+3
+= dn2 + cn2
+16
+≤ dn2 , pentru d ≥ (16/13)c
+
+FII, UAIC
+
+Curs 3
+
+SD 2021/2022
+
+36 / 40
+
+Conţinut
+
+Analiza eficient, ei algoritmilor
+
+Analiza funct, iilor recursive
+Funct, ii recursive
+Metoda substitut, iei
+Metoda iterat, iei
+Arborele de recursie
+Teorema Master
+
+FII, UAIC
+
+Curs 3
+
+SD 2021/2022
+
+37 / 40
+
+3. Teorema Master
+I Furnizează o metodă de rezolvare a recurent, elor de forma
+T (n) = aT (n/b) + f (n) unde a ≥ 1 s, i b > 1 sunt constante, iar f (n)
+este o funct, ie asimptotic pozitivă.
+I Teorema Master:
+Fie a ≥ 1 s, i b > 1 constante, f (n) o funct, ie s, i T (n) definită pe
+numere ı̂ntregi nenegative prin relat, ia de recurent, ă:
+T (n) = aT (n/b) + f (n). Avem:
+1. Dacă f (n) = O(nlogb a− ) pentru  > 0 constant, atunci
+T (n) = Θ(nlogb a ).
+2. Dacă f (n) = Θ(nlogb a ), atunci T (n) = Θ(nlogb a log n).
+3. Dacă f (n) = Ω(nlogb a+ ) pentru  > 0 constant, s, i dacă
+af (n/b) ≤ cf (n) pentru c < 1 s, i n suficient de mare, atunci
+T (n) = Θ(f (n)).
+FII, UAIC
+
+Curs 3
+
+SD 2021/2022
+
+38 / 40
+
+Teorema Master - exemple
+
+I T (n) = 9T (n/3) + n
+a = 9, b = 3, f (n) = n s, i nlogb a = nlog3 9 = Θ(n2 ).
+Cum f (n) = O(nlog3 9− ), cu  = 1, putem aplica cazul 1 al teoremei
+master ⇒ T (n) = Θ(n2 ).
+
+I T (n) = T (2n/3) + 1
+a = 1, b = 3/2, f (n) = 1 s, i nlogb a = nlog3/2 1 = n0 = 1.
+Cum f (n) = Θ(nlogb a ) = Θ(1), putem aplica cazul 2 al teoremei
+master ⇒ T (n) = Θ(log n).
+
+FII, UAIC
+
+Curs 3
+
+SD 2021/2022
+
+39 / 40
+
+Teorema Master - exemple
+I T (n) = 3T (n/4) + n log n
+a = 3, b = 4, f (n) = n log n s, i nlogb a = nlog4 3 = O(n0.793 )
+Cum f (n) = Ω(nlog4 3+ ), cu  ≈ 0.2, putem aplica cazul 3 al teoremei
+master dacă are loc condit, ia:
+af (n/b) = 3(n/4) log(n/4) ≤ (3/4)n log n = cf (n) pentru c = 3/4 s, i
+n suficient de mare. Rezultă T (n) = Θ(n log n).
+I Metoda master nu se poate aplica pentru T (n) = 2T (n/2) + n log n
+a = 2, b = 2, f (n) = n log n s, i nlogb a = n
+Cum f (n) = n log n este asimptotic mai mare decât nlogb a = n, putem
+aplica cazul 3 (fals!!).
+f (n) nu este polinomial mai mare.
+f (n)/nlogb a = (n log n)/n = log n este asimptotic mai mic decât n ,
+pentru orice constantă pozitivă .
+FII, UAIC
+
+Curs 3
+
+SD 2021/2022
+
+40 / 40
+
+

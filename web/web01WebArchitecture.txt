@@ -1,0 +1,1662 @@
+Web Technologies
+
+
+
+primary concepts and vision
+
+
+
+
+
+
+
+
+
+
+
+
+
+Prof. Sabin Corneliu Buraga - profs.info.uaic.ro/sabin.buraga/
+Assoc. Prof. Andrei Panu - profs.info.uaic.ro/andrei.panu/
+
+
+
+
+
+
+
+
+"From a certain point onward, there is no longer any turning back.
+That is the point that must be reached."
+
+Franz Kafka
+
+(re)discover
+
+
+
+
+
+
+
+
+what is the Web
+what does hypertext mean
+how do we identify Web resources
+what categories of Web applications can we develop what is the general architecture of a Web application
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+What is the Web?
+
+
+
+
+
+
+
+
+
+an Internet service
+
+WWW ? Internet
+
+
+
+
+
+
+Common information space in which we communicate by interconnecting and sharing elements of interest called resources
+
+invented by Sir Tim Berners-Lee in 1989
+
+
+
+
+
+
+Sir Tim Berners-Lee - laureate of the Turing award (2017)
+the highest distinction in Computer Science
+
+
+
+
+
+
+Idea (Sir Tim Berners-Lee at CERN - 1989)
+
+integrating distinct information systems in a unitary manner,
+without differences between data sources
+
+
+
+
+
+
+Idea (Sir Tim Berners-Lee at CERN - 1989)
+
+integrating distinct information systems
+in a unitary manner,
+without differences between data sources
+
+
+
+
+
+
+Idea (Sir Tim Berners-Lee at CERN - 1989)
+
+integrating distinct information systems in a unitary manner,
+without differences between data sources
+
+
+
+
+
+
+Idea (Sir Tim Berners-Lee at CERN - 1989)
+
+integrating distinct information systems in a unitary manner,
+without differences between data sources
+
+anything can link to anything
+
+
+
+
+
+
+based on client/server model
+
+
+
+
+
+
+
+
+Web client (browser)
+
+request
+
+
+response
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+...and on hypertext (hypermedia)
+
+
+
+
+
+
+
+Main intents:
+
+device independence software independence scalability
+ubiquity
+
+
+
+
+
+
+
+Based on open principles and standards stipulated by the Web Consortium
+
+Web for all & on everything Web for rich interaction Web of data & services Web of trust
+
+www.w3.org/mission/
+
+
+
+
+
+
+
+
+
+
+
+Resources are identified by their address
+
+URI - Uniform Resource Identifier
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Access to the Web resources' content
+  - resource representation - is achieved by using a protocol
+
+
+HTTP - HyperText Transfer Protocol
+
+
+
+
+ 
+
+
+
+a b c ... z
+? ? ? ? ? ? ?
+? ? ? ??
+
+.com .org .dev .ro
+.uaic.ro
+.info.uaic.ro
+
+TCP / UDP IP, ICMP,...
+medium access
+
+ 
+
+
+
+a b c ... z
+? ? ? ? ? ? ?
+? ? ? ??
+
+.com .org .dev .ro
+.uaic.ro
+.info.uaic.ro
+
+TCP / UDP IP, ICMP,...
+medium access
+
+
+
+TCP = Transmission Control Protocol
+IP = Internet Protocol
+DNS = IP address?domain name - e.g., 85.122.23.162?profs.info.uaic.ro
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Web pages
+
+
+
+resources - documents - include <markups />
+
+URIs?hypertext (hypermedia)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+reddit.com/r/vinyl
+
+
+
+
+
+
+album
+
+
+
+video
+
+
+
+addressability via URI
+
+
+identifies
+
+weather forecast info about Ia?i
+Web resource
+
+
+
+
+
+
+
+
+
+represents
+
+
+
+representation
+
+<section id="meteo">
+<div class="weather">
+<p lang="ro">Ia?i</p>
+<span>city</span>
+<p lang="en">Temp.
+<span id="today">
+is <strong>...</strong> &deg;C</span>
+</p>
+</div>
+</section>
+    HTML format (typically, human users)
+
+
+
+addressability via URI
+
+
+identifies
+
+weather forecast info about Ia?i
+Web resource
+
+
+
+
+
+
+
+
+
+represents
+
+
+
+representation
+<weather>
+<point lat="..." long="...">
+<name lang="ro"> Ia?i
+</name>
+<type>city</type>
+...
+</point>
+<temperature when="...">
+<value>...</value>
+</temperature>
+</weather>
+     XML format (software processable)
+
+
+addressability via URI
+representation
+
+
+
+identifies
+
+weather forecast info about Ia?i
+Web resource
+
+
+
+
+represents
+
+{
+"point" : {
+"geo" : { "lat"	: "...",
+"long" : "..." },
+"name" : "Ia?i",
+"type"	: "city"
+},
+"temperature" : { "when" : "...",
+"value" : "..."
+
+}
+}
+JSON format
+(software processable)
+
+
+
+addressability via URI
+
+
+identifies
+
+weather forecast info about Ia?i
+Web resource
+
+
+
+
+
+
+
+
+
+represents
+
+
+
+representation
+
+<section id="meteo">
+<div class="weather">
+<p lang="ro">Ia?i</p>
+<span>(rceitpy)r<e/sspeann>tation
+<p lan{g="en">Temp.
+<span...class="today">
+is <strong"w>...he<n/"st:ro"...ng">, &deg;C</"svpaalune>" : "..."
+
+</p>	}
+</div> } ...
+</section>
+representation - denoted by an open format (e.g., HTML, XML, JSON, RDF,...) - includes data itself + meta-data
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+What does hypertext mean?
+
+
+
+
+
+
+
+
+"Written or graphical data, interconnected in a complex manner,
+which conventionally cannot be represented on paper."
+
+
+Ted Nelson, 1965
+
+
+
+
+
+
+
+
+
+
+
+Non-linear text
+
+
+
+
+
+
+
+
+Non-linear text
+
+?	versus	
+
+
+
+
+
+
+
+
+
+
+
+
+
+A form of an electronic document
+
+
+
+
+
+
+
+
+
+
+
+
+
+A form of an electronic document
+
+open formats for content representation:
+DocBook
+HTML (HyperText Markup Language) ODF (Open Document Format)
+PDF (Portable Document Format)
+...
+
+hypertext: history
+
+
+Vannevar Bush - As We May Think, 1945
+
+MEMEX (MEMory EXtended)
+
+
+
+
+"Consider a future device for individual use, which is a sort of mechanized private file and library. [...] It affords an immediate step, however, to associative indexing, the basic idea of which is a provision whereby any item may be caused at will to select immediately and automatically another. [...]
+The process of tying two items together is the important thing."
+
+
+
+
+
+
+
+
+Douglas Engelbart
+Augment (1968)
+
+mouse, graphical user-interface, text processing, e-mail, scripting, windows on a screen, etc.
+
+The Mother of All Demos (1968)
+www.youtube.com/watch?v=yJDv-zdhzMY
+
+
+
+
+
+
+
+
+Ted Nelson
+Xanadu - prototype, 1991
+
+coined the "hypertext" term
+
+"Hypertexts: new forms of writing, appearing on computer screens, that will branch or perform at the reader's command.
+A hypertext is a non-sequential piece of writing; only the computer display makes it practical."
+archive.org/details/SelectedPapers1977/page/n7/mode/2up
+
+
+
+
+
+
+
+
+Hypermedia = hypertext + multimedia
+
+Multimedia = S media
+
+
+
+
+
+
+
+
+Hypermedia = hypertext + multimedia
+
+Multimedia = S media
+communication media:
+continuous (audio, video) and/or discrete (text)
+
+
+
+
+
+
+
+
+Hypertext as a (di)graph
+
+
+nodes = concepts edges = relations
+
+
+
+
+
+
+
+
+
+Nodes interconnected by links (edges)
+
+
+source node = reference (anchor) destination node = referent (anchor)
+
+
+
+
+
+hypertext: links
+
+
+   referential (non-hierarchical)
+
+organizational (hierarchical, structural)
+
+hypertext: links
+
+
+
+
+
+
+
+static (indicated by the author of a document) versus
+dynamic - generated by software
+
+hypertext: documents
+
+content
+media types: text, image, audio, video,...
+
+organization
+nodes + structural links
+
+      presentation textual, graphical, multimedia, 3D, mixed - (non-)interactive
+
+
+(instead of) break
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+How are the Web resources identified (addressed)?
+
+URI
+
+
+Each Web resource is denoted by
+uniform resource identifiers Uniform Resource Identifier
+
+RFC 2396, 3986, 8820
+datatracker.ietf.org/doc/html/rfc3986
+
+
+
+
+
+
+
+
+
+Resource
+"thing" having an identity
+
+
+
+
+
+
+
+
+
+Resource
+"thing" having an identity
+
+
+note, CV, photo, presentation, song, program, person, database, arbitrary concept, etc.
+
+
+
+
+
+
+
+
+
+
+Identifier
+object that can denote a resource
+
+
+
+
+
+
+
+
+
+
+Identifier
+object that can denote a resource
+
+
+a character sequence (string) conforming to a given syntax
+
+
+
+
+
+
+
+
+
+
+Uniformity
+  heterogeneous resources can be denoted by using the same syntactic conventions, being semantically interpreted in a uniform manner
+
+
+
+
+
+
+
+
+
+Uniform Resource Locator
+
+identifies resources through the access mechanism: network address, symbolic Internet domain
+
+
+
+
+
+
+
+
+
+Uniform Resource Locator
+
+http://dlinkrouter.local https://profs.info.uaic.ro/andrei.panu/courses/ mailto:tux@penguin.info ftp://ftp.funet.fi/pub/README.txt data:image/png;base64,iVBORw0KGgoAA...YII= tel:+40232201090
+geo:47.16667,27.60000
+
+
+
+
+
+
+
+
+
+Uniform Resource Name
+
+identifies resources by name, in a persistent way, even if the resource is an abstract one
+
+
+
+
+
+
+
+
+urn:mimetypes urn:ISBN:973-681-988-4
+urn:ietf:rfc:7700 urn:mozilla:install-manifest
+
+
+
+
+
+
+
+
+
+book uniquely identified by ISBN
+
+
+
+
+  software component
+
+urn:mimetypes urn:ISBN:973-681-988-4
+urn:ietf:rfc:7700 urn:mozilla:install-manifest
+
+
+http://www.penguin.info/prog/search?id=Tux
+
+
+http://www.penguin.info/prog/search?id=Tux
+
+
+
+
+
+
+
+
+schema represents a standardized addressing schema (recognized by the client - e.g., Web browser)
+about data file ftp geo http https im imap ipp ldap mailto nfs sip sms stun tel turn tv urn ws xmpp etc.
+
+
+www.iana.org/assignments/uri-schemes/uri-schemes.xhtml
+
+
+http://www.penguin.info/prog/search?id=Tux
+
+
+
+
+
+
+
+
+authority can include user authentication information (name:password - specified in plain text!)
++
+data about the Internet domain/address, optionally the port number
+
+
+http://www.penguin.info/prog/search?id=Tux
+
+
+
+
+
+
+
+
+path refers a (virtual) directory path towards
+a resource name - considered as a file name, optionally having an extension
+
+
+http://www.penguin.info/prog/search?id=Tux
+
+
+
+
+
+
+
+
+     query specifies input data usually, key=value pairs delimited by "&"
+
+
+
+
+
+
+
+
+
+
+
+Reserved characters
+; / ? : @ & = + $ ,
+
+encoded in base 16, prefixed by %
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Reserved characters
+; / ? : @ & = + $ ,
+
+encoded in base 16, prefixed by %
+
+example:
+space will become %20 https://emojipedia.org/emoji/%F0%9F%96%A4/
+
+
+
+
+
+
+
+
+
+
+
+Absolute URIs
+
+https://hypermedia.systems/hypermedia-a-reintroduction/
+
+
+it is mandatory to specify
+schema and authority components
+
+
+
+
+
+
+
+
+
+
+
+Relative URIs
+
+../../web.css
+
+
+only the constructs regarding the path
+- and, optionally, query - are indicated
+
+
+
+
+
+
+
+"Fragments" of a given content
+can be referred by URIref
+(references, fragment identifiers)
+
+URI#URIref
+
+
+
+
+
+
+
+"Fragments" of a given content
+can be referred by URIref
+(references, fragment identifiers)
+
+URI#URIref
+
+web-biblio.html#web https://html.spec.whatwg.org/multipage/dom.html#documents https://drive.google.com/#my-drive
+
+
+URI
+
+  Link directly to a text fragment in the absence of a URIref identifier
+
+URI#:~:text=[prefix-,]textStart[,textEnd][,-sufix]
+
+details:
+developer.mozilla.org/docs/Web/URI/Reference/Fragment/Text_fragments
+
+
+URI
+
+  Link directly to a text fragment in the absence of a URIref identifier
+
+example: using
+https://edu.info.uaic.ro/web-technologies/web-film.html#:~:tex t=HTML in the Web browser,
+this will highlight the first occurrence of the text "HTML"
+
+
+
+URI
+
+URIs must be considered opaque
+
+  the content type must not be "guessed" by inspecting the URI indicating a resource
+
+
+
+URI
+
+URIs must be considered opaque
+
+  the content type must not be "guessed" by inspecting the URI indicating a resource
+
+
+a resource's type is not given by the extension - e.g., .html -, but by the MIME type (Media Type) indicated by the server
+
+
+
+URI
+
+URIs must be considered opaque
+
+  the content type must not be "guessed" by inspecting the URI indicating a resource
+
+
+the resource's state/content can change in time, but not its URI
+
+"Cool URIs don't change" - www.w3.org/Provider/Style/URI.html
+
+IRI
+
+Internationalized Resource Identifier permits the use of Unicode characters also see IDN (Internationalized Domain Name)
+examples: https://thefreedictionary.com/rosé https://dexonline.ro/definitie/paianjen
+https://blog.twnic.tw/tag/????/	p%C4%83ianjen
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+What kind of Web applications
+can we develop?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Web site
+
+a system on which a Web server is running, hosting a set of related pages (resources)
+
+
+of an organization, company, or person(s)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Web application
+
+a collection of interconnected Web pages having the content dynamically generated,
+in order to offer a specific functionality to its users
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Web application
+
+the interaction between application and users is facilitated by a Web interface
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Web application
+
+the interaction between application and users is facilitated by a Web interface
+
+
+usually, Web site = Web application
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Web application
+
+examples:
+Coursera, Devdocs.io, DuckDuckGo, Europeana, Figma, GitHub, Grid.Space, Heroku, info.uaic.ro, InfoQ, JSBin, Kongregate, Medium, OpenStreetMap, Pocket, Reddit, Replit, Spliit, Synth.Town, Unsplash, WikiArt, WordPress
+
+
+...and many, many, many others
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+What is the architecture of a
+Web application?
+
+	front-end			back-end	
+
+
+Web client
+JavaScript
+
+HTTP
+ async transfer
+
+Web server
+app server, framework
+
+static
+content
+
+dynamic
+content
+
+
+
+
+
+
+
+
+local data
+
+
+external data (Web service)
+
+
+via a Web interface, the user interacts with the client (front-end) and initiates actions - e.g., (a)synchronous HTTP requests - which will be executed by various components implemented at the server level (back-end),
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Web app. = Interface + Program + Content (Data)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Web app. = Interface + Program + Content (Data)
+
+myth 1: the most important thing is the interface myth 2: the most important thing is the program myth 3: the most important thing is the data
+
+open standards:
+HTML, CSS, Ajax, SVG, WebGL, WebXR, WAI...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Web app. = Interface + Program + Content (Data)
+
+myth 1: the most important thing is the interface myth 2: the most important thing is the program myth 3: the most important thing is the data
+
+server: C#, Java, JavaScript, PHP, Python, Ruby, Scala,... client: JavaScript, WebAssembly (WASM)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Web app. = Interface + Program + Content (Data)
+
+myth 1: the most important thing is the interface myth 2: the most important thing is the program myth 3: the most important thing is the data
+
+relational (SQL), graph (NoSQL), JSON, XML, RDF, etc.
+A. Gavra, Frameworks for Understanding Databases (2025):
+www.bitsxpages.com/p/frameworks-for-understanding-databases
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Web app. = Interface + Program + Content (Data)
+
+myth 1: the most important thing is the interface myth 2: the most important thing is the program myth 3: the most important thing is the data
+
+fact: all of them are important!
+
+	 
+
+
+
+
+
+
+
+Web Application = Interface + Program + Content (Data)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Web applications
+
+complex software systems, in a permanent evolution
+
+Reality
+
+multiple ways of Web interaction with the user
+
+
+mobile laptop	PC	tablet	(smart) TV urban screen
+
+plus, newcomers:
+game console ? smart watch  smart clothing smart appliances	smart home	smart
+
+
+
+
+
+
+
+
+
+Reality
+
+an increased number of users,
+having greater expectations from actual software
+
+
+from (hyper-)text content 
+to social Web applications	+ natural interaction
+
+
+
+
+
+
+
+
+
+Reality
+
+the support for developing applications (languages, APIs, libraries, tools,...)
+provided by the hardware/software platform on server-side and/or client-side
+
+
+
+
+
+
+
+
+
+Reality
+
+lack of adjustment
+regarding the economic (business) requirements
+
+
+
+
+
+
+
+
+
+
+
+development vs.	marketing vs.	management
+
+
+
+
+
+
+
+
+
+Reality
+
+with respect to large Web projects
+
+
+launch delays under budgeting lack of functionality
+poor application quality
+
+goals psychology behavior
+
+interaction controls language
+
+features technology algorithms
+ 
+indexing structure meta-data
+
+tools methodologies incentives
+
+
+
+
+
+
+					
+
+users	interface	software	content	creators
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+adapted from Crumlish & Malone, 2009
+
+"conslusions"
+
+
+"One of the things the Web teaches us is that everything is connected (hyperlinks) and we all should work together (standards).
+Too often school teaches us that everything is separate (many different 'subjects') and
+that we should all work alone."
+
+Aaron Swartz
+
+
+
+summary
+
+
+
+
+
+
+
+
+
+terminology, client/server model, hypertext,
+URI, site vs. application, Web apps categories
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+www.agiliq.com/notebook/http-status-memes
+
+next episode:
+Web programming
+from HTTP to
+CGI scripts
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

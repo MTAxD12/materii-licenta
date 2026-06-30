@@ -1,0 +1,1926 @@
+Web Technologies
+
+
+Web programming (I):
+HTTP protocol CGI scripts
+
+
+
+
+
+
+
+
+
+
+
+Prof. Sabin Corneliu Buraga - profs.info.uaic.ro/sabin.buraga/
+Assoc. Prof. Andrei Panu - profs.info.uaic.ro/andrei.panu/
+
+
+
+
+
+
+
+
+"There are 2 ways to write error-free programs; only the third one works."
+
+
+Alan Perlis
+
+(re)discover
+
+
+
+
+
+
+
+
+
+
+
+
+
+the interaction between Web client(s) and server(s) what is the architecture of the Web
+how do we develop applications on the back-end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+What is the Web?
+
+
+
+
+
+
+
+
+
+
+
+
+World Wide Web
+
+an information space containing elements of interest, called resources, denoted by global identiDiers - URI/IRI
+
+details at www.w3.org/TR/webarch/
+W3C Recommendation (2004)
+
+
+
+
+
+
+
+
+
+Aspects of interest identification interaction
+representation by using data formats
+
+
+
+
+
+
+
+
+
+Aspects of interest identification interaction
+representation by using data formats
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     How about the interaction between client(s) and Web server(s)?
+
+
+
+
+
+
+
+HyperText Transfer Protocol based on the TCP/IP stack
+
+
+
+
+
+
+
+situated on the application layer
+   hypertext/hypermedia transfer (HTTP - HyperText Transfer Protocol)
+    reliable transport via sockets (TCP - Transmission Control Protocol)
+network interconnection + data routing (IP - Internet Protocol)
+access control to the data transmission medium (MAC - Medium Access Control)
+
+
+
+
+
+
+
+HyperText Transfer Protocol
+
+a reliable request/response protocol
+
+standard access port: 80
+
+
+
+
+
+
+
+HTTP/1.1
+Internet standard: RFC 2616 (1999) current specifications: RFC 9110-9112
+httpwg.org/specs/
+
+resources of interest: devdocs.io/http/ http.dev
+
+advanced
+HTTP
+
+HTTP/2.0
+
+RFC 9113 (2022)
+
+
+focused on performance: binary messages, TCP connection reuse (a single connection per host), multiplexing (many parallel streams), sending messages to the client (server push), header compression - HPACK
+
+http2.github.io
+
+advanced
+
+
+
+
+
+
+
+
+
+
+
+
+
+HTTP/2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+HTTP/1.1
+resources of interest:
+http2-explained.haxx.se
+www.digitalocean.com/community/tutorials/http-1-1-vs-http-2-what-s-the-difference
+
+
+HTTP
+
+advanced
+
+
+
+
+
+HTTP/3.0
+HTTP over QUIC (Quick UDP Internet Connections)
+UDP, data stream multiplexing, data encryption, quick connection establishment - proposed in RFC 9114
+
+explanations:
+                      http.dev/3 www.smashingmagazine.com/2021/08/http3-core-concepts-part1/
+http3-explained.haxx.se
+
+HTTP: architecture
+
+
+Web Server
+daemon - "protective spirit"
+
+
+Web Client
+Web browser, robot (Web crawler), multimedia player, household appliance, conversational assistant, native
+application (desktop, mobile)...
+
+
+Web Server
+Apache HTTP Server, Eclipse Jetty, Gunicorn, Lighttpd,
+Microsoft Internet Information Services, NGINX, etc.
+
+HTTP: architecture
+
+Web Client
+Web browsers: Mosaic?Netscape?Mozilla.org?Firefox, Internet Explorer?Edge, Chromium, Safari, Opera GX etc. tools: curl, wget, etc.
+     search engines robots - e.g., Googlebot native applications offering various functionalities
+implemented by service providers: e-commerce, Ginance,
+tourism, entertainment, education, etc. conversational and/or content generation systems
+
+details: profs.info.uaic.ro/sabin.buraga/teach/courses/staw/web-film.html#week5
+
+HTTP
+
+
+Request and response
+accessing - possibly, changing - a resource representation by using its URI
+
+
+
+
+
+ Web Client
+
+request
+HTTP
+response
+
+
+ Web Server
+
+
+
+
+
+
+
+
+
+
+Message
+
+base unit of the HTTP communication (request or response)
+
+
+
+
+
+
+
+
+
+
+Intermediary
+
+
+
+ proxy  gateway  tunnel
+
+
+
+
+
+
+
+
+
+ Proxy
+located in the client/server proximity
+having the role of both server and client
+
+
+HTTP: terms
+
+advanced
+
+
+
+
+
+
+
+
+
+ Proxy
+
+forward proxy
+intermediary for a group of nearby clients acts on behalf of clients
+
+reverse proxy
+intermediary for a group of nearby servers
+
+HTTP: terms
+
+
+
+
+
+ Gateway
+intermediary hiding the target (origin) server the client has no knowledge about this
+
+
+
+
+
+
+
+ Gateway
+
+
+
+can ensure:
+traf[ic distribution across servers - load balancing short-term data storage - caching
+message or request translation (e.g., HTTPS?HTTP) other negotiation operations - role of mediator/broker
+
+
+
+
+
+
+
+ Gateway
+
+
+
+open source software:
+Apache Traf[ic Server - trafficserver.apache.org
+HAProxy - www.haproxy.org
+Squid - www.squid-cache.org
+Vinyl Cache (ex-Varnish) - vinyl-cache.org
+
+in cloud: Amazon ELB (Elastic Load Balancing)
+aws.amazon.com/elasticloadbalancing/
+
+
+
+
+
+
+
+
+
+
+ Tunnel
+
+
+
+retransmits - usually, encrypted - HTTP messages
+
+
+
+
+
+
+
+
+
+ Tunnel
+
+
+
+context:
+HTTPS protocol - ensures "secure" communication HTTP via TLS (Transport Layer Security) at port 443
+authentication based on digital certi[icates
++ bidirectional data encryption
+visual tutorial: howhttps.works
+
+advanced
+
+used encryption
+
+
+
+
+
+
+
+
+
+Details about an HTTPS
+connection
+offered by a browser's developer tools
+
+information about the digital certificate
+
+
+
+
+
+
+
+
+
+
+ Cache
+
+local storage area - in memory, on disc - for the messages (data)
+
+server- and/or client-side
+
+
+
+
+
+
+
+
+
+
+ Cache
+
+local storage area - in memory, on disc - for the messages (data)
+future requests for that data can be served faster context: ensuring Web applications' performance
+
+
+
+
+
+
+
+
+
+
+
+
+
+HTTP message = header + body
+
+
+
+
+
+
+
+
+Header
+includes a set of fields
+
+field-name ":" [ field-value ] CRLF
+
+
+
+
+
+
+
+
+HTTP request
+
+Method Request-URI ProtocolVersion CRLF
+[ Message-header ] [ CRLF MIME-data ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+HTTP response
+
+HTTP-version Digit Digit Digit Reason CRLF Content
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+GET
+
+request - performed by a client - to access a resource's representation
+
+
+
+
+
+
+
+GET
+
+request - performed by a client - to access a resource's representation
+
+HTML document, CSS stylesheet,
+image in JPEG/PNG format, vector illustration as SVG, JavaScript program, data in JSON (JavaScript Object Notation) format, 3D model, RSS (XML) news feed, PDF presentation, ZIP archive, video, ...
+
+
+
+
+
+
+
+HEAD
+
+       similar to GET usually, offers only meta-data
+
+
+
+
+
+
+
+HEAD
+
+       similar to GET usually, offers only meta-data
+
+e.g., MIME type (Media Type) of a resource, last update,...
+
+
+
+
+
+
+
+
+PUT
+
+updates a resource representation or, eventually, creates a resource on the Web server
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+POST
+
+creates a resource, usually sending entities (data, actions) to the server
+
+
+
+
+
+
+
+POST
+
+creates a resource, usually sending entities (data, actions) to the server
+
+e.g., data entered into a Web form's [ields
+
+
+
+
+
+
+
+
+DELETE
+
+erases a resource - its representation - from the server
+
+
+
+
+
+
+
+
+Remark
+
+traditionally, the Web browser
+only permits the use of GET and POST methods
+
+
+HTTP: methods
+
+advanced
+
+
+
+
+
+
+
+
+A method is considered safe
+if it does not modify the server state
+i.e. no side-effect actions are performed on the server
+
+GET and HEAD are safe
+POST, PUT, and DELETE are not safe
+
+
+
+
+HTTP: methods
+
+advanced
+
+
+
+
+
+
+
+
+A method is considered idempotent when it can be called many times without different outcomes, returning the same response (representation)
+
+GET, HEAD, PUT, and DELETE are idempotent POST is not idempotent
+
+
+
+
+
+
+
+
+Character set encodings
+
+ISO-8859-1 ISO-8859-2 KOI8-R
+ISO-2022-JP UTF-8
+UTF-16 Little Endian
+...
+
+
+
+
+
+
+Message (content) encodings compression, identity, and/or integrity
+
+traditional approach: gzip - gzip.org
+modern approaches: Brotli - brotli.org (Google)
+zstd - facebook.github.io/zstd/ (Facebook)
+
+
+
+
+
+
+
+
+Representation formats
+
+text
+HTML, CSS, plain text, JavaScript code, XML document or
+binary
+image, PDF document, multimedia resource, .gzip archive
+
+
+
+
+
+
+
+
+
+Resource's content type media types
+
+HTTP: header ?elds (attributes)
+
+
+Content-Type
+permits the transfer of any kind of data
+Content-Type: type/subtype
+
+HTTP: header fields (attributes)
+
+
+Content-Type
+speci[ied by Media Types - MIME (Multipurpose Internet Mail Extensions)
+
+denotes a set of primary content types
++ additional sub-types
+
+initially, used in the e-mail context
+
+
+
+
+
+
+
+MIME types:
+text indicates textual formats
+
+text/plain - unformatted text
+text/html - HTML (HyperText Markup Language) document
+text/css - CSS (Cascading Style Sheets) resource
+
+
+
+
+
+
+
+MIME types:
+image speci[ies graphical formats
+
+image/gif - GIF (Graphics Interchange Format) images image/jpeg - JPEG (Joint Picture Experts Group) photos image/png - PNG (Portable Network Graphics) pictures image/webp - WebP (Web Picture Format) images image/avif - (animated) images optimized for the Web
+image/svg+xml - SVG (Scalable Vector Graphics) illustrations
+
+HTML <img> - developer.mozilla.org/docs/Web/HTML/Element/img
+
+
+
+
+
+
+
+MIME types:
+audio denotes audio content
+
+         audio/mpeg - resource encoded in MP3 format specification for audio data according to the MPEG (Motion Picture
+Experts Group) standard - tools.ietf.org/html/rfc3003
+
+     audio/ac3 - compressed audio resource conforming to AC-3 standard - www.atsc.org/standards/
+
+
+HTML <audio> - developer.mozilla.org/docs/Web/HTML/Element/audio
+
+HTTP: header fields (attributes)
+
+MIME types:
+video de[ines video content: animations, [ilms
+video/av1 - open format: Alliance for Open Media
+aomedia.org/av1-features/
+video/h265 -resource in High EfJiciency Video Coding format
+www.itu.int/rec/T-REC-H.265
+
+W3C standard for real-time multimedia communication: WebRTC (2025): www.w3.org/TR/webrtc/
+HTML <video> - developer.mozilla.org/docs/Web/HTML/Element/video
+
+
+
+
+
+
+
+MIME types:
+  application signi[ies formats that can be processed by applications on the client-side
+
+application/epub+zip - EPUB e-book in ZIP format application/javascript - JavaScript program application/json - JSON (JavaScript Object Notation) data application/octet-stream - stream of arbitrary bytes
+application/senml+xml - XML data from sensors: RFC 8428
+
+
+
+
+
+
+
+MIME types:
+multipart used to transfer composed data
+
+
+multipart/mixed - mixed content
+multipart/alternative - alternative contents
+
+
+
+N. Freed et al., Media Types (17 February 2026)
+www.iana.org/assignments/media-types/media-types.xhtml
+
+
+
+
+calendar+jsonapplication/calendar+jsonCalendar in JSON formatcsvtext/csvCSV dataheicimage/heicHigh Efficiency Image Filemarkdowntext/markdownText in Markdown formatmswordapplication/mswordWord (MS Office) documentvnd.rarapplication/vnd.rarProprietary formatVP8video/VP8Video format VP8: RFC 7741woff2font/woff2Typographic fonts formatx3dmodel/x3d+xml3D model in X3D XML formatzipapplication/zipZIP archive
+
+(instead of) break
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Location
+
+Location ":" "http(s)://" authority [ ":" port ] [ abs_path ]
+
+redirects the client to another resource representation (HTTP redirect)
+
+
+
+
+
+
+
+
+
+
+Referer
+
+denotes the URI of a Web resource that refers to the current resource
+
+used to know the source of the requests to a given document (back-links) for analytics, logging, caching,...
+
+
+
+
+
+
+
+
+Host
+
+speciDies the target address - IP or symbolic domain - of the machine supposed to provide a requested resource
+
+advanced
+HTTP: header fields (attributes)
+
+Other existing fields concern the following: accepted content (content negociation) - e.g., Accept
+authentication & authorization - WWW-Authenticate Authorization conditional access to resources - If-Match, If-Modified-Since,... cache - Age, Cache-Control, Expires, ETag, etc.
+proxy - Proxy-Authenticate, Proxy-Authorization, Via
+message delivery (HTTP push) - Topic, TTL, Urgency
+...and many many others
+developer.mozilla.org/docs/Web/HTTP/Headers
+
+
+
+
+
+
+
+
+
+Informational (1xx)
+
+100 Continue, 101 Switching Protocols, 102 Processing
+
+
+
+switching protocol
+here, from HTTP to WebSocket
+www.tutorialspoint.com/websockets/
+
+
+
+
+
+
+
+
+
+Success (2xx)
+
+200 Ok, 201 Created, 202 Accepted,
+204 No Content, 206 Partial Content,...
+
+OPTIONS - method to determine server capabilities or requirements for a resource the transfers are asynchronous (xhr - XMLHttpRequest is used)
+
+
+
+
+
+Redirection (3xx)
+
+300 Multiple Choices, 301 Moved Permanently, 302 Found, 303 See Other, 304 Not Modi[ied, 305 Use Proxy, etc.
+
+
+
+
+
+
+
+Client Error (4xx)
+
+400 Bad Request, 401 Unauthorized, 403 Forbidden,
+405 Method Not Allowed, 408 Request Timeout, 410 Gone, 414 Request-URI Too Long, 415 Unsupported Media Type, 423 Locked, 429 Too Many Requests,...
+
+
+
+
+
+
+
+
+
+
+
+Server Error (5xx)
+
+500 Internal Server Error, 501 Not Implemented, 502 Bad Gateway, 503 Service Unavailable,
+505 HTTP Version Not Supported, 508 Loop Detected,...
+
+the transfers are asynchronous (fetch - Fetch API is used, offered by HTML5)
+
+advanced
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Cloudflare offers content distribution services, ensuring performance and security of Web applications and has a role of reverse proxy, being located between the user's Web browser and the site hosted on the target Web server
+
+HTTP: logging
+
+
+Requests sent to a Web server are logged
+
+Common Log Format
+standardized text [ile format
+
+for Apache HTTP Server: mod_log_config module
+httpd.apache.org/docs/current/logs.html
+NGINX: con[ig via access_log directive
+docs.nginx.com/nginx/admin-guide/monitoring/logging/
+
+w10.uaic.ro - msi2019 [13/Feb/2020:14:53:14 +0200]
+"GET /~vidrascu/MasterSI2/note/Restanta.pdf HTTP/1.1" 206 25227 "https://profs.info.uaic.ro/~vidrascu/MasterSI2/index.html" "...Chrome/79.0.3945.130"
+82-137-8-231.rdsnet.ro - - [13/Feb/2020:15:38:23 +0200]
+"POST /~computernetworks/login.php HTTP/1.1" 302 1115 "https://profs.info.uaic.ro/~computernetworks/login.php" "...X11; Ubuntu; Linux x86_64 ... Firefox/73.0"
+ec2-23-21-0-202.compute-1.amazonaws.com - - [13/Feb/2020:15:48:29 +0200]
+"GET /~busaco/teach/courses/web/presentations/web01ArhitecturaWeb.pdf HTTP/1.1" 200 2081804 "-" "HTTP_Request2/2.3.0 (http://pear.php.net/package/http_request2)..."
+199.16.156.126 - - [13/Feb/2020:15:58:58 +0200]
+  "GET /robots.txt HTTP/1.1" 404 182 "-" "Twitterbot/1.0" psihologie-c-113.psih.uaic.ro - - [13/Feb/2020:16:03:04 +0200]
+  "GET /~busaco/ HTTP/1.1" 200 1942 "-" "... Firefox/72.0..." psihologie-c-113.psih.uaic.ro - - [13/Feb/2020:16:03:04 +0200]
+"GET /~busaco/csb.css HTTP/1.1" 200 852 "https://profs.info.uaic.ro/~busaco/"
+"... Firefox/72.0..."
+proxy-220-255-2-224.singnet.com.sg - - [13/Feb/2020:16:23:23 +0200] "GET /favicon.ico HTTP/1.1" 200 1406 "-" "...UCBrowser/11.3.8.976..."
+c2.uaic.ro - - [13/Feb/2020:16:33:43 +0200]
+  "GET /~busaco/teach/courses/web/ HTTP/1.1" 304 - "-" "...Chrome/80.0.3987.106" 220.181.51.219 - - [13/Feb/2020:19:20:20 +0200]
+"HEAD /%7Ebusaco/music/09.Sabin%20Buraga%20-...mp3 HTTP/1.0" 200 - "-"
+"NSPlayer/10.0.0.4072 WMFSDK/10.0"
+
+GET /web-technologies/ HTTP/1.1 Host: edu.info.uaic.ro
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:135.0) Gecko/20100101 Firefox/147.0
+Accept: text/html,application/xhtml+xml,application/xml; q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: en-GB,en;q=0.5 Accept-Encoding: gzip, deflate, br , zstd Connection: keep-alive
+Referer: https://profs.info.uaic.ro/andrei.panu/
+
+
+
+
+
+
+
+
+HTTP: example of a request
+
+HTTP/1.1 200 OK
+Date: Fri, 20 Feb 2026 10:03:32 GMT
+Server: Apache
+Last-Modified: Thu, 19 Feb 2026 16:08:15 GMT Content-Encoding: gzip
+Content-Length: 1060
+Keep-Alive: timeout=5, max=100 Connection: Keep-Alive
+Content-Type: text/html; charset=UTF-8
+<!DOCTYPE html>
+<html lang="ro">
+...
+...
+</html>
+
+
+
+
+header fields (meta-data)
+
+
+
+
+
+HTTP: example of a response
+
+GET /services/feeds/photos_public.gne?tags=FII,Iasi Host: www.flickr.com
+
+advanced
+
+...
+HTTP/2 200 OK
+Content-Type: application/atom+xml; charset=utf-8 Date: Thu, 19 Feb 2026 08:48:10 GMT
+Server: openresty
+Expires: Mon, 26 Jul 1997 05:00:00 GMT
+Last-modified: Sun, 02 Nov 2014 06:58:25 GMT
+
+data in Atom format
+(processed by the client)
+
+Cache-control: private, no-store, no-cache, must-revalidate Pragma: no-cache
+X-Cache: Miss from cloudfront
+Via: 1.1 46d5c1a4d1e3a5c8a14bdb9b6676ba11.cloudfront.net (CloudFront) X-Server: serverless-proxy-10.78.47.1
+ 
+
+obtaining information about public pictures offered by Flickr
+
+
+
+
+
+
+
+
+
+The interaction between the browser and the Web server (requests + responses) can be stored in HAR [iles
+(HTTP ARchive)
+
+JSON based format
+www.softwareishard.com/blog/har-12-spec/
+
+example: gist.github.com/igrigorik/3495174
+
+
+
+
+
+
+
+
+
+The interaction between the browser and the Web server (requests + responses) can be stored in HAR [iles
+(HTTP ARchive)
+
+main purpose: analyzing Web traf[ic important aspect: performance
+also see the HTTP Archive initiative:
+httparchive.org
+
+HTTP: APIs (libraries)
+
+cURL + libcurl
+(C, Java, Haskell, .NET, PHP, Ruby,...) - curl.haxx.se Apache HttpComponents (Java) - hc.apache.org HTTP (Node.js module) - nodejs.org/api/http.html http.client (Python 3)
+LibHTTP (C library): www.libhttp.org
+
+
+advanced
+HTTP: client-side tools
+
+
+
+
+
+
+
+
+Google Chrome Developer Tools
+developer.chrome.com/docs/devtools
+Firefox Developer Tools
+firefox-source-docs.mozilla.org/devtools-user/
+Microsoft Edge DevTools
+learn.microsoft.com/en-us/microsoft-edge/devtools/
+
+additional information:
+devtoolstips.org
+
+advanced
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+???
+
+
+
+
+
+
+
+
+inspecting HTTP requests made by the browser
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+What is the architecture of the Web server?
+
+
+
+
+
+
+
+
+
+
+FulDills multiple requests from the clients using the HTTP protocol
+
+
+
+
+
+
+
+
+
+
+FulDills multiple requests from the clients using the HTTP protocol
+
+
+
+
+
+
+ each request is considered independent from others, even though it comes from the same Web client
+? connection state is not kept - stateless
+
+
+
+
+
+
+
+
+
+
+Traditionally, the Web server implementation is either pre-forked or pre-threaded
+on initialization, a number of child processes or threads are created, each process/thread interacting to a distinct client
+example: Apache HTTP Server Project
+httpd.apache.org
+
+
+
+
+
+
+
+
+
+
+
+resources (data/services)
+! ? ? 
+blocking I/O operations
+
+
+multi-threaded Web server
+
+
+multiple requests from different clients cannot be served simultaneously (the number of threads associated with a process is limited)
+
+HTTP: Web server
+
+
+Alternatively, asynchronous strategies can be used (non-blocking), adopting a single thread
+(single threaded)
+
+reference example:
+NGINX
+blog.nginx.org/blog/inside-nginx-how-we-designed-for-performance-scale
+
+HTTP: Web server
+
+
+Alternatively, asynchronous strategies can be used (non-blocking), adopting a single thread
+(single threaded)
+
+the programmer can create its own Web server, written in JavaScript (ECMAScript) / TypeScript:
+Node.js - nodejs.org
+Deno- deno.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+How can we develop
+the back-end of Web applications?
+
+
+
+
+
+
+
+
+
+
+Dynamic generation - on the server - of representations of resources requested by clients
+
+
+
+
+
+
+
+
+
+
+CGI - Common Gateway Interface Web application servers
+Web frameworks
+
+solution: cgi
+
+
+Language-independent programming interface facilitating the interaction between clients and
+programs invoked on the Web server
+
+de facto standard
+
+RFC 3875 - datatracker.ietf.org/doc/html/rfc3875 www.w3.org/CGI/
+
+
+
+
+
+
+
+
+
+A CGI program (script) is invoked on server explicit
+i.e., retrieving data from a Web form after the submit button is pressed
+
+
+
+
+
+
+
+
+
+A CGI program (script) is invoked on server implicit
+example: at each visit a new ad (e.g., banner) is generated
+
+
+
+
+
+
+
+
+
+CGI scripts can be written in any language available on the server
+interpreted languages
+bash, Perl - e.g., Perl::CGI module -, Python, Ruby,...
+
+compiled languages C, C++, Rust, etc.
+
+
+
+
+
+
+
+
+
+
+Any CGI program will write data
+- the representation of a Web resource - at standard output (stdout)
+
+
+
+
+
+
+
+
+
+
+To denote the type of the generated representation, HTTP headers are used - MIME (Media Types)
+
+
+example:
+Content-type: text/html Content-type: image/webp
+
+
+
+
+
+
+
+
+The interaction between the client and Web server
+
+
+
+
+
+ Web Client
+
+request
+HTTP
+
+response
+
+
+Web Server
+
+invocation
+
+
+
+
+
+script
+?
+
+
+
+
+
+
+
+
+A CGI script has access to environment variables
+
+associated to the request sent to the CGI program:
+
+REQUEST_METHOD - HTTP method (GET, POST,...)
+QUERY_STRING - data transmitted to the client REMOTE_HOST, REMOTE_ADDR - client address CONTENT_TYPE - content type as MIME (Media Type) CONTENT_LENGTH - content length in bytes
+
+
+
+
+
+
+
+
+
+Additional variables
+usually, generated by the Web server:
+
+HTTP_ACCEPT - MIME types accepted by client (browser)
+HTTP_COOKIE - data about cookies
+HTTP_HOST - information regarding the host (client)
+HTTP_USER_AGENT - information about the client
+
+...and others
+
+
+
+Obtaining the values of the system's environment variables by invoking, through GET, the variabile.cgi script
+stored on the Web server
+(the program must have read and execution permissions)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+IFS=$' \t\n'
+MACHTYPE=x86 64-redhat-linux-gnu
+OPTERR=l OPTIND=l
+OSTYPE=linux-gnu PATH=/usr/local/bin:/usr/bin:/bin PIPESTATUS= ([0]a;;"0")
+PPID=25485
+PS4='+ '
+PWD=/home/thor/profs/busaco/htrnl/cgi/bash
+
+
+the result obtained by the Web client
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#!/bin/bash
+# hello.sh.cgi
+
+advanced
+
+
+echo "Content-type: text/html" echo
+
+MESSAGES=0
+while [ $MESSAGES -lt 10 ] do
+echo "<p>Hello, world!</p>" let MESSAGES=MESSAGES+1
+done
+
+
+
+
+
+
+
+the client - i.e. browser - receives the representation as response - here, the HTML page -
+generated by the CGI program invoked by the Web server
+
+this representation is processed and, eventually, displayed in a (zone of a) browser window
+
+
+
+by experimenting other MIME types, the browser displays the following:
+
+Content-type: text/plain	Content-type: text/xml
+
+cgi: invocation
+
+
+<form action="https://somwehere.info/cgi/get-max.cgi" method="GET">
+<p>Enter two numbers :
+<input type="text" name="no1" />
+<input type="text" name="no2" />
+</p>
+<input type="submit" value="Compute maximum" />
+</form>
+
+
+invocation from an interactive Web form in this case, using the GET method
+
+
+
+
+
+
+
+
+
+
+
+For each form field, a field_name=value pair
+- delimited by & - is generated and added to the URL of the CGI script to be invoked on server
+
+somewhere.info/cgi/get-max.cgi?no1=7&no2=4
+
+
+
+
+
+
+
+
+
+Real-life examples: alistapart.com/?s=web+design www.youtube.com/watch?v=_0GWG0yCu-w#t=110 duckduckgo.com/?q=web%20development&ia=web developer.mozilla.org/search?q=HTTP&topic=api
+this URL is encoded - URL encoding
+by convention, the space character included in the value of an input [ield in a Web form is replaced by "+"
+
+
+
+
+
+
+
+
+
+
+
+
+
+The server will invoke the CGI script passing the data received from the client
+via environment variables - usually, in GET case
+or
+at standard input (stdin) - if POST is used
+
+
+
+
+
+
+
+
+
+Data processing when GET method is used
+
+data available in QUERY_STRING environment variable
+
+
+
+
+
+
+
+
+
+Data processing when POST method is used
+
+data read from stdin, the length in bytes being speci[ied by CONTENT_LENGTH variable
+
+
+cgi: invocation
+
+advanced
+
+
+
+
+
+
+
+
+
+Data processing - GET and/or POST
+
+  in case of application servers or frameworks, data is encapsulated into speci[ic structures/types
+
+ASP.NET (C# et. al) - HttpRequest class Node.js (JavaScript) - http.ClientRequest
+PHP - associative arrays: $_GET[] $_POST[] $_REQUEST[]
+Play (Java, Scala) - play.api.mvc.Request
+Python - clasa cgi.FieldStorage
+
+
+
+
+
+
+
+
+
+
+GET method is used to get representations of the resources requested from the Web server
+
+  e.g., HTML documents, JPEG, PNG, or WebP images, SVG illustrations (XML), PDF resources, ZIP archives, etc.
+
+
+
+
+
+ the server state should not be modiRied
+
+
+
+
+
+
+
+
+
+GET method is used to get representations of the resources requested from the Web server
+
+obtaining data with GET, the user can set a bookmark for further accesses to the Web resource
+(by using the URL of the generated representation)
+
+
+
+
+
+
+
+
+
+
+
+
+
+POST method is used when the data transmitted to the server is large (e.g., upload of Dile content)
+or sensitive - typical example: passwords
+
+
+
+
+
+
+
+
+
+
+POST method is used when the data transmitted to the server is large (e.g., upload of Dile content)
+or sensitive - typical example: passwords
+
+
+
+also, when the script invocation
+can produce a state change on the server: adding a record, altering a Dile,...
+
+cgi: support
+
+
+The Web server should support CGI script invocation
+
+
+
+example:
+Apache HTTP Server provides the mod_cgi module
+
+cgi: ssi
+
+
+
+CGI scripts could be directly invoked from
+an HTML document via SSI (Server Side Includes)
+
+www.ssi-developer.net/ssi/
+
+Apache: httpd.apache.org/docs/trunk/howto/ssi.html
+NGINX: nginx.org/en/docs/http/ngx_http_ssi_module.html
+
+cgi: fastcgi
+
+
+FastCGI
+an alternative to CGI focused on performance
+
+
+
+implementations:
+Apache HTTP Server - httpd.apache.org/mod_fcgid/
+NGINX - nginx.org/en/docs/http/ngx_http_fastcgi_module.html
+
+exercise
+HTTP: instrumente la nivel de client
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ explain the HTTP request sequence
+
+
+
+summary
+
+
+?
+HTTP (HyperText Transfer Protocol) CGI (Common Gateway Interface) scripts
+
+
+
+
+
+
+next episode: Web programming
+cookies, Web sessions,
+Web application servers, Web application architecture
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,2073 @@
+Web Technologies
+
+
+Web services
+
+microservices serverless GraphQL
+
+
+
+
+
+
+
+Prof. Sabin Corneliu Buraga - profs.info.uaic.ro/sabin.buraga/
+Assoc. Prof. Andrei Panu- profs.info.uaic.ro/andrei.panu/
+
+
+
+
+
+
+
+
+
+"All things were together - then came Mind and set them in order."
+
+Anaxagoras
+
+(re)discover...
+
+
+
+
+
+
+
+
+
+
+
+ alternatives to Web services: microservices
+ how can the interface of a REST API be described
+ authorization + authentication based on Web services  an alternative to REST: GraphQL
+
+Web applications development
+
+
+Web service
+software - remotely used by other applications/services - providing a speciGic functionality
+
+its implementation should not be known by the programmer invoking the service
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Are there alternatives to Web services?
+
+
+microservices
+
+
+Implement a speci?ic functionality, available as a single process
+
+self-contained system
+
+backend component developed to be replaced, not reused
+
+
+
+small
+          each running in its own process lightweight communication mechanisms (usual, HTTP)
+built around business capabilities independently deployable
+minimum of centralized management
+may be written in different programming languages may use different data storage mechanisms
+
+    microservice characteristics according to James Lewis & Martin Fowler, Microservices (2014)
+martinfowler.com/articles/microservices.html
+
+(N functionalities in a single process)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+scalability by replicating
+ 
+scalability by distributing services between servers, replicating them as needed
+
+the monolith on S servers
+
+
+
+needs:
+modularity, decentralization, and continuous evolution
+
+(N functionalities in a single process)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+scalability by replicating
+ 
+scalability by distributing services between servers, replicating them as needed
+
+the monolith on S servers
+
+
+
+examples of good practice + other resources: microservices.io Microservices @ The New Stack (2026) thenewstack.io/microservices/
+
+
+BeneGits of microservices:
+isolation autonomy
+individual scalability resilience
+speed experimentation rapid feedback Glexibility replaceability ecosystem
+
+advanced
+
+
+S. Tilkov, A Question of Size - Modularization & Microservices, Java Forum Nord 2017:
+speakerdeck.com/stilkov/a-question-of-size-modularization-and-microservices
+
+
+microservices
+
+
+Functional services
+
+implement speciGic functionalities (business operations)
+
+
+microservices
+
+
+Functional services
+
+implement speciGic functionalities (business operations)
+exposed to the service consumer independent (no side effects) typically, not shareable
+
+
+microservices
+
+
+Control - Infrastructure services
+
+        implement non-functional tasks: authentication, authorization, logging, monitoring,...
+
+
+microservices
+
+
+Control - Infrastructure services
+
+        implement non-functional tasks: authentication, authorization, logging, monitoring,...
+
+not exposed in the exterior - private
+
+could be shared at the application or internal services level
+
+advanced
+client requests
+
+
+
+
+
+API layer
+
+
+
+
+
+functional service	infrastructure service
+
+
+
+
+
+
+
+from client requests to API response via functional microservices based on the ones regarding the infrastructure
+M. Richards, Microservices vs. Service-Oriented Architecture (2016)
+www.f5.com/content/dam/f5/corp/global/pdf/ebooks/Microservices_vs_SOA_NGINX.pdf
+
+
+microservices
+
+
+Aspect of interest: sharing functionalities
+share-as-much-as possible (classical SOA) versus
+share-as-little-as possible (microservices)
+
+
+microservices
+
+
+Aspect of interest:
+(micro-)services communication - usually, asynchronous approaches:
+point-to-point
+       or publish-subscribe
+
+
+simplifying client access via API
+
+advanced
+
+
+
+
+
+
+
+
+
+
+
+
+service
+
+service
+
+service
+
+
+
+
+subscribe
+
+
+service
+
+
+
+Jonas Bone´r (2016)
+
+
+
+
+internally, (micro-)services can communicate using publish-subscribe - see the W3C speci<ications ActivityPub (2018), WebSub (2018)
+
+
+microservices
+
+
+Commonly, microservice architectures do not include middleware components and do not support abstract interactions between service providers and consumers (contract decoupling)
+
+µSOA - Microservice Oriented Architecture
+
+Sam Newman, Building Microservices (2nd Edition), O'Reilly (2021)
+
+
+	
+
+Web service-based
+architecture
+
+microservice
+architecture
+
+
+
+Z. Dehghani, How to break a Monolith into Microservices (2018)
+martinfowler.com/articles/break-monolith-into-microservices.html
+
+
+microservices: development
+Platforms:
+Dapr, Express Serverless, M3O, OpenWhisk, Triton,... Frameworks:
+Akka, Finagle, Eclipse MicroProCile, Micronaut, Moleculer, ScaleCube, Spin, Vert.X, Wangle, etc.
+Multi-language SDKs:
+       CoAP, gRPC, Hprose Specialized programming languages:
+Ballerina, Jolie, Wing
+other software tools listed at
+github.com/mfornos/awesome-microservices
+
+API
+
+
+
+
+
+
+
+
+Access to a (micro-)service usually takes place based on an application programming interface API (Application Programming Interface)
+
+"any well-deGined interface that deGines
+the service that one component, module, or application provides to other software elements"
+(de Souza et al., 2004)
+
+Web API
+
+
+
+
+Designed and invoked
+via current Web technologies - URI, HTTP, JSON, etc.
+
+can be developed according to an architectural style e.g., REST (REpresentational State Transfer)
+
+
+
+public API (available under a license) versus private API (for internal use)
+
+
+
+
+
+modern Web client (HTML5 APIs)
+
+
+
+  JavaScript application (eventually, via app store)
+
+thin server
+
+
+
+
+
+
+
+
+
+
+modern Web client (HTML5 APIs)
+
+
+
+  JavaScript application (eventually, via app store)
+
+thin server
+
+
+
+
+
+
+JavaScript application implementation can use libraries, frameworks, speciGic components
+e.g., Angular, htmx, Lit, React, Riot.js, Svelte, Vue
+
+
+
+
+
+
+
+
+
+At the client level (front-end),
+the creation of user interfaces can be facilitated by:
+
+design systems micro-frontends
+
+
+
+
+
+
+
+
+"A design system is a complete set of standards intended to manage design at scale
+using reusable components and patterns"
+Therese Fessenden (2021)
+www.nngroup.com/articles/design-systems-101/
+
+
+
+
+
+
+
+
+Examples:
+designsystemsrepo.com/design-systems/
+
+
+       real cases: Atlassian - atlassian.design
+US Web Design System - designsystem.digital.gov
+W3C - design-system.w3.org
+
+
+
+
+
+
+
+
+
+       "An architectural style where independently deliverable frontend applications
+are composed into a greater whole"
+
+Cam Jackson (2019)
+martinfowler.com/articles/micro-frontends.html
+
+
+
+
+
+
+
+
+
+Applying microservices principles to the design and implementation of the user interface components
+
+ important beneGits: incremental updates code simpliGication
+UI components developed and exploited independently autonomous development teams
+rapid testing
+
+advanced
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+real case: Strava (Mark Hurwitz, 2022)
+main dashboard page decomposed into different micro-frontends
+medium.com/strava-engineering/strava-web-microfrontends-79e9586c0222
+
+
+
+
+
+Native modern client (smart device)
+
+
+
+native application C#, Kotlin, Swift,...
+(eventually, via app store)
+
+thin server
+
+
+
+
+
+
+
+
+Native modern client (smart device)
+
+
+
+native application C#, Kotlin, Swift,...
+(eventually, via app store)
+
+thin server
+
+
+
+
+native application implementation can use libraries, frameworks, speciGic components
+e.g., Apache Cordova, Electron, Flutter, Ionic, React Native
+
+API: approach based on intermediaries
+
+
+
+
+dumb Web client	presenta-
+tion server
+
+thin server
+
+
+
+
+
+API: testing tools
+
+curl tool + LibcURL library - curl.haxx.se
+
+HTTPie (command line client) - httpie.io
+Hoppscotch - hoppscotch.io Insomnia - insomnia.rest Postman - www.postman.com REST Test Test - resttesttest.com
+
+
+
+
+
+
+
+
+
+The application depends signi?icantly on external components, available in cloud
+
+(micro-)services exposed via API vs.
+serverless approach
+
+
+
+
+
+
+
+
+
+Serverless
+
+layer of abstraction of access to resources of a cloud platform
+
+Mike Roberts (2018)
+martinfowler.com/articles/serverless.html
+
+
+
+
+BaaS
+
+FaaS
+
+
+
+BaaS = (Mobile) Backend As A Service FaaS = Functions As A Service
+
+
+
+
+
+
+
+
+
+FaaS - Functions As A Service
+
+cloud functions implementing features exposed to the service consumer
+
+as small as possible
+
+usually, implementations below 100 lines of code
+
+
+
+
+
+
+
+
+
+FaaS - Functions As A Service
+
+executed - on the server - independently and asynchronously, without causing side effects
+
+triggered by events
+
+the user is not concerned with resource management and other tasks
+
+
+
+
+
+
+
+
+
+BaaS - Backend As A Service
+
+Encapsulates infrastructure services which implement non-functional activities
+(authentication, authorization, logging, monitoring, etc.)
+private - are not exposed to the exterior can be shared by internal (micro-)services
+
+
+
+
+
+
+
+
+
+Serverless computing = FaaS + BaaS
+
+documentation, resources, solutions:
+github.com/anaibol/awesome-serverless
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+How can the interface of a REST API be described?
+
+
+API: abstract description
+
+
+
+
+
+
+
+OpenAPI Speci;ication - openapis.org
+RAML (RESTful API Modeling Language) - raml.org
+API Blueprint - apiblueprint.org
+
+
+other resources of interest:
+github.com/Kikobeats/awesome-api
+
+
+API: abstract description
+
+
+
+
+
+
+
+OpenAPI Speci?ication
+
+modern solution to declare - platform-independent - the public interface of a REST API
+
+current version: OpenAPI 3.2.0 (September 2025)
+spec.openapis.org/oas/latest.html
+
+     used formats: JSON and/or YAML (YAML Ain't Markup Language)
+
+OpenAPI Map
+API: descriere abstracta
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+visual exploration of OpenAPI Speci\ication constructs
+openapi-map.apihandyman.io/?version=3.0
+
+{ // specifying the acces to a Web resource: GET /resource?param "openapi": "3.0.0",
+"paths": { // paths (URLs) to the resources offered by the REST API
+"/resource": { // access to the representation of the resource designated by /resource
+"get": { // HTTP method: GET, HEAD, POST, PUT, PATCH, DELETE
+"operationId": "getResource", // specifies the unique name of the desired operation
+"parameters": [ { // the list of parameters "name": "param",
+"in": "query", // parameter added to the URL (in query string) "schema": { "type" : "string" }
+} ],
+"responses": { // provided answers (success, error,...) "200": { // HTTP status code: 200, 400, 403, 405, 500, etc.
+"description": "Success",
+"schema": { // describes (with JSON Schema) the provided answer
+"$ref":"#/definitions/Response" }
+}
+}
+}
+}
+}	the "skeleton" of an OpenAPI
+}	document specifying a REST API
+
+advanced
+
+
+
+
+
+
+
+
+
+
+
+
+SwaggerEditor - editing the specification of a REST API
+
+advanced
+
+
+
+inspecting the specification of a public API
+(here, Bitbucket)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Apicurio Studio - www.apicur.io
+
+advanced
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    OpenAPI instruments for conversion, validation, documentation, code generation, testing, etc.: openapi.tools
+
+advanced
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+advanced
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Case study: Groupon
+purpose: the presentation of offers of consumer goods
+
+from a monolithic architecture
+to one adopting (micro-)services/REST APIs
+
+engineering.groupon.com/2013/misc/i-tier-dismantling-the-monoliths/
+
+advanced
+
+
+
+
+
+
+
+
+initial architecture
+traditional MVC	ensuring performance
+     scalability with CDN (Content Distribution Network)
+and data access services
+
+advanced
+
+heterogeneous architecture
+distinct implementations depending on the geographical area
+
+advanced
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+providing support
+for interactions with mobile devices
+dedicated API, access depending on user location
+
+advanced
+
+
+
+redesign (~20 distinct, independent Web applications
+
+ Can we use Web services (APIs) for authorization and authentication?
+
+
+
+
+
+
+
+
+Essential steps:
+obtaining the access key 
+
+
+application authentication + authorization 
+
+
+obtaining user consent 
+
+
+calling the functionalities of the service (via API) 
+
+
+
+
+
+
+
+Usual steps to implement an application that will invoke a Web service based on a public API:
+
+(1) registration of the implemented application via the site of the service provider
+
+access key 
+API key, consumer key, developer key
+
+
+authorization
+
+advanced
+
+
+
+
+
+
+
+Usual steps to implement an application that will invoke a Web service based on a public API:
+
+(1) registration of the implemented application via the site of the service provider
+
+access key 
+API key, consumer key, developer key
+
+What Is an API Key? How API Keys Work (with Examples)
+api7.ai/blog/what-is-api-key-why-need-them-complete-guide
+
+
+
+
+
+
+
+Usual steps to implement an application that will invoke a Web service based on a public API:
+
+(2) based on this key, the application will be able to authenticate in order to be authorized to access
+the desired service
+
+various access policies may be imposed (permissions):
+
+
+consultation only (read), editing possibility, etc.
+
+
+
+
+
+
+
+Usual steps to implement an application that will invoke a Web service based on a public API:
+
+(3) application authentication and authorization takes place with the consent of the user
+if the user is not authenticated, the login information will be requested (e.g., name + password)
+- eventually, using 2FA (Two Factor Auth) -,
+then he/she will be able to authorize the application to access the data via the provided Web service
+
+
+
+
+
+
+
+Usual steps to implement an application that will invoke a Web service based on a public API:
+
+ (4) the application calls the functionalities offered by the service to receive/modify data of interest, according to the
+access policies
+
+the current session will be established and maintained based on authentication information
+- usually, stored and transported via tokens (auth tokens)
+
+
+oauth
+
+Authorizing an application to access private data in a standardized way - based on current Web technologies - can be done via OAuth
+
+
+oauth
+
+Authorizing an application to access private data in a standardized way - based on current Web technologies - can be done via OAuth
+open protocol - RFC 6749
+OAuth 1.0 (2010), OAuth 2.0 (2012), OAuth 2.1 (draft)
+oauth.net/2/
+
+
+
+
+
+
+
+
+
+
+
+
+
+authorizing through OAuth the Web application GraphQL API Explorer
+to obtain access to data of the user busaco
+owned by GitHub
+
+advanced
+
+
+processes for authorizing access to a Web resource
+
+
+
+
+
+
+
+
+
+
+
+
+
+visual guides:
+dev.to/jaypmedia/oauth-20-explained-in-simple-terms-with-visuals-30he bytebytego.com/guides/oauth-20-flows/
+medium.com/codenx/oauth-2-0-4cddd6c7471f
+
+
+
+
+
+
+
+
+
+example - Facebook:
+authorization with various permissions - e.g., age_range, email (access to a user's e-mail address),
+public_profile, user_birthday, user_hometown, user_friends, user_likes, user_photos, rsvp_event and others developers.facebook.com/docs/permissions
+
+
+
+
+
+
+
+Libraries (server and/or client) available for
+C, C++, Go, Erlang, Java, JavaScript, Objective-C, .NET,
+Perl, PHP, Python, Ruby, Rust, Swift,...
+
+oauth.net/code/
+
+for the Web browser: helloJS, JSO, SalteAuth
+
+
+
+
+
+
+
+Proxy services for authentication/authorization through OAuth
+
+   Auth0 - auth0.com/docs/ Ory Hydra - www.ory.sh/hydra/ OAuth.io - github.com/oauth-io
+Okta - developer.okta.com SimpleLogin - simplelogin.io/developer/ SSQ singon - github.com/ssqsignon
+
+
+
+
+
+
+
+Authorization via speci?ic Web services - examples:
+
+GitHub
+docs.github.com/en/apps/oauth-apps/building-oauth-apps
+Google developers.google.com/identity/protocols/oauth2 Stack Exchange api.stackexchange.com/docs/authentication WordPress developer.wordpress.com/docs/oauth2/
+
+advanced
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+the current session is kept in a JSON token
+experiment access to various data (e.g., contacts
+via Google Contacts API) based on OAuth 2.0 Playground
+developers.google.com/oauthplayground/
+
+
+(instead of) break
+
+
+
+
+
+
+
+
+
+
+
+authentication
+
+Authentication methods:
+based on the Web session via SID (Session IDentiGier) implicitly, the Web is stateless
+
+
+authentication
+
+Authentication methods:
+using tokens
+
+token based authentication
+
+
+authentication
+
+Authentication methods:
+without a password (passwordless) one-time-use URL
+example: Tumblr
+guide: PHP: T. Boronczyk, Generating One-Time Use URLs (2024)
+www.sitepoint.com/generating-one-time-use-urls/
+
+also study TOTP (Time-Based One-Time Password Algorithm)
+www.twilio.com/docs/glossary/totp • RFC 6238: tools.ietf.org/html/rfc6238
+
+
+authentication
+
+Authentication methods:
+SSO (Single Sign-On)
+
+authenticating users in several related applications
+
+
+authentication
+
+Authentication methods:
+social authentication via other user accounts
+
+for example, via social networks or other trusted websites
+
+
+authentication
+
+Authentication methods:
+2FA (Two-Factor Authentication)
+the user must provide at least 2 factors regarding his/hers identity:
+knowledge or objects held exclusively by that person
+
+
+brainstation.io/cybersecurity/two-factor-auth
+
+
+authentication
+
+
+
+
+
+
+Authentication methods:
+using a passkey
+multi-factor authentication mode:
+something you know: a PIN used to unlock the device something you have: the authenticator
+(a security key or something embedded in a personal device) something you are: a \ingerprint, a scan of user's face
+
+passkey.org fidoalliance.org/passkeys/
+
+
+authentication
+
+Authentication methods:
+biometric authentication
+
+        Gingerprint recognition facial recognition or other organs
+eye scan (iris, retina) voice identiGication
+genetic code analysis (DNA matching)
+
+www.biometricsinstitute.org
+
+
+authentication
+
+Authentication methods:
+authentication via hardware device
+
+typical examples: smartcard
+personal device (e.g., watch) via wireless interactions
+
+
+authentication
+
+Authentication methods - overview:
+based on Web session
+using tokens (token based authentication) without password (passwordless)
+SSO (Single Sign-On) social authentication
+2FA (Two-Factor Authentication)
+       passkeys biometric authentication
+authentication via hardware device
+details in The Copenhagen Book (2026): thecopenhagenbook.com
+
+
+authentication
+In the context of Web applications, also consider Web Authentication: An API for accessing Public Key Credentials - Level 2 (W3C Recommendation, 2021) www.w3.org/TR/webauthn-2/
+
+user guide: webauthn.guide cemo code: webauthn.io
+
+speci\ication level 3
+draft (6 May 2026): w3c.github.io/webauthn/
+
+authentication
+
+Observation:
+
+there are cases where a Web application does not require user management and authentication
+
+real examples:
+Awesome (free) Web apps that work without login
+github.com/aviaryan/awesome-no-login-web-apps
+
+
+
+
+
+
+
+OpenID
+
+decentralized way of user authentication at the Web level based on the SSO paradigm
+
+the user can prove that it owns a speciGic URL meant to identify him/her online via a provider (service) of
+digital identity (identity provider)
+e.g., using a social Web application
+
+
+
+
+
+
+
+Each identify of a user is designated by an URL (established by the digital identity provider)
+
+example: steamcommunity.com/openid/id/steamid
+
+
+to conGirm the identity,
+the user will have to authenticate
+
+
+
+
+
+
+
+OpenID Connect
+
+Offers an identity layer based on the OAuth 2 protocol
+
+used data format: JWT - JSON Web Token standardized by RFC 7519
+
+openid.net/developers/how-connect-works/
+
+
+
+
+
+
+A JWT token includes a JSON object used for "secure" data exchange between two entities - usually, a client invoking a Web service (API)
+
+
+
+
+
+A JWT token includes a JSON object used for "secure" data exchange between two entities - usually, a client invoking a Web service (API)
+real cases: authentication
+user identiGication after successful authentication is carried out via a JWT token (ID token) whose structure is speciGied by the OpenID Connect speciGication
+
+openid.net/specs/openid-connect-core-1_0.html#IDToken
+
+
+
+
+
+
+A JWT token includes a JSON object used for "secure" data exchange between two entities - usually, a client invoking a Web service (API)
+real cases: authorization
+each request from the authorized client to invoke a functionality of the Web service will include the corresponding JWT token (similar to Web sessions)
+
+
+
+
+
+A JWT token includes a JSON object used for "secure" data exchange between two entities - usually, a client invoking a Web service (API)
+real cases: data exchange
+the JWT tokens can be used to ensure the integrity of the data exchange (e.g., detection of unauthorized modiGication attempts of the information by third parties)
+
+
+
+
+
+A JWT token includes a JSON object used for "secure" data exchange between two entities - usually, a client invoking a Web service (API)
+
+the transmitted data can be veriGied and considered trustable via digital signatures
+
+various digest algorithms are used to ensure the authenticity of the messages (HMAC - Hash-based Message Authentication Code) in conjunction with public/private cryptographic key pairs
+
+
+  JWT token	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+messages - of authentication or exchange of authorization information (credentials) - transmitted in JWT format based on a cryptographic algorithm
+
+resources + instruments: jwt.io
+
+
+  JWT token	
+
+advanced
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+data stored by a JWT token resulting after decoding
+security attacks on JWT: portswigger.net/web-security/jwt
+
+ Alternatives to REST?
+
+
+
+
+
+
+
+data access model: graphql
+
+Graph Query Language
+
+"a query language for APIs and a runtime for fulGilling those queries with your existing data"
+
+graphql.org
+
+under the jurisdiction of the Linux Foundation
+gql.foundation
+
+
+data access model: graphql
+
+Graph Query Language
+
+declarative inspired by JSON
+strict (strong-typed)
+
+
+data access model: graphql
+
+Graph Query Language
+
+queries (objects of type Query), designating read operations, and updates (mutations - objects of type Mutation), that are data alteration operations, are allowed
+
+graphql.org/learn/queries/
+
+
+data access model: graphql
+
+Graph Query Language
+
+  support is provided for anticipating what data will be returned + its structure
+(types + schemas)
+
+
+graphql.org/learn/schema/
+
+
+data access model: graphql
+
+Graph Query Language
+
+the relations between different (categories of) resources can be speciGied via links - connections
+
+data is modeled as graphs - hypermedia resources
+graphql.org/learn/thinking-in-graphs/
+
+
+data access model: graphql
+
+Graph Query Language
+the returned answer includes only the data that has been requested
+-> improving client-level performance
+
+solving the problems regarding over/under fetching (getting more or less data)
+nordicapis.com/is-graphql-the-end-of-rest-style-apis/ hasura.io/blog/rest-view-of-graphql/ philsturgeon.com/graphql-vs-rest-overview/
+
+
+entity format
+protocol
+who decides what data will be returned
+
+endpoints
+
+data types
+client-server relation documentation
+vision
+
+GraphQL
+resource JSON
+HTTP - usually, adopts its own conventions
+
+the client
+a single endpoint to provide related data, if relationships have been specified between them
+strong (explicitly declared types) fat client-fat server
+self-describing
+query language, specification, collection of tools
+
+REST
+resource
+any Media Type (MIME) usually: JSON
+protocol independent (usually, HTTP)
+
+the server
+
+multiple endpoints (independent)
+
+weak (type checking is not mandatory)
+thin client-fat server
+needs third party solutions (e.g., OpenAPI Specification)
+
+architectural style
+
+
+
+GraphQL as an alternative to developing services via the REST paradigm
+
+
+data access model: graphql
+
+Aspects to be considered by implementers: security problems
+- e.g., authentication, authorization, denial of service support for caching must be offered explicitly version management
+blog.pusher.com/rest-versus-graphql/ aws.amazon.com/compare/the-difference-between-graphql-and-rest/
+
+
+data access model: graphql
+
+Tools for developers:
+
+reference implementation for the server (Node.js):
+GraphQL.js
+graphql.org/graphql-js/
+www.apollographql.com/blog/how-to-use-graphql-with-javascript-graphql-js-tutorial/
+libraries available for C, Go, Java, Kotlin,
+.NET, PHP, Python, Swift, etc. - graphql.org/code/
+
+
+
+
+
+
+
+Tools for developers:
+
+interactive Web editors
+Altair GraphQL Client - altairgraphql.dev GraphiQL - github.com/graphql/graphiql GraphQL Editor - graphqleditor.com
+
+
+
+
+
+
+
+Tools for developers:
+Apollo - www.apollographql.com/docs/
+
+
+
+
+
+
+
+Tools for developers:
+
+GraphQL Yoga 2 - the-guild.dev/graphql/yoga-server/docs
+
+GraphQL server based on the GraphQL over HTTP spec (e.g., suport pentru Fetch API, Server-Sent Events)
+
+
+
+
+
+
+Other servers + frameworks:
+
+API Platform Framework (PHP) - api-platform.com graphql-php (PHP) - webonyx.github.io/graphql-php/ Graphene (Python) - graphene-python.org
+GraphQL Java - www.graphql-java.com
+GraphQL Kotlin - github.com/ExpediaGroup/graphql-kotlin
+GraphQL for .NET - github.com/graphql-dotnet/
+gqlgen (Go) - gqlgen.com
+Hot Chocolate (.NET) - chillicream.com/docs/hotchocolate
+
+advanced
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+interactive testing with the GraphiQL instrument
+of the GitHub API via GraphQL: docs.github.com/en/graphql
+
+advanced
+
+
+Concepts de\ined by data schemas that can use scalar types (Boolean, Int, String,...) or speci\ied by the programmer - in this case, for example
+URI, User, RepositoryOwner
+
+[ ] speci\ies arrays of objects
+
+! indicates non-nullable data (non-zero values will be given always)
+
+advanced
+
+
+
+
+2: sending the request through POST
+
+{
+"errors": [
+{
+
+advanced
+
+"path": [ ... ], "extensions": {
+"code": "variableNotDefined", "variableName": "num"
+},
+"locations": [ {
+"line": 5,
+"column": 26
+} ],
+   "message": "Variable $num is used by anonymous query but not declared"
+}
+]
+}
+
+
+
+
+possible way to report errors/exceptions
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+information about countries provided by a GraphQL API: countries.trevorblades.com
+
+advanced
+exploring a GraphQL API
+- here, Yelp API - using the Web tool GraphQL Voyager
+
+
+
+
+
+
+
+
+
+apis.guru/graphql-voyager/
+
+advanced
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+real case:
+Pocket - a delete operation of a bookmark via GraphQL
+
+advanced
+graphql: resources + case studies
+
+
+The Fullstack Tutorial for GraphQL
+www.howtographql.com
+Awesome GraphQL
+github.com/chentsulin/awesome-graphql
+GraphQL APIs
+github.com/APIs-guru/graphql-apis
+
+Web - key ingredient of cloud technologies
+cloud computing
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+infrastructure
+
+
+
+storage
+
+compute
+
+network
+
+advanced
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ Some functionalities can be managed on-premises or by a provider of services
+available in cloud - according to (Eizadirad, 2017)
+www.linkedin.com/pulse/iaas-paas-saas-explained-compared-arsalan-eizadirad
+
+advanced
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+P. Kerrison, Pizza As A Service 2.0 (2017)
+www.paulkerrison.co.uk/random/pizza-as-a-service-2-0
+
+summary
+
+
+Web services development
+?
+from microservices and API speci?ication
+to serverless and data access via GraphQL
+
+next episode:
+other Web application architectures
+
+
+
+
+
+     front-end (Web browser)
+
+
+ Data access Ajax (Fetch) Web Socket
+
+
+   Services/API REST/GraphQL eventually, serverless
+
+
+
+
+
+
+? Navigation via states (routing)
+
+Application
+JS processing
++ WASM
+
+Static resources
+</>
+including JS: func( )
+
+
+
+
+
+
+   Interface render + interact. HTML, CSS, JS
+
+back-end
+(own or "in cloud" Web application server)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

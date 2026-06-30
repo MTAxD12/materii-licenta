@@ -1,0 +1,454 @@
+Arbori de căutare echilibrat, i.
+
+SD 2021/2022
+
+Arbori bicolori (red-black trees)
+I Symmetric binary B-tree, Rudolf Bayer, 1972.
+I Echilibrarea este ment, inută cu ajutorul unei colorări a nodurilor.
+I Arborii ros, u-negru sunt arbori binari de căutare care satisfac
+următoarele proprietăt, i:
+1. un nod este colorat cu ros, u sau negru;
+2. rădăcina s, i nodurile frunză (nil – care fac parte din structură) sunt
+colorate cu negru;
+3. dacă un nod este ros, u, atunci fiii săi sunt negri;
+4. drumurile de la un nod la nodurile de pe frontieră au acelas, i număr de
+noduri negre.
+
+FII, UAIC
+
+Curs 10
+
+SD 2021/2022
+
+2 / 25
+
+Arbori bicolori - exemplu
+20
+
+35
+
+10
+
+3
+
+15
+
+21
+
+50
+
+30
+
+FII, UAIC
+
+Curs 10
+
+SD 2021/2022
+
+3 / 25
+
+Arbori bicolori
+
+Lemă:
+Orice subarbore al unui arbore bicolor are cel put, in 2bh(v ) − 1 noduri
+interne, unde:
+I v rădăcina subarborelui,
+I bh(v ) numărul de noduri negre aflate pe un drum de la v la un nod
+de pe frontieră, excluzându-l pe v ;
+
+Demonstraţie.
+La curs.
+
+FII, UAIC
+
+Curs 10
+
+SD 2021/2022
+
+4 / 25
+
+Arbori bicolori
+
+Teoremă:
+Un arbore bicolor cu n noduri interne are ı̂nălt, imea h ≤ 2 log2 (n + 1).
+
+Demonstraţie.
+Conform proprietăt, ii 3,
+n ≥ 2h/2 − 1 ⇒ h/2 ≤ log2 (n + 1)
+
+FII, UAIC
+
+Curs 10
+
+⇒
+
+h ≤ 2 log2 (n + 1).
+
+SD 2021/2022
+
+5 / 25
+
+Arbori bicolori: operat, ii
+
+Corolar:
+Într-un arbore bicolor cu n noduri, operat, ia de căutare are complexitatea
+timp O(log n).
+
+FII, UAIC
+
+Curs 10
+
+SD 2021/2022
+
+6 / 25
+
+Operat, ia de inserare
+
+I Se caută pozit, ia de inserare s, i se inserează noua valoare ca ı̂n cazul
+arborilor binari de căutare obis, nuit, i.
+
+I Se colorează noul nod cu ros, u.
+
+I Se restaurează proprietăt, ile de arbore bicolor prin recolorare de noduri
+s, i aplicare de rotat, ii simple.
+
+FII, UAIC
+
+Curs 10
+
+SD 2021/2022
+
+7 / 25
+
+Operat, ia de inserare
+I Proprietatea 1: satisfăcută.
+I Proprietatea 2 – satisfăcută (ambii fii ai nodului inserat sunt nil).
+Dacă nodul inserat este rădăcina → recolorare ı̂n negru.
+I Proprietatea 4 – satisfăcută (noul nod ros, u ı̂nlocuies, te o frunză).
+
+I Poate să nu fie respectată proprietatea 3 - dacă părintele nodului este
+ros, u.
+I Mută mai sus această situat, ie prin recolorarea nodurilor până când
+poate fi reparată prin operat, ii de rotat, ie s, i recolorare.
+
+FII, UAIC
+
+Curs 10
+
+SD 2021/2022
+
+8 / 25
+
+Operat, ia de inserare: restaurarea proprietăt, ii 3
+I Caz 1: “unchiul” nodului inserat este ros, u →
+Se recolorează “părintele” s, i “unchiul” ı̂n negru s, i “bunicul” in ros, u.
+I Caz 2: “unchiul” nodului inserat este negru s, i nodul inserat este fiul
+drept al unui fiu stâng →
+Se aplică o rotat, ie simplă la stânga ı̂ntre nodul curent s, i nodul
+părinte.
+I Caz 3: “unchiul” nodului inserat este negru s, i nodul inserat este fiul
+stâng al unui fiu stâng →
+Se aplică o rotat, ie simplă la dreapta ı̂ntre nodul “părinte” s, i nodul
+“bunic” + se recolorează nodurile “părinte” (ı̂n negru) s, i “bunic” (ı̂n
+ros, u).
+Obs.: Operat, ii similare se aplică pentru cazul simetric.
+FII, UAIC
+
+Curs 10
+
+SD 2021/2022
+
+9 / 25
+
+Operat, ia de inserare - Caz 1
+
+FII, UAIC
+
+Curs 10
+
+SD 2021/2022
+
+10 / 25
+
+Operat, ia de inserare - Caz 2 s, i 3
+
+FII, UAIC
+
+Curs 10
+
+SD 2021/2022
+
+11 / 25
+
+Inserare – exemplu: nodul 12
+
+20
+10
+
+35
+
+3
+14
+
+FII, UAIC
+
+50
+
+15
+17
+
+Curs 10
+
+SD 2021/2022
+
+12 / 25
+
+Inserare – CAZUL 1: recolorare
+20
+10
+
+35
+
+3
+
+50
+
+15
+14
+
+17
+
+12
+
+FII, UAIC
+
+Curs 10
+
+SD 2021/2022
+
+13 / 25
+
+Inserare – CAZUL 2: rotat, ie la stânga
+20
+10
+
+35
+15
+
+3
+14
+
+50
+
+17
+
+12
+
+FII, UAIC
+
+Curs 10
+
+SD 2021/2022
+
+14 / 25
+
+Inserare – CAZUL 3: rotat, ie la dreapta + recolorare
+20
+15
+10
+
+3
+
+35
+50
+
+17
+14
+
+12
+
+FII, UAIC
+
+Curs 10
+
+SD 2021/2022
+
+15 / 25
+
+Inserare – Arborele ros, u-negru valid
+
+15
+10
+
+20
+
+3
+
+14
+
+17
+
+12
+
+FII, UAIC
+
+35
+50
+
+Curs 10
+
+SD 2021/2022
+
+16 / 25
+
+Operat, ia de inserare: algoritm
+
+Se consideră că fiecare nod a arborelui este o structură cu următoarele
+câmpuri:
+I cheie: informat, ia utilă a nodului;
+I culoare: ros, u / negru;
+I pred: adresa nodului părinte (null pentru rădacină);
+I stg: adresa fiului stâng;
+I drp: adresa fiului drept.
+
+FII, UAIC
+
+Curs 10
+
+SD 2021/2022
+
+17 / 25
+
+Operat, ia de inserare: algoritm
+Procedure inserare(t, val)
+begin
+x ← insArbBinCautare(t, val)
+x → culoare ← rosu
+while (x! = t and x → pred → culoare == rosu) do
+if (x → pred == x → pred → pred → stg ) then
+y ← x → pred → pred → drp
+if (y → culoare == rosu) then
+Caz 1
+else
+if (x == x → pred → drp) then
+Caz 2
+Caz 3
+else
+similar cu ramura ”then”, doar că interschimbăm stg cu drp
+t → culoare ← negru
+end
+FII, UAIC
+
+Curs 10
+
+SD 2021/2022
+
+18 / 25
+
+Operat, ia de inserare: Caz 1
+
+x → pred → culoare ← negru
+y → culoare ← negru
+x → pred → pred → culoare ← ros, u
+x ← x → pred → pred
+
+FII, UAIC
+
+Curs 10
+
+SD 2021/2022
+
+19 / 25
+
+Operat, ia de inserare: Caz 2
+
+x ← x → pred
+rotatie-stânga(t, x)
+
+FII, UAIC
+
+Curs 10
+
+SD 2021/2022
+
+20 / 25
+
+Operat, ia de inserare: Caz 3
+
+x → pred → culoare ← negru
+x → pred → pred → culoare ← ros, u
+rotatie-dreapta(t, x → pred → pred)
+
+FII, UAIC
+
+Curs 10
+
+SD 2021/2022
+
+21 / 25
+
+Operat, ia de inserare - exemplul 2
+
+FII, UAIC
+
+Curs 10
+
+SD 2021/2022
+
+22 / 25
+
+Operat, ia de inserare - exemplul 3
+
+FII, UAIC
+
+Curs 10
+
+SD 2021/2022
+
+23 / 25
+
+Operat, ia de inserare - exemplul 3
+
+FII, UAIC
+
+Curs 10
+
+SD 2021/2022
+
+24 / 25
+
+Arbori bicolori
+I Complexitatea algoritmilor de inserare / s, tergere: O(log n).
+
+Corolar:
+Clasa arborilor bicolori este O(log n)–stabilă.
+
+FII, UAIC
+
+Curs 10
+
+SD 2021/2022
+
+25 / 25
+
+Arbori bicolori
+I Complexitatea algoritmilor de inserare / s, tergere: O(log n).
+
+Corolar:
+Clasa arborilor bicolori este O(log n)–stabilă.
+
+I Utilizări:
+I System symbol tables
+I Kernel Linux (Completely Fair Scheduler)
+I Runway reservation system
+I Java: TreeMap, TreeSet; C++ STL: map, multimap, multiset
+
+FII, UAIC
+
+Curs 10
+
+SD 2021/2022
+
+25 / 25
+
+

@@ -1,0 +1,1394 @@
+Algoritmi. Limbaj algoritmic
+
+SD 2021/2022
+
+Conţinut
+
+Algoritmi. Introducere
+
+Limbaj algoritmic
+
+Tipuri de date
+
+Tablouri şi structuri
+
+FII, UAIC
+
+Curs 1
+
+SD 2021/2022
+
+2 / 55
+
+Exemplu
+I o secvenţă de numere: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ...
+
+FII, UAIC
+
+Curs 1
+
+SD 2021/2022
+
+3 / 55
+
+Exemplu
+I o secvenţă de numere: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ...
+I secvenţa Fibonacci
+definiţia matematică: Fn =
+
+FII, UAIC
+
+
+
+
+0,
+1,
+
+Fn−1 + Fn−2 ,
+
+Curs 1
+
+if n = 0
+if n = 1
+if n > 1
+
+SD 2021/2022
+
+3 / 55
+
+Exemplu
+I o secvenţă de numere: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ...
+I secvenţa Fibonacci
+definiţia matematică: Fn =
+
+
+
+
+0,
+1,
+
+Fn−1 + Fn−2 ,
+
+if n = 0
+if n = 1
+if n > 1
+
+I implemetare C
+int F( int n) {
+i f ( n == 0 ) r e t u r n 0 ;
+e l s e i f ( n == 1 ) r e t u r n 1 ;
+else
+r e t u r n F ( n−1) + F ( n −2);
+}
+
+FII, UAIC
+
+Curs 1
+
+SD 2021/2022
+
+3 / 55
+
+Algoritmi: etimologie
+
+Muhammad ibn Musa al-Khwarizmi - matematician persan; a scris prima
+carte de algebră (cca. 830).
+I metode pentru adunarea, ı̂nmulţirea şi ı̂mpărţirea numerelor.
+FII, UAIC
+
+Curs 1
+
+SD 2021/2022
+
+4 / 55
+
+Algoritmi: definit, ie
+I Nu există o definit, ie standard pentru not, iunea de algoritm.
+I Cambridge Dictionary:
+“A set of mathematical instructions that must be followed in a fixed
+order, and that, especially if given to a computer, will help to
+calculate an answer to a mathematical problem.”
+I Schneider and Gersting 1995 (Invitation for Computer Science):
+“An algorithm is a well-ordered collection of unambiguous and
+effectively computable operations that when executed produces a
+result and halts in a finite amount of time.”
+I Gersting and Schneider 2012 (Invitation for Computer Science, 6nd
+edition):
+“An algorithm is ordered sequence of instructions that is guaranteed
+to solve a specific problem.”
+FII, UAIC
+
+Curs 1
+
+SD 2021/2022
+
+5 / 55
+
+Algoritmi: definit, ie
+I Wikipedia:
+“In mathematics and computer science, an algorithm is a step-by-step
+procedure for calculations. Algorithms are used for calculation, data
+processing, and automated reasoning. An algorithm is an effective
+method expressed as a finite list of well-defined instructions for
+calculating a function. Starting from an initial state and initial input
+(perhaps empty), the instructions describe a computation that, when
+executed, proceeds through a finite number of well-defined successive
+states, eventually producing “output” and terminating at a final
+ending state. The transition from one state to the next is not
+necessarily deterministic; some algorithms, known as randomized
+algorithms, incorporate random input.”
+
+FII, UAIC
+
+Curs 1
+
+SD 2021/2022
+
+6 / 55
+
+Algoritmi: model de calcul, problema rezolvată
+Toate definit, iile au ceva ı̂n comun:
+I datele/informat, ia s, i procesarea acestora/acesteia ı̂n pas, i. Acestea
+sunt descrise ı̂n general de un model de calcul.
+Un model de calcul este format din:
+I memorie - modul de reprezentare a datelor.
+I instruct, iuni
+sintaxă - descrie sintactic pas, ii de procesare;
+semantică - descrie pas, ii de procesare realizat, i de execut, ia unei
+instruct, iuni; ı̂n general este dată de o relat, ie de tranzit, ie peste
+configurat, ii (sistem tranzit, ional).
+
+I un algoritm trebuie să producă un rezultat, adică un algoritm trebuie
+să rezolve o problemă.
+O problemă este ı̂n general reprezentată de o pereche
+(input, output), unde input reprezintă descrierea datelor de intrare
+(instant, ă) iar output descrierea datelor de ies, ire (rezultatul).
+FII, UAIC
+
+Curs 1
+
+SD 2021/2022
+
+7 / 55
+
+Algoritmi s, i Structuri de date
+
+I Algoritm: metodă de rezolvare a unei probleme.
+I Structură de date: metodă de a păstra/reprezenta informat, ia.
+
+FII, UAIC
+
+Curs 1
+
+SD 2021/2022
+
+8 / 55
+
+Algoritmi s, i Structuri de date
+
+I Algoritm: metodă de rezolvare a unei probleme.
+I Structură de date: metodă de a păstra/reprezenta informat, ia.
+Algorithms + Data Structures = Programs. — Niklaus Wirth
+I will, in fact, claim that the difference between a bad programmer and a
+good one is whether he considers his code or his data structures more
+important. Bad programmers worry about the code. Good programmers
+worry about data structures and their relationships. — Linus Torvalds
+
+FII, UAIC
+
+Curs 1
+
+SD 2021/2022
+
+8 / 55
+
+Algoritmi: proprietăţi
+
+I input (intrare) – zero sau mai multe entităţi de date furnizate din
+exterior.
+I output (ies, ire) – algoritmul produce informaţie.
+I terminare – pentru orice intrare, algoritmul execută un număr finit
+de paşi.
+I corectitudine – algoritmul se termină şi produce ieşirea corectă
+pentru orice intrare; spunem că algoritmul rezolvă problema dată.
+
+FII, UAIC
+
+Curs 1
+
+SD 2021/2022
+
+9 / 55
+
+Algoritmi: eficienţă
+
+I Un algoritm trebuie să folosească un volum rezonabil de resurse de
+calcul: [spat, iu de] memorie şi timp [de execut, ie].
+
+I Avem nevoie de algoritmi eficienţi pentru:
+I a salva timpi de aşteptare, spaţiu de depozitare, consum energie, etc.;
+I scalabilitate: putem rezolva probleme de dimensiuni mari cu aceleaşi
+resurse (CPU, memorie, disc, etc.);
+I soluţii optimizate.
+
+FII, UAIC
+
+Curs 1
+
+SD 2021/2022
+
+10 / 55
+
+Algoritmi: eficienţă
+
+timp (secunde)
+
+60
+
+40
+
+Ruby
+Scheme
+Python
+C
+Java
+C-gcc
+
+20
+
+0
+20
+
+25
+
+30
+
+35
+n
+
+40
+
+45
+
+50
+
+Figura: Execuţia algoritmului recursiv F (Fibonacci).
+Observat, ie: Comportamentul este diferit ı̂n funcţie de tipul implementării; totuşi diferenţele nu
+sunt atât de substanţiale =⇒ Problema e algoritmul! (complexitate exponenţială)
+FII, UAIC
+
+Curs 1
+
+SD 2021/2022
+
+11 / 55
+
+Proiectarea algoritmilor
+
+Rezolvarea algoritmică a problemelor presupune următoarele etape:
+I definirea problemei
+I abstractizează detaliile irelevante;
+
+I identificarea clasei din care face parte problema s, i a unui algoritm de
+construct, ie a solut, iei;
+I analiza corectitudinii s, i a eficient, ei algoritmului;
+I implementarea algoritmului;
+I (optimizare şi generalizare).
+
+FII, UAIC
+
+Curs 1
+
+SD 2021/2022
+
+12 / 55
+
+Descrierea algoritmilor
+I informal: limbaj natural.
+I formal:
+I notat, ie matematică (mas, ini Turing, lambda-calcul (Church), funct, ii
+recursive, etc.);
+I limbaje de programare: de nivel inalt, de nivel jos, declarative (e.g.,
+programare funct, ională, programare logică). Acesta poate fi s, i un
+model informal dacă nu există o semnatică formală pentru limbaj.
+
+I semiformal:
+I pseudo-cod: combină notat, ia formală a limbajelor de programare cu
+limbajul natural;
+I notat, ie grafică: scheme logice, automate (state machines), diagrame
+de activităt, i.
+
+FII, UAIC
+
+Curs 1
+
+SD 2021/2022
+
+13 / 55
+
+Conţinut
+
+Algoritmi. Introducere
+
+Limbaj algoritmic
+
+Tipuri de date
+
+Tablouri şi structuri
+
+FII, UAIC
+
+Curs 1
+
+SD 2021/2022
+
+14 / 55
+
+Limbaj algoritmic
+
+Avem nevoie de un limbaj care este
+I simplu: pentru a fi uşor de ı̂nţeles;
+I expresiv: pentru a descrie algoritmi;
+I abstract, ı̂n descrierea algoritmului accentul cade pe gândirea
+algoritmică şi nu pe detaliile de implementare;
+
+I un model de calcul adecvat pentru analiza complexităţii algoritmilor,
+ı̂n special complexitatea timp.
+
+FII, UAIC
+
+Curs 1
+
+SD 2021/2022
+
+15 / 55
+
+Variabilă
+
+I Nume
+I Adresă
+I Atribute (tip de date asociat valorilor memorate)
+
+I Instanţă a variabilei
+
+FII, UAIC
+
+Curs 1
+
+SD 2021/2022
+
+16 / 55
+
+Modelul de calcul
+I Memoria: structură liniară de celule
+I variabile
+
+I pointeri
+
+FII, UAIC
+
+Curs 1
+
+SD 2021/2022
+
+17 / 55
+
+Conţinut
+
+Algoritmi. Introducere
+
+Limbaj algoritmic
+
+Tipuri de date
+
+Tablouri şi structuri
+
+FII, UAIC
+
+Curs 1
+
+SD 2021/2022
+
+18 / 55
+
+Tip de date
+
+I Domeniu (colecţia de obiecte)
+I Operaţii
+I Categorii de tipuri de date:
+I Tipuri de date elementare
+I Tipuri de date structurate de nivel jos
+I operaţiile la nivel de componentă
+
+I Tipuri de date de nivel ı̂nalt
+I operaţiile implementate de algoritmi utilizator
+
+FII, UAIC
+
+Curs 1
+
+SD 2021/2022
+
+19 / 55
+
+Tipuri de date elementare
+
+I Numere ı̂ntregi
+I valori: numere ı̂ntregi
+I operaţii: +, -, ...
+
+I Numere reale
+I valori: numere raţionale
+I operaţii: +, -, ...
+
+I Valori booleene
+I valori: true, false
+I operaţii: and, or, not, xor
+
+FII, UAIC
+
+Curs 1
+
+SD 2021/2022
+
+20 / 55
+
+Tipuri de date elementare
+
+I Caractere
+I valori: ’a’, ’b’, ...
+I operaţii: —
+
+I Pointeri
+I valori: adrese de variabile aparţinând altui tip, valoarea NULL
+I operaţii: —
+I referire indirecta: *p
+
+FII, UAIC
+
+Curs 1
+
+SD 2021/2022
+
+21 / 55
+
+Tipuri de date elementare
+
+I Operatori pentru numere ı̂ntregi:
+I aritmetici: a+b, a-b, a*b, a/b, a%b
+I relaţionali: a==b, a!=b, a<b, a<=b, a>b, a>=b
+
+operatie
+a+b
+...
+
+FII, UAIC
+
+timp(operatie)
+cost uniform cost logaritmic
+O(1)
+O(max(loga, logb))
+
+Curs 1
+
+SD 2021/2022
+
+22 / 55
+
+Instrucţiuni
+
+I Expresii
+I Compuse (bloc): {instructiuni}
+I Condiţionale: if if-else
+I Iterative: while repeat for
+I Întreruperea secvenţei: return
+
+FII, UAIC
+
+Curs 1
+
+SD 2021/2022
+
+23 / 55
+
+Instrucţiuni
+
+I Atribuirea
+I Sintaxa: < variabila >←< expresie >
+I Sematica:
+I se evaluează < expresie > şi rezultatul obţinut se memorează ı̂n locaţia
+desemnată de < variabila >
+I este singura instrucţiune cu ajutorul căreia se poate modifica conţinutul
+memoriei
+
+I cost uniform O(1), cost logaritmic O(log < expresie >)
+
+FII, UAIC
+
+Curs 1
+
+SD 2021/2022
+
+24 / 55
+
+Atribuirea
+
+Exemplu:
+I Înainte de atribuire:
+
+I După atribuirea u ← −v ∗ u:
+
+FII, UAIC
+
+Curs 1
+
+SD 2021/2022
+
+25 / 55
+
+Instrucţiuni
+
+I Atribuirea ı̂n cazul pointerilor
+I Sintaxa:
+∗ < variabila pointer >←< expresie >
+I Sematica:
+I se evaluează < expresie > şi rezultatul obţinut se memorează ı̂n locaţia
+de la adresa stocată ı̂n < variabila pointer >
+
+I Exemplu: ∗p ← 10
+
+FII, UAIC
+
+Curs 1
+
+SD 2021/2022
+
+26 / 55
+
+Instrucţiuni
+I if
+I Sintaxa:
+if < expresie > then
+< secventa − instructiuni1 >
+else
+< secventa − instructiuni2 >
+if < expresie > then
+< secventa − instructiuni1 >
+Observaţie: < expresie > este o expresie cu rezultat boolean după
+evaluare
+I Semantica:
+I Se evaluează < expresie >. Dacă rezultatul este true, atunci se execută
+< secventa − instructiuni1 > iar dacă rezultatul este false, atunci se
+execută < secventa − instructiuni2 > după care instrucţiunea if se
+termină
+FII, UAIC
+
+Curs 1
+
+SD 2021/2022
+
+27 / 55
+
+Instructiunea if
+I cost uniform O(1), cost logaritmic O(1)
+I Exemplu: calcululul minimului a două numere:
+if a < b then
+min ← a
+else
+min ← b
+sau
+min ← a
+if b < a then
+min ← b
+
+FII, UAIC
+
+Curs 1
+
+SD 2021/2022
+
+28 / 55
+
+Instrucţiuni
+
+I while
+I Sintaxa:
+while < expresie > do
+< secventa − instructiuni >
+I Semantica:
+I Se evaluează < expresie >
+I Dacă rezultatul este true atunci se execută < secventa − instructiuni >
+după care se reia procesul ı̂ncepând cu pasul 1. Dacă rezultatul este
+false atunci execuţia instrucţiunii while se termină.
+
+FII, UAIC
+
+Curs 1
+
+SD 2021/2022
+
+29 / 55
+
+Exemplu while
+
+I cel mai mic k astfel ı̂ncât 7k >= n pentru un n dat
+k←0
+sapte la k ← 1
+while sapte la k < n do
+k ←k +1
+sapte la k ← sapte la k ∗ 7
+
+FII, UAIC
+
+Curs 1
+
+SD 2021/2022
+
+30 / 55
+
+Instrucţiuni
+I repeat
+I Sintaxa:
+repeat
+< secventa − instructiuni >
+until < expresie >;
+I Semantica:
+Instrucţiunea:
+repeat
+S
+until e;
+simulează execuţia următorului program:
+S
+while not e do
+S
+
+FII, UAIC
+
+Curs 1
+
+SD 2021/2022
+
+31 / 55
+
+Exemplu repeat
+
+I cel mai mic k astfel ı̂ncât 7k >= n pentru un n dat
+k←0
+sapte la k ← 1
+repeat
+k ←k +1
+sapte la k ← sapte la k ∗ 7
+until sapte la k >= n;
+
+FII, UAIC
+
+Curs 1
+
+SD 2021/2022
+
+32 / 55
+
+Instrucţiuni
+
+I for
+I Sintaxa:
+for < variabila >←< expresie1 > to < expresie2 > do
+< secventa − instructiuni >
+sau
+for < variabila >←< expresie1 > downto < expresie2 > do
+< secventa − instructiuni >
+
+Observaţie: < variabila > este o variabilă de tip ı̂ntreg, iar
+< expresie1 > şi < expresie2 > sunt expresii cu rezultat ı̂ntreg după
+evaluare
+
+FII, UAIC
+
+Curs 1
+
+SD 2021/2022
+
+33 / 55
+
+Instrucţiuni
+
+I for
+I Semantica:
+for i ← e1 to e2 do
+S
+este echivalentă cu:
+i ← e1
+temp ← e2
+while i <= temp do
+S
+i ←i +1
+
+FII, UAIC
+
+Curs 1
+
+SD 2021/2022
+
+34 / 55
+
+Instrucţiuni
+
+I for
+I Semantica:
+for i ← e1 downto e2 do
+S
+este echivalentă cu:
+i ← e1
+temp ← e2
+while i >= temp do
+S
+i ←i −1
+
+FII, UAIC
+
+Curs 1
+
+SD 2021/2022
+
+35 / 55
+
+Subprograme
+
+I Limbajul este modular: un program conţine un număr de module
+I Un modul ı̂n limbajul prezentat este identificat cu un subprogram
+I Subprograme:
+I Proceduri
+I Funcţii
+
+FII, UAIC
+
+Curs 1
+
+SD 2021/2022
+
+36 / 55
+
+Subprograme
+
+I Proceduri:
+I Sintaxa:
+Procedure nume (lista-parametri-formali)
+begin
+secventa-instructiuni
+end
+I Apel: NUME(lista-parametri-actuali)
+I interfaţa ı̂ntre o procedură şi modulul care o apelează se realizează doar
+prin intermediul parametrilor şi a variabilelor globale
+
+FII, UAIC
+
+Curs 1
+
+SD 2021/2022
+
+37 / 55
+
+Proceduri
+
+I Exemplu:
+Procedure SWAP (x,y)
+begin
+aux ← x
+x ←y
+y ← aux
+end
+Apel:
+SWAP(a, b)
+SWAP(b, c)
+
+FII, UAIC
+
+Curs 1
+
+SD 2021/2022
+
+38 / 55
+
+Subprograme
+
+I Funcţii:
+I Sintaxa:
+Function nume (lista-parametri-formali)
+begin
+secventa-instructiuni
+end
+secventa-instructiuni conţine măcar o instrucţiune return < expr >
+I Apel: NUME(lista-parametri-actuali)
+utilizat ı̂ntr-o expresie: valoarea ı̂ntoarsă de funcţie este cea obţinută
+prin evaluarea < expr >
+
+FII, UAIC
+
+Curs 1
+
+SD 2021/2022
+
+39 / 55
+
+Funcţii
+I Exemplu:
+Function max3(x,y,z)
+begin
+temp ← x
+if y > temp then
+temp ← y
+if z > temp then
+temp ← z
+return temp
+end
+Apel:
+max3(a, b, c)
+2*max3(a, b, c) > 5
+
+FII, UAIC
+
+Curs 1
+
+SD 2021/2022
+
+40 / 55
+
+Conţinut
+
+Algoritmi. Introducere
+
+Limbaj algoritmic
+
+Tipuri de date
+
+Tablouri şi structuri
+
+FII, UAIC
+
+Curs 1
+
+SD 2021/2022
+
+41 / 55
+
+Tablouri
+
+I Ansamblu omogen de variabile numite componentele tabloului
+I Toate componentele aparţin aceluiaşi tip
+I Componentele sunt identificate cu ajutorul indicilor
+I Tablourile sunt utilizate pentru a reprezenta mulţimi, secvenţe
+(ordinea elementelor este importantă), matrici
+I Tablourile pot fi:
+I unidimensionale (1-dimensionale)
+I bidimensionale (2-dimensionale)
+
+FII, UAIC
+
+Curs 1
+
+SD 2021/2022
+
+42 / 55
+
+Tablouri unidimensionale
+a
+
+int[5]
+
+a[0]
+
+int
+
+a[1]
+
+int
+
+a[2]
+
+int
+
+a[3]
+
+int
+
+a[4]
+
+int
+
+FII, UAIC
+
+Curs 1
+
+SD 2021/2022
+
+43 / 55
+
+Tablouri unidimensionale
+
+I Memoria este o secvenţă contiguă de locaţii
+I Ordinea de memorare – ordinea indicilor
+I Operaţiile se realizează prin intermediul componentelor
+Exemple:
+for i ← 0 to n − 1 do
+a[i] ← 0
+for i ← 0 to n − 1 do
+c[i] ← a[i] + b[i]
+
+FII, UAIC
+
+Curs 1
+
+SD 2021/2022
+
+44 / 55
+
+Tablouri
+
+Costul operaţiilor:
+operatie
+a[i]
+a[i] ← v
+
+timp(operatie)
+cost uniform cost logaritmic
+O(1)
+O(i + logai )
+O(1)
+O(i + logv )
+
+unde a este un tablou de dimensiune n, cu valorile a[0], ..., a[n − 1]
+
+FII, UAIC
+
+Curs 1
+
+SD 2021/2022
+
+45 / 55
+
+Tablouri bidimensionale
+a
+
+int[2,3]
+
+Tablouri bidimensionale
+a
+
+int[2,3]
+
+a[0,0]
+
+int
+
+a[0,1]
+
+int
+
+a[0,2]
+
+int
+
+Tablouri bidimensionale
+a
+
+int[2,3]
+
+a[0,0]
+
+int
+
+a[0,1]
+
+int
+
+a[0,2]
+
+int
+
+a[1,0]
+
+int
+
+a[1,1]
+
+int
+
+a[1,2]
+
+int
+FII, UAIC
+
+Curs 1
+
+SD 2021/2022
+
+46 / 55
+
+Tablouri bidimensionale
+
+I Memorie contiguă de mxn locaţii
+I Componentele sunt identificate cu ajutorul a 2 indici:
+I primul indice are valori {0, 1, . . . , m − 1}
+I al doilea indice are valori {0, 1, . . . , n − 1}
+I variabilele componente :
+a[0, 0], a[0, 1], . . . , a[0, n − 1], a[1, 0], a[1, 1], . . . , a[1, n − 1], . . . , a[m −
+1, 0], a[m − 1, 1], . . . , a[m − 1, n − 1]
+
+I Ordinea de memorare a componentelor este dată de ordinea
+lexicografică a indicilor
+
+FII, UAIC
+
+Curs 1
+
+SD 2021/2022
+
+47 / 55
+
+Tablouri bidimensionale
+
+I Cu analogia de la matrici, un tablou 2-dimensional poate fi privit ca
+un tablou 1-dimensional ı̂n care fiecare componentă este un tablou
+1-dimensional.
+I Notaţie: a[0][0], a[0][1], . . . , a[0][n − 1], . . . , a[m − 1][0], a[m −
+1][1], . . . , a[m − 1][n − 1]
+
+FII, UAIC
+
+Curs 1
+
+SD 2021/2022
+
+48 / 55
+
+Tablouri bidimensionale
+
+I Operaţiile cu tablori 2-dimensionale se realizează prin intermediul
+componentelor
+for i ← 0 to m − 1 do
+for j ← 0 to n–1 do
+c[i, j] ← 0
+for k ← 0 to p–1 do
+c[i, j] ← c[i, j] + a[i, k] ∗ b[k, j]
+
+FII, UAIC
+
+Curs 1
+
+SD 2021/2022
+
+49 / 55
+
+Şiruri de caractere
+
+I Pot fi considerate ca fiind tablouri unidimensionale cu elemente de tip
+caracter
+I Constantele şir de caracter se notează utilizând “ ”:
+“Şir-de-caractere”
+I Operaţii: Concatenarea, notată cu +:
+“un sir” + “alt sir” = “un siralt sir”
+
+FII, UAIC
+
+Curs 1
+
+SD 2021/2022
+
+50 / 55
+
+Structuri
+I Structura: ansamblu eterogen de variabile numite câmpuri.
+I Structura are un nume şi fiecare câmp are propriul nume şi propriul
+tip.
+I Exemple: o structură pentru a reprezenta puncte ı̂n plan are două
+câmpuri: x s, i y ; o structură pentru a reprezenta o persoană poate
+avea trei câmpuri: nume, vârstă, adresă;
+I Numele complet al unui câmp:
+punct.x, punct.y
+persoana.nume, persoana.varsta, persoana.adresa.strada
+dacă p este pointer la persoana: p− > varsta
+
+FII, UAIC
+
+Curs 1
+
+SD 2021/2022
+
+51 / 55
+
+Structuri
+
+I Memoria alocată este o zonă contiguă; elementele sunt memorate ı̂n
+ordinea declarării ı̂n structură
+
+FII, UAIC
+
+Curs 1
+
+SD 2021/2022
+
+52 / 55
+
+Structuri si pointeri
+
+FII, UAIC
+
+Curs 1
+
+SD 2021/2022
+
+53 / 55
+
+Structuri
+
+Costul operaţiilor:
+operatie
+S.x
+S.x ← v
+
+FII, UAIC
+
+timp(operatie)
+cost uniform cost logaritmic
+O(1)
+O(logSx )
+O(1)
+O(logv )
+
+Curs 1
+
+SD 2021/2022
+
+54 / 55
+
+Execut, ia unui algoritm
+
+x ←0
+i ←1
+while i < 6 do
+x ← x ∗ 10 + i
+i ←i +2
+
+FII, UAIC
+
+Pasul
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+Curs 1
+
+Instruct, iunea
+x ←0
+i ←1
+1<6
+x ← x ∗ 10 + i
+i ←i +2
+3<6
+x ← x ∗ 10 + i
+i ←i +2
+5<6
+x ← x ∗ 10 + i
+i ←i +2
+7<6
+
+i
+–
+–
+1
+1
+1
+3
+3
+3
+5
+5
+5
+7
+7
+
+x
+–
+0
+0
+0
+1
+1
+1
+13
+13
+13
+135
+135
+135
+
+SD 2021/2022
+
+55 / 55
+
+Execut, ia unui algoritm
+I Calcul: succesiunea de pas, i elementari determinat, i de execut, ia
+instruct, iunilor ce compun algoritmul.
+I Configurat, ie: starea memoriei + instruct, iunea curentă;
+
+x ←0
+i ←1
+while i < 6 do
+x ← x ∗ 10 + i
+i ←i +2
+
+FII, UAIC
+
+Pasul
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+Curs 1
+
+Instruct, iunea
+x ←0
+i ←1
+1<6
+x ← x ∗ 10 + i
+i ←i +2
+3<6
+x ← x ∗ 10 + i
+i ←i +2
+5<6
+x ← x ∗ 10 + i
+i ←i +2
+7<6
+
+i
+–
+–
+1
+1
+1
+3
+3
+3
+5
+5
+5
+7
+7
+
+x
+–
+0
+0
+0
+1
+1
+1
+13
+13
+13
+135
+135
+135
+
+SD 2021/2022
+
+55 / 55
+
+Execut, ia unui algoritm
+I Calcul: succesiunea de pas, i elementari determinat, i de execut, ia
+instruct, iunilor ce compun algoritmul.
+I Configurat, ie: starea memoriei + instruct, iunea curentă;
+I În exemplul de mai jos calculul este dat de secvent, a de configurat, ii
+(c0 7→ c1 7→ · · · 7→ c12 ).
+
+x ←0
+i ←1
+while i < 6 do
+x ← x ∗ 10 + i
+i ←i +2
+
+FII, UAIC
+
+Pasul
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+Curs 1
+
+Instruct, iunea
+x ←0
+i ←1
+1<6
+x ← x ∗ 10 + i
+i ←i +2
+3<6
+x ← x ∗ 10 + i
+i ←i +2
+5<6
+x ← x ∗ 10 + i
+i ←i +2
+7<6
+
+i
+–
+–
+1
+1
+1
+3
+3
+3
+5
+5
+5
+7
+7
+
+x
+–
+0
+0
+0
+1
+1
+1
+13
+13
+13
+135
+135
+135
+
+SD 2021/2022
+
+55 / 55
+
+

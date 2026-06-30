@@ -1,0 +1,238 @@
+Curs 12 – 3 Iunie
+
+ Recap
+
+◦ Software testing
+◦ Non-functional software testing
+ Security
+ Performance
+ Usability
+ Internationalization
+
+◦ SOLID Refactoring
+ Degradation of code
+ AI Code Generation
+
+2
+
+ Initially, code was developed on paper
+
+◦ Few computers
+◦ Limited memory
+◦ Different input devices
+
+3
+
+ Text editors
+
+◦ Programmers needed to
+know all the reserved words
+◦ Good programmers knew
+many methods in various
+libraries
+◦ You kept your programming
+manual close
+◦ You had to compile the code
+to see if there were any
+errors
+
+4
+
+ IDE – Integrated Development Environment
+
+◦ Syntax highlighting
+◦ Debugging
+◦ Code completion
+◦ Refactoring
+◦ etc.
+
+5
+
+ Expanded IDEs
+
+◦ Version control
+◦ Unit testing
+◦ Visual programming
+◦ Intelligent Code Completion
+ Uses generative AI to provide more than just simple
+method or name suggestions
+
+6
+
+ Generative AI is increasingly popular
+
+◦ Focused on productivity tools
+ LLMs – Large Language Models
+
+◦ Algorithms using deep learning and neural
+networks on large sets of data (usually text)
+◦ Generate content similar to human content
+◦ Based on examples
+ ChatGPT, Bard, Microsoft Copilot, Github
+
+Copilot, DALL-E, etc.
+
+7
+
+ Improves developer productivity
+
+◦ Quickly generates boilerplate code
+◦ Allows developers to focus on the more demanding
+aspects
+◦ Improves job satisfaction
+ Improves code quality
+
+◦ With proper code review
+ Makes adoption of new tools and languages
+
+easier
+
+8
+
+ ChatGPT example
+
+9
+
+ Case study: Github Copilot
+
+◦ Free to use for students
+◦ Integrated with most major IDEs
+◦ Trained on public repositories in Github
+
+10
+
+ Type code and get autocomplete suggestions
+
+from AI
+
+◦ Autocompletion was among the first ways to
+increase productivity
+◦ Instead of suggesting known methods or variables,
+the AI agent suggests entire code snippets
+◦ The benefit is magnified for experienced
+developers, as it reduces time needed to type the
+code
+
+11
+
+ Type code and get autocomplete suggestions
+
+from AI
+
+◦ Autocompletion was among the first ways to
+increase productivity
+◦ Instead of suggesting known methods or variables,
+the AI agent suggests entire code snippets
+◦ The benefit is magnified for experienced
+developers, as it reduces time needed to type the
+code
+◦ Useful for experienced developers using new
+programming languages
+
+12
+
+ Generate code from comments or
+
+specifications
+
+◦ Even experienced developers might have a hard
+time staring to write code
+◦ Useful in unfamiliar programming languages
+◦ If names of classes, methods and attributes are
+suggestive, the quality of the proposal is greatly
+increased
+
+13
+
+14
+
+ Generated code is, usually, close to the
+
+solution
+
+◦ But code reviews are still important
+◦ AI generated code still has bugs
+◦ Discussions between developers are still
+irreplaceable
+
+15
+
+ Increased productivity
+
+◦ Faster writing of code
+◦ Most visible for experienced developers
+ Reduced stress and mental load
+
+◦ Unit testing is much faster
+◦ Code coverage made easy
+ Less switching of focus
+
+◦ Reduced need to search on the web or in
+documentation
+◦ Less need to focus on details
+
+16
+
+ Limited creativity
+
+◦ Generative AI is good at imitating but cannot
+innovate
+ Difficulties in understanding large or complex
+
+contexts
+
+◦ Generating solutions
+◦ Generating tests
+
+17
+
+ https://www.pbinfo.ro/probleme/4563/suma
+
+-prefixe-pare
+
+◦ Scrieți un program care citește un număr natural
+nenul n și care calculează suma S tuturor prefixelor
+pare ale lui n.
+
+18
+
+19
+
+20
+
+21
+
+22
+
+ genAI is a new tool in our toolbox
+
+ Relieves developers from the repetitive part
+
+of coding
+ Do NOT use generative AI based code without
+proper consideration and care
+◦ Security: encrypted transmission, access controls,
+periodic security checks and improvements
+◦ Privacy: user privacy and data handling
+◦ Compliance to industry requirements
+
+23
+
+ All code, both written by humans or
+
+generates automatically, is prone to bugs and
+faults
+ Use it to increase productivity, not replace
+creativity
+
+24
+
+ https://github.blog/2022-09-07-research-
+
+quantifying-github-copilots-impact-ondeveloper-productivity-and-happiness/
+ https://github.blog/2024-02-22-how-aicode-generation-works/
+ Special thanks to Florin Olariu
+
+25
+
+

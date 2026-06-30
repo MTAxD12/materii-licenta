@@ -1,0 +1,891 @@
+Web Technologies
+
+
+Web programming (II)
+HTTP cookies Web sessions
+
+(re)discover...
+
+
+
+
+
+
+
+
+
+
+
+ how can data sent from the server, by the Web application, be stored at the browser's level
+ how can we identify successive requests sent by the same instance of the client
+ alternatives to Web cookies and sessions
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Is there a way to - temporarily - store on front-end (browser) data transmitted by the back-end of a Web application?
+
+
+
+
+
+
+
+
+  A script running on a Web server can put data on the client-computer via the user's Web browser
+
+subsequently, the navigator will return that data to the same script available on the same server
+
+
+
+
+
+
+
+
+
+
+
+
+A (quasi-)persistent way to store data
+on the machine of a Web client in order to be further accessed by a program running on a server
+
+
+developer.mozilla.org/docs/Web/HTTP/Cookies
+
+also consult Cookiepedia: cookiepedia.co.uk
+
+
+
+
+
+
+
+
+
+
+
+Storing user preferences
+
+
+typical examples:
+ options regarding interaction - visual theme (e.g., chromatics, graphic arrangement), language
+preferences, geographical location, interests on shopping
+...
+
+
+
+
+
+
+
+
+
+
+Automatic form completion
+
+
+using values previously entered by the user in certain fields
+
+
+
+
+
+
+
+
+
+
+Monitoring the access to a Web resource
+
+
+aspect of interest:
+Web analytics
+        collecting information about clients (hardware platform, browser, screen resolution, etc.)
+
+
+
+
+
+
+
+
+
+
+Monitoring the access to a Web resource
+
+
+aspect of interest:
+user tracking
+monitoring the user's behavior
+? Do Not Track initiative
+www.eff.org/issues/do-not-track
+
+
+
+
+
+
+
+
+
+
+
+Storing authentication info
+
+
+e.g., keeping data about the user account in the e-commerce context
+
+
+
+
+
+
+
+
+
+
+Transaction status
+
+
+example: current state of the virtual shopping cart provided by an e-shop application
+
+
+
+
+
+
+
+
+
+
+Web session management
+
+
+
+
+
+
+
+
+
+
+Persistent cookies
+
+not destroyed when the Web browser closes kept into a file - on the client-side lifetime set by the cookie creator
+
+
+
+
+
+
+
+
+
+
+Non-persistent (volatile) cookies
+
+disappear when the browser is closed
+
+
+
+
+
+
+a cookie can be considered as a variable
+
+       its value is transferred via HTTP between the Web server (back-end application)
+and the client (browser)
+
+the size of a cookie cannot exceed 4KB
+
+
+
+
+
+
+A cookie can be considered as a variable
+
+name=value
+
+the value is an URL encoded string
+
+example:
+Europe/Bucharest ? Europe%2FBucharest
+
+
+
+
+Data about a cookie is received by the browser a list of cookies for each server (domain)
+
+
+
+
+Data about a cookie is received by the browser a list of cookies for each server (domain)
+
+1st party cookies
+3rd party cookies
+
+created by the Web application, belonging to the visited primary domain- (non)persistent [essential or not]
+created by external applications-(non)persistent [can cause security problems - privacy]
+
+
+
+
+
+
+
+
+
+
+A cookie is sent to a client by using the Set-Cookie
+header field of an HTTP response message
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+expires - indicates the date and time when the cookie will expire (the Web client should destroy expired cookies)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+domain - signifies the symbolic name of the Web server that generated the cookie
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+path - speciIies a subset of URLs from the cookie's domain
+distinguishes multiple applications existing on the same server
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+secure - indicates that the cookie will be sent back to the server only if the communication channel is secure
+(via HTTPS)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+inspecting cookies stored by the Web browser for each domain
+
+
+cookies
+
+advanced
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+inspecting cookies stored by the Web browser for each domain
+
+httpOnly: true -indicates that the value of a cookie can be obtained only from a data transfer through HTTP
+
+the cookie cannot be accessed by a program executed on client side (browser) - www.owasp.org/index.php/HttpOnly
+
+
+cookie-uri
+
+advanced
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+inspecting cookies stored by the Web browser for each domain
+
+sameSite - specifies whether the cookie's value will be passed across requests between different websites (cross-site requests)
+possible values: Strict / Lax / None
+
+cookies
+
+
+A cookie is transmitted back from the client to the Web server only if it satisfies
+all validity conditions
+
+
+domain, (virtual) path, expiration time,
+and communication channel security are matching
+
+inspecting the cookies stored by the browser for each domain speciIic to a Web application
+
+cookie values sent back to the web server on the next HTTP request
+
+
+
+
+
+
+
+
+
+the server will receive, in the header
+of an HTTP request message, the following:
+
+Cookie: name1=value1; name2=value2...
+
+
+the list of cookies which satisfy the validity conditions
+
+
+
+
+
+
+
+
+A script invocation leads to returning
+a representation + placing various cookies
+
+
+
+
+
+ Web Client
+  
+HTTP request script invocation
+
+
+
+HTTP response
+Set-Cookie: color=green
+
+
+
+script
+ Web Server
+
+
+
+
+
+
+
+
+Cookies - persistent or not -
+are processed and stored by the browser
+
+
+
+
+persistent cookies are stored in files or databases (SQLite)
+
+
+
+
+
+
+
+
+Next access to the script is made by transmitting the cookies to the server
+according to the validity conditions
+
+cookies: consulting
+
+
+Cookies reside in the header field of an HTTP message
+
+HTTP_COOKIE
+
+cookies: expiration
+
+
+To remove a cookie,
+the value and time are canceled
+
+eventually, the other attributes of the cookie
+
+cookies
+
+
+Other information of interest is available in RFC 6265
+HTTP State Management Mechanism
+
+tools.ietf.org/html/rfc6265
+
+(instead of a) break
+
+
+
+
+
+
+
+
+
+
+
+How can we identify successive requests expressed by the same client instance?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+HTTP is a stateless protocol
+
+
+
+
+
+
+
+
+
+
+
+
+
+HTTP is a stateless protocol
+
+does not offer information if certain successive requests are received from the same client (from the same instance of a Web browser)
+
+necessity
+
+
+Preserving certain data for a sequence of related HTTP messages (requests/responses)
+     examples: shopping cart status multi-step Web forms
+content pagination
+user authentication state etc.
+
+
+
+
+
+
+
+
+
+Each visitor of a website will have associated a unique identifier - session ID (SID)
+usually, stored by a cookie
+(having an implicit name specific to the Web application server/framework - e.g., ASP.NET_SessionId, JSESSIONID, PHPSESSID, session-id, _wp_session)
+
+
+
+
+
+
+
+
+
+Each visitor of a website will have associated a unique identifier - session ID (SID)
+    usually, stored by a cookie (e.g., ASP.NET_SessionId, JSESSIONID,
+PHPSESSID, session-id, _wp_session)
+
+alternative - not recommended  SID propagated via an URL
+
+
+
+
+
+
+
+
+
+Each visitor of a website will have associated a unique identifier - session ID (SID)
+
+
+in this way, consecutive visits (requests) made by the same user can be identified
+
+
+
+
+
+Web server (daemon)
+
+?
+
+
+
+ HTTP response setting a cookie 	?
+	Set-Cookie: sid=7343	
+
+?
+
+
+
+	HTTP response (profile page)		?
+HTTP/2.0 200 OK
+...
+<p>Hi, Tuxy! Welcome back!</p>
+
+establishing a Web session using a cookie
+
+
+
+
+
+
+
+
+
+Various variables can be attached to a session
+
+
+
+their values will be kept (stored) between consecutive - e.g., related - requests from the same instance
+of a Web client (browser)
+
+
+
+
+
+
+
+
+A session could be implicitly (automatically) or explicitly (manually, by programmer) registered, depending on the Web application server
+or the default configuration
+
+
+sessions
+
+advanced
+
+
+
+
+
+
+
+
+A session could be implicitly (automatically) or explicitly (manually, by programmer) registered, depending on the Web application server
+or the default configuration
+
+Web session info is persistently stored on the server by using non-relational database systems - e.g., DynamoDB, Memcached, Redis,... - or, in most cases, files
+
+POST /?_task=login HTTP/1.1
+Accept: text/html,application/xhtml+xml, application/xml;q=0.9,*/*;q=0.8
+Accept-Encoding: gzip, deflate, br, zstd Accept-Language: en-US,en;q=0.9 Connection: keep-alive
+Cookie: language=en_US
+Cookie: roundcube_sessid=3hg...71m6 DNT: 1
+Host: webmail.info.uaic.ro
+Referer: https://webmail.info.uaic.ro/ Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 ... Gecko/20100101 Firefox/148.0
+
+
+
+
+
+user authentication by using the POST method (already existing cookies are transmitted)
+
+HTTP/1.1 302 Found
+Cache-Control: private, no-cache, no-store, must-revalidate... Connection: Keep-Alive
+Content-Length: 0
+
+Content-Type: text/html; charset=UTF-8 Date: Wed, 25 Feb 2026 07:23:36 GMT
+Expires: Wed, 25 Feb 2026 07:23:36 GMT Keep-Alive: timeout=5, max=100
+Last-Modified: Wed, 25 Feb 2026 07:23:36 GMT
+
+redirection after authentication
+
+Location: /?_task=mail&_token=sWFnOZ...W5Ie67yz Server: Apache
+Set-Cookie: roundcube_sessid=vn4...2uv2; path=/; secure; HttpOnly roundcube_sessauth=S9...2c71; path=/; secure; HttpOnly
+<!DOCTYPE html>
+...
+HTTP response
+a Web session-related cookie is set
+
+sessions: programming
+
+
+In the case of CGI, session management must be entirely implemented by the programmer
+
+
+
+there is no standard way for Web session management
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ What alternatives are there to Web cookies and sessions?
+
+
+
+
+
+
+
+
+Web Storage
+
+browser-level storage for lists of key-value pairs
+via sessionStorage and localStorage attributes
+
+see HTML Living Standard (25 Feb. 2026) specification
+html.spec.whatwg.org/multipage/webstorage.html
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+developer.mozilla.org/Web/API/Web_Storage_API
+
+alternative
+
+
+Indexed DB
+
+object-level data storage via an asynchronous API provided by the Web browser
+
+Indexed Database API 2.0 - W3C Recommendation, 2018 Indexed Database API 3.0 - work in progress, August 2025
+
+www.w3.org/TR/IndexedDB/
+
+
+
+summary
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Web cookies and sessions
+many thanks to Ciprian Amariei, MSc.
+
+
+
+
+
+
+dumb client	fat server
+
+
+
+
+
+
+
+
+
+
+
+
+
+next episode: Web programming
+Web application servers, Web application architecture
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

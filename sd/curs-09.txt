@@ -1,0 +1,735 @@
+Căutare.
+
+SD 2021/2022
+
+Conţinut
+
+Problema căutării
+
+Căutare binară
+
+Arbori binari de căutare
+
+Arbori de căutare echilibraţi
+
+FII, UAIC
+
+Curs 9
+
+SD 2021/2022
+
+2 / 43
+
+Problema căutării
+
+I Aspectul static:
+I U mulţime univers, S ⊆ U
+I operaţia de căutare:
+I Instanţă: a ∈ U
+I Întrebare: a ∈ S?
+
+I Aspectul dinamic:
+I operaţia de inserare
+I Intrare: S, x ∈ U
+I Ieşire: S ∪ {x}
+
+I operaţia de ştergere
+I Intrare: S, x ∈ U
+I Ieşire: S \ {x}
+
+FII, UAIC
+
+Curs 9
+
+SD 2021/2022
+
+3 / 43
+
+Căutare ı̂n liste liniare - complexitate
+
+Tip de date
+
+Implementare Căutare Inserare Ştergere
+Tablouri
+
+O(n)
+
+O(1)
+
+O(n)
+
+Liste ı̂nlănţuite
+
+O(n)
+
+O(1)
+
+O(1)
+
+Tablouri
+
+O(log n)
+
+O(n)
+
+O(n)
+
+Liste ı̂nlănţuite
+
+O(n)
+
+O(n)
+
+O(1)
+
+Lista liniară
+
+Lista liniară ordonată
+
+FII, UAIC
+
+Curs 9
+
+SD 2021/2022
+
+4 / 43
+
+Conţinut
+
+Problema căutării
+
+Căutare binară
+
+Arbori binari de căutare
+
+Arbori de căutare echilibraţi
+
+FII, UAIC
+
+Curs 9
+
+SD 2021/2022
+
+5 / 43
+
+Căutare binară: aspect static
+
+I Mulţimea univers este total ordonată: (U, ≤)
+
+I Structura de date utilizată:
+I tabloul s[0..n − 1]
+I s[0] < ... < s[n − 1]
+
+FII, UAIC
+
+Curs 9
+
+SD 2021/2022
+
+6 / 43
+
+Căutare binară: aspect static
+Function poz(s[0..n − 1], n, a)
+begin
+p ← 0; q ← n − 1
+m ← (p + q)/2
+while (s[m]! = a and p < q) do
+if (a < s[m]) then
+q ←m−1
+else
+p ←m+1
+m ← (p + q)/2
+if (s[m] = a) then
+return m
+else
+return −1
+end
+
+FII, UAIC
+
+Curs 9
+
+SD 2021/2022
+
+7 / 43
+
+Arborele binar asociat căutarii binare
+T (p, q)
+
+T = T (0, n − 1)
+n=6
+
+FII, UAIC
+
+Curs 9
+
+SD 2021/2022
+
+8 / 43
+
+Conţinut
+
+Problema căutării
+
+Căutare binară
+
+Arbori binari de căutare
+
+Arbori de căutare echilibraţi
+
+FII, UAIC
+
+Curs 9
+
+SD 2021/2022
+
+9 / 43
+
+Căutare binară: aspect dinamic
+
+Mulţimea S suferă operaţii de actualizare ı̂n timp (inserare / ştergere).
+
+Arbore binar de căutare:
+I În orice nod v este memorată o valoare dintr-o mulţime total
+ordonată.
+I Valorile memorate ı̂n subarborele din stânga lui v sunt mai mici decât
+valoarea din v.
+I Valoarea din v este mai mică decât valorile memorate ı̂n subarborele
+din dreapta lui v.
+
+FII, UAIC
+
+Curs 9
+
+SD 2021/2022
+
+10 / 43
+
+Arbori binari de căutare
+I Arborele binar de căutare asociat unei mulţimi de chei nu este unic.
+
+FII, UAIC
+
+Curs 9
+
+SD 2021/2022
+
+11 / 43
+
+Arbori binari de căutare: sortare
+
+I Parcurgere ı̂n inordine
+Function inordine(v , viziteaza)
+begin
+if (v == NULL) then
+return
+else
+inordine(v → stg , viziteaza)
+viziteaza(v)
+inordine(v → drp, viziteaza)
+end
+I Complexitatea timp: O(n)
+
+FII, UAIC
+
+Curs 9
+
+SD 2021/2022
+
+12 / 43
+
+Arbori binari de căutare: căutare
+
+Function poz(t, x)
+begin
+p←t
+while (p! = NULL and p → val! = x) do
+if (x < p → val) then
+p ← p → stg
+else
+p ← p → drp
+return p
+end
+I Complexitatea timp: O(h), h ı̂nălţime
+
+FII, UAIC
+
+Curs 9
+
+SD 2021/2022
+
+13 / 43
+
+Predecesor/Succesor
+I Modifică operaţia de căutare: dacă valoarea căutată x nu se găseşte
+ı̂n arbore, atunci returnează:
+I fie cea mai mare valoare < x (predecesor),
+I fie cea mai mică valoare > x (succesor).
+
+predecesorul lui 18
+succesorul lui 18
+
+FII, UAIC
+
+Curs 9
+
+SD 2021/2022
+
+14 / 43
+
+Succesor
+Function succesor(t)
+begin
+if (t → drp! = NULL) then
+/*min(t → drp)*/
+p ← t → drp
+while (p → stg ! = NULL) do
+p ← p → stg
+return p
+else
+p ← t → pred
+while (p! = NULL and t == p → drp) do
+t←p
+p ← p → pred
+return p
+end
+
+FII, UAIC
+
+Curs 9
+
+SD 2021/2022
+
+15 / 43
+
+Arbori binari de căutare: inserare
+I Se caută ı̂n arbore locul ı̂n care va fi inserat noul element (similar
+operaţiei de căutare).
+I Se adaugă nodul cu noua informaţie, iar subarborele stâng, respectiv
+drept fiind NULL.
+
+Complexitate timp: O(h), h ı̂nălţimea arborelui.
+FII, UAIC
+
+Curs 9
+
+SD 2021/2022
+
+16 / 43
+
+Arbori binari de căutare: inserare
+Procedure insArbBinCautare(t, x)
+begin
+if (t == NULL) then
+new(t); t → val ← x; t → stg ← NULL; t → drp ← NULL
+else
+p←t
+while (p! = NULL) do
+predp ← p
+if (x < p → val) then p ← p → stg ;
+else
+if (x > p → val) then p ← p → drp;
+else p ← NULL;
+if (predp → val! = x) then
+if (x < predp → val) then
+/* adaugă x ca fiu stânga al lui predp */
+else /* adaugă x ca fiu dreapta al lui predp */ ;
+end
+FII, UAIC
+
+Curs 9
+
+SD 2021/2022
+
+17 / 43
+
+Arbori binari de căutare: eliminare
+Se caută x ı̂n arborele t; dacă ı̂l găseşte atunci se disting cazurile:
+I Cazul 1: nodul p care memorează x nu are fii;
+I Cazul 2: nodul p care memorează x are un singur fiu;
+I cazul 3: nodul p care memorează x are ambii fii.
+I Determină nodul q care memorează cea mai mare valoare y mai mică
+decât x (coboară din p la stânga şi apoi coboară la dreapta cât se
+poate).
+I Interschimbă valorile din p şi q.
+I Şterge q ca ı̂n cazul 1 sau 2.
+
+Complexitatea timp: O(h), h ı̂nălţime.
+
+FII, UAIC
+
+Curs 9
+
+SD 2021/2022
+
+18 / 43
+
+Arbori binari de căutare: eliminare
+
+I Cazul 2. Exemplu.
+
+FII, UAIC
+
+Curs 9
+
+SD 2021/2022
+
+19 / 43
+
+Arbori binari de căutare: eliminare
+
+I cazul 1 sau 2
+Procedure elimCaz1sau2(t, predp, p)
+begin
+if (p == t) then
+/* t devine vid sau */
+/* unicul fiu al lui t devine radacina */
+else
+if (p → stg == NULL) then
+/* inlocuieste in predp pe p cu p → drp */
+else
+/* inlocuieste in predp pe p cu p → stg */
+end
+
+FII, UAIC
+
+Curs 9
+
+SD 2021/2022
+
+20 / 43
+
+Arbori binari de căutare: eliminare
+
+I Cazul 3. Exemplu.
+
+FII, UAIC
+
+Curs 9
+
+SD 2021/2022
+
+21 / 43
+
+Arbori binari de căutare: eliminare
+Procedure elimArbBinCautare(t, x)
+begin
+if (t! = NULL) then
+p ← t; predp ← NULL
+while (p! = NULL and p → val! = x) do
+predp ← p
+if (x < p → val) then p ← p → stg ;
+else p ← p → drp;
+if (p! = NULL) then
+if (p → stg == NULL or p → drp == NULL) then
+elimCaz1sau2(t, predp, p)
+else
+q ← p → stg ; predq ← p
+while (q → drp! = NULL) do
+predq ← q; q ← q → drp
+p → val ← q → val
+elimCaz1sau2(t, predq, q)
+end
+FII, UAIC
+
+Curs 9
+
+SD 2021/2022
+
+22 / 43
+
+Arbori binari de căutare: analiză
+
+Complexitatea timp
+I Cazul cel mai nefavorabil: O(n), n elemente
+I Cazul mediu: O(logn)
+
+FII, UAIC
+
+Curs 9
+
+SD 2021/2022
+
+23 / 43
+
+Degenerarea căutării binare ı̂n căutare liniară
+
+FII, UAIC
+
+Curs 9
+
+SD 2021/2022
+
+24 / 43
+
+Conţinut
+
+Problema căutării
+
+Căutare binară
+
+Arbori binari de căutare
+
+Arbori de căutare echilibraţi
+
+FII, UAIC
+
+Curs 9
+
+SD 2021/2022
+
+25 / 43
+
+Arbori de căutare echilibraţi
+
+I Arbori AVL (Adelson-Velsii and Landis, 1962)
+I Arbori B/2-3-4 arbori (Bayer and McCreight, 1972)
+I arbori roşu-negru (Bayer, 1972)
+I Arbori Splay (Sleator and Tarjan, 1985)
+I Treaps (Seidel and Aragon, 1996)
+
+FII, UAIC
+
+Curs 9
+
+SD 2021/2022
+
+26 / 43
+
+Arbori de căutare echilibraţi
+
+I C este clasă de arbori echilibraţi dacă
+pentru orice arbore t cu n vârfuri din C: h(t) ≤ c log n, c constantă.
+
+I C este clasă de arbori echilibraţi O(log n)-stabilă dacă
+există algoritmi pentru operaţiile de căutare, inserare, ştergere ı̂n
+O(log n), iar arborii rezultaţi fac parte din clasa C.
+
+FII, UAIC
+
+Curs 9
+
+SD 2021/2022
+
+27 / 43
+
+Arbori AVL
+(G. Adelson-Velskii, E.M. Landis 1962)
+I Un arbore binar de căutare t este un arbore AVL-echilibrat dacă
+pentru orice vârf v ,
+|h(v → stg ) − h(v → drp)| ≤ 1
+I h(v → stg ) − h(v → drp) se numeşte factor de echilibrare.
+I Exemplu:
+
+I Lema
+Daca t este AVL-echilibrat cu n noduri interne atunci h(t) = Θ(log n).
+Demonstratie. La curs.
+FII, UAIC
+
+Curs 9
+
+SD 2021/2022
+
+28 / 43
+
+Arbori AVL
+
+I Teoremă
+Clasa arborilor AVL-echilibraţi este O(log n) stabilă.
+
+I Algoritmul de inserare/ştergere
+I Nodurile au memorate şi factorii de echilibrare (−1, 0, 1).
+I Se memorează drumul de la rădăcină la nodul adăugat/şters ı̂ntr-o
+stivă (O(log n)).
+I Se parcurge drumul memorat ı̂n stivă ı̂n sens invers şi se reechilibează
+nodurile dezechilibrate cu una dintre operaţiile: rotaţie stânga/dreapta
+simplă/dublă (O(log n)).
+
+FII, UAIC
+
+Curs 9
+
+SD 2021/2022
+
+29 / 43
+
+Rotaţii
+Rotaţie dreapta simplă
+
+Rotaţie dreapta dublă
+
+Similar pentru rotaţie stânga simplă, respectiv rotaţie stânga dublă.
+FII, UAIC
+
+Curs 9
+
+SD 2021/2022
+
+30 / 43
+
+Rotaţie stânga simplă
+
+FII, UAIC
+
+Curs 9
+
+SD 2021/2022
+
+31 / 43
+
+Rotaţie stânga simplă (cont.)
+
+FII, UAIC
+
+Curs 9
+
+SD 2021/2022
+
+32 / 43
+
+Rotaţie stânga simplă (cont.)
+
+FII, UAIC
+
+Curs 9
+
+SD 2021/2022
+
+33 / 43
+
+Rotaţie stânga simplă
+
+Procedure rotatieStanga(x)
+begin
+y ← x → drp
+x → drp ← y → stg
+y → stg ← x
+return y
+end
+I Complexitatea timp: O(1)
+
+FII, UAIC
+
+Curs 9
+
+SD 2021/2022
+
+34 / 43
+
+Rotaţie dublă
+
+FII, UAIC
+
+Curs 9
+
+SD 2021/2022
+
+35 / 43
+
+Rotaţie dublă (cont.)
+
+FII, UAIC
+
+Curs 9
+
+SD 2021/2022
+
+36 / 43
+
+Rotaţie dublă (cont.)
+
+FII, UAIC
+
+Curs 9
+
+SD 2021/2022
+
+37 / 43
+
+Inserare: algoritm
+Procedure echilibrare(t, x)
+begin
+while (x! = NULL) do
+/* actualizeaza inaltimea h(x) */
+if (h(x → stg ) ≥ 2 + h(x → drp)) then
+if (h(x → stg → stg ) ≥ h(x → stg → drp)) then
+rotatieDreapta(t, x)
+else
+rotatieStanga(t, x → stg ); rotatieDreapta(t, x)
+else
+if (h(x → drp) ≥ 2 + h(x → stg )) then
+if (h(x → drp → drp) ≥ h(x → drp → stg )) then
+rotatieStanga(t, x)
+else
+rotatieDreapta(t, x → drp); rotatieStanga(t, x)
+x ← x → pred
+end
+FII, UAIC
+
+Curs 9
+
+SD 2021/2022
+
+38 / 43
+
+Exemplu: inserare
+
+FII, UAIC
+
+Curs 9
+
+SD 2021/2022
+
+39 / 43
+
+Exemplu: inserare (cont.)
+
+FII, UAIC
+
+Curs 9
+
+SD 2021/2022
+
+40 / 43
+
+Exemplu: inserare (cont.)
+
+FII, UAIC
+
+Curs 9
+
+SD 2021/2022
+
+41 / 43
+
+Exemplu: inserare (cont.)
+
+FII, UAIC
+
+Curs 9
+
+SD 2021/2022
+
+42 / 43
+
+Avantaje/dezavantaje ale arborilor AVL
+I Avantaje:
+I Complexitatea operat, iilor de căutare, inserare şi ştergere este O(log n).
+
+I Dezavantaje:
+I Spaţiu suplimentar pentru memorarea ı̂nălţimii / factorului de
+echilibrare.
+I Operaţiile de re-echilibrare sunt costisitoare.
+
+I Sunt preferaţi când avem de realizat mai multe căutări şi mai puţine
+inserări şi ştergeri.
+I Aplicat, ii ı̂n Data Analysis, Data Mining
+FII, UAIC
+
+Curs 9
+
+SD 2021/2022
+
+43 / 43
+
+

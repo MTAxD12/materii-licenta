@@ -1,0 +1,999 @@
+Cursul 2 – 4 martie 2025
+adiftene@info.uaic.ro
+
+1
+
+ Din Cursul 1…
+ Prototipizare
+ RUP
+
+ V-Model
+
+ Extreme Programming
+ Agile, Scrum
+
+ Lean, Kanban
+ MDD, AMDD
+ TDD
+
+ Ingineria cerinţelor
+
+ Diagrame Use-Case
+
+2
+
+ Ingineria programării (Software engineering)
+
+◦ Se referă la metodologiile folosite în rezolvarea
+proiectelor mari care sunt rezolvate de echipe de
+oameni
+◦ Folosirea principiilor inginereşti în analizarea,
+dezvoltarea, punerea în funcţiune, testarea,
+întreţinerea, retragerea produselor software
+◦ Tot aici mai pot fi prinse: gestionarea resurselor,
+coordonarea echipelor, planificare, buget
+ Scop: obţinerea de programe sigure şi care
+
+funcţionează eficient pe maşini de calcul
+concrete
+
+3
+
+ Analiza cerinţelor (Requirements analisys)
+ Proiectarea architecturală (Arhitectural
+
+design)
+ Proiectarea detaliata (Detailed design)
+ Scrierea codului (Implementation)
+ Integrarea componentelor (Integration)
+ Validare (Validation)
+ Verificare (Verification)
+ Întreţinere (Maintenance)
+
+4
+
+ Tipuri de prototipuri
+
+◦ De aruncat (throw-away)
+
+ Scop: clarificarea specificațiilor
+ Se dezvoltă repede, orice altceva e secundar
+(quick-and-dirty)
+ Util în a rezolva “architecural/technology spikes”
+ Programul “adevărat” este scris apoi de la 0
+
+◦ Evoluționar
+
+ Scop: construire incrementală a produsului final
+ Se construiește un nucleu funcțional la care se
+adaugă apoi noi funcționalități
+
+5
+
+ +: Se poate elimina lipsa de claritate a specificațiilor
+ +: Clienții pot schimba cerințele (e ieftin de
+
+gestionat)
+ +: Întreținere ieftină (verificare pe parcurs)
+ +: Se poate facilita instruirea utilizatorilor
+ -: Mediu artificial, probleme ascunse
+
+ -: Da' nu-i aproape gata?! De ce mai durează atât?
+
+ -: Putem să schimbăm specificațiile? Pai aș vrea și...
+ -: Adică munca mea este aruncată la gunoi?
+
+6
+
+ Model iterativ folosit de IBM din 2003
+
+7
+
+ Ingineria funcționalității. Sunt sintetizate
+
+necesitățile funcționale.
+ Are la baza 4 etape:
+
+◦ Inception: pentru validarea costurilor și bugetului,
+studiu de risc, înțelegerea cerințelor
+◦ Elaboration: analiza domeniului problemei,
+arhitectura proiectului este stabilită
+◦ Construction: construcția sistemului, se obține
+prima versiune a sistemului
+◦ Transition: tranziția la sistemul din producție
+
+8
+
+ A fost utilizat în Germania și SUA în anii ’80
+ Partea stângă – analiza cerințelor și crearea
+
+specificațiilor sistemului
+ Partea dreaptă – integrarea părților și validarea lor
+ V de la Verificare și Validare
+
+9
+
+ Minimizarea riscurilor
+ Îmbunătățirea și garantarea calității
+ Reducerea costurilor
+ Îmbunătățirea comunicării
+
+10
+
+ +: utilizatorii V-model participă la dezvoltare și la
+
+întreținere
+ +: există un grup ce controlează modificările din
+specificații. Acesta se întâlnește odată pe an și
+hotărăște ce modificări sunt acceptate
+ +: modelul asigură la fiecare etapă asistență și
+definește explicit ce avem de făcut
+ -: nu se asigură întreținerea
+ -: e folosit la proiecte de dimensiuni relativ mici
+
+11
+
+ Why "Extreme"?
+
+◦ "Extreme" means these
+practices get "turned up"
+to a much higher "volume"
+than on traditional
+projects.
+ What really matters?
+
+◦ Listening, Testing, Coding,
+Designing
+
+12
+
+ XP este un model modern, uşor (lightweight),
+
+de dezvoltare, inspirat din RUP
+ Dezvoltarea programelor nu înseamnă ierarhii,
+responsabilităţi şi termene limită, ci înseamnă
+colaborarea oamenilor din care este formată
+echipa
+ Membrii echipei sunt încurajaţi să-şi afirme
+personalitatea, să ofere şi să primească
+cunoaştere şi să devină programatori străluciţi
+ XP consideră că dezvoltarea de programe
+înseamnă în primul rând scrierea de programe
+(fişierele PowerPoint nu se pot compila)
+13
+
+ Proiectul este în mintea tuturor programatorilor din
+
+echipa, nu în documentaţii, modele sau rapoarte
+ La orice moment, un reprezentant al clientului este
+disponibil pentru clarificarea cerinţelor
+ Codul se scrie cât mai simplu. Se scrie cod de test întâi
+ Daca apare necesitatea re-scrierii sau aruncării de cod,
+aceasta se face fără milă
+ Modificările aduse codului sunt integrate continuu (de
+câteva ori pe zi)
+ Se programează în echipă (programare în perechi).
+Echipele se schimbă la sfârşitul unei iteraţii (1-2
+săptămâni)
+ Se lucrează 40 de ore pe săptămână, fără lucru
+suplimentar
+14
+
+15
+
+ Satisfacerea rapidă a clientului prin oferirea continuă
+
+de software util (săptămânal dacă e posibil)
+ Progresul se măsoară în funcţie de partea
+funcţională a proiectului
+ Chiar şi modificările târzii în cerinţe sunt binevenite
+ O cooperare foarte apropiată între client şi
+programatori
+ Discuţiile face-to-face constituie cea mai bună
+formă de comunicare
+ Adaptare continuă la modificările care apar
+ Dezvoltarea unui spirit de evidenţiere şi rezolvare a
+problemelor, nu de ascundere sau 'neobservare' a lor
+16
+
+17
+
+ -:
+
+◦ Imposibilitatea realizării documentaţiei necesare
+◦ Se lucrează doar cu dezvoltatori “senior-level”
+◦ Insuficientă structurare a modelării software
+◦ Poate duce la negocieri de contract dificile
+ +:
+
+◦ Companiile care au adoptat metoda de lucru Toyota șiau îmbunătățit cu 83% productivitatea, cu 93% timpul
+de producție, cu 91% calitatea produselor și au redus la
+jumătate overtime-ul - după cum arată un studiu
+oficial U.S., realizat în urmă cu câțiva ani pe companii
+din industria auto
+18
+
+ Clientul devine parte a echipei de dezvoltare
+ Frecvente distribuiri intermediare a părţii software, cu
+
+verificări şi validări imediate
+ Discuţii zilnice:
+
+◦ Ce ai făcut ieri? (realizări)
+◦ Ce ai de gând să faci până mâine? (de realizat)
+◦ Care sunt problemele care te-ar putea încurca?
+(probleme/riscuri)
+ Transparenţă în planificare şi dezvoltare
+ Întâlniri frecvente pentru a monitoriza progresul
+ Nu sunt probleme ţinute sub covor
+ Eficienţa muncii: “să lucrezi mai multe ore" nu
+
+înseamnă neapărat “obţinerea mai multor rezultate"
+19
+
+20
+
+ Principiile Lean Software Development (LSD)
+1.
+2.
+3.
+4.
+5.
+6.
+7.
+
+Eliminarea lucrurilor nefolositoare
+Amplificarea învăţării
+Decide cât mai târziu posibil
+Termină cât mai curând posibil
+Oferă responsabilităţi membrilor echipei
+Construieşte un proiect integru
+Construieşte văzând tot proiectul în ansamblu
+
+21
+
+ A scheduling system for lean and just-in-time (JIT)
+
+production
+ Taiichi Ohno at Toyota in 1953
+ A system to control the logistical chain from a
+production point of view, and is an inventory control
+system
+ Aligns inventory levels with actual consumption. A
+signal tells a supplier to produce and deliver a new
+shipment when material is consumed
+ An approach where the "pull" comes from demand
+
+22
+
+ Later process picks up the number of items
+
+indicated by the kanban at the earlier process.
+ Earlier process produces items in the quantity
+and sequence indicated by the kanban.
+ No items are made or transported without a
+kanban.
+ Always attach a kanban to the goods.
+ Defective products are not sent on to the
+subsequent process. The result is 100% defectfree goods.
+ Reducing the number of kanban increases the
+sensitivity.
+23
+
+ 2009, Corey Ladas, Scrumban, 2010, David
+
+Anderson
+
+ A method for managing knowledge work with
+
+an emphasis on just-in-time delivery while not
+overloading the team members
+
+ A visual process-management system that tells
+
+what to produce, when to produce it, and how
+much to produce
+
+ Visualisation is an important aspect that allows
+
+to understand the work and the workflow
+
+24
+
+
+
+
+
+
+
+
+
+Start with existing process - The Kanban method does
+not prescribe a specific set of roles or process steps
+Agree to pursue incremental, evolutionary change continuous, incremental and evolutionary change is the
+way to make system improvements and make them stick
+Respect the current process, roles, responsibilities and
+titles - agreeing to respect current roles, responsibilities
+and job titles with the goal of gaining broader support
+Leadership at all levels - Acts of leadership at all levels
+in the organization are encouraged
+25
+
+26
+
+27
+
+ Model Driven Development (MDD) is a
+
+paradigm for writing and implementing
+computer programs quickly, effectively and at
+minimum cost
+ MDD is an approach to software development
+where extensive models are created before
+source code is written
+ A primary example of MDD is the Object
+Management Group (OMG)’s Model Driven
+Architecture (MDA) standard
+
+
+
+Thinking Through What You’ll Do This Iteration
+
+29
+
+30
+
+ O comunicare foarte bună cu CLIENTUL care face parte
+
+din echipă (SCRUM)
+ După fiecare etapă veţi obţine un produs finit care de
+regulă nu va putea fi refăcut la paşii următori (Cascadă)
+ Ca membru al “echipei” vă voi sprijini cât mai mult
+posibil (LEAN)
+ Fiecare va fi încurajat să facă ce îi place mai mult (XP)
+ NU am să aduc modificări continue în cerinţele mele
+(NU AGILE)
+ (NU) vom face un studiu de risc ((NU) MODEL ÎN
+SPIRALĂ)
+ Vom realoca resurse când o echipă întâmpină dificultăți
+(KANBAN)
+31
+
+ În engleză: Software Development Life Cycle
+ Analiza cerinţelor (Requirements analisys)
+ Proiectarea arhitecturală (Architectural design)
+ Proiectarea detaliată (Detailed design)
+ Scrierea codului (Implementation)
+ Integrarea componentelor (Integration)
+ Validare (Validation)
+ Verificare (Verification)
+ Întreținere (Maintenance)
+32
+
+ Un client doreşte să-şi
+
+◦ Îmbunătăţească productivitatea
+◦ Rezolve o problemă de personal
+◦ Facă reclamă la produsele pe care le vinde
+◦ Gestioneze mai uşor activitatea sucursalelor din ţară
+ Un proiect interesant
+ O idee, nevoia de a-mi gestiona cheltuielile
+
+zilnice, etc.
+ Din acest punct urmează Ingineria Cerinţelor!
+
+33
+
+ Procesul înţelegerii nevoilor clientului şi a
+
+aşteptărilor acestuia de la aplicaţia noastră
+ O etapă bine definită din ciclul de viaţă al
+
+dezvoltării unui produs (Software Development
+
+Life Cycle)
+ La ce ne aşteptăm de la o aplicaţie să facă
+ Cum ar trebui sistemul să se comporte şi care
+
+sunt caracteristicile acestuia
+34
+
+ Realizaţi un program C++ care să realizeze
+
+suma a două matrici citite din fişier.
+ +:
+◦ Se specifică limbajul
+◦ Ştim că citirea se face din fişier
+ -:
+
+◦ Nu ştim ce să facem cu două matrici care nu au
+aceleaşi dimensiuni
+◦ Ce facem cu rezultatul?
+
+35
+
+ Datorită multitudinii de tipuri de interacţiuni
+
+care pot exista între utilizatori, procese de
+business, dispozitive hardware, etc., pot exista
+diverse tipuri de cerinţe, de la aplicaţii simple, la
+aplicaţii complexe
+ Procesul de analiză a cerinţelor presupune
+alegerea şi documentarea acestor tipuri de
+cerinţe, şi construirea documentelor ce vor
+constitui baza construirii sistemului
+ Cine se ocupă? Project Manager, Program
+
+Manager sau Business Analyst
+
+36
+
+ Studiile făcute demonstrează că atenţia
+
+insuficientă acordată analizei cerinţelor este cea
+mai des întâlnită cauză în cadrul proiectelor
+vulnerabile
+
+ Foarte multe organizaţii au cheltuit sume
+
+imense pe proiecte software care în final nu
+făceau ceea ce se dorea iniţial de la ele
+
+ În momentul de faţă foarte multe companii
+
+investesc timp şi bani pentru a face o analiză a
+cerinţelor eficientă
+37
+
+1.
+
+Stabilirea limitelor aplicaţiei
+
+2.
+
+Găsirea clientului
+
+3.
+
+Identificarea cerinţelor
+
+4.
+
+Procesul de analiză a cerinţelor
+
+5.
+
+Specificarea cerinţelor
+
+6.
+
+Gestionarea cerinţelor
+
+38
+
+ Ca prim pas, are ca scop identificarea
+
+modului în care această nouă aplicaţie se va
+integra în mediul pentru care va fi concepută
+
+ Care va fi scopul aplicaţiei
+ Care vor fi limitele aplicaţiei
+
+39
+
+ Obiectivul ultimilor ani: Cine este utilizatorul
+
+(clientul) care va folosi efectiv aplicaţia ?
+
+ Ca rezultat, vom şti exact ce persoane vor fi
+
+direct sau indirect afectate de realizarea
+acestui produs
+
+ Vom şti pe cine să întrebăm pentru eventuale
+
+clarificări
+
+40
+
+ Cerinţele se colectează de la mai multe grupuri
+
+ce au fost identificate în etapa anterioară
+ Se identifică ce anume doresc aceştia ca
+aplicaţia să realizeze
+ Nivelul de detaliere depinde de:
+◦ Numărul şi de dimensiunea grupurilor
+◦ Complexitatea procesului de business
+◦ Dimensiunea aplicaţiei
+
+ Probleme întâlnite în această etapă
+
+◦ Ambiguităţi în înţelegerea proceselor
+◦ Inconsistenţă în înţelegerea aceluiaşi proces
+◦ Date insuficiente
+◦ Modificări în cerinţe după începerea proiectului
+41
+
+ Această persoană trebuie să interacţioneze
+
+direct cu multe grupuri de lucru
+
+ Are de a face cu idei contradictorii
+ Trebuie să aibă abilităţi de comunicare şi de
+
+lucru cu oamenii
+
+ Trebuie să aibă cunoştinţe de programare
+ În final trebuie să cadă de acord cu clientul în
+
+privinţa cerinţelor
+
+42
+
+ Interviuri cu viitorii utilizatori şi cu grupuri de
+
+utilizatori
+
+ Folosirea documentaţiei existente (manuale de
+
+utilizare, diagrame ale organizaţiei, specificaţii
+de sistem, etc.)
+
+ Metode:
+
+◦ Prototipuri
+◦ Diagrame “Use case”
+◦ Diagrame de flux a datelor şi a proceselor
+◦ Interfeţe utilizator
+43
+
+ Se face o analiză structurată care foloseşte
+
+tehnici specifice:
+◦ “animarea” cerinţelor
+◦ Raţionament automat
+
+◦ Privire critică din punct de vedere al cunoaşterii
+◦ Verificarea consistenţei
+
+◦ Raţionament analogic şi bazat pe exemple
+
+44
+
+ Se face într-un mod clar, neambiguu
+ Scrierea unui document în care se specifică cerinţele
+
+este obligatoriu!
+ Acest document va circula între toate persoanele
+implicate în această fază: client, grupuri de
+
+utilizatori, echipele de dezvoltare şi de testare
+
+ Documentul va fi folosit la:
+
+◦ Validarea cerinţelor de către client
+◦ Contractul dintre client şi echipa de dezvoltare
+◦ Bază pentru proiectarea sistemului de către dezvoltatori
+◦ Bază pentru planificări
+◦ Sursă pentru realizarea scenariilor de testare
+45
+
+ Trebuie să surprindă viziunea clientului despre
+
+produs
+ Reprezintă rezultatul colaborării dintre utilizator
+(care nu e un expert) şi analistul de sistem (care
+surprinde situaţia în termeni tehnici)
+ E posibil ca specificarea cerinţelor să se facă în
+două documente separate:
+◦ Cerinţele utilizator – scrise în clar folosind cazuri de
+utilizare (pentru utilizator)
+◦ Cerinţele sistemului – descrise folosind un model
+matematic sau programatic (pentru dezvoltatori şi
+pentru testeri)
+
+46
+
+ În cerinţele utilizatorului nu trebuie să apară
+
+noţiuni tehnice (protocol de comunicare,
+criptarea folosind MD5, http, IP, etc)
+
+ În cerinţele sistemului trebuie să apară formatul
+
+de export al datelor (XML), adresa serverului de
+pe care se fac citiri, locul în care se depozitează
+fişierele log
+
+47
+
+ Nivelul de detaliere:
+
+◦ Ridicat – presuspune multă muncă, uneori inutilă (este
+mai precis şi mai clar)
+◦ Scăzut – poate fi vag (nu ajută în procesul de
+dezvoltare şi testare)
+ Exemplu:
+
+◦ Realizaţi un program care să facă suma a două matrici.
+◦ Realizaţi un program C# care să aibă clasa Matrice cu
+atributele n,m de tip int reprezentând numărul de linii
+şi de coloane şi matrice de tip int[3][3] reprezentând
+elementele matricii. Metodele disponibile în clasa
+Matrice sunt .....
+48
+
+ Tipuri de cerinţe:
+
+◦ Cerinţe utilizator: legate de locul unde va fi folosit
+sistemul, eficienţă, durata de viaţă a produsului
+(produsul va fi folosit de compartimentul financiar)
+◦ Cerinţe funcţionale: despre modul în care se fac
+anumite calcule, modul în care se manipulează datele
+(impozitul pe salar este de 16 %)
+◦ Cerinţe de performanţă: modul în care anumite funcţii
+sunt apelate cantitativ, calitativ (sistemul va permite
+1000 de interogări pe secundă)
+◦ Constrângeri: nu se va permite ca două persoane să
+introducă simultan date în tabele
+49
+
+ Este un proces continuu care surprinde toate
+
+aspectele identificării cerinţelor şi în plus
+asigură verificarea, validarea acestora
+
+ Pentru a fi utilă trebuie să asigure
+
+neambiguitatea cerinţelor, eliminarea erorilor
+şi completarea omisiunilor
+
+50
+
+Requirement
+Quality
+
+Example of bad requirement
+
+Atomic
+
+•Students will be able to enroll to
+undergraduate and post graduate
+courses
+
+Traceable
+
+Maintain student information-mapped
+to BRD req.ID?
+Registered student-Priority 1Maintain
+User Information-Priority 1Enroll
+courses-Priority 1View Report CardPriority 1
+
+Example of good requirement
+
+•Students will be able to enroll to
+undergraduate courses
+•Students will be able to enroll to postgraduate courses
+Uniquely
+1- Students will be able to enroll to
+1.Course Enrolment
+identified
+undergraduate courses1- Students will 2.Students will be able to enroll to
+be able to enroll to post-graduate
+undergraduate courses
+courses
+3.Students will be able to enroll to postgraduate courses
+Complete
+A professor user will log into the
+A professor user will log into the system by
+system by providing his username,
+providing his username, password and
+password, and other relevant
+department code
+information
+Consistent
+A student will have either
+A student will have either under-graduate
+and
+undergraduate courses or postor post graduates but not both
+unambiguous graduate courses but not both. Some
+courses will be open to both undergraduate and post-graduate
+
+Prioritized
+
+Testable
+
+Maintain student information-Mapped to
+BRD req ID 4.1
+Register Student-Priority 1Maintain User
+Information-Priority 2Enroll coursesPriority 1View Report Card-Priority3
+
+Each page of the system will load in an Register student and enrol courses pages of
+acceptable time-frame
+the system will load within 5 seconds
+
+ Folosesc actori (elemente cu care programul
+
+interacţionează):
+
+◦ Utilizatori umani
+◦ Elemente software (Ex: program care prelucrează
+informaţiile colectate de pe Internet)
+◦ Elemente hardware (Ex: cititor de coduri de bare,
+telefoane mobile, etc.)
+ Folosesc scenarii (use case)
+
+◦ Acestea descriu cum interacţionează actorul cu
+sistemul
+◦ Cum reacţionează sistemul în urma acestor acţiuni
+◦ Care e rezultatul vizibil pentru actori
+52
+
+ Ce nu conţin acestea:
+
+◦ Diagrame de clase
+◦ Structura modulară a programului
+◦ Tipul datelor de intrare şi de ieşire
+ Use Case – Tipuri de conţinut:
+
+◦ Pe scurt – descrie principalul caz de succes
+◦ Cazual – conţine ce ar trebui făcut în caz că se
+întâmplă ceva
+◦ Detaliat – se prezintă pe larg toate situaţiile posibile
+
+53
+
+ Pe scurt: Programul trebuie să poată aduna 2 matrici
+ Cazual: Programul trebuie să poată aduna 2 matrici
+
+dacă au acelaşi număr de linii şi de coloane, altfel se
+va afişa un mesaj de eroare corespunzător
+
+ Detaliat: Programul trebuie să poată aduna două
+
+matrici de numere întregi citite de la tastatură, dacă
+au acelaşi număr de linii şi de coloane, iar matricea
+rezultată se va afişa într-un fişier “rezultat.txt” câte
+o linie pe rând. Altfel se va afişa un mesaj de eroare
+corespunzător într-un fişier “mesaj.txt” aflat în
+directorul curent. (Mai trebuie specificat ceva?)
+54
+
+ Este o diagramă comportamentală care
+
+captează cerinţele sistemului
+ Delimitează graniţele sistemului
+ Punctul de plecare îl constituie scenariile de
+folosire a sistemului din fişa cerinţelor
+ Poate prezenta:
+
+◦ specificarea cerinţelor (externe) din punctul de
+vedere al utilizatorului
+◦ specificarea funcţionalităţii sistemului din punctul
+de vedere al sistemului
+
+ Conţine:
+
+◦ UseCase-uri = funcţionalităţi ale sistemului
+◦ Actori = entităţi externe cu care sistemul
+interacţionează
+◦ Relaţii
+27
+
+ Este o descriere a unei mulţimi de secvenţe de acţiuni
+
+(incluzând variante) pe care un program le execută
+atunci când interacţionează cu entităţile din afara lui
+(actori) şi care conduc la obţinerea unui rezultat
+observabil
+ Poate fi un sistem, un subsistem, o clasă, o metodă
+ Reprezintă o funcţionalitate a programului
+ Precizează ce face un program sau subprogram
+ Nu precizează cum se implementează o
+funcţionalitate
+ Identificarea UseCase-urilor se face pornind de la
+cerinţele clientului şi analizând descrierea problemei.
+56
+
+ Notaţie
+ Atribute
+
+◦ Nume = fraza verbală ce denumeşte o
+operaţie sau un comportament din
+domeniul problemei.
+ Restricţii
+◦ Numele este unic
+
+Nume
+57
+
+ Reprezintă un rol pe care utilizatorii unui
+
+UseCase îl joacă atunci când interacţionează cu
+acesta
+ Este o entitate exterioară sistemului
+ Interacţionează cu sistemul:
+◦ Iniţiază execuţia unor cazuri de utilizare
+◦ Oferă funcţionalitate pentru realizarea unor cazuri
+de utilizare
+ Poate fi:
+
+◦ Utilizator (uman)
+◦ Sistem software
+◦ Sistem hardware
+58
+
+ Notaţie
+ Atribute
+ Nume = indică rolul pe care actorul îl joacă în
+
+interacţiunea cu un UseCase
+ Restricţii
+
+◦ Numele este unic
+* *
+<>
+
+59
+
+ Se stabilesc între două elemente
+ Tipuri de relaţii:
+
+◦ Asociere: Actor – UseCase, UseCase – UseCase
+◦ Generalizare: Actor – Actor, UseCase - UseCase
+◦ Dependenţă: UseCase - UseCase (<<include>>,
+<<extend>>)
+
+60
+
+ Modelează o comunicare între elementele pe
+
+care le conectează
+
+ Poate sa apară între
+
+◦ un actor şi un UseCase (actorul iniţiază execuţia
+cazului de utilizare sau oferă funcţionalitate pentru
+realizarea acestuia)
+◦ două UseCase-uri (transfer de date, trimitere de
+mesaje/semnale)
+ Notaţie
+
+61
+
+ Se realizează între elemente de acelaşi tip 
+
+ierarhii
+
+ Modelează situaţii în care un element este un
+
+caz particular al altui element
+
+ Elementul particular moşteneşte relaţiile în care
+
+este implicat elementul general
+
+ Notaţie:
+
+62
+
+* *
+<>
+
+Autentificare
+Persoană
+* *
+<>
+
+Sistem de
+Logare
+
+* *
+<>
+
+* *
+<>
+
+Logare Eveniment
+Student
+
+Profesor
+63
+
+Desenare Figură
+
+Desenare folosind SVG
+
+Desenare folosind modul grafic
+
+64
+
+ Apare între două UseCase-uri
+ Modelează situaţiile în care
+
+◦ Un UseCase foloseşte comportamentul definit în alt
+UseCase (<<include>>)
+◦ Comportamentul unui UseCase poate fi extins de
+către un alt UseCase (<<extend>>)
+
+ Notaţie
+
+65
+
+66
+
+67
+
+Oferă listă
+zboruri
+<<include>>
+
+Preia opţiuni client
+
+<<include>>
+
+Solicită listă zboruri
+Conform cu opţiunile clientului
+
+68
+
+ Metodologii
+ Ingineria cerințelor
+ Diagrame Use-case
+
+69
+
+ 1) Ce metodologie ar fi mai utilă pentru
+
+angajații companiei de IT?
+
+ 2) Ce metodologie ar fi mai utilă pentru client
+
+(manager, end-user)?
+
+ Exemplu: eSims
+
+70
+
+ Anil Hemrajani, Agile Java Development with
+
+Spring, Hibernate and Eclipse, 2006
+
+ Dorel Lucanu, Principii POO
+
+71
+
+ Link: http://argouml-
+
+downloads.tigris.org/argouml-0.34/
+
+ Varianta “zip” trebuie doar dezarhivată
+ Trebuie să aveţi instalat Java
+
+◦ În Path sa aveti c:\Program Files\Java\jdk1.8.0_141\bin
+◦ Variabila
+JAVA_HOME=c:\Program Files\Java\jdk1.8.0_141\
+
+72
+
+XP: http://www.extremeprogramming.org/rules.html
+ Agile: http://agilemanifesto.org/
+ Scrum: http://jeffsutherland.com/oopsla/schwapub.pdf
+ Lean: http://www.projectperfect.com.au/info_lean_development.php
+ V-model: http://en.wikipedia.org/wiki/V-Model,
+http://en.wikipedia.org/wiki/VModel_%28software_development%29
+ Project Management White Paper Index:
+http://www.projectperfect.com.au/wp_index.php
+ Requirements analysis process:
+http://www.outsource2india.com/software/RequirementAnalysis.asp
+ ImageCup 2009:
+http://fiistudent.wordpress.com/2008/12/10/imagine-cup-2009ce-ar-fi-daca-intr-o-zi-am-ajunge-toti-la-muzeu/
+ Curs 2 IP – Ovidiu Gheorghieş:
+http://www.infoiasi.ro/~ogh/files/ip/curs-02.pdf
+ Software house: http://en.wikipedia.org/wiki/Software_house
+ https://www.guru99.com/learn-software-requirements-analysiswith-case-study.html
+
+
+73
+
+

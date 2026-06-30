@@ -1,0 +1,1462 @@
+Web Technologies
+
+
+a data model for the Web XML family
+
+
+
+
+
+
+
+
+
+
+
+Prof. Sabin Corneliu Buraga - profs.info.uaic.ro/sabin.buraga/
+Assoc. Prof. Andrei Panu - profs.info.uaic.ro/andrei.panu/
+
+
+
+
+
+
+
+
+"The virtue of the candle lies not in the wax that leaves its trace, but in its light."
+
+
+Antoine de Saint-Exupéry
+
+(re)discover...
+
+
+
+
+
+
+
+
+
+
+
+how do we model data
+what does a markup language represent XML (eXtensible Markup Language)  how do we specify XML namespaces
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+How do we model (represent) data?
+
+preamble
+
+
+
+
+
+
+
+
+Data must be accessed independently of:
+
+location - file, database management system manner of representation
+serialization format
+transmission protocol operating system
+applications which "consume" the data
+
+
+
+
+
+
+
+
+
+
+
+
+ Processing (algorithms)
+
+Proprietary data (databases, of8ice apps)
+
+Publishing data
+on Web (HTML)
+
+Modeling (semi) structured data (XML, JSON)
+
+Modeling concepts (RDF, OWL)
+
+
+
+"Data is less important than code"
+
+"Data is as important as code"
+
+"Data is more important than code"
+
+
+
+
+
+
+
+
+evolution of the "data" concept
+(adaptation from Daconta et al., 2003)
+
+
+open data
+
+pre-Web	classical Web	social Web	Web of data
+
+
+ Processing (algorithms)
+
+Proprietary data (databases, of8ice apps)
+
+Publishing data
+on Web (HTML)
+
+Modeling (semi) structured data (XML, JSON)
+
+Modeling concepts (RDF, OWL)
+
+
+
+"Data is less important than code"
+
+"Data is as important as code"
+
+"Data is more important than code"
+
+
+
+
+
+
+
+
+evolution of the "data" concept
+(adaptation from Daconta et al., 2003)
+
+
+
+
+
+
+
+
+
+Data must be reused and shared on the Web
+
+open data
+"a piece of content or data is open
+if anyone is free to use, reuse, and redistribute it"
+opendefinition.org
+
+Sabin Buraga, Why 5-Star Data? (2016)
+www.slideshare.net/busaco/why-5star-data
+
+
+
+
+
+
+
+
+
+Data must be reused and shared on the Web
+
+open data
+data ˜ wine versus
+software	˜ Cish
+
+
+
+
+
+James Governor (2007)
+
+
+
+
+
+
+
+
+
+What data representation model can we choose for ...
+storing heterogeneous data from multiple sources? information that evolves over time?
+representing natural language?
+
+
+
+
+
+
+
+
+
+We want to model and process data regarding
+
+     poem anthologies product catalogs of an e-shop
+gastronomic recipe repositories
+questionnaires social networks
+...
+
+
+
+
+
+
+
+
+
+Necessities:
+a language able to annotate information in an explicit manner
+
+data to be modeled could be practically unbounded and unknown
+
+no a priori existence of a common vocabulary/schema
+
+
+
+
+
+
+
+
+
+Necessities:
+data should be self-explanatory
+
+what does the triple <"Sabin", "Buraga", 30374> mean?
+
+
+
+
+
+
+
+
+Necessities:
+the adopted model should consider existing navigational architectures, based on hypertext
+
+
+support for specifying URIs/IRIs
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+What does a markup language represent?
+
+
+
+
+
+
+
+
+
+Documents:
+speciCic formats vs. generic formats
+
+generic encoding (idea from the 1960s): procedural - calling procedures
+based on markups
+
+
+
+
+
+
+
+
+GenCode - Stanley Rice, Norman Scharpf (1967)
+6
+GML (Generalized Markup Language) Charles Goldfarb et al. (IBM, ~1970) formal deCinition of document types
+6
+SGML (Standard Generalized Markup Language) ISO 8879 standard (1986)
+
+preamble: de?nitions
+
+
+Markup - annotation, coding
+
+any action denoting explicit interpretation of a text (content) fragment
+
+
+
+
+
+
+
+
+ special markups
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+examples:
+punctuation marks for written languages (e.g., ¿Vamos?), delimiters used in the source code
+
+
+
+
+
+
+
+
+
+SpeciCication (annotation, markup) language markup language
+set of markup conventions used for data encoding
+
+
+
+
+
+
+
+
+
+SpeciCication (annotation, markup) language
+
+
+deCines the set of mandatory markups,
+the manner of how these markups are identiCied and structured by using one or more speciCications (i.e. grammars)
+
+xml
+
+Extensible Markup Language
+
+annotation meta-language derived from SGML W3C standard (1998, 2000, 2004, 2006, 2008)
+www.w3.org/TR/xml/
+
+a technology +
+a family of languages
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+www.w3.org/XML/
+
+
+
+
+
+
+
+Descriptive markups
+
+<para>
+<img />
+<response>
+<Person>
+<tag>
+<meta charset="utf-8" />
+<MenuItem>
+
+
+
+
+
+
+
+
+
+Types of documents
+Document Type DeCinition (DTD)
+
+formal speciCication of document types (components + structure) - i.e. grammar
+
+used to verify the syntactic correctness
+
+
+
+
+
+
+
+
+
+Data independence
+
+support on every hardware/software platform
+
+  XML processors available for all programming languages
+
+
+
+
+
+
+
+
+
+
+Meta-language
+
+able to deCine other markup languages
+markup extension
+
+portable
+encoding/language independent via Unicode
+
+
+
+
+
+
+
+
+
+
+
+Solution for content representation of the Web resources identiDied by URI/IRI
+
+ensuring interoperability (lingua franca)
+
+documents are data
+
+xml: constituents
+
+
+Prologue (preamble) Elements Attributes
+   Entities CDATA sections
+Processing instructions
+
+xml: prologue
+
+
+
+Declaration that speciCies document version and encoding
+
+<?xml version="1.0" encoding="UTF-8" ?>
+
+
+
+
+
+
+
+must appear only once at the beginning of the document
+
+
+
+
+
+
+
+Element = structural component (textual unit)
+
+
+
+
+
+
+
+Element = structural component (textual unit)
+
+   name - identiCies an element syntax similar to variable identiCiers
+
+product
+
+
+
+
+
+
+
+
+  Syntactically, an element is speciCied by markups (tags) - start tag and end tag
+
+<product>Ping Uinix</product>
+
+
+
+
+
+
+
+
+
+Case sensitive
+
+<markup> ? <Markup> ? <MARKUP>
+
+
+
+
+
+
+
+
+An element can have an empty content (empty element)
+<product></product>
+
+short syntax:
+<product />
+
+
+
+
+
+
+
+
+An element can have an empty content
+
+real examples - HTML speciCication with XML syntax:
+<br />
+<meta />
+<track />
+<input />
+
+
+
+
+
+
+
+
+An element can have an empty content
+
+<!-- real example: JSX (used by React.js) -->
+<Form>
+<Form.Row>
+<Form.Label />
+<Form.Input />
+</Form.Row>
+</Form>
+
+facebook.github.io/jsx/
+
+
+
+
+
+
+
+
+Structural model
+
+denotes relations between elements: sequence, hierarchy, grouping, inclusion
+
+
+
+
+
+
+Elements nested in other elements
+(could contain textual data and/or other elements)
+
+<product>
+Ping Uinix is a mascot which sells
+</product>
+
+
+
+
+
+
+
+Elements nested in other elements
+(could contain textual data and/or other elements)
+
+
+
+
+
+
+
+grouping
+
+<!-- HTML5 markups respecting the XML conventions -->
+<article>
+<section>
+<ul>
+<li><strong>Stagii pe bune</strong></li>
+<li>Exercism.io</li>
+<li>Code Golf</li>
+</ul>
+</section>
+</article>
+
+
+
+
+
+
+
+Elements nested in other elements
+(could contain textual data and/or other elements)
+
+<!-- HTML5 markups respecting the XML conventions -->
+<article>
+
+<section>
+<ul>
+
+hierarchy
+
+sequence
+
+<li><strong>Stagii pe bune</strong></li>
+<li>Exercism.io</li>
+<li>Code Golf</li>
+
+</ul>
+</section>
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+Elements must be correctly closed and nested
+
+
+<div><q>We don't need no education</div></q>
+
+<?xml version="1.0" ?>
+<anthology>
+<poem>
+<title>...</title>
+<stanza>
+<line>...</line>
+<line>...</line>
+...
+</stanza>
+</poem>
+<poem>
+<title />
+</poem>
+<poem>
+<!-- more poems... -->
+</poem>
+</anthology>
+
+
+
+
+
+
+
+
+
+
+
+
+an XML document modeling
+an anthology of poems
+
+<?xml version="1.0" encoding="UTF-8"?>
+<products>
+<product>
+<name>Ping Uinix</name>
+<provider>http://www.penguin.info</provider>
+<promo>Mascot of the month</promo>
+</product>
+<product>
+<!-- a sort of blue oranges -->
+
+<name>Blue Ory</name>
+<description />
+</product>
+<product>
+
+semi-structured data
+ 
+flexibility
+
+<name>	having taste of	</name>
+</product>
+</products>
+a possible product catalog used by an e-shop
+
+
+
+
+
+
+
+
+
+Attribute
+describes a speciCic property (characteristic) about a particular occurrence of an element
+
+
+
+
+
+
+Attributes are only speciCied inside a start tag
+
+
+
+
+
+
+
+
+
+
+
+Attributes can be deCined in any order
+
+<Button id="@+id/sync_settings" text="@android:string/ok" />
+=
+<Button text="@android:string/ok" id="@+id/sync_settings" />
+
+
+real examples: Android applications
+android.googlesource.com/platform/packages/apps/
+
+
+
+
+
+
+
+
+Attribute names are case sensitive
+
+<img src="..." />
+?
+<img SRC="..." />
+
+
+
+
+
+
+
+
+
+
+Attribute value is mandatory to be delimited by the quotes "..." or the apostrophes '...'
+
+attributes with no value are not accepted
+
+
+
+
+
+
+
+<form action=process.php method="GET'>
+<label for=search">Search:</label>
+<input default type=search placeholder= /></form>
+
+
+
+
+
+<game>
+<title>Angry Profs</title>
+<platform type="tablet">Android</platform>
+<platform min-version="9" type="tablet">iOS</platform>
+<platform min-version="10">Windows</platform>
+<url>...</url>
+<player>
+<identity>
+<first-name>Sabin</first-name>
+<last-name>Buraga</last-name>
+<!-- possibly, other info... -->
+</identity>
+<points>30374</points>
+...
+</player>
+</game>
+
+XML data regarding an electronic game
+
+visualizing the hierarchical structure of XML data
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+codebeautify.org/online-xml-editor
+
+
+
+
+
+
+
+Goal:
+coding and referring a part of a document
+
+syntax: &identifier; or &#number;
+
+
+
+
+
+
+
+Default entities - similar to HTML ones:
+&lt; (<)	&gt; (>)	&amp; (&)	&quot; (")
+
+Character entity references:
+&#160; (non-breaking space - &nbsp; for HTML) &#259; ("a?" - ISO-8859-2 and Unicode character sets) &#10048; ("?" symbol - Unicode)
+
+
+
+
+
+
+
+
+
+Certain parts of a document could require a special treatment
+
+CDATA - excludes the XML processing
+
+
+
+
+
+
+<script type="application/javascript">
+
+if (visits < 10) { // not a regular visitor
+$("#message").html ("<p>Hi!</p>");
+}
+
+</script>
+
+
+
+
+
+
+
+<script type="application/javascript">
+/*<![CDATA[*/
+
+
+
+
+
+
+
+
+/*]]>*/
+</script>
+
+
+
+
+
+
+
+the XML processor will not interpret the syntax of JS code
+
+
+xml: processing instructions
+
+
+Include information regarding (external) applications to be invoked for content processing
+
+<?processing-instruction ... ?>
+
+        Example: associating a CSS stylesheet
+for rendering the content of an XML document
+<?xml-stylesheet type="text/css" href="styles.css" ?>
+/* formatting XML data abount an electronic game */
+* { display: block; font-family: sans-serif; } game { margin: 2em; }
+title { font-size: 2em; font-weight: bold; color: navy; } platform { display: inline; font-size: 0.9em; color: gray; } identity::before { content: "User: "; }
+first-name, last-name { display: inline; font-style: italic; } url, points { display: none; }
+
+
+
+
+xml: space processing
+
+White spaces - e.g., space, TAB, NL (New Line) or CR
+(Carriage Return) characters - have no signiCicance
+<VisualAsset id="obsObject">
+<enabled>true</enabled>
+
+<zOrder>0</zOrder>
+<Orientation>
+<roll>90</roll>	=
+<tilt>90</tilt>
+<heading>90</heading>
+</Orientation>
+</VisualAsset>
+
+<VisualAsset id="obsObject">
+<enabled>true</enabled><zOrder>0
+</zOrder><Orientation><roll>90</roll>
+<tilt>90</tilt><heading>90</heading>
+</Orientation></VisualAsset>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+preamble
+
+comment node
+
+
+
+
+
+
+processing instruction
+
+
+
+
+
+attribute node
+
+
+start tag	end tag
+
+
+
+
+
+
+
+
+
+
+
+  text node (characters)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+www.instagram.com/pawel_kuczynski1
+
+xml: family
+XML (Extensible Markup Language)
+syntax
+XML Information Set - Infoset
+(abstract) data model
+XLL (Extensible Linking Language) XLink - links between documents XPointer - resource relative locators
+XSL (Extensible Stylesheet Language)
+transforming & formatting: XSLT + XSL-FO
+XQuery (with XPath)
+XML data querying
+
+
+
+
+
+
+Content structuring/formatting (data presentation formats)
+       in the Web browser: (X)HTML (Extensible HTML), HTML5
+www.w3.org/TR/html/
+
+
+ vector graphics:
+SVG (Scalable Vector Graphics)
+www.w3.org/Graphics/SVG
+
+
+
+
+
+Representation of various types of content
+
+
+ mathematical expressions: MathML
+www.w3.org/Math/
+
+
+ synchronized multimedia data:
+SMIL (Synchronized Multimedia Integration Language)
+www.w3.org/TR/SMIL/
+
+
+
+
+
+Representation of various types of content
+
+
+ voice dialogue information: VoiceXML
+voicexml.org
+
+
+ cartographic info: KML (Keyhole Markup Language)
+developers.google.com/kml/
+
+
+  hydrologic data: WaterML
+www.ogc.org
+
+
+
+
+
+Representation of various types of content
+
+
+ user-interface components:
+Android User Interface Layouts developer.android.com/guide/topics/ui/declaring-layout FXML (JavaFX)
+github.com/mhrimaz/AwesomeJavaFX QML (Qt Meta-object Language) doc.qt.io/qt-6/qmlapplications.html
+XAML (Extensible Application Markup Language)
+docs.microsoft.com/en-us/windows/uwp/xaml-platform/
+
+
+
+
+
+
+
+Representation of various types of content
+
+
+      documentations: DocBook (Documentation Book)
+docbook.org
+
+ info processed by ofCice applications - e.g., Open OfCice: ODF (Open Document Format)
+www.oasis-open.org/committees/tc_home.php?wg_abbrev=office
+
+
+
+
+
+
+
+Representation of various types of content
+
+
+ Web syndication - newsfeeds: RSS (Really Simple Syndication) www.rssboard.org/rss-specification Atom Syndication Format datatracker.ietf.org/doc/html/rfc4287
+
+
+ electronic publications (e-books): EPUB
+github.com/w3c/epub-specs/
+
+
+
+
+
+
+
+Representation of various types of content
+
+
+ medical information (EHR - Electronic Health Records) HL7: www.hl7.org/implement/standards/
+
+
+ electronic businesses
+FpML-Financial products Markup Language: www.fpml.org
+
+ governmental information
+NIEM-National Information Exchange Model: niem.github.io
+
+xml: usages - other domains
+BeerXML
+BDML (Biological Dynamics Markup Language) CAP (Common Alerting Protocol)
+CML (Chemical Markup Language) COLLADA (COLLAborative Design Activity) DFXML (Digital Forensics XML)
+GPX (GPS Exchange Format) MEI (Music Encoding Initiative)
+RTML (Remote Telescope Markup Language) SSML (Speech Synthesis Markup Language)
+STAR (Standards for Technology in Automotive Retail)
+TEI (Text Encoding Initiative)
+
+
+
+
+
+
+
+
+
+
+
+
+
+What if we choose names of markups/attributes already defined by other XML-based languages?
+
+
+
+
+<event uri="https://stagiipebune.ro/">
+<name xml:lang="ro">Stagii pe Bune</name>
+<year>2026</year>
+</event>
+
+?	<participant>
+<name uri="mailto:tux@info.uaic.ro">
+Tuxy Pinguinnesscool</name>
+<year kind="Bachelor">2</year>
+</participant>
+
+conClict!
+
+
+
+
+
+
+<name> event name ? <name> person name
+<year> calendaristic year ? <year> study year
+
+
+
+
+
+
+
+
+
+
+
+XML namespace
+
+denotes a vocabulary used to qualify - in a unique way - the XML elements/attributes
+
+
+
+
+
+
+
+The deCined vocabulary - a collection of element and attribute names, plus their structure - could be denoted by an URI
+
+
+
+
+
+
+
+The deCined vocabulary could be denoted by a URI
+
+
+xmlns attribute speciCies that URI; optionally, assigns a unique identiCier to each used vocabulary
+W3C speciCication:
+www.w3.org/TR/xml-names/
+
+<c:calendars xmlns:c="http://www.calendar.info">
+<e:participant xmlns:s="http://www.info.uaic.ro/Students/" xmlns:e="http://www.info.uaic.ro/Events/">
+<s:name>Tuxy Pinguinnescool</s:name>
+<s:year s:kind="Bachelor">2</s:year>
+
+<c:calendar>
+<e:event xml:id="SpB">
+
+no conTlicts!
+
+
+
+
+
+
+</e:event>
+<e:event xml:id="GSoC">
+<e:name xml:lang="en">Summer of Code</e:name>
+</c:calendar>
+</e:participant>
+
+</c:calendars>
+
+study the examples from
+the archive associated to this lecture
+
+xml: namespaces - examples
+
+
+The HTML vocabulary: http://www.w3.org/1999/xhtml
+The SVG namespace: http://www.w3.org/2000/svg
+The Vocabulary of the XML Sitemaps documents :
+http://www.sitemaps.org/schemas/sitemap/0.9
+The Vocabulary of the XML Schema data types:
+http://www.w3.org/2001/XMLSchema
+The namespace for Android applications:
+http://schemas.android.com/apk/res/android
+
+summary
+
+
+XML data modeling
+
+</>
+characterization, uses, XML namespaces,
+
+
+
+
+
+
+
+
+
+
+XML
+ML
+data
+
+
+
+
+
+
+
+
+
+
+
+next episode:
+XML/HTML document processing using DOM
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
