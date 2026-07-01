@@ -2116,109 +2116,98 @@ Chain of Resp: pasează cererea de-a lungul unui lanț
 
 ---
 
-# 🎯 TEST GRILĂ — OOP (recapitulare 2021–2025)
-> Întrebări bazate pe subiectele date la licență în anii anteriori. Apasă pe **„Răspuns"** pentru a-l dezvălui. Variantele greșite sunt **greșeli frecvente reale**, nu evident false — citește cu atenție.
+# 🎯 TEST GRILĂ — OOP (subiecte reale de licență 2021–2025)
+> Fiecare grilă pornește de la un **subiect dat efectiv la examen**. Apasă pe **„Răspuns"** pentru a-l dezvălui. Variantele greșite sunt **greșeli frecvente reale**; răspunsul corect este distribuit uniform pe A/B/C/D.
 
-**1.** Principiul Dependențelor Inversate (DIP) afirmă că:
-- A) Modulele de nivel înalt trebuie să depindă direct de cele de nivel jos, pentru eficiență
-- B) Atât modulele de nivel înalt, cât și cele de nivel jos trebuie să depindă de abstracții
-- C) O clasă trebuie să aibă un singur motiv de schimbare
-- D) Entitățile trebuie să fie deschise extensiei și închise modificării
-
-<details><summary>✅ Răspuns</summary>
-
-**B)** — Abstracțiile nu depind de detalii; detaliile depind de abstracții. (A e exact inversul greșit; C = SRP; D = OCP.)
-</details>
-
-**2.** Care este o violare tipică a DIP și soluția corectă?
-- A) O clasă are prea multe metode → o împarți în interfețe mici
-- B) O subclasă schimbă comportamentul bazei → nu mai suprascrii metoda
-- C) O clasă instanțiază direct cu `new` o clasă concretă → injectezi o abstracție (interfață) prin constructor
-- D) O funcție folosește `switch` pe tip → înlocuiești cu polimorfism
+**1.** *(«Principiul dependințelor inversate. Definiție»)* — DIP afirmă că:
+- A) O clasă trebuie să aibă un singur motiv de schimbare
+- B) Entitățile trebuie să fie deschise extensiei și închise modificării
+- C) Atât modulele de nivel înalt, cât și cele de nivel jos trebuie să depindă de abstracții (nu de detalii)
+- D) Modulele de nivel înalt trebuie să depindă direct de cele de nivel jos, pentru eficiență
 
 <details><summary>✅ Răspuns</summary>
 
-**C)** — Dependency Injection pe o abstracție. (A = ISP; B = LSP; D = OCP.)
+**C)** — A = SRP, B = OCP, D = exact inversul greșit al DIP.
 </details>
 
-**3.** La instanțierea unui obiect dintr-o clasă derivată, ordinea de apelare a constructorilor este:
-- A) Derivat → membri → bază
-- B) Bază → membri (în ordinea declarării) → derivat
-- C) Membri → bază → derivat
-- D) Bază → derivat → membri
+**2.** *(«DIP: exemplu unde nu e respectat și soluția»)* — Care e violarea tipică + soluția?
+- A) O clasă instanțiază direct cu `new` o clasă concretă → soluția: injectarea unei abstracții (interfețe) prin constructor
+- B) O clasă are prea multe metode → soluția: împărțirea în interfețe mici
+- C) O subclasă schimbă comportamentul bazei → soluția: să nu suprascrii metoda
+- D) O funcție folosește `switch` pe tip → soluția: polimorfism
 
 <details><summary>✅ Răspuns</summary>
 
-**B)** — Întâi baza, apoi membrii în ordinea declarării, apoi corpul constructorului derivat. Destructorii merg exact invers.
+**A)** — Dependency Injection pe o abstracție. B = ISP, C = LSP, D = OCP.
 </details>
 
-**4.** De ce trebuie ca destructorul unei clase de bază polimorfice să fie declarat `virtual`?
-- A) Pentru a putea supraîncărca destructorul
-- B) Pentru ca `delete` printr-un pointer la bază să apeleze destructorul clasei derivate reale
-- C) Pentru a evita apelarea destructorului de două ori
-- D) Pentru a permite copierea obiectului
+**3.** *(«Constructor și destructor: apelare în contextul derivării»)* — Ordinea de apelare a CONSTRUCTORILOR la un obiect derivat este:
+- A) Derivat → bază → membri
+- B) Membri → bază → derivat
+- C) Derivat → membri → bază
+- D) Bază → membri (în ordinea declarării) → corpul constructorului derivat
 
 <details><summary>✅ Răspuns</summary>
 
-**B)** — Fără destructor virtual, `delete pBaza` apelează doar destructorul bazei → leak/comportament nedefinit pentru partea derivată.
+**D)** — Întâi baza, apoi membrii, apoi corpul derivatului. Destructorii merg exact invers.
 </details>
 
-**5.** Polimorfismul **dinamic** se realizează prin ... și are loc la ...:
+**4.** *(«Suprascrierea și polimorfismul dinamic»)* — Polimorfismul dinamic se realizează prin ... și are loc la ...:
 - A) supraîncărcare (overloading), la compilare
-- B) metode virtuale (overriding), la execuție (runtime)
-- C) template-uri, la compilare
+- B) template-uri, la compilare
+- C) metode virtuale (overriding), la execuție (runtime)
 - D) supraîncărcarea operatorilor, la execuție
 
 <details><summary>✅ Răspuns</summary>
 
-**B)** — Dinamic = runtime, prin vtable (overriding). A și C descriu polimorfismul **static** (compile-time).
+**C)** — A și B descriu polimorfismul **static** (compile-time). Dinamic = runtime, prin vtable.
 </details>
 
-**6.** Diferența dintre supraîncărcare (overloading) și suprascriere (overriding):
-- A) Overloading = redefinirea unei metode în derivată; overriding = aceeași metodă cu semnături diferite
-- B) Sunt sinonime
-- C) Overloading = aceeași metodă cu semnături diferite (compile-time); overriding = redefinirea unei metode virtuale în derivată (runtime)
+**5.** *(«Supraîncărcarea și suprascrierea metodelor»)* — Diferența corectă:
+- A) Overloading = redefinirea unei metode virtuale în derivată; overriding = aceeași metodă cu semnături diferite
+- B) Overloading = aceeași metodă cu **semnături diferite** (compile-time); overriding = redefinirea unei **metode virtuale** în derivată (runtime)
+- C) Sunt sinonime
 - D) Overloading necesită `virtual`, overriding nu
 
 <details><summary>✅ Răspuns</summary>
 
-**C)** — A e inversat, D e inversat, B e greșit. Overriding cere `virtual`; overloading nu.
+**B)** — A e inversat; D e inversat. Overriding cere `virtual`; overloading nu.
 </details>
 
-**7.** Șablonul **Composite** se folosește pentru a:
+**6.** *(«Design pattern-ul Composite»)* — Composite se folosește pentru a:
 - A) Adăuga dinamic responsabilități unui obiect
-- B) Compune obiecte în structuri arborescente parte-întreg, tratate uniform (nod/frunză)
-- C) Oferi o interfață simplificată unui subsistem
-- D) Converti o interfață incompatibilă
+- B) Oferi o interfață simplificată unui subsistem
+- C) Converti o interfață incompatibilă
+- D) Compune obiecte în structuri arborescente parte-întreg, tratate uniform (nod/frunză)
 
 <details><summary>✅ Răspuns</summary>
 
-**B)** — A = Decorator, C = Facade, D = Adapter.
+**D)** — A = Decorator, B = Facade, C = Adapter.
 </details>
 
-**8.** Relația de **agregare** (spre deosebire de compoziție) presupune că:
-- A) Partea nu poate exista fără întreg (ciclu de viață dependent)
-- B) Partea poate exista independent de întreg (ciclu de viață independent)
-- C) Este o relație de moștenire
+**7.** *(«Relația de agregare. Definiție, clasificare, exemple»)* — Agregarea (față de compoziție) presupune că:
+- A) Partea poate exista **independent** de întreg (ciclu de viață independent)
+- B) Partea nu poate exista fără întreg
+- C) Este o relație de moștenire (is-a)
 - D) Întregul și partea sunt aceeași clasă
 
 <details><summary>✅ Răspuns</summary>
 
-**B)** — La **compoziție** partea moare cu întregul (A); agregarea e mai „slabă", partea supraviețuiește.
+**A)** — La **compoziție** partea moare cu întregul (B); agregarea e mai „slabă".
 </details>
 
-**9.** Care sunt cazuri particulare ale relației de **asociere**?
+**8.** *(«Relații de asociere între clase. Definiție, tipuri»)* — Cazuri particulare ale asocierii sunt:
 - A) Moștenirea și derivarea
-- B) Agregarea și compoziția
-- C) Supraîncărcarea și suprascrierea
+- B) Supraîncărcarea și suprascrierea
+- C) Agregarea și compoziția
 - D) Interfața și clasa abstractă
 
 <details><summary>✅ Răspuns</summary>
 
-**B)** — Agregarea și compoziția sunt forme de asociere (part-whole). Moștenirea este o relație distinctă (is-a).
+**C)** — Agregarea/compoziția = forme de asociere (part-whole). Moștenirea e relație distinctă (is-a).
 </details>
 
-**10.** Șablonul **Factory (Object Factory)** rezolvă problema:
+**9.** *(«Design pattern-ul Object-Factory»)* — Factory rezolvă problema:
 - A) Garantării unei singure instanțe a unei clase
 - B) Creării de obiecte fără a expune/specifica clasa concretă instanțiată
 - C) Parcurgerii secvențiale a unei colecții
@@ -2229,73 +2218,73 @@ Chain of Resp: pasează cererea de-a lungul unui lanț
 **B)** — A = Singleton, C = Iterator, D = Observer.
 </details>
 
-**11.** Care este o deosebire **corectă** între o clasă abstractă și o interfață (în C++)?
+**10.** *(«Clase abstracte vs interfețe. Asemănări, deosebiri»)* — Deosebire corectă (în C++):
 - A) Interfața poate avea date membre și constructori, clasa abstractă nu
-- B) Clasa abstractă poate avea date membre, constructori și metode concrete; interfața (convenție) are doar metode pur virtuale
-- C) O clasă poate moșteni mai multe clase abstracte, dar o singură interfață
-- D) Interfața se poate instanția direct, clasa abstractă nu
+- B) O clasă poate moșteni mai multe clase abstracte, dar o singură interfață
+- C) Interfața se poate instanția direct, clasa abstractă nu
+- D) Clasa abstractă poate avea date membre, constructori și metode concrete; interfața (convenție) are doar metode pur virtuale
 
 <details><summary>✅ Răspuns</summary>
 
-**B)** — A e inversat; C e fals (în C++ poți moșteni multiple de ambele); D e fals (niciuna nu se instanțiază).
+**D)** — A e inversat; B fals (în C++ poți moșteni multiple de ambele); C fals (niciuna nu se instanțiază).
 </details>
 
-**12.** Când e mai potrivită o **interfață** decât o clasă abstractă?
-- A) Când ai deja o implementare parțială comună
-- B) Când vrei doar să impui un contract, fără a ști cum se va implementa
+**11.** *(întrebarea Rădulescu: «când folosești interfață, când clasă abstractă»)* — Interfața e mai potrivită:
+- A) Când vrei doar să impui un contract, fără a ști cum se va implementa
+- B) Când ai deja o implementare parțială comună
 - C) Când vrei o singură instanță
 - D) Când clasele au date membre comune
 
 <details><summary>✅ Răspuns</summary>
 
-**B)** — Interfață = contract pur („ce", nu „cum"). A și D indică o **clasă abstractă**; C = Singleton.
+**A)** — Interfață = „ce", nu „cum". B și D indică o clasă abstractă; C = Singleton.
 </details>
 
-**13.** Cum se realizează apelul (dispatch-ul) unei metode virtuale la runtime?
-- A) Prin căutarea numelui în tabela de simboluri
-- B) Prin pointerul vfptr al obiectului către vtable-ul clasei sale reale
-- C) Prin rezolvare la compilare de către compilator
-- D) Prin `dynamic_cast` / RTTI
-
-<details><summary>✅ Răspuns</summary>
-
-**B)** — Fiecare obiect polimorfic are un vfptr spre vtable-ul clasei sale; apelul se rezolvă indirect prin acest tabel.
-</details>
-
-**14.** O clasă parametrizată (template) în C++:
-- A) Este instanțiată o singură dată, indiferent de tip
-- B) Generează cod separat pentru fiecare tip cu care e instanțiată, la compilare
+**12.** *(«Clase parametrizate. Definiție, exemple canonice, implementare»)* — Un template C++:
+- A) Este instanțiat o singură dată, indiferent de tip
+- B) Generează cod separat pentru fiecare tip cu care e instanțiat, la compilare
 - C) Rezolvă tipurile la runtime
 - D) Necesită moștenire dintr-o clasă de bază comună
 
 <details><summary>✅ Răspuns</summary>
 
-**B)** — Template-urile sunt un mecanism de compile-time (polimorfism static); compilatorul instanțiază câte o versiune per tip.
+**B)** — Mecanism de compile-time (polimorfism static); o instanțiere per tip.
 </details>
 
-**15.** Șablonul **Visitor** permite:
+**13.** *(«Design pattern-ul Visitor»)* — Visitor permite:
 - A) Restaurarea unui obiect la o stare anterioară
-- B) Definirea unei operații noi asupra unei structuri de obiecte, fără a modifica clasele elementelor
-- C) Încapsularea unei cereri ca obiect
+- B) Încapsularea unei cereri ca obiect
+- C) Definirea unei operații noi asupra unei structuri de obiecte, fără a modifica clasele elementelor
 - D) Decuplarea unei abstracții de implementarea ei
 
 <details><summary>✅ Răspuns</summary>
 
-**B)** — A = Memento, C = Command, D = Bridge. Dezavantaj Visitor: adăugarea unei clase noi în structură cere actualizarea tuturor vizitatorilor.
+**C)** — A = Memento, B = Command, D = Bridge. Dezavantaj: la o clasă nouă, toți vizitatorii se actualizează.
 </details>
 
-**16.** Mecanismul de tratare a excepțiilor în C++ folosește:
-- A) `try` / `catch` / `throw`, iar `catch`-urile se potrivesc pe tip (fără promovare implicită)
+**14.** *(«Excepții. Mecanismul de administrare în POO»)* — Mecanismul (C++) folosește:
+- A) `try` / `catch` / `throw`, cu potrivire pe tip; `catch(...)` trebuie plasat ultimul
 - B) `try` / `except` / `raise`
-- C) Coduri de retur verificate manual după fiecare apel
-- D) `catch(...)` trebuie plasat primul
+- C) coduri de retur verificate manual după fiecare apel
+- D) `catch(...)` plasat primul
 
 <details><summary>✅ Răspuns</summary>
 
-**A)** — B e Python; C nu e mecanism de excepții; `catch(...)` trebuie să fie **ultimul** (D e greșit).
+**A)** — B e Python; C nu e mecanism de excepții; `catch(...)` e mereu **ultimul** (D greșit).
 </details>
 
-**17.** Principiul **Open-Closed (O)** afirmă că entitățile software trebuie să fie:
+**15.** *(nota examen: excepțiile ≈ un design pattern)* — Tratarea excepțiilor seamănă cel mai bine cu:
+- A) Singleton — o singură excepție globală
+- B) Observer — excepția notifică toți handlerii
+- C) Factory — excepția creează obiecte
+- D) Chain of Responsibility — excepția e pasată din `catch` în `catch` până e tratată
+
+<details><summary>✅ Răspuns</summary>
+
+**D)** — Handler-ele formează un lanț; primul care „se potrivește" tratează excepția.
+</details>
+
+**16.** *(«O din SOLID»)* — Principiul Open-Closed spune că entitățile trebuie să fie:
 - A) Deschise modificării, închise extensiei
 - B) Deschise extensiei, închise modificării
 - C) Cu o singură responsabilitate
@@ -2306,84 +2295,40 @@ Chain of Resp: pasează cererea de-a lungul unui lanț
 **B)** — A e inversul greșit; C = SRP; D = LSP. Se obține prin abstractizare + polimorfism.
 </details>
 
-**18.** Principiul **Liskov (L)** este încălcat când:
-- A) O subclasă adaugă metode noi
-- B) O subclasă schimbă comportamentul așteptat al bazei (ex. `Square` redefinește `setWidth/setHeight` incompatibil cu `Rectangle`)
+**17.** *(«O din SOLID: când e încălcat»)* — Open-Closed este ÎNCĂLCAT când:
+- A) Adaugi o clasă nouă fără a modifica nimic existent
+- B) Folosești o interfață/clasă abstractă
+- C) Adăugarea unui caz nou cere modificarea unei clase existente (ex. `switch`/`if` pe tip)
+- D) Folosești polimorfism dinamic
+
+<details><summary>✅ Răspuns</summary>
+
+**C)** — A, B, D respectă OCP; violarea tipică e un `switch` pe tip care se modifică la fiecare caz nou.
+</details>
+
+**18.** *(«Principiul lui Liskov (L)»)* — LSP este încălcat când:
+- A) O subclasă schimbă comportamentul așteptat al bazei (ex. `Square` redefinește `setWidth/setHeight` incompatibil cu `Rectangle`)
+- B) O subclasă adaugă metode noi
 - C) O clasă depinde de o abstracție
 - D) O interfață este prea mare
 
 <details><summary>✅ Răspuns</summary>
 
-**B)** — A e permis; C e bun (DIP); D = ISP. LSP cere ca subtipul să fie substituibil fără surprize.
+**A)** — B e permis; C e bun (DIP); D = ISP. LSP cere substituibilitate fără surprize.
 </details>
 
-**19.** La derivarea `class D : private B`, membrii **publici** ai lui B devin în D:
-- A) publici
-- B) privați
-- C) protejați
-- D) complet inaccesibili
+**19.** *(«Metode virtuale»)* — Apelul unei metode virtuale la runtime se face prin:
+- A) Căutarea numelui în tabela de simboluri
+- B) Rezolvare la compilare de către compilator
+- C) `dynamic_cast` / RTTI
+- D) Pointerul `vfptr` al obiectului către `vtable`-ul clasei sale reale
 
 <details><summary>✅ Răspuns</summary>
 
-**B)** — La moștenire privată, public și protected din B devin **private** în D. (La `protected` moștenire → protected; la `public` → rămân neschimbați.)
+**D)** — Fiecare obiect polimorfic are un vfptr spre vtable; apelul e indirect prin acel tabel.
 </details>
 
-**20.** Care cast C++ face verificare **la runtime** și returnează `nullptr` la eșec (pentru pointeri)?
-- A) `static_cast`
-- B) `dynamic_cast`
-- C) `reinterpret_cast`
-- D) `const_cast`
-
-<details><summary>✅ Răspuns</summary>
-
-**B)** — Doar `dynamic_cast` verifică tipul la runtime (necesită RTTI / tip polimorfic). `static_cast` nu verifică; la referință eșecul aruncă `bad_cast`.
-</details>
-
-**21.** `const_cast` se folosește pentru:
-- A) Conversii numerice (int → double)
-- B) A adăuga/elimina calificatorul `const` (sau `volatile`)
-- C) Downcast în ierarhii polimorfice
-- D) Reinterpretarea biților unui pointer
-
-<details><summary>✅ Răspuns</summary>
-
-**B)** — A = `static_cast`; C = `dynamic_cast`; D = `reinterpret_cast`.
-</details>
-
-**22.** **Object slicing** apare când:
-- A) Un obiect derivat este copiat prin valoare într-un obiect de tip bază, pierzând partea derivată
-- B) Un pointer la bază indică un obiect derivat
-- C) Se apelează un destructor de două ori
-- D) Se folosește `dynamic_cast`
-
-<details><summary>✅ Răspuns</summary>
-
-**A)** — B este polimorfism normal (corect). Slicing = pierderea membrilor derivați la copiere by-value spre tipul bază.
-</details>
-
-**23.** Constructorul de **copiere** este apelat când:
-- A) Se creează un obiect nou ca o copie a unuia existent (inclusiv la pasarea prin valoare / return by value)
-- B) Un obiect deja existent primește valoarea altuia prin `=`
-- C) Se distruge un obiect
-- D) Se apelează o metodă virtuală
-
-<details><summary>✅ Răspuns</summary>
-
-**A)** — B descrie **operatorul de atribuire prin copiere** (copy assignment), NU constructorul de copiere — confuzie clasică.
-</details>
-
-**24.** Problema **diamantului** (moștenire multiplă) se rezolvă prin:
-- A) Moștenire virtuală (`class B : virtual public A`)
-- B) Destructor virtual
-- C) Funcții `friend`
-- D) `static_cast`
-
-<details><summary>✅ Răspuns</summary>
-
-**A)** — Moștenirea virtuală asigură o **singură** copie a bazei comune, evitând ambiguitatea.
-</details>
-
-**25.** Ce reprezintă o **clasă** în raport cu obiectele?
+**20.** *(«Clase și obiecte. Gruparea obiectelor în clase»)* — O clasă reprezintă:
 - A) O instanță concretă a unui obiect
 - B) Un șablon care descrie trăsăturile comune (atribute + metode) ale unui grup de obiecte
 - C) O funcție cu stare internă
@@ -2391,86 +2336,64 @@ Chain of Resp: pasează cererea de-a lungul unui lanț
 
 <details><summary>✅ Răspuns</summary>
 
-**B)** — Obiectul este o instanță a clasei; A e inversat.
+**B)** — Obiectul e o instanță a clasei; A e inversat.
 </details>
 
-**26.** Membrii `protected` ai unei clase sunt accesibili:
-- A) Doar din interiorul clasei
-- B) Din clasă și din clasele derivate
-- C) De oriunde
+**21.** *(«Modificatori de acces pentru atribute»)* — Membrii `protected` sunt accesibili:
+- A) De oriunde
+- B) Doar din interiorul clasei
+- C) Din clasă și din clasele derivate
 - D) Doar din funcții `friend`
 
 <details><summary>✅ Răspuns</summary>
 
-**B)** — `private` = doar clasa (A); `public` = oriunde (C); `protected` = clasa + derivate.
+**C)** — `private` = doar clasa (B); `public` = oriunde (A); `protected` = clasa + derivate.
 </details>
 
-**27.** O clasă care conține cel puțin o metodă **pur virtuală** (`= 0`):
-- A) Poate fi instanțiată direct
-- B) Este abstractă și nu poate fi instanțiată
-- C) Nu poate avea date membre
-- D) Nu poate avea constructori
+**22.** *(«Reguli de conversie (cast)»)* — Care cast face verificare **la runtime** și dă `nullptr` la eșec (pentru pointeri)?
+- A) `dynamic_cast`
+- B) `static_cast`
+- C) `reinterpret_cast`
+- D) `const_cast`
 
 <details><summary>✅ Răspuns</summary>
 
-**B)** — O clasă abstractă poate avea date membre, constructori și metode concrete, dar nu poate fi instanțiată direct.
+**A)** — `static_cast` nu verifică; `reinterpret_cast` reinterpretează biții; `const_cast` schimbă doar `const`/`volatile`.
 </details>
 
-**28.** Șablonul **Singleton**:
-- A) Creează obiecte prin clonarea unui prototip
-- B) Garantează o singură instanță și oferă un punct global de acces
-- C) Compune obiecte în arbore
-- D) Adaugă responsabilități dinamic
+**23.** *(«Clasificarea relației de derivare»)* — La `class D : private B`, membrii **publici** ai lui B devin în D:
+- A) publici
+- B) protejați
+- C) complet inaccesibili
+- D) privați
 
 <details><summary>✅ Răspuns</summary>
 
-**B)** — A = Prototype, C = Composite, D = Decorator. (Observație: Singleton e criticat că poate încălca SRP — are două responsabilități.)
+**D)** — La moștenire privată, `public` și `protected` din B devin **private** în D. (`protected` moștenire → protected; `public` → neschimbați.)
 </details>
 
-**29.** Un membru sau o funcție `friend` a unei clase:
-- A) Se moștenește de către clasele derivate
-- B) Este reciprocă (dacă A e friend cu B, atunci B e friend cu A)
-- C) Poate accesa membrii private și protected ai clasei, deși nu este membru al ei
-- D) Este o formă de moștenire
-
-<details><summary>✅ Răspuns</summary>
-
-**C)** — Prietenia NU se moștenește (A fals) și NU e reciprocă (B fals). `friend` sparge encapsularea controlat.
-</details>
-
-**30.** Care sunt cei **4 piloni (principii fundamentale)** ai POO?
-- A) Încapsulare, Abstractizare, Moștenire, Polimorfism
-- B) Single Responsibility, Open-Closed, Liskov, Dependency Inversion
+**24.** *(«Cele 4 principii POO»)* — Cei 4 piloni fundamentali ai POO sunt:
+- A) Single Responsibility, Open-Closed, Liskov, Dependency Inversion
+- B) Încapsulare, Abstractizare, Moștenire, Polimorfism
 - C) Clase, Obiecte, Metode, Atribute
 - D) Constructor, Destructor, Copiere, Mutare
 
 <details><summary>✅ Răspuns</summary>
 
-**A)** — B sunt (parte din) principiile **SOLID** (design, nu piloni POO); C și D sunt concepte, nu principii fundamentale.
+**B)** — A sunt (parte din) principiile **SOLID** (design); C și D sunt concepte, nu piloni.
 </details>
 
-**31.** **Încapsularea** înseamnă în primul rând:
-- A) Expunerea doar a esențialului și ascunderea complexității de implementare
-- B) Gruparea datelor + metodelor într-o clasă și ascunderea datelor (data hiding) prin modificatori de acces
+**25.** *(«Cele 4 principii POO: încapsulare vs abstractizare»)* — Încapsularea înseamnă în primul rând:
+- A) Gruparea datelor + metodelor într-o clasă și **ascunderea datelor** (data hiding) prin modificatori de acces
+- B) Expunerea doar a esențialului și ascunderea complexității de implementare
 - C) Preluarea atributelor de la o clasă de bază
 - D) Același apel cu comportamente diferite
 
 <details><summary>✅ Răspuns</summary>
 
-**B)** — A descrie **abstractizarea** (confuzie frecventă!), C = moștenire, D = polimorfism.
-</details>
-
-**32.** Prin ce mecanism se realizează concret **abstractizarea** în C++?
-- A) Prin modificatorii `private`/`public`
-- B) Prin clase abstracte și interfețe (metode pur virtuale)
-- C) Prin template-uri
-- D) Prin `friend`
-
-<details><summary>✅ Răspuns</summary>
-
-**B)** — Abstractizarea expune „ce" prin clase abstracte/interfețe. A ține de **încapsulare** (data hiding).
+**A)** — B descrie **abstractizarea** (confuzie frecventă!); C = moștenire; D = polimorfism.
 </details>
 
 ---
 
-> 💡 **Cum folosești testul:** acoperă tot răspunsul cu mâna/mintea, alege o variantă, apoi deschide „Răspuns". Reține **de ce** variantele greșite par corecte — acolo sunt confuziile pe care le testează examinatorii.
+> 💡 **Distribuția răspunsurilor** e echilibrată (A/B/C/D). Reține **de ce** variantele greșite par corecte — acolo sunt confuziile testate: overloading↔overriding, agregare↔compoziție, interfață↔clasă abstractă, cele 5 litere SOLID, cei 4 piloni POO.

@@ -895,142 +895,131 @@ Diagrame: structurale (clase), comportamentale (use case), interacțiune (secven
 
 ---
 
-# 🎯 TEST GRILĂ — Ingineria Programării (recapitulare 2021–2025)
-> Întrebări bazate pe subiectele date la licență. Apasă pe **„Răspuns"** pentru a-l dezvălui. Variantele greșite sunt **confuzii frecvente reale**.
+# 🎯 TEST GRILĂ — Ingineria Programării (subiecte reale de licență 2021–2025)
+> Fiecare grilă pornește de la un **subiect dat efectiv la examen**. Apasă pe **„Răspuns"**. Răspunsul corect e distribuit uniform pe A/B/C/D.
 
-**1.** Un **design pattern** este:
-- A) Un algoritm de sortare
-- B) O soluție generală, reutilizabilă, la o problemă care apare frecvent în design-ul software
-- C) O bibliotecă de cod gata scrisă, gata de importat
-- D) Un limbaj de programare
-
-<details><summary>✅ Răspuns</summary>
-
-**B)** — C e o confuzie clasică: pattern-ul e o **descriere/șablon**, NU cod concret sau bibliotecă.
-</details>
-
-**2.** Care sunt cele **4 elemente** esențiale ale unui design pattern (GoF)?
-- A) Cod, teste, documentație, deployment
-- B) Nume, Problemă, Soluție, Consecințe
-- C) Model, View, Controller, Service
-- D) Clase, obiecte, metode, atribute
+**1.** *(«Design patterns. Definiție»)* — Un design pattern este:
+- A) un algoritm de sortare
+- B) o soluție generală, reutilizabilă, la o problemă care apare frecvent în design-ul software
+- C) o bibliotecă de cod gata scrisă, gata de importat
+- D) un limbaj de programare
 
 <details><summary>✅ Răspuns</summary>
 
-**B)** — Numele crește vocabularul de design; consecințele = trade-off-urile.
+**B)** — C e o confuzie clasică: pattern-ul e o descriere/șablon, NU cod concret sau bibliotecă.
 </details>
 
-**3.** Cele **3 categorii** de design patterns GoF sunt:
-- A) Publice, private, protejate
-- B) Creaționale, Structurale, Comportamentale
-- C) Simple, medii, complexe
-- D) Front-end, back-end, database
+**2.** *(«Design patterns. Elemente»)* — Cele 4 elemente esențiale (GoF):
+- A) cod, teste, documentație, deployment
+- B) model, view, controller, service
+- C) Nume, Problemă, Soluție, Consecințe
+- D) clase, obiecte, metode, atribute
 
 <details><summary>✅ Răspuns</summary>
 
-**B)** — Creaționale (creare), Structurale (compunere), Comportamentale (algoritmi/responsabilități).
+**C)** — Numele crește vocabularul de design; consecințele = trade-off-urile.
 </details>
 
-**4.** Șablonul **Adapter** (structural) se folosește pentru a:
-- A) Adăuga responsabilități dinamic unui obiect
-- B) Converti interfața unei clase în alta așteptată de client (interfețe incompatibile)
-- C) Garanta o singură instanță
-- D) Parcurge secvențial o colecție
+**3.** *(«Design patterns. Clasificare»)* — Cele 3 categorii GoF:
+- A) Creaționale, Structurale, Comportamentale
+- B) publice, private, protejate
+- C) simple, medii, complexe
+- D) front-end, back-end, database
 
 <details><summary>✅ Răspuns</summary>
 
-**B)** — A = Decorator, C = Singleton, D = Iterator. Exemplu: priză-ștecher.
+**A)** — Creaționale (creare), Structurale (compunere), Comportamentale (algoritmi/responsabilități).
 </details>
 
-**5.** Șablonul **Decorator** permite:
-- A) Adăugarea dinamică de responsabilități unui obiect (alternativă flexibilă la subclasare)
-- B) Convertirea unei interfețe incompatibile
-- C) Definirea unei familii de algoritmi
-- D) Restaurarea unei stări anterioare
+**4.** *(«DP structurale. Exemplificare Adapter»)* — Adapter se folosește pentru a:
+- A) adăuga responsabilități dinamic unui obiect
+- B) garanta o singură instanță
+- C) parcurge secvențial o colecție
+- D) converti interfața unei clase în alta așteptată de client (interfețe incompatibile)
 
 <details><summary>✅ Răspuns</summary>
 
-**A)** — B = Adapter, C = Strategy, D = Memento. Atenție: ordinea aplicării decoratorilor contează.
+**D)** — A = Decorator, B = Singleton, C = Iterator. Exemplu: priză-ștecher.
 </details>
 
-**6.** Șablonul **Proxy** oferă:
-- A) O interfață simplificată unui subsistem complex
-- B) Un substitut/placeholder pentru alt obiect, pentru a controla accesul la el
-- C) Un mecanism de clonare a obiectelor
-- D) Notificarea automată a observatorilor
+**5.** *(«DP structurale. Decorator»)* — Decorator permite:
+- A) convertirea unei interfețe incompatibile
+- B) adăugarea dinamică de responsabilități unui obiect (alternativă la subclasare)
+- C) definirea unei familii de algoritmi
+- D) restaurarea unei stări anterioare
 
 <details><summary>✅ Răspuns</summary>
 
-**B)** — A = Facade, C = Prototype, D = Observer. Exemplu: ATM ca proxy spre bancă.
+**B)** — A = Adapter, C = Strategy, D = Memento. Atenție: ordinea aplicării decoratorilor contează.
 </details>
 
-**7.** Șablonul **Flyweight** (structural) rezolvă problema:
-- A) Prea multor instanțe de servicii
-- B) Suportării eficiente a unui număr mare de obiecte fine-grained prin partajarea datelor comune (economie de memorie)
-- C) Interfețelor incompatibile
-- D) Ordinii de execuție a firelor de execuție
+**6.** *(«GoF. Proxy»)* — Proxy oferă:
+- A) o interfață simplificată unui subsistem complex
+- B) un mecanism de clonare a obiectelor
+- C) un substitut/placeholder pentru alt obiect, pentru a controla accesul la el
+- D) notificarea automată a observatorilor
 
 <details><summary>✅ Răspuns</summary>
 
-**B)** — Exemplu: FontData partajat între mii de caractere identice. C = Adapter.
+**C)** — A = Facade, B = Prototype, D = Observer. Exemplu: ATM ca proxy spre bancă.
 </details>
 
-**8.** Șablonul **Observer** definește:
-- A) O dependență one-to-many: când un obiect se schimbă, toți dependenții sunt notificați automat (publish-subscribe)
-- B) O operație nouă fără modificarea claselor
-- C) Un lanț de handlere
-- D) Încapsularea unei cereri ca obiect
+**7.** *(«DP structurale. Flyweight»)* — Flyweight rezolvă problema:
+- A) suportării eficiente a unui număr mare de obiecte fine-grained prin partajarea datelor comune (economie de memorie)
+- B) prea multor instanțe de servicii
+- C) interfețelor incompatibile
+- D) ordinii de execuție a firelor
 
 <details><summary>✅ Răspuns</summary>
 
-**A)** — B = Visitor, C = Chain of Responsibility, D = Command.
+**A)** — Exemplu: FontData partajat între mii de caractere identice. C = Adapter.
 </details>
 
-**9.** Șablonul **Mediator**:
-- A) Adaugă responsabilități dinamic
-- B) Încapsulează modul în care un set de obiecte interacționează → reduce cuplajul (obiectele nu se mai cunosc direct între ele)
-- C) Clonează obiecte
-- D) Definește scheletul unui algoritm
+**8.** *(«DP comportamentale. Mediator»)* — Mediator:
+- A) adaugă responsabilități dinamic
+- B) clonează obiecte
+- C) definește scheletul unui algoritm
+- D) încapsulează cum interacționează un set de obiecte → reduce cuplajul (obiectele nu se mai cunosc direct)
 
 <details><summary>✅ Răspuns</summary>
 
-**B)** — Exemplu: turnul de control (avioanele nu comunică între ele). Risc: poate deveni un „God Object".
+**D)** — Exemplu: turnul de control (avioanele nu comunică între ele). Risc: „God Object".
 </details>
 
-**10.** Șablonul **Chain of Responsibility**:
-- A) Pasează cererea de-a lungul unui lanț de handlere până când unul o tratează
-- B) Notifică automat mai multe obiecte
-- C) Convertește o interfață
-- D) Oferă un punct global de acces
+**9.** *(«GoF. Observer»)* — Observer definește:
+- A) o operație nouă fără modificarea claselor
+- B) o dependență one-to-many: când un obiect se schimbă, toți dependenții sunt notificați automat (publish-subscribe)
+- C) un lanț de handlere
+- D) încapsularea unei cereri ca obiect
 
 <details><summary>✅ Răspuns</summary>
 
-**A)** — B = Observer, C = Adapter, D = Singleton. (În POO, tratarea excepțiilor e adesea modelată ca CoR.)
+**B)** — A = Visitor, C = Chain of Responsibility, D = Command.
 </details>
 
-**11.** Șablonul **Prototype** (creațional) creează obiecte prin:
-- A) Instanțierea directă cu `new`
-- B) Clonarea unui obiect prototip existent
-- C) Un lanț de fabrici
-- D) O interfață unificată
+**10.** *(«DP comportamentale. Chain of Responsibility»)* — Chain of Responsibility:
+- A) pasează cererea de-a lungul unui lanț de handlere până când unul o tratează
+- B) notifică automat mai multe obiecte
+- C) convertește o interfață
+- D) oferă un punct global de acces
 
 <details><summary>✅ Răspuns</summary>
 
-**B)** — Evită reinițializări repetate; util când clasele se specifică la runtime.
+**A)** — B = Observer, C = Adapter, D = Singleton.
 </details>
 
-**12.** Șablonul **Visitor** permite definirea unei operații noi:
-- A) modificând clasele elementelor
-- B) fără a modifica clasele elementelor pe care operează
-- C) doar pe un singur tip de obiect
-- D) doar la compilare
+**11.** *(«GoF. DP creaționale. Prototype»)* — Prototype creează obiecte prin:
+- A) instanțierea directă cu `new`
+- B) un lanț de fabrici
+- C) clonarea unui obiect prototip existent
+- D) o interfață unificată
 
 <details><summary>✅ Răspuns</summary>
 
-**B)** — Dezavantaj: la adăugarea unei clase noi în structură, toți vizitatorii trebuie actualizați.
+**C)** — Evită reinițializări repetate; util când clasele se specifică la runtime.
 </details>
 
-**13.** Ce înseamnă acronimul **SOLID**?
+**12.** *(«Care sunt principiile SOLID»)* — SOLID înseamnă:
 - A) Structure, Object, Logic, Interface, Data
 - B) Single Responsibility, Open-Closed, Liskov Substitution, Interface Segregation, Dependency Inversion
 - C) Simple, Optimized, Layered, Independent, Documented
@@ -1041,51 +1030,84 @@ Diagrame: structurale (clase), comportamentale (use case), interacțiune (secven
 **B)** — Cele 5 principii de design OO (Robert C. Martin).
 </details>
 
-**14.** Principiul **D** (Dependency Inversion) afirmă că:
-- A) O clasă are un singur motiv de schimbare
-- B) Modulele de nivel înalt și cele de nivel jos depind ambele de abstracții (nu de concrete)
-- C) Deschis extensiei, închis modificării
-- D) Interfețe mici, specifice clientului
+**13.** *(«SOLID: detaliere S»)* — Principiul S (Single Responsibility):
+- A) deschis extensiei, închis modificării
+- B) subtipurile substituibile pentru bază
+- C) depinde de abstracții
+- D) o clasă trebuie să aibă un singur motiv de schimbare (o singură responsabilitate)
 
 <details><summary>✅ Răspuns</summary>
 
-**B)** — A = S, C = O, D (răspuns) ≠ I. Realizat prin Dependency Injection.
+**D)** — A = O, B = L, C = D. Legat de low coupling & high cohesion.
 </details>
 
-**15.** Principiul **L** (Liskov) afirmă că:
-- A) Subtipurile trebuie să fie substituibile pentru tipurile de bază, fără a strica comportamentul așteptat
-- B) Clientul nu depinde de metode pe care nu le folosește
-- C) O clasă = o singură responsabilitate
-- D) Se depinde de abstracții, nu de detalii
+**14.** *(«SOLID: detaliere O»)* — Principiul O (Open-Closed): entitățile trebuie să fie:
+- A) deschise extensiei, închise modificării
+- B) deschise modificării, închise extensiei
+- C) cu o singură responsabilitate
+- D) substituibile prin subtipuri
 
 <details><summary>✅ Răspuns</summary>
 
-**A)** — B = I, C = S, D = D. Exemplu de încălcare: Square care redefinește setWidth/setHeight incompatibil cu Rectangle.
+**A)** — B e inversul greșit. Se obține prin abstractizare + polimorfism.
 </details>
 
-**16.** **Coeziunea** (cohesion) în GRASP măsoară:
-- A) Câte alte clase depinde o clasă
-- B) Cât de strâns legate/focalizate sunt responsabilitățile unei clase
-- C) Numărul de linii de cod
-- D) Viteza de execuție
+**15.** *(«SOLID: detaliere L»)* — Principiul L (Liskov):
+- A) clientul nu depinde de metode nefolosite
+- B) o clasă = o singură responsabilitate
+- C) subtipurile trebuie să fie substituibile pentru tipurile de bază, fără a strica comportamentul așteptat
+- D) se depinde de abstracții, nu de detalii
 
 <details><summary>✅ Răspuns</summary>
 
-**B)** — A descrie **cuplajul** (coupling). Coeziune mare = bine; cuplaj mare = rău.
+**C)** — A = I, B = S, D = D. Exemplu de încălcare: Square vs Rectangle (setWidth/setHeight).
 </details>
 
-**17.** **Cuplajul redus** (low coupling) este de dorit pentru că:
-- A) Face clasele să depindă de multe altele
-- B) O clasă cu cuplaj mic nu depinde de multe alte clase → mai ușor de înțeles, refolosit, întreținut
-- C) Crește numărul de bug-uri
-- D) Elimină nevoia de interfețe
+**16.** *(«SOLID și principiul I»)* — Principiul I (Interface Segregation):
+- A) o clasă = un motiv de schimbare
+- B) clienții nu trebuie forțați să depindă de metode pe care nu le folosesc (interfețe mici, specifice)
+- C) deschis extensiei, închis modificării
+- D) substituibilitatea subtipurilor
 
 <details><summary>✅ Răspuns</summary>
 
-**B)** — Cuplaj mare = schimbări în lanț, clase greu de refolosit în izolare.
+**B)** — Sparge interfețele „grase". Ex: `Worker(work+eat)` → `Workable` + `Feedable`.
 </details>
 
-**18.** Rolurile în **Scrum** sunt:
+**17.** *(«D din SOLID»)* — Principiul D (Dependency Inversion):
+- A) o clasă = o responsabilitate
+- B) deschis extensiei, închis modificării
+- C) interfețe mici, specifice clientului
+- D) modulele de nivel înalt și cele de nivel jos depind ambele de abstracții (nu de concrete)
+
+<details><summary>✅ Răspuns</summary>
+
+**D)** — A = S, B = O, C = I. Realizat prin Dependency Injection.
+</details>
+
+**18.** *(«Principiile GRASP. Coeziune»)* — Coeziunea (cohesion) măsoară:
+- A) cât de strâns legate/focalizate sunt responsabilitățile unei clase
+- B) câte alte clase depinde o clasă
+- C) numărul de linii de cod
+- D) viteza de execuție
+
+<details><summary>✅ Răspuns</summary>
+
+**A)** — B descrie **cuplajul**. Coeziune mare = bine; cuplaj mare = rău.
+</details>
+
+**19.** *(«Principiile GRASP. Cuplaj»)* — Cuplajul redus (low coupling) e de dorit pentru că:
+- A) face clasele să depindă de multe altele
+- B) crește numărul de bug-uri
+- C) o clasă cu cuplaj mic nu depinde de multe alte clase → mai ușor de înțeles, refolosit, întreținut
+- D) elimină nevoia de interfețe
+
+<details><summary>✅ Răspuns</summary>
+
+**C)** — Cuplaj mare = schimbări în lanț, clase greu de refolosit în izolare.
+</details>
+
+**20.** *(«Metodologia SCRUM. Roluri»)* — Rolurile în Scrum:
 - A) Manager, Analist, Tester
 - B) Product Owner, Scrum Master, Development Team
 - C) Client, Server, Database
@@ -1096,194 +1118,205 @@ Diagrame: structurale (clase), comportamentale (use case), interacțiune (secven
 **B)** — PO = prioritizează backlog-ul; Scrum Master = facilitează; Team = livrează.
 </details>
 
-**19.** **Artefactele** în Scrum sunt:
+**21.** *(«SCRUM. Artefacte»)* — Artefactele în Scrum:
 - A) Sprint, Daily, Retrospective
-- B) Product Backlog, Sprint Backlog, Increment
-- C) Model, View, Controller
-- D) Roluri, valori, reguli
+- B) Model, View, Controller
+- C) roluri, valori, reguli
+- D) Product Backlog, Sprint Backlog, Increment
 
 <details><summary>✅ Răspuns</summary>
 
-**B)** — A sunt **evenimente** (confuzie frecventă artefacte ↔ evenimente!).
+**D)** — A sunt **evenimente** (confuzie frecventă artefacte ↔ evenimente!).
 </details>
 
-**20.** Care este un **eveniment** (ceremonie) Scrum?
-- A) Product Backlog
-- B) Sprint Planning / Daily Scrum / Sprint Review / Retrospective
+**22.** *(«SCRUM. Evenimente»)* — Care este un eveniment (ceremonie) Scrum?
+- A) Sprint Planning / Daily Scrum / Sprint Review / Retrospective
+- B) Product Backlog
 - C) Product Owner
 - D) Increment
 
 <details><summary>✅ Răspuns</summary>
 
-**B)** — A și D = artefacte; C = rol.
+**A)** — B și D = artefacte; C = rol.
 </details>
 
-**21.** Metodologia **Kanban** se caracterizează prin:
-- A) Iterații fixe (sprinturi) cu roluri stricte
-- B) Vizualizarea fluxului de lucru, livrare just-in-time, schimbare evolutivă, fără roluri prescrise
-- C) Documentație extinsă înainte de a scrie cod
-- D) Programare în perechi obligatorie
+**23.** *(«Metodologia Kanban»)* — Kanban se caracterizează prin:
+- A) iterații fixe (sprinturi) cu roluri stricte
+- B) documentație extinsă înainte de a scrie cod
+- C) vizualizarea fluxului de lucru, livrare just-in-time, schimbare evolutivă, fără roluri prescrise
+- D) programare în perechi obligatorie
 
 <details><summary>✅ Răspuns</summary>
 
-**B)** — A e mai degrabă Scrum; C e cascada; D e XP.
+**C)** — A e mai degrabă Scrum; B e cascada; D e XP.
 </details>
 
-**22.** Un principiu **Agile** este:
-- A) Modificările târzii în cerințe trebuie respinse
-- B) Livrare continuă de software funcțional; modificările (chiar târzii) sunt binevenite; colaborare strânsă cu clientul
-- C) Documentația e mai importantă decât software-ul funcțional
-- D) Comunicarea se face doar prin rapoarte scrise
+**24.** *(«Metodologia Agile»)* — Un principiu Agile:
+- A) modificările târzii în cerințe trebuie respinse
+- B) livrare continuă de software funcțional; modificările (chiar târzii) sunt binevenite; colaborare strânsă cu clientul
+- C) documentația e mai importantă decât software-ul funcțional
+- D) comunicarea se face doar prin rapoarte scrise
 
 <details><summary>✅ Răspuns</summary>
 
 **B)** — A, C, D sunt exact opusul valorilor Agile.
 </details>
 
-**23.** **Reverse engineering** este procesul de a:
-- A) Scrie cod pornind de la cerințe spre implementare
-- B) Descoperi principiile unui sistem prin analiza structurii, funcției și operării sale
-- C) Compila codul sursă
-- D) Sorta datele
+**25.** *(«Reverse Engineering. Definiție»)* — Reverse engineering este procesul de a:
+- A) scrie cod pornind de la cerințe spre implementare
+- B) compila codul sursă
+- C) sorta datele
+- D) descoperi principiile unui sistem prin analiza structurii, funcției și operării sale
 
 <details><summary>✅ Răspuns</summary>
 
-**B)** — A este **forward engineering** (opusul).
+**D)** — A este **forward engineering** (opusul).
 </details>
 
-**24.** La reverse engineering-ul **software**, cele două situații principale sunt:
-- A) Cu compilator / fără compilator
-- B) Cod sursă disponibil (dar slab documentat) / fără cod sursă
-- C) Static / dinamic
-- D) Manual / automat
+**26.** *(«Reverse Engineering. Tipuri»)* — La RE **software**, cele două situații principale sunt:
+- A) cod sursă disponibil (dar slab documentat) / fără cod sursă
+- B) cu compilator / fără compilator
+- C) static / dinamic
+- D) manual / automat
 
 <details><summary>✅ Răspuns</summary>
 
-**B)** — Tipuri generale RE: mecanic, circuite/smartcard, militar, software.
+**A)** — Tipuri generale RE: mecanic, circuite/smartcard, militar, software.
 </details>
 
-**25.** Care este **cea mai importantă etapă** în dezvoltarea unui proiect software?
-- A) Scrierea codului (implementarea)
-- B) Ingineria/Analiza cerințelor (atenția insuficientă aici e cea mai frecventă cauză de eșec)
-- C) Deployment-ul
-- D) Întreținerea
+**27.** *(«Ce este IP, etapele, care e cea mai importantă»)* — Cea mai importantă etapă:
+- A) scrierea codului (implementarea)
+- B) deployment-ul
+- C) ingineria/analiza cerințelor (atenția insuficientă aici e cea mai frecventă cauză de eșec)
+- D) întreținerea
 
 <details><summary>✅ Răspuns</summary>
 
-**B)** — ~50% din erori provin din cerințe incorecte/incomplete; erorile târzii costă cel mai mult.
+**C)** — ~50% din erori provin din cerințe incorecte/incomplete; erorile târzii costă cel mai mult.
 </details>
 
-**26.** Diferența între **validare** și **verificare**:
-- A) Validare = „construim corect produsul?"; Verificare = „construim produsul corect?"
-- B) Validare = „construim produsul corect?" (îndeplinește cerințele clientului); Verificare = „construim corect produsul?" (corect tehnic)
-- C) Sunt sinonime
-- D) Validarea se face doar de client, verificarea doar de manager
+**28.** *(«Etapele dezvoltării»)* — Diferența validare – verificare:
+- A) validare = „construim corect produsul?"; verificare = „construim produsul corect?"
+- B) validare = „construim produsul corect?" (îndeplinește cerințele); verificare = „construim corect produsul?" (corect tehnic)
+- C) sunt sinonime
+- D) validarea doar de client, verificarea doar de manager
 
 <details><summary>✅ Răspuns</summary>
 
 **B)** — A e inversat. Validare = produsul potrivit; Verificare = produs făcut corect.
 </details>
 
-**27.** Un **dezavantaj** al modelului în **cascadă** (waterfall):
-- A) Nu împarte munca în pași
-- B) Erorile se propagă între pași, iar clientul vede produsul abia la final
-- C) Ia în calcul riscul la fiecare pas
-- D) Nu produce niciun rezultat intermediar
+**29.** *(«Unde/când se folosește IP; când NU»)* — Când NU e neapărat necesar să aplici riguros ingineria programării?
+- A) la un proiect mic, personal (ex. un scraper de uz propriu) — nu aplici SCRUM etc., ai pierde timp aiurea
+- B) la un sistem bancar de milioane de linii
+- C) la un sistem de control al traficului aerian
+- D) la o aplicație folosită de mii de utilizatori
 
 <details><summary>✅ Răspuns</summary>
 
-**B)** — C e specific modelului în **spirală**. Avantaj cascadă: simplu, ușor de controlat.
+**A)** — IP e pentru proiecte mari, în echipă. La un proiect trivial personal, overhead-ul metodologic nu se justifică.
 </details>
 
-**28.** Ce aduce în plus modelul în **spirală** față de cascadă?
-- A) Programarea în perechi
-- B) Analiza/gestiunea riscului la fiecare iterație
-- C) Livrarea zilnică de software
-- D) Eliminarea etapei de testare
+**30.** *(«Modele de dezvoltare. Cascada»)* — Un dezavantaj al modelului în cascadă:
+- A) nu împarte munca în pași
+- B) ia în calcul riscul la fiecare pas
+- C) nu produce niciun rezultat intermediar
+- D) erorile se propagă între pași, iar clientul vede produsul abia la final
+
+<details><summary>✅ Răspuns</summary>
+
+**D)** — B e specific modelului în **spirală**. Avantaj cascadă: simplu, ușor de controlat.
+</details>
+
+**31.** *(«Modele de dezvoltare. Spirala»)* — Ce aduce în plus modelul în spirală față de cascadă?
+- A) programarea în perechi
+- B) analiza/gestiunea riscului la fiecare iterație
+- C) livrarea zilnică de software
+- D) eliminarea etapei de testare
 
 <details><summary>✅ Răspuns</summary>
 
 **B)** — Ex. riscuri: concurent lansează produs similar, arhitect pleacă, client schimbă cerințe.
 </details>
 
-**29.** Care e relația între **Quality Assurance (QA)** și **testare**?
+**32.** *(«Quality Assurance. Definiție»)* — Relația între QA și testare:
 - A) QA = corecția defectelor; testarea = prevenție
-- B) QA = prevenție (procese, îmbunătățire continuă); testarea = parte din Quality Control (corecție)
-- C) Sunt exact același lucru
-- D) Testarea înlocuiește complet QA
+- B) sunt exact același lucru
+- C) QA = prevenție (procese, îmbunătățire continuă); testarea = parte din Quality Control (corecție)
+- D) testarea înlocuiește complet QA
 
 <details><summary>✅ Răspuns</summary>
 
-**B)** — A e inversat. QA previne, QC (inclusiv testarea) corectează.
+**C)** — A e inversat. QA previne, QC (inclusiv testarea) corectează.
 </details>
 
-**30.** **Code coverage** la testare măsoară:
-- A) Numărul de bug-uri găsite
-- B) Procentul de cod (instrucțiuni/ramuri/căi) executat de teste
-- C) Timpul de execuție al testelor
-- D) Numărul total de teste scrise
+**33.** *(«QA. Ce este code coverage, cum se calculează»)* — Code coverage măsoară:
+- A) procentul de cod (instrucțiuni/ramuri/căi) executat de teste
+- B) numărul de bug-uri găsite
+- C) timpul de execuție al testelor
+- D) numărul total de teste scrise
 
 <details><summary>✅ Răspuns</summary>
 
-**B)** — Ex: 80 linii executate din 100 → statement coverage 80%. E o tehnică de **white box**.
+**A)** — Ex: 80 linii executate din 100 → statement coverage 80%. Tehnică de white box.
 </details>
 
-**31.** Un **avantaj** al testării **automate** față de cea manuală:
-- A) E mai bună pentru verificarea aspectului vizual/UI
-- B) Ieftin de repetat, rapid, predictibil și planificabil
-- C) Nu necesită deloc scrierea de cod
-- D) Nu poate fi planificată
+**34.** *(«QA. Manual Testing vs Automation Testing»)* — Un avantaj al testării automate:
+- A) e mai bună pentru verificarea aspectului vizual/UI
+- B) nu necesită deloc scrierea de cod
+- C) nu poate fi planificată
+- D) ieftin de repetat, rapid, predictibil și planificabil
 
 <details><summary>✅ Răspuns</summary>
 
-**B)** — A e punctul forte al testării **manuale**. Automată: costisitor de scris scenariile inițial.
+**D)** — A e punctul forte al testării **manuale**. Automată: costisitor de scris scenariile inițial.
 </details>
 
-**32.** Care este un tip de testare **NEfuncțională**?
-- A) Unit testing
-- B) Performance/Load, Security, Usability, Internationalization
-- C) Testarea unei funcții specifice
-- D) Testarea unei condiții de business
+**35.** *(«QA. Testare nefuncțională»)* — Care este un tip de testare NEfuncțională?
+- A) unit testing
+- B) performance/load, security, usability, internationalization
+- C) testarea unei funcții specifice
+- D) testarea unei condiții de business
 
 <details><summary>✅ Răspuns</summary>
 
-**B)** — Testarea nefuncțională vizează **calitatea** (performanță, securitate...), nu funcționalitatea.
+**B)** — Testarea nefuncțională vizează calitatea (performanță, securitate...), nu funcționalitatea.
 </details>
 
-**33.** **Unit testing** (testarea unitară):
-- A) Testează sistemul complet integrat
-- B) Testează o unitate mică (funcție/clasă), rulată de programatori, cu rezultate documentate (simulatoare I/O)
-- C) E făcută de client înainte de acceptare
-- D) Verifică doar interfața grafică
+**36.** *(«Unit Teste. De ce? Exemplu»)* — Unit testing (testarea unitară):
+- A) testează sistemul complet integrat
+- B) e făcută de client înainte de acceptare
+- C) testează o unitate mică (funcție/clasă), rulată de programatori, cu rezultate documentate (simulatoare I/O)
+- D) verifică doar interfața grafică
 
 <details><summary>✅ Răspuns</summary>
 
-**B)** — A = system testing, C = acceptance testing, D = GUI testing.
+**C)** — A = system testing, B = acceptance testing, D = GUI testing.
 </details>
 
-**34.** O diagramă **Use Case** conține:
-- A) Clase, atribute, metode
-- B) Actori, use case-uri și relații (asociere, generalizare, `<<include>>`/`<<extend>>`)
-- C) Stări și tranziții
-- D) Mesaje ordonate în timp
+**37.** *(«Use case. Definiție, exemple, elemente»)* — O diagramă Use Case conține:
+- A) actori, use case-uri și relații (asociere, generalizare, `<<include>>`/`<<extend>>`)
+- B) clase, atribute, metode
+- C) stări și tranziții
+- D) mesaje ordonate în timp
 
 <details><summary>✅ Răspuns</summary>
 
-**B)** — A = diagrama de clase, C = diagrama de stare, D = diagrama de secvență.
+**A)** — B = diagrama de clase, C = diagrama de stare, D = diagrama de secvență.
 </details>
 
-**35.** Relația `<<include>>` între două use case-uri înseamnă:
-- A) Un use case extinde opțional comportamentul altuia
-- B) Un use case folosește (obligatoriu) comportamentul definit în alt use case
-- C) O relație de moștenire între actori
-- D) O asociere actor–use case
+**38.** *(«Use case»)* — Relația `<<include>>` între două use case-uri înseamnă:
+- A) un use case extinde opțional comportamentul altuia
+- B) o relație de moștenire între actori
+- C) o asociere actor–use case
+- D) un use case folosește (obligatoriu) comportamentul definit în alt use case
 
 <details><summary>✅ Răspuns</summary>
 
-**B)** — A descrie `<<extend>>` (opțional) — confuzie frecventă include ↔ extend.
+**D)** — A descrie `<<extend>>` (opțional) — confuzie frecventă include ↔ extend.
 </details>
 
-**36.** Care este o **relație** corectă într-o diagramă de **clase**?
+**39.** *(«Diagrame de clase. Exemplu, detaliere»)* — Care este o relație corectă într-o diagramă de clase?
 - A) Sprint, Backlog, Increment
 - B) Generalizare (moștenire), Asociere, Agregare, Dependență
 - C) GET, POST, PUT, DELETE
@@ -1294,50 +1327,39 @@ Diagrame: structurale (clase), comportamentale (use case), interacțiune (secven
 **B)** — A = Scrum, C = metode HTTP, D = CRUD.
 </details>
 
-**37.** De ce **modelăm** un sistem software?
-- A) Pentru a scrie mai mult cod
-- B) Pentru a înțelege mai bine, a ne concentra pe un aspect, a oferi un șablon și a documenta deciziile
-- C) Pentru a evita testarea
-- D) Pentru a mări dimensiunea proiectului
+**40.** *(«Modelare. De ce? Limbaje de modelare»)* — De ce modelăm un sistem software?
+- A) pentru a scrie mai mult cod
+- B) pentru a evita testarea
+- C) pentru a înțelege mai bine, a ne concentra pe un aspect, a oferi un șablon și a documenta deciziile
+- D) pentru a mări dimensiunea proiectului
 
 <details><summary>✅ Răspuns</summary>
 
-**B)** — Model = simplificarea realității; un singur model nu e suficient.
+**C)** — Model = simplificarea realității; un singur model nu e suficient.
 </details>
 
-**38.** Principiul **stabilității pachetelor** (Stable Dependencies) spune că:
-- A) Toate pachetele trebuie să fie instabile
-- B) Un pachet ar trebui să depindă doar de pachete mai stabile decât el
-- C) Pachetele stabile trebuie să fie concrete
-- D) Dependențele pot forma cicluri
+**41.** *(«Principii POO în pachete. Principiul stabilității»)* — Principiul stabilității pachetelor spune că:
+- A) un pachet ar trebui să depindă doar de pachete mai stabile decât el
+- B) toate pachetele trebuie să fie instabile
+- C) pachetele stabile trebuie să fie concrete
+- D) dependențele pot forma cicluri
 
 <details><summary>✅ Răspuns</summary>
 
-**B)** — Pachetele **stabile** ar trebui să fie **abstracte** (C e inversat); dependențele trebuie să fie un **DAG** fără cicluri (D fals).
+**A)** — Pachetele stabile ar trebui să fie **abstracte** (C inversat); dependențele = **DAG** fără cicluri (D fals).
 </details>
 
-**39.** Când **NU** e neapărat necesar să aplici riguros ingineria programării (metodologii/principii)?
-- A) La un sistem bancar de milioane de linii
-- B) La un proiect mic, personal (ex. un scraper de uz propriu) — nu aplici SCRUM etc., ai pierde timp aiurea
-- C) La un sistem de control al traficului aerian
-- D) La o aplicație folosită de mii de utilizatori
+**42.** *(«GoF»)* — Ce este GoF (Gang of Four)?
+- A) un limbaj de modelare
+- B) o metodologie Agile
+- C) un framework de testare
+- D) cei 4 autori ai cărții „Design Patterns: Elements of Reusable Object-Oriented Software"
 
 <details><summary>✅ Răspuns</summary>
 
-**B)** — IP e pentru proiecte **mari**, în echipă. La un proiect trivial personal, overhead-ul metodologic nu se justifică.
-</details>
-
-**40.** Ce este **GoF** (Gang of Four)?
-- A) Un limbaj de modelare
-- B) Cei 4 autori ai cărții „Design Patterns: Elements of Reusable Object-Oriented Software" (Gamma, Helm, Johnson, Vlissides)
-- C) O metodologie Agile
-- D) Un framework de testare
-
-<details><summary>✅ Răspuns</summary>
-
-**B)** — Cartea care a standardizat cele 23 de design patterns clasice.
+**D)** — Gamma, Helm, Johnson, Vlissides — cartea care a standardizat cele 23 de pattern-uri clasice.
 </details>
 
 ---
 
-> 💡 **Cum folosești testul:** confuziile cheie la IP: elementele pattern-ului (nume/problemă/soluție/consecințe), cele 3 tipuri de patterns, literele SOLID, **artefacte vs evenimente Scrum**, coeziune vs cuplaj, validare vs verificare, `<<include>>` vs `<<extend>>`, QA (prevenție) vs testare (corecție).
+> 💡 **Distribuția răspunsurilor** e echilibrată. Confuzii cheie IP: elementele pattern-ului, cele 3 tipuri, literele SOLID, **artefacte vs evenimente Scrum**, coeziune vs cuplaj, validare vs verificare, `<<include>>` vs `<<extend>>`, QA (prevenție) vs testare (corecție).
