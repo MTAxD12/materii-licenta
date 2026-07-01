@@ -1294,339 +1294,284 @@ Responsive (RWD): aceeași pagină se adaptează la dispozitiv
 
 ---
 
-# 🎯 TEST GRILĂ — Tehnologii Web (recapitulare 2021–2025)
-> Întrebări bazate pe subiectele date la licență. Apasă pe **„Răspuns"** pentru a-l dezvălui. Variantele greșite sunt **confuzii frecvente reale**.
-
-**1.** Un **server web** are rolul de a:
-- A) Genera dinamic logica de business și a rula codul aplicației
-- B) Îndeplini cereri HTTP și a servi resurse (reprezentări) clienților
-- C) Stoca datele într-o bază de date relațională
-- D) Rula JavaScript în browser
-
-<details><summary>✅ Răspuns</summary>
-
-**B)** — A descrie un **server de aplicații** (confuzie clasică). Ex. servere web: Apache, NGINX, IIS.
-</details>
-
-**2.** Diferența dintre un **proxy** web și un **gateway** web:
-- A) Proxy-ul e lângă client (poate acționa în numele lui); gateway-ul ascunde serverul țintă (clientul nu știe de el)
-- B) Proxy-ul ascunde serverul; gateway-ul e lângă client
-- C) Sunt același lucru
-- D) Proxy-ul rulează pe client, gateway-ul în browser
-
-<details><summary>✅ Răspuns</summary>
-
-**A)** — B e inversat. Gateway-ul poate face și load balancing, caching, traducere de protocol.
-</details>
-
-**3.** Diferența principală între **server web** și **server de aplicații web**:
-- A) Serverul web generează conținut dinamic; app server-ul servește doar fișiere statice
-- B) Serverul web servește resurse/rutează cereri HTTP; app server-ul generează dinamic reprezentări și rulează logica aplicației
-- C) Nu există nicio diferență
-- D) App server-ul rulează în browser
-
-<details><summary>✅ Răspuns</summary>
-
-**B)** — A e inversat. App server: Zend/PHP, ASP.NET, Node.js, Spring.
-</details>
-
-**4.** Un **avantaj** al arhitecturii pe straturi (N-tier / layered):
-- A) Modificările dintr-un strat nu afectează celelalte (izolare, mentenanță ușoară)
-- B) Performanță maximă, fără niciun overhead
-- C) Elimină nevoia de testare
-- D) Un singur strat face tot
-
-<details><summary>✅ Răspuns</summary>
-
-**A)** — Overhead-ul de performanță e de fapt un **dezavantaj** (B); D e monolit (opusul).
-</details>
-
-**5.** Metoda HTTP **GET** este:
-- A) Nesigură (unsafe) și neidempotentă
-- B) Sigură (safe) și idempotentă
-- C) Folosită în principal pentru a crea resurse
-- D) Potrivită pentru a trimite date mari în body
-
-<details><summary>✅ Răspuns</summary>
-
-**B)** — A, C, D descriu **POST**. GET nu modifică starea și dă mereu același rezultat.
-</details>
-
-**6.** De ce **NU** pui date sensibile (parole) într-o cerere **GET**?
-- A) GET e mai lent
-- B) Datele apar în URL → ajung în istoric, bookmark-uri, loguri de server, header Referer
-- C) GET nu suportă HTTPS
-- D) GET criptează datele automat
-
-<details><summary>✅ Răspuns</summary>
-
-**B)** — La POST datele sunt în body (nu în URL). C și D sunt false.
-</details>
-
-**7.** De ce **GET** e potrivit pentru navigare, iar **POST** nu?
-- A) POST e mai rapid
-- B) URL-urile GET sunt bookmark-abile, partajabile, cache-abile; re-trimiterea unui POST cere confirmare
-- C) POST nu poate trimite date
-- D) GET modifică starea serverului
-
-<details><summary>✅ Răspuns</summary>
-
-**B)** — D e fals (GET e safe). GET = pentru obținere/navigare; POST = pentru acțiuni cu efect.
-</details>
-
-**8.** Ce atribut de cookie îl face **inaccesibil din JavaScript** (protecție contra XSS)?
-- A) `secure`
-- B) `httpOnly`
-- C) `sameSite`
-- D) `expires`
-
-<details><summary>✅ Răspuns</summary>
-
-**B)** — `secure` = doar pe HTTPS; `sameSite` = contra CSRF (cross-site); `httpOnly` = inaccesibil din JS.
-</details>
-
-**9.** Unde se stochează datele unei **sesiuni web**?
-- A) Complet în cookie, la client
-- B) Pe server (fișiere/BD); la client stă doar SID-ul (într-un cookie)
-- C) Mereu în URL
-- D) În RAM-ul browserului, criptat
-
-<details><summary>✅ Răspuns</summary>
-
-**B)** — Cookie-ul poartă doar identificatorul de sesiune (ex. `PHPSESSID`); datele rămân pe server.
-</details>
-
-**10.** Care e relația corectă între **SOA** și **MVC**?
-- A) Sunt sinonime
-- B) MVC = arhitectură internă a unei aplicații (model/view/controller); SOA = arhitectură de sistem (funcționalitatea = servicii independente); o aplicație MVC poate consuma/expune un serviciu SOA
-- C) SOA este un design pattern din MVC
-- D) MVC înlocuiește SOA
-
-<details><summary>✅ Răspuns</summary>
-
-**B)** — MVC organizează **o aplicație**; SOA descompune **sistemul** în servicii. Controller-ul MVC poate apela servicii SOA.
-</details>
-
-**11.** O diferență corectă între **serviciile web (SOA)** și **microservicii**:
-- A) SOA = share-as-little; microservicii = share-as-much
-- B) SOA tinde spre share-as-much (contract formal, eventual middleware); microserviciile spre share-as-little (un proces mic, independent deployabil, construit să fie înlocuit)
-- C) Microserviciile rulează doar în browser
-- D) Sunt exact același lucru
-
-<details><summary>✅ Răspuns</summary>
-
-**B)** — A e inversat. Asemănare: ambele = servicii slab cuplate, invocate prin rețea (HTTP).
-</details>
-
-**12.** Legătura dintre **REST, hipermedia, URI și teoria automatelor**:
-- A) O aplicație REST e un automat finit: stările = reprezentările resurselor, tranzițiile = metodele HTTP, iar hipermedia (link-urile) conduce schimbarea stării (HATEOAS)
-- B) REST e un limbaj de programare bazat pe automate
-- C) URI e starea, iar hipermedia oferă o singură tranziție deterministă
-- D) Nu există nicio legătură
-
-<details><summary>✅ Răspuns</summary>
-
-**A)** — URI etichetează stările/resursele; metodele HTTP sunt tranzițiile; hipermedia = graful de tranziții.
-</details>
-
-**13.** Poate fi creat arborele **DOM** dacă documentul XML/HTML e doar **bine-formatat**, dar NU validat?
-- A) Nu, e nevoie obligatoriu de validare (DTD/Schema)
-- B) Da — pentru DOM e suficient ca documentul să fie bine-formatat (well-formed); validarea e o etapă separată și opțională
-- C) Da, dar doar pentru HTML, nu XML
-- D) Nu, DOM necesită și well-formed ȘI valid
-
-<details><summary>✅ Răspuns</summary>
-
-**B)** — Browserul construiește DOM-ul chiar și pentru HTML „invalid" (ignoră/repară). Well-formed = suficient; valid = NU e necesar. (Reciproc: dacă NU e bine-formatat, DOM-ul nu se poate construi corect.)
-</details>
-
-**14.** Ce verifică în **plus** un parser **CU validare** față de unul fără validare?
-- A) Doar dacă marcajele sunt corect închise/imbricate
-- B) Conformitatea cu o gramatică (DTD / XML Schema) — structura și semantica
-- C) Viteza de parsare
-- D) Codarea caracterelor
-
-<details><summary>✅ Răspuns</summary>
-
-**B)** — A este **well-formedness** (o fac ambele tipuri de parsere). Validarea presupune întâi well-formed, apoi conformitate cu gramatica.
-</details>
-
-**15.** Diferența dintre **autentificare** și **autorizare**:
-- A) Autentificare = ce ai voie să faci; Autorizare = cine ești
-- B) Autentificare = cine ești (verificarea identității); Autorizare = ce ai voie să faci (permisiuni)
-- C) Sunt sinonime
-- D) Autentificarea se face doar cu parolă, autorizarea doar cu biometrie
-
-<details><summary>✅ Răspuns</summary>
-
-**B)** — A e inversat. Întâi te autentifici (login), apoi ești autorizat (permisiuni).
-</details>
-
-**16.** Un token **JWT** e folosit în API-uri pentru a:
-- A) Cripta întreaga bază de date
-- B) Transporta între client și API informații de identitate/autorizare semnate (verificabile), incluse la fiecare cerere
-- C) Stoca fișiere pe server
-- D) Genera HTML
-
-<details><summary>✅ Răspuns</summary>
-
-**B)** — JWT = obiect JSON semnat (HMAC / chei publice-private); similar sesiunilor, dar stateless.
-</details>
-
-**17.** Diferența esențială între **JSON** și **HTML**:
-- A) JSON e pentru prezentare vizuală, HTML pentru date
-- B) HTML = marcare pentru prezentarea conținutului către om; JSON = format de schimb de date procesabile de software
-- C) Sunt același format
-- D) JSON este un limbaj de programare
-
-<details><summary>✅ Răspuns</summary>
-
-**B)** — A e inversat. Aceeași resursă poate avea ambele reprezentări (HTML pt afișare, JSON pt API/Ajax).
-</details>
-
-**18.** În **cascada CSS**, la conflict între reguli, ordinea de departajare este:
-- A) Ordinea în sursă → specificitate → importanță
-- B) Origine + importanță → specificitate → ordine în sursă
-- C) Doar cine e scris ultimul câștigă mereu
-- D) Regula cu selectorul cel mai scurt câștigă
-
-<details><summary>✅ Răspuns</summary>
-
-**B)** — A e ordinea inversată. „Ultima declarată" (C) contează doar la **specificitate egală**.
-</details>
-
-**19.** Care selector CSS are cea mai mare **specificitate**?
-- A) un element (`p`)
-- B) un `#id`
-- C) o clasă (`.intro`)
-- D) selectorul universal (`*`)
-
-<details><summary>✅ Răspuns</summary>
-
-**B)** — Ordine: inline > `#id` > `.class`/`[attr]`/`:pseudo` > element > `*`.
-</details>
-
-**20.** **Responsive Web Design** înseamnă:
-- A) O versiune separată a site-ului pentru mobil (ex. `m.site.com`)
-- B) Aceeași pagină se adaptează automat la dispozitiv (layout fluid + media queries + imagini flexibile)
-- C) Un site care se încarcă rapid
-- D) Un site fără CSS
-
-<details><summary>✅ Răspuns</summary>
-
-**B)** — A e abordarea opusă (site-uri separate). RWD = o singură bază de cod care se adaptează.
-</details>
-
-**21.** Un **avantaj** al conținutului **static** față de cel dinamic:
-- A) Personalizare per utilizator
-- B) Performanță și scalabilitate mai bune (servit direct, ușor de pus în CDN/cache)
-- C) Conținut generat din baza de date la fiecare cerere
-- D) Necesită un server de aplicații
-
-<details><summary>✅ Răspuns</summary>
-
-**B)** — A, C, D descriu conținutul **dinamic**. Static = rapid, dar fără personalizare.
-</details>
-
-**22.** Un **template engine** (sistem de șabloane):
-- A) Compilează cod C++
-- B) Combină o machetă (template) cu date și substituie variabilele → generează HTML-ul final
-- C) Este un tip de bază de date
-- D) Rulează în kernelul sistemului de operare
-
-<details><summary>✅ Răspuns</summary>
-
-**B)** — Separă prezentarea de logică/date (View-ul din MVC). Ex: Smarty, Blade, Twig, Mustache, Handlebars.
-</details>
-
-**23.** O diferență corectă între **SOAP** și **REST**:
-- A) SOAP e un stil arhitectural, REST e un protocol
-- B) SOAP e un protocol (doar XML, strict, WSDL); REST e un stil arhitectural (orice format, uzual JSON, folosește verbele HTTP)
-- C) Ambele folosesc obligatoriu WSDL
-- D) REST folosește doar XML
-
-<details><summary>✅ Răspuns</summary>
-
-**B)** — A e inversat. Asemănare: ambele permit comunicarea machine-to-machine prin rețea.
-</details>
-
-**24.** Un **avantaj** al GraphQL față de REST:
-- A) Are mai multe endpoint-uri independente
-- B) Un singur endpoint; clientul cere exact datele dorite → rezolvă over/under-fetching
-- C) Nu folosește tipuri
-- D) Nu poate face interogări
-
-<details><summary>✅ Răspuns</summary>
-
-**B)** — A e specific REST; C e fals (GraphQL e strong-typed). Dezavantaj GraphQL: caching mai greu.
-</details>
-
-**25.** Principiul **DRY** în web apare, de exemplu, prin:
-- A) Copierea aceluiași HTML pe fiecare pagină
-- B) Reutilizarea unui layout/partial (header/footer) prin template engine + o singură sursă de logică în Model (MVC)
-- C) Scrierea aceleiași logici în fiecare controller
-- D) Valori „magice" repetate în tot codul
+# 🎯 TEST GRILĂ — Tehnologii Web (subiecte reale de licență 2021–2025)
+> Fiecare grilă pornește de la un **subiect dat efectiv la examen**. Apasă pe **„Răspuns"**. Răspunsul corect e distribuit uniform pe A/B/C/D.
+
+**1.** *(«Context unde apare principiul DRY în aplicații web»)* — DRY apare, de exemplu, prin:
+- A) copierea aceluiași HTML pe fiecare pagină
+- B) reutilizarea unui layout/partial (header/footer) prin template engine + o singură sursă de logică în Model (MVC)
+- C) scrierea aceleiași logici în fiecare controller
+- D) valori „magice" repetate în tot codul
 
 <details><summary>✅ Răspuns</summary>
 
 **B)** — A, C, D sunt exact **violări** ale DRY. DRY = o singură sursă de adevăr.
 </details>
 
-**26.** De ce folosesc aplicațiile web mari **mai multe limbaje** de programare?
-- A) Din obligație legală
-- B) „Right tool for the job" — fiecare limbaj pentru ce excelează (Python pt ML, JS pt front-end...); microserviciile pot fi în limbaje diferite
-- C) Pentru a face codul mai lent
-- D) Nu folosesc niciodată mai multe limbaje
+**2.** *(«Arborele DOM: bine-formatat sau valid?»)* — Poate fi creat arborele DOM dacă documentul e doar bine-formatat, dar NU valid?
+- A) nu, e nevoie obligatoriu de validare (DTD/Schema)
+- B) da, dar doar pentru HTML, nu XML
+- C) da — pentru DOM e suficient să fie bine-formatat (well-formed); validarea e o etapă separată și opțională
+- D) nu, DOM necesită și well-formed ȘI valid
 
 <details><summary>✅ Răspuns</summary>
 
-**B)** — Dezavantaj: complexitate crescută (build/deployment/tooling, mentenanță, integrare, echipe).
+**C)** — Browserul construiește DOM-ul chiar și pentru HTML „invalid" (ignoră/repară). Well-formed = suficient.
 </details>
 
-**27.** Ce face **browserul** la primirea unui cod HTTP **3xx** (ex. 301/302)?
-- A) Randează o pagină de eroare
-- B) Face redirect automat către altă adresă
-- C) Închide conexiunea fără a afișa nimic
-- D) Retrimite aceeași cerere la infinit
+**3.** *(«Conexiunea HTML – DOM – transfer asincron»)* — Care afirmație e corectă?
+- A) browserul construiește arborele DOM din HTML; DOM-ul poate fi modificat ulterior (ex. cu date primite asincron prin Ajax), fără reîncărcarea paginii
+- B) DOM-ul este imutabil după creare
+- C) Ajax înlocuiește arborele DOM cu un document XML
+- D) HTML-ul se regenerează din DOM la fiecare cerere
 
 <details><summary>✅ Răspuns</summary>
 
-**B)** — 4xx/5xx → pagină de eroare (A); 2xx → randează conținutul; 3xx → redirect (304 → folosește cache-ul).
+**A)** — HTML → arbore DOM; JS modifică DOM-ul dinamic (inclusiv cu date Ajax), fără reload.
 </details>
 
-**28.** Un exemplu concret de **design pattern** în dezvoltarea web:
-- A) Bubble sort
-- B) MVC (arhitectura aplicației) sau Singleton (o singură conexiune la BD), Front Controller (routing), Observer (evenimente)
-- C) Notația O-mare
+**4.** *(«Server web, proxy, gateway, server de aplicații: asemănări/deosebiri»)* — Care afirmație e corectă?
+- A) proxy-ul ascunde serverul țintă, gateway-ul e lângă client
+- B) serverul web generează conținut dinamic, app server-ul servește doar fișiere statice
+- C) proxy și gateway sunt același lucru
+- D) serverul web servește/rutează cereri HTTP; app server-ul generează dinamic reprezentări; proxy-ul e lângă client; gateway-ul ascunde serverul țintă
+
+<details><summary>✅ Răspuns</summary>
+
+**D)** — A e inversat (proxy=lângă client, gateway=ascunde serverul); B e inversat.
+</details>
+
+**5.** *(«Diferența SOA și MVC + interdependență»)* — Relația corectă:
+- A) sunt sinonime
+- B) MVC = arhitectură internă a unei aplicații (model/view/controller); SOA = arhitectură de sistem (funcționalitatea = servicii independente); o aplicație MVC poate consuma/expune un serviciu SOA
+- C) SOA este un design pattern din MVC
+- D) MVC înlocuiește SOA
+
+<details><summary>✅ Răspuns</summary>
+
+**B)** — MVC organizează **o aplicație**; SOA descompune **sistemul** în servicii. Controller-ul poate apela servicii SOA.
+</details>
+
+**6.** *(«Autentificare și autorizare în API-uri»)* — Diferența:
+- A) autentificare = ce ai voie să faci; autorizare = cine ești
+- B) sunt sinonime
+- C) autentificare = cine ești (verificarea identității); autorizare = ce ai voie să faci (permisiuni)
+- D) autentificarea doar cu parolă, autorizarea doar cu biometrie
+
+<details><summary>✅ Răspuns</summary>
+
+**C)** — A e inversat. Întâi te autentifici (login), apoi ești autorizat. În API-uri, sesiunea se poartă adesea prin token JWT.
+</details>
+
+**7.** *(«GET în defavoarea POST: securitate»)* — De ce NU pui date sensibile (parole) într-o cerere GET?
+- A) datele apar în URL → ajung în istoric, bookmark-uri, loguri de server, header Referer
+- B) GET e mai lent
+- C) GET nu suportă HTTPS
+- D) GET criptează datele automat
+
+<details><summary>✅ Răspuns</summary>
+
+**A)** — La POST datele sunt în body (nu în URL). C și D sunt false.
+</details>
+
+**8.** *(«GET vs POST: navigare»)* — De ce GET e potrivit pentru navigare, iar POST nu?
+- A) POST e mai rapid
+- B) POST nu poate trimite date
+- C) GET modifică starea serverului
+- D) URL-urile GET sunt bookmark-abile, partajabile, cache-abile; re-trimiterea unui POST cere confirmare
+
+<details><summary>✅ Răspuns</summary>
+
+**D)** — C e fals (GET e safe). GET = obținere/navigare; POST = acțiuni cu efect.
+</details>
+
+**9.** *(«Servicii web vs microservicii web»)* — O diferență corectă:
+- A) SOA = share-as-little; microservicii = share-as-much
+- B) SOA tinde spre share-as-much (contract formal, eventual middleware); microserviciile spre share-as-little (proces mic, independent deployabil, construit să fie înlocuit)
+- C) microserviciile rulează doar în browser
+- D) sunt exact același lucru
+
+<details><summary>✅ Răspuns</summary>
+
+**B)** — A e inversat. Asemănare: ambele = servicii slab cuplate, invocate prin rețea (HTTP).
+</details>
+
+**10.** *(«Folosirea mai multor limbaje în aplicații web mari»)* — De ce?
+- A) din obligație legală
+- B) pentru a face codul mai lent
+- C) „right tool for the job" — fiecare limbaj pentru ce excelează; microserviciile pot fi în limbaje diferite (dezavantaj: complexitate crescută)
+- D) nu se folosesc niciodată mai multe limbaje
+
+<details><summary>✅ Răspuns</summary>
+
+**C)** — Ex.: Flickr (PHP/Perl/Java), Netflix (Python/Java/Node/React). Dezavantaj: build/deployment/mentenanță mai grele.
+</details>
+
+**11.** *(«GraphQL vs REST»)* — Un avantaj al GraphQL față de REST:
+- A) un singur endpoint; clientul cere exact datele dorite → rezolvă over/under-fetching
+- B) are mai multe endpoint-uri independente
+- C) nu folosește tipuri
+- D) nu poate face interogări
+
+<details><summary>✅ Răspuns</summary>
+
+**A)** — B e specific REST; C e fals (GraphQL e strong-typed). Dezavantaj GraphQL: caching mai greu.
+</details>
+
+**12.** *(«(Dez)avantaje expresii regulate pentru validarea formularelor»)* — Un dezavantaj:
+- A) sunt imposibil de scris
+- B) nu pot valida adrese de email
+- C) funcționează doar în PHP
+- D) greu de citit/întreținut, risc de ReDoS, iar validarea pe client trebuie oricum repetată pe server
+
+<details><summary>✅ Răspuns</summary>
+
+**D)** — Avantaje: concise, reutilizabile, `pattern="..."` în HTML5. Validarea client-side nu e suficientă (securitate).
+</details>
+
+**13.** *(«Rolul codurilor HTTP în randarea paginii»)* — Ce face browserul la un cod HTTP 3xx (301/302)?
+- A) randează o pagină de eroare
+- B) face redirect automat către altă adresă
+- C) închide conexiunea fără a afișa nimic
+- D) retrimite aceeași cerere la infinit
+
+<details><summary>✅ Răspuns</summary>
+
+**B)** — 3xx = redirect (304 → folosește cache-ul). 4xx/5xx → pagină de eroare; 2xx → randează conținutul.
+</details>
+
+**14.** *(«Rolul codurilor HTTP în randare»)* — La un cod HTTP 404, browserul:
+- A) face redirect automat
+- B) randează normal conținutul primit
+- C) randează o pagină de eroare (ex. „404 Not Found")
+- D) criptează răspunsul
+
+<details><summary>✅ Răspuns</summary>
+
+**C)** — 4xx = eroare client → pagină de eroare. (2xx → conținut; 3xx → redirect.)
+</details>
+
+**15.** *(«Cum funcționează și în ce context sunt folosite template engines»)* — Un template engine:
+- A) combină o machetă (template) cu date și substituie variabilele → generează HTML-ul final
+- B) compilează cod C++
+- C) este un tip de bază de date
+- D) rulează în kernelul sistemului de operare
+
+<details><summary>✅ Răspuns</summary>
+
+**A)** — Separă prezentarea de logică/date (View-ul din MVC). Ex.: Smarty, Blade, Twig, Mustache, Handlebars.
+</details>
+
+**16.** *(«Cascada CSS»)* — Ordinea de departajare la conflict între reguli:
+- A) ordinea în sursă → specificitate → importanță
+- B) doar cine e scris ultimul câștigă mereu
+- C) regula cu selectorul cel mai scurt câștigă
+- D) origine + importanță → specificitate → ordine în sursă
+
+<details><summary>✅ Răspuns</summary>
+
+**D)** — A e ordinea inversată. „Ultima declarată" contează doar la **specificitate egală**.
+</details>
+
+**17.** *(«Cascada CSS: !important»)* — `!important` într-o regulă:
+- A) nu are niciun efect
+- B) suprascrie regulile normale (inversează ordinea importanței în cascadă)
+- C) crește specificitatea la infinit pentru orice regulă
+- D) e obligatoriu pentru orice stil
+
+<details><summary>✅ Răspuns</summary>
+
+**B)** — `!important` ridică declarația peste cele normale (a se folosi cu grijă — greu de suprascris ulterior).
+</details>
+
+**18.** *(«Diferențe și asemănări HTML și JSON»)* — Diferența esențială:
+- A) JSON e pentru prezentare vizuală, HTML pentru date
+- B) sunt același format
+- C) HTML = marcare pentru prezentarea conținutului către om; JSON = format de schimb de date procesabile de software
+- D) JSON este un limbaj de programare
+
+<details><summary>✅ Răspuns</summary>
+
+**C)** — A e inversat. Aceeași resursă poate avea ambele reprezentări (HTML pt afișare, JSON pt API/Ajax).
+</details>
+
+**19.** *(«Avantajele/dezavantajele conținutului static vs dinamic»)* — Un avantaj al conținutului static:
+- A) performanță și scalabilitate mai bune (servit direct, ușor de pus în CDN/cache)
+- B) personalizare per utilizator
+- C) conținut generat din baza de date la fiecare cerere
+- D) necesită un server de aplicații
+
+<details><summary>✅ Răspuns</summary>
+
+**A)** — B, C, D descriu conținutul **dinamic**. Static = rapid, dar fără personalizare.
+</details>
+
+**20.** *(«SOAP vs REST»)* — O diferență corectă:
+- A) SOAP e un stil arhitectural, REST e un protocol
+- B) ambele folosesc obligatoriu WSDL
+- C) REST folosește doar XML
+- D) SOAP e un protocol (doar XML, strict); REST e un stil arhitectural (orice format, uzual JSON, folosește verbele HTTP)
+
+<details><summary>✅ Răspuns</summary>
+
+**D)** — A e inversat. Asemănare: ambele permit comunicarea machine-to-machine prin rețea.
+</details>
+
+**21.** *(«(Dez)avantajele arhitecturii pe straturi (N-tier, layered)»)* — Un avantaj:
+- A) performanță maximă, fără niciun overhead
+- B) modificările dintr-un strat nu afectează celelalte (izolare, mentenanță ușoară)
+- C) elimină nevoia de testare
+- D) un singur strat face tot
+
+<details><summary>✅ Răspuns</summary>
+
+**B)** — Overhead-ul de performanță e de fapt un **dezavantaj** (A); D e monolit (opusul).
+</details>
+
+**22.** *(«Rolul design patterns în dezvoltarea unei aplicații web + exemple»)* — Un exemplu concret:
+- A) bubble sort
+- B) notația O-mare
+- C) MVC (arhitectura aplicației) sau Singleton (o singură conexiune la BD), Front Controller (routing), Observer (evenimente)
 - D) Teorema Master
 
 <details><summary>✅ Răspuns</summary>
 
-**B)** — A, C, D sunt algoritmi/noțiuni de complexitate, nu șabloane de proiectare.
+**C)** — A, D sunt algoritmi/noțiuni de complexitate, nu șabloane de proiectare.
 </details>
 
-**29.** Un **dezavantaj** al folosirii expresiilor regulate pentru validarea formularelor:
-- A) Sunt imposibil de scris
-- B) Greu de citit/întreținut, risc de ReDoS, iar validarea pe client trebuie oricum repetată pe server
-- C) Nu pot valida adrese de email
-- D) Funcționează doar în PHP
+**23.** *(«Design web responsive și contextul de utilizare»)* — Responsive Web Design înseamnă:
+- A) aceeași pagină se adaptează automat la dispozitiv (layout fluid + media queries + imagini flexibile)
+- B) o versiune separată a site-ului pentru mobil (m.site.com)
+- C) un site care se încarcă rapid
+- D) un site fără CSS
 
 <details><summary>✅ Răspuns</summary>
 
-**B)** — Avantaje: concise, reutilizabile, `pattern="..."` în HTML5. Dar validarea client-side nu e suficientă (securitate).
+**A)** — B e abordarea opusă (site-uri separate). Se aplică oriunde ai utilizatori pe dispozitive eterogene (esențial la PWA).
 </details>
 
-**30.** Ce permite **Ajax** (XMLHttpRequest / Fetch)?
-- A) Compilarea codului pe server
-- B) Transfer asincron de date între browser și server, fără reîncărcarea completă a paginii
-- C) Criptarea automată a cookie-urilor
-- D) Rularea SQL direct în browser
+**24.** *(«Avantaje/Dezavantaje MVC în diverse tipuri de aplicații web»)* — Care e corect?
+- A) avantaj: elimină nevoia de testare
+- B) avantaj: face codul mai lent
+- C) MVC nu are niciun avantaj
+- D) avantaj: separarea responsabilităților (date/logică/prezentare), mai multe view-uri, mentenanță; dezavantaj: complexitate suplimentară pentru aplicații mici
 
 <details><summary>✅ Răspuns</summary>
 
-**B)** — Ajax folosește headerele HTTP (Accept/Content-Type) pentru a negocia MIME-ul datelor (JSON/XML/HTML) și actualizează pagina cu DOM.
+**D)** — MVC strălucește la aplicații complexe (e-commerce); la un site static simplu, overhead-ul nu se justifică.
+</details>
+
+**25.** *(«Transfer de date asincron»)* — Ce permite Ajax (XMLHttpRequest / Fetch)?
+- A) compilarea codului pe server
+- B) transfer asincron de date între browser și server, fără reîncărcarea completă a paginii
+- C) criptarea automată a cookie-urilor
+- D) rularea SQL direct în browser
+
+<details><summary>✅ Răspuns</summary>
+
+**B)** — Ajax folosește headerele HTTP (Accept/Content-Type) pentru a negocia MIME-ul datelor și actualizează pagina cu DOM.
 </details>
 
 ---
 
-> 💡 **Cum folosești testul:** confuziile cheie la Web: server web vs app server, proxy vs gateway, autentificare vs autorizare, GET vs POST, DOM well-formed vs valid, SOA (sistem) vs MVC (aplicație), static vs dinamic, SOAP (protocol) vs REST (stil).
+> 💡 **Distribuția răspunsurilor** e echilibrată. Confuzii cheie Web: server web vs app server, proxy vs gateway, autentificare vs autorizare, GET vs POST, DOM well-formed vs valid, SOA (sistem) vs MVC (aplicație), static vs dinamic, SOAP (protocol) vs REST (stil).
