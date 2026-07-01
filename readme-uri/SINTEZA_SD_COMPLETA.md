@@ -5,19 +5,31 @@
 ---
 
 ## CUPRINS (după prioritatea la examen)
+> **Prioritate actualizată cu întrebări din 2021, 2022, 2023, 2024.** "×N" = de câte ori a apărut.
 
-| # | Temă | Întrebări anul trecut | Prioritate |
-|---|------|----------------------|------------|
-| 1 | [Complexitate & Analiza eficienței](#1-complexitate--analiza-eficienței-) | Q13,15,19 | ⭐⭐⭐⭐⭐ |
-| 2 | [Complexitatea funcțiilor recursive (4 metode)](#2-complexitatea-funcțiilor-recursive-) | Q6,12,16,21,28,29 | ⭐⭐⭐⭐⭐ |
-| 3 | [Tipurile abstracte Stivă și Coadă](#3-tipurile-abstracte-stivă-și-coadă-) | Q2,7,22,25 | ⭐⭐⭐ |
-| 4 | [Sortare prin numărare și distribuire](#4-sortare-prin-numărare-și-distribuire-) | Q11,14,23,27 | ⭐⭐⭐ |
-| 5 | [Grafuri, digrafuri, parcurgeri, componente](#5-grafuri-digrafuri-parcurgeri-) | Q5,18,20,24 | ⭐⭐⭐ |
-| 6 | [Arbori binari de căutare (ABC)](#6-arbori-binari-de-căutare-abc-) | Q1,3,17 | ⭐⭐ |
-| 7 | [Coadă cu priorități / Heap](#7-coadă-cu-priorități--heap-) | Q8,9 | ⭐⭐ |
-| 8 | [Arbori echilibrați (AVL, Roșu-Negru)](#8-arbori-echilibrați-avl-roșu-negru-) | Q10,26 | ⭐⭐ |
-| 9 | [Arbori digitali (Trie)](#9-arbori-digitali-trie-) | Q4 | ⭐ |
-| — | [Anexe: Arbori binari, Liste, Sortări comparative, Hash, Tip abstract](#anexe) | context | — |
+| # | Temă | Recurență 2021–2024 | Prioritate |
+|---|------|---------------------|------------|
+| 1 | [Complexitate & Analiza eficienței (caz fav/nefav, O/Ω/Θ, ordine de creștere)](#1-complexitate--analiza-eficienței-) | în fiecare an (×4+) | ⭐⭐⭐⭐⭐ |
+| 2 | [Complexitatea funcțiilor recursive (4 metode + Teorema Master)](#2-complexitatea-funcțiilor-recursive-) | în fiecare an (Master ×4) | ⭐⭐⭐⭐⭐ |
+| 7bis | [**Union-Find** (colecții de mulțimi disjuncte)](#7bis-colecții-de-mulțimi-disjuncte-union-find) | **foarte frecvent (×3 într-un an!)** | ⭐⭐⭐⭐⭐ |
+| 3 | [Tipurile abstracte Stivă și Coadă](#3-tipurile-abstracte-stivă-și-coadă-) | recurent | ⭐⭐⭐ |
+| 4 | [Sortare prin numărare și distribuire](#4-sortare-prin-numărare-și-distribuire-) | recurent | ⭐⭐⭐ |
+| 5 | [Grafuri, digrafuri, parcurgeri, componente (tare) conexe](#5-grafuri-digrafuri-parcurgeri-) | **grafuri ×3 într-un an** | ⭐⭐⭐⭐ |
+| 6 | [Arbori binari de căutare (ABC)](#6-arbori-binari-de-căutare-abc-) | în fiecare an | ⭐⭐⭐⭐ |
+| 7 | [Coadă cu priorități / Heap (min/max)](#7-coadă-cu-priorități--heap-) | recurent | ⭐⭐⭐ |
+| 8 | [Arbori echilibrați (AVL, Roșu-Negru)](#8-arbori-echilibrați-avl-roșu-negru-) | în fiecare an (AVL + RB) | ⭐⭐⭐⭐ |
+| 9 | [Arbori digitali (Trie)](#9-arbori-digitali-trie-) | rar | ⭐ |
+| A,B,C | [Anexe: **Tipuri de date/clasificare**, **Tablouri/structuri**, **Liste liniare**, Sortări comparative, Hash](#anexe) | **toate recurente** (vezi mai jos) | ⭐⭐⭐ |
+
+> **Top recurente SD (toți anii 2021–2024):**
+> - **Union-Find** — printre cele mai întrebate (apare de mai multe ori chiar în același an); **învață și LA CE folosește** (componente conexe, Kruskal) — profesorii întreabă explicit.
+> - **Complexitate** (caz fav/nefav cu **exemplu de algoritm dat de tine**, O/Ω/Θ, clasificarea claselor O) + **funcții recursive** (substituție, iterație, arbori de recursie, **Teorema Master**).
+> - **Grafuri/digrafuri** (reprezentare: liste/matrice de adiacență; parcurgeri DFS/BFS) — foarte frecvent.
+> - **ABC** + **arbori echilibrați AVL și Roșu-Negru** — în fiecare an.
+> - **Liste liniare** (definiție + implementări), **Stiva și Coada**, **Coada cu priorități/Heap** — recurente.
+> - **Sortări** (prin comparație; numărare/distribuire) — recurente.
+> - **Tipuri de date — definiție și clasificare** și **Tablouri și structuri** — recurente (în Anexa A; vezi acolo).
+> - **Tabele de dispersie / coliziuni** — recurent (Anexa E).
 
 ---
 
@@ -1485,3 +1497,342 @@ n log n: merge (stabil, O(n) spațiu), quick (mediu; O(n²) worst), heap (O(1) s
 n²:      bubble, insertion, selection
 O(n):    counting (întregi în interval), bucket (uniform distribuit)
 ```
+
+---
+
+# 🎯 TEST GRILĂ — SD (recapitulare 2021–2025)
+> Întrebări bazate pe subiectele date la licență. Apasă pe **„Răspuns"** pentru a-l dezvălui. Variantele greșite sunt **confuzii frecvente reale**.
+
+**1.** Notația **O(g(n))** reprezintă:
+- **A)** O margine inferioară (cel puțin la fel de mare ca g)
+- **B)** O **margine superioară** (cel mult la fel de mare ca g) a timpului de execuție
+- **C)** Marginea exactă (și superioară, și inferioară)
+- **D)** Timpul mediu de execuție
+
+<details><summary>✅ Răspuns</summary>
+
+**B)** — A descrie Ω (Omega), C descrie Θ (Theta). O = plafon superior.
+</details>
+
+**2.** `f(n) = Ω(g(n))` înseamnă că:
+- **A)** f crește cel mult la fel de repede ca g
+- **B)** f crește **cel puțin** la fel de repede ca g (margine inferioară)
+- **C)** f și g au exact același ordin
+- **D)** f este egală cu g
+
+<details><summary>✅ Răspuns</summary>
+
+**B)** — A e O; C e Θ. Omega = podea inferioară.
+</details>
+
+**3.** `Θ(g(n)) = O(g(n)) ∩ Ω(g(n))` înseamnă că f are:
+- **A)** ordin cel mult egal cu g
+- **B)** **exact același ordin** de creștere ca g (mărginit și superior, și inferior)
+- **C)** ordin cel puțin egal cu g
+- **D)** niciun raport cu g
+
+<details><summary>✅ Răspuns</summary>
+
+**B)** — Theta = ordin strâns (tight bound).
+</details>
+
+**4.** La **căutarea secvențială** într-un tablou de n elemente, cazul cel mai **nefavorabil** are complexitatea:
+- **A)** O(1)
+- **B)** O(log n)
+- **C)** O(n)
+- **D)** O(n²)
+
+<details><summary>✅ Răspuns</summary>
+
+**C)** — Nefavorabil = valoarea lipsește / e ultima → parcurgi tot. Cazul favorabil (prima poziție) = O(1). O(log n) ar fi căutarea **binară**.
+</details>
+
+**5.** Ordonează crescător după ordinul de creștere:
+- **A)** O(n) < O(log n) < O(n²) < O(2ⁿ)
+- **B)** O(log n) < O(n) < O(n log n) < O(n²) < O(2ⁿ)
+- **C)** O(1) < O(n²) < O(n) < O(log n)
+- **D)** O(2ⁿ) < O(n²) < O(n) < O(log n)
+
+<details><summary>✅ Răspuns</summary>
+
+**B)** — În A, log e greșit după n; C și D sunt dezordonate/inversate.
+</details>
+
+**6.** **Teorema Master** se folosește pentru:
+- **A)** A sorta un tablou
+- **B)** A rezolva recurențe de forma **T(n) = a·T(n/b) + f(n)** (complexitatea algoritmilor recursivi divide-et-impera)
+- **C)** A calcula complexitatea algoritmilor iterativi
+- **D)** A echilibra un arbore
+
+<details><summary>✅ Răspuns</summary>
+
+**B)** — Compari f(n) cu n^(log_b a) și alegi unul din cele 3 cazuri.
+</details>
+
+**7.** Teorema Master **NU** se poate aplica când:
+- **A)** a ≥ 1 și b > 1
+- **B)** f(n) nu e **polinomial** comparabilă cu n^(log_b a) (ex. diferă doar printr-un factor logaritmic, ca la `T(n)=2T(n/2)+n log n`)
+- **C)** f(n) este un polinom
+- **D)** subproblemele au dimensiuni egale
+
+<details><summary>✅ Răspuns</summary>
+
+**B)** — A sunt exact condițiile de aplicare (nu de excludere). Master cere diferență **polinomială**.
+</details>
+
+**8.** Metoda **substituției** pentru rezolvarea recurențelor presupune:
+- **A)** Desfășurarea recurenței până la cazul de bază și însumarea termenilor
+- **B)** **Ghicirea** soluției și demonstrarea prin **inducție matematică**
+- **C)** Construirea unui arbore de costuri pe niveluri
+- **D)** Aplicarea directă a unei formule
+
+<details><summary>✅ Răspuns</summary>
+
+**B)** — A = metoda iterației; C = arborele de recursie; D = Teorema Master.
+</details>
+
+**9.** Structura **Union-Find** (colecții de mulțimi disjuncte) e folosită pentru:
+- **A)** Sortarea rapidă a datelor
+- **B)** Gestionarea **partițiilor** — a afla rapid din ce submulțime face parte un element și a **reuni** submulțimi (ex. componente conexe, algoritmul lui Kruskal)
+- **C)** Căutarea binară
+- **D)** Parcurgerea în lățime a unui graf
+
+<details><summary>✅ Răspuns</summary>
+
+**B)** — ⚠️ profesorii întreabă explicit **la ce folosește**: componente conexe, arbore parțial minim (Kruskal), rețele, pixeli/regiuni.
+</details>
+
+**10.** Cele două operații de bază ale union-find sunt:
+- **A)** push și pop
+- **B)** **find și union**
+- **C)** insert și delete
+- **D)** enqueue și dequeue
+
+<details><summary>✅ Răspuns</summary>
+
+**B)** — `find(i)` = reprezentantul mulțimii lui i; `union(i,j)` = reunește mulțimile. (A = stivă, D = coadă.)
+</details>
+
+**11.** Ce optimizări țin arborii union-find joși (aproape O(1) amortizat)?
+- **A)** Rotații stânga/dreapta
+- **B)** **Union ponderat** (weighted) + **aplatizarea drumului** (path compression)
+- **C)** Recolorarea nodurilor
+- **D)** Rehashing
+
+<details><summary>✅ Răspuns</summary>
+
+**B)** — A e specific AVL, C arborilor roșu-negru, D tabelelor de dispersie.
+</details>
+
+**12.** **Stiva** este o structură de tip:
+- **A)** FIFO (primul intrat, primul ieșit)
+- **B)** **LIFO** (ultimul intrat, primul ieșit)
+- **C)** cu acces aleator
+- **D)** ordonată după prioritate
+
+<details><summary>✅ Răspuns</summary>
+
+**B)** — A e **coada**; D e coada cu priorități. Stiva: push/pop/top la vârf.
+</details>
+
+**13.** Operația de eliminare dintr-o **coadă** (FIFO) scoate:
+- **A)** ultimul element introdus
+- **B)** **primul element introdus** (cel mai vechi)
+- **C)** elementul cu prioritatea maximă
+- **D)** elementul din mijloc
+
+<details><summary>✅ Răspuns</summary>
+
+**B)** — A ar fi stiva (LIFO); C ar fi coada cu priorități.
+</details>
+
+**14.** Într-un **max-heap**, elementul din rădăcină este:
+- **A)** minimul
+- **B)** **maximul**
+- **C)** mediana
+- **D)** ultimul inserat
+
+<details><summary>✅ Răspuns</summary>
+
+**B)** — A ar fi un min-heap. Proprietatea: părinte ≥ fii.
+</details>
+
+**15.** Într-un heap reprezentat cu **tablou**, fiul **stâng** al nodului de la indexul i este la indexul:
+- **A)** i/2
+- **B)** **2i + 1**
+- **C)** i + 1
+- **D)** 2i + 2
+
+<details><summary>✅ Răspuns</summary>
+
+**B)** — Fiu stâng = 2i+1, fiu drept = 2i+2, părinte = (i−1)/2. (A e părintele — confuzie frecventă.)
+</details>
+
+**16.** Inserarea/eliminarea într-un heap cu n elemente are complexitatea:
+- **A)** O(1)
+- **B)** **O(log n)**
+- **C)** O(n)
+- **D)** O(n log n)
+
+<details><summary>✅ Răspuns</summary>
+
+**B)** — Heap-ul e arbore complet cu înălțime O(log n); sift-up/sift-down urcă/coboară un drum.
+</details>
+
+**17.** Într-un **arbore binar de căutare (ABC)**, pentru orice nod:
+- **A)** subarborele stâng conține valori mai mari, cel drept mai mici
+- **B)** subarborele stâng conține valori **mai mici**, cel drept **mai mari** decât nodul
+- **C)** toți fiii au aceeași valoare
+- **D)** frunzele sunt mereu la aceeași adâncime
+
+<details><summary>✅ Răspuns</summary>
+
+**B)** — A e inversat; D descrie un arbore **complet**.
+</details>
+
+**18.** Parcurgerea în **inordine** (stânga–rădăcină–dreapta) a unui ABC produce valorile:
+- **A)** în ordine descrescătoare
+- **B)** în ordine **crescătoare** (sortate)
+- **C)** pe niveluri
+- **D)** în ordine aleatoare
+
+<details><summary>✅ Răspuns</summary>
+
+**B)** — Proprietate cheie a ABC. Pe niveluri = BFS.
+</details>
+
+**19.** Complexitatea căutării într-un ABC în cazul cel mai **nefavorabil** (arbore degenerat) este:
+- **A)** O(log n)
+- **B)** **O(n)**
+- **C)** O(1)
+- **D)** O(n log n)
+
+<details><summary>✅ Răspuns</summary>
+
+**B)** — Un ABC degenerat devine o **listă** → O(n). De aceea folosim arbori echilibrați (AVL/roșu-negru) → O(log n).
+</details>
+
+**20.** Un arbore **AVL** este echilibrat dacă pentru orice nod:
+- **A)** numărul de noduri din stânga = numărul din dreapta
+- **B)** diferența de **înălțime** dintre subarborele stâng și drept este cel mult **1**
+- **C)** toate frunzele au aceeași culoare
+- **D)** rădăcina e cea mai mare valoare
+
+<details><summary>✅ Răspuns</summary>
+
+**B)** — Factorul de echilibrare ∈ {−1, 0, +1}. C ține de roșu-negru; D de heap.
+</details>
+
+**21.** O proprietate corectă a arborilor **roșu-negru** este:
+- **A)** Un nod roșu are ambii fii roșii
+- **B)** Orice drum de la un nod la frunze are **același număr de noduri negre**
+- **C)** Rădăcina este roșie
+- **D)** Toate nodurile sunt roșii
+
+<details><summary>✅ Răspuns</summary>
+
+**B)** — De fapt un nod roșu are fiii **negri** (A e inversat); rădăcina e **neagră** (C fals). Garantează h ≤ 2·log₂(n+1).
+</details>
+
+**22.** Reprezentarea unui graf cu **matrice de adiacență** are complexitatea de spațiu:
+- **A)** O(n + m)
+- **B)** **O(n²)**
+- **C)** O(m)
+- **D)** O(log n)
+
+<details><summary>✅ Răspuns</summary>
+
+**B)** — Matricea e n×n. **Listele** de adiacență ocupă O(n+m) (A) — mai bune pentru grafuri rare.
+</details>
+
+**23.** DFS folosește o ..., iar BFS folosește o ...:
+- **A)** coadă / stivă
+- **B)** **stivă / coadă**
+- **C)** heap / listă
+- **D)** ambele o coadă
+
+<details><summary>✅ Răspuns</summary>
+
+**B)** — DFS (adâncime) = stivă (LIFO); BFS (lățime) = coadă (FIFO). A e inversat.
+</details>
+
+**24.** O **componentă tare conexă** într-un digraf este o mulțime maximală de vârfuri în care:
+- **A)** există drum de la un vârf la altul (într-un singur sens)
+- **B)** între oricare două vârfuri u, v există drum **u→v ȘI v→u**
+- **C)** toate vârfurile au același grad
+- **D)** nu există cicluri
+
+<details><summary>✅ Răspuns</summary>
+
+**B)** — „Tare" = în **ambele** sensuri. A descrie doar conexitatea (graf neorientat).
+</details>
+
+**25.** Sortarea prin **numărare** (counting sort):
+- **A)** Se bazează pe comparații între elemente
+- **B)** Presupune valori întregi într-un **interval mic {1..k}** și are complexitate **O(n+k)**
+- **C)** Are complexitate O(n log n)
+- **D)** Funcționează doar pe date distribuite uniform în [0,1)
+
+<details><summary>✅ Răspuns</summary>
+
+**B)** — Counting NU compară elemente (deci poate depăși limita O(n log n)); D descrie **bucket sort**.
+</details>
+
+**26.** Ce algoritm ai folosi pentru un **set foarte mare** de date când vrei garanție **O(n log n)** ȘI stabilitate?
+- **A)** Bubble sort
+- **B)** **Merge sort**
+- **C)** Quick sort
+- **D)** Insertion sort
+
+<details><summary>✅ Răspuns</summary>
+
+**B)** — Merge sort: O(n log n) garantat + **stabil** (dar O(n) spațiu). Quick sort e O(n²) în cazul nefavorabil și nu e stabil.
+</details>
+
+**27.** Într-o tabelă de dispersie, o **coliziune** apare când:
+- **A)** tabela este plină
+- **B)** două chei **diferite** produc **aceeași valoare hash** (aceeași poziție)
+- **C)** o cheie nu există în tabelă
+- **D)** funcția hash returnează 0
+
+<details><summary>✅ Răspuns</summary>
+
+**B)** — Rezolvare: **înlănțuire** (dispersie externă) sau **adresare deschisă** (dispersie internă).
+</details>
+
+**28.** Rezolvarea coliziunilor prin **înlănțuire** (dispersie externă) înseamnă:
+- **A)** Căutarea unei alte poziții libere în tabelă (examinare liniară/pătratică)
+- **B)** Fiecare slot păstrează o **listă** cu toate elementele care au aceeași valoare hash
+- **C)** Mărirea automată a tabelei
+- **D)** Ignorarea celei de-a doua chei
+
+<details><summary>✅ Răspuns</summary>
+
+**B)** — A descrie **adresarea deschisă** (dispersie internă) — confuzie frecventă între cele două metode.
+</details>
+
+**29.** Accesul la al k-lea element este O(1) la ... și O(n) la ...:
+- **A)** listă înlănțuită / tablou
+- **B)** **tablou / listă înlănțuită**
+- **C)** ambele O(1)
+- **D)** ambele O(n)
+
+<details><summary>✅ Răspuns</summary>
+
+**B)** — Tabloul are acces aleator O(1); lista trebuie parcursă O(n). În schimb, lista e mai bună la inserări/ștergeri.
+</details>
+
+**30.** Un **tip de date abstract (TAD)** definește:
+- **A)** doar implementarea concretă a structurii
+- **B)** **obiectele și operațiile** permise (CE face), separat de implementare (CUM)
+- **C)** doar sintaxa unui limbaj de programare
+- **D)** modul de alocare a memoriei
+
+<details><summary>✅ Răspuns</summary>
+
+**B)** — Ex: Stiva/Coada = TAD-uri; pot fi implementate cu tablou SAU cu listă înlănțuită.
+</details>
+
+---
+
+> 💡 **Cum folosești testul:** alege o variantă înainte de a deschide „Răspuns". Confuziile cheie la SD: O vs Ω vs Θ, stivă vs coadă, fiu stâng `2i+1` vs părinte `(i−1)/2`, înlănțuire vs adresare deschisă, degenerat O(n) vs echilibrat O(log n).
