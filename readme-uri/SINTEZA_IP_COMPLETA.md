@@ -899,10 +899,10 @@ Diagrame: structurale (clase), comportamentale (use case), interacțiune (secven
 > Întrebări bazate pe subiectele date la licență. Apasă pe **„Răspuns"** pentru a-l dezvălui. Variantele greșite sunt **confuzii frecvente reale**.
 
 **1.** Un **design pattern** este:
-- **A)** Un algoritm de sortare
-- **B)** O **soluție generală, reutilizabilă**, la o problemă care apare frecvent în design-ul software
-- **C)** O bibliotecă de cod gata scrisă, gata de importat
-- **D)** Un limbaj de programare
+- A) Un algoritm de sortare
+- B) O soluție generală, reutilizabilă, la o problemă care apare frecvent în design-ul software
+- C) O bibliotecă de cod gata scrisă, gata de importat
+- D) Un limbaj de programare
 
 <details><summary>✅ Răspuns</summary>
 
@@ -910,10 +910,10 @@ Diagrame: structurale (clase), comportamentale (use case), interacțiune (secven
 </details>
 
 **2.** Care sunt cele **4 elemente** esențiale ale unui design pattern (GoF)?
-- **A)** Cod, teste, documentație, deployment
-- **B)** **Nume, Problemă, Soluție, Consecințe**
-- **C)** Model, View, Controller, Service
-- **D)** Clase, obiecte, metode, atribute
+- A) Cod, teste, documentație, deployment
+- B) Nume, Problemă, Soluție, Consecințe
+- C) Model, View, Controller, Service
+- D) Clase, obiecte, metode, atribute
 
 <details><summary>✅ Răspuns</summary>
 
@@ -921,10 +921,10 @@ Diagrame: structurale (clase), comportamentale (use case), interacțiune (secven
 </details>
 
 **3.** Cele **3 categorii** de design patterns GoF sunt:
-- **A)** Publice, private, protejate
-- **B)** **Creaționale, Structurale, Comportamentale**
-- **C)** Simple, medii, complexe
-- **D)** Front-end, back-end, database
+- A) Publice, private, protejate
+- B) Creaționale, Structurale, Comportamentale
+- C) Simple, medii, complexe
+- D) Front-end, back-end, database
 
 <details><summary>✅ Răspuns</summary>
 
@@ -932,10 +932,10 @@ Diagrame: structurale (clase), comportamentale (use case), interacțiune (secven
 </details>
 
 **4.** Șablonul **Adapter** (structural) se folosește pentru a:
-- **A)** Adăuga responsabilități dinamic unui obiect
-- **B)** **Converti interfața** unei clase în alta așteptată de client (interfețe incompatibile)
-- **C)** Garanta o singură instanță
-- **D)** Parcurge secvențial o colecție
+- A) Adăuga responsabilități dinamic unui obiect
+- B) Converti interfața unei clase în alta așteptată de client (interfețe incompatibile)
+- C) Garanta o singură instanță
+- D) Parcurge secvențial o colecție
 
 <details><summary>✅ Răspuns</summary>
 
@@ -943,10 +943,10 @@ Diagrame: structurale (clase), comportamentale (use case), interacțiune (secven
 </details>
 
 **5.** Șablonul **Decorator** permite:
-- **A)** Adăugarea **dinamică** de responsabilități unui obiect (alternativă flexibilă la subclasare)
-- **B)** Convertirea unei interfețe incompatibile
-- **C)** Definirea unei familii de algoritmi
-- **D)** Restaurarea unei stări anterioare
+- A) Adăugarea dinamică de responsabilități unui obiect (alternativă flexibilă la subclasare)
+- B) Convertirea unei interfețe incompatibile
+- C) Definirea unei familii de algoritmi
+- D) Restaurarea unei stări anterioare
 
 <details><summary>✅ Răspuns</summary>
 
@@ -954,10 +954,10 @@ Diagrame: structurale (clase), comportamentale (use case), interacțiune (secven
 </details>
 
 **6.** Șablonul **Proxy** oferă:
-- **A)** O interfață simplificată unui subsistem complex
-- **B)** Un **substitut/placeholder** pentru alt obiect, pentru a **controla accesul** la el
-- **C)** Un mecanism de clonare a obiectelor
-- **D)** Notificarea automată a observatorilor
+- A) O interfață simplificată unui subsistem complex
+- B) Un substitut/placeholder pentru alt obiect, pentru a controla accesul la el
+- C) Un mecanism de clonare a obiectelor
+- D) Notificarea automată a observatorilor
 
 <details><summary>✅ Răspuns</summary>
 
@@ -965,10 +965,10 @@ Diagrame: structurale (clase), comportamentale (use case), interacțiune (secven
 </details>
 
 **7.** Șablonul **Flyweight** (structural) rezolvă problema:
-- **A)** Prea multor instanțe de servicii
-- **B)** Suportării eficiente a unui **număr mare de obiecte fine-grained** prin **partajarea** datelor comune (economie de memorie)
-- **C)** Interfețelor incompatibile
-- **D)** Ordinii de execuție a firelor de execuție
+- A) Prea multor instanțe de servicii
+- B) Suportării eficiente a unui număr mare de obiecte fine-grained prin partajarea datelor comune (economie de memorie)
+- C) Interfețelor incompatibile
+- D) Ordinii de execuție a firelor de execuție
 
 <details><summary>✅ Răspuns</summary>
 
@@ -976,10 +976,10 @@ Diagrame: structurale (clase), comportamentale (use case), interacțiune (secven
 </details>
 
 **8.** Șablonul **Observer** definește:
-- **A)** O dependență **one-to-many**: când un obiect se schimbă, toți dependenții sunt **notificați automat** (publish-subscribe)
-- **B)** O operație nouă fără modificarea claselor
-- **C)** Un lanț de handlere
-- **D)** Încapsularea unei cereri ca obiect
+- A) O dependență one-to-many: când un obiect se schimbă, toți dependenții sunt notificați automat (publish-subscribe)
+- B) O operație nouă fără modificarea claselor
+- C) Un lanț de handlere
+- D) Încapsularea unei cereri ca obiect
 
 <details><summary>✅ Răspuns</summary>
 
@@ -987,10 +987,10 @@ Diagrame: structurale (clase), comportamentale (use case), interacțiune (secven
 </details>
 
 **9.** Șablonul **Mediator**:
-- **A)** Adaugă responsabilități dinamic
-- **B)** **Încapsulează modul în care un set de obiecte interacționează** → reduce cuplajul (obiectele nu se mai cunosc direct între ele)
-- **C)** Clonează obiecte
-- **D)** Definește scheletul unui algoritm
+- A) Adaugă responsabilități dinamic
+- B) Încapsulează modul în care un set de obiecte interacționează → reduce cuplajul (obiectele nu se mai cunosc direct între ele)
+- C) Clonează obiecte
+- D) Definește scheletul unui algoritm
 
 <details><summary>✅ Răspuns</summary>
 
@@ -998,10 +998,10 @@ Diagrame: structurale (clase), comportamentale (use case), interacțiune (secven
 </details>
 
 **10.** Șablonul **Chain of Responsibility**:
-- **A)** **Pasează cererea de-a lungul unui lanț** de handlere până când unul o tratează
-- **B)** Notifică automat mai multe obiecte
-- **C)** Convertește o interfață
-- **D)** Oferă un punct global de acces
+- A) Pasează cererea de-a lungul unui lanț de handlere până când unul o tratează
+- B) Notifică automat mai multe obiecte
+- C) Convertește o interfață
+- D) Oferă un punct global de acces
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1009,10 +1009,10 @@ Diagrame: structurale (clase), comportamentale (use case), interacțiune (secven
 </details>
 
 **11.** Șablonul **Prototype** (creațional) creează obiecte prin:
-- **A)** Instanțierea directă cu `new`
-- **B)** **Clonarea** unui obiect prototip existent
-- **C)** Un lanț de fabrici
-- **D)** O interfață unificată
+- A) Instanțierea directă cu `new`
+- B) Clonarea unui obiect prototip existent
+- C) Un lanț de fabrici
+- D) O interfață unificată
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1020,10 +1020,10 @@ Diagrame: structurale (clase), comportamentale (use case), interacțiune (secven
 </details>
 
 **12.** Șablonul **Visitor** permite definirea unei operații noi:
-- **A)** modificând clasele elementelor
-- **B)** **fără a modifica** clasele elementelor pe care operează
-- **C)** doar pe un singur tip de obiect
-- **D)** doar la compilare
+- A) modificând clasele elementelor
+- B) fără a modifica clasele elementelor pe care operează
+- C) doar pe un singur tip de obiect
+- D) doar la compilare
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1031,10 +1031,10 @@ Diagrame: structurale (clase), comportamentale (use case), interacțiune (secven
 </details>
 
 **13.** Ce înseamnă acronimul **SOLID**?
-- **A)** Structure, Object, Logic, Interface, Data
-- **B)** **Single Responsibility, Open-Closed, Liskov Substitution, Interface Segregation, Dependency Inversion**
-- **C)** Simple, Optimized, Layered, Independent, Documented
-- **D)** Static, Overloaded, Linked, Inherited, Dynamic
+- A) Structure, Object, Logic, Interface, Data
+- B) Single Responsibility, Open-Closed, Liskov Substitution, Interface Segregation, Dependency Inversion
+- C) Simple, Optimized, Layered, Independent, Documented
+- D) Static, Overloaded, Linked, Inherited, Dynamic
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1042,10 +1042,10 @@ Diagrame: structurale (clase), comportamentale (use case), interacțiune (secven
 </details>
 
 **14.** Principiul **D** (Dependency Inversion) afirmă că:
-- **A)** O clasă are un singur motiv de schimbare
-- **B)** Modulele de nivel înalt și cele de nivel jos depind ambele de **abstracții** (nu de concrete)
-- **C)** Deschis extensiei, închis modificării
-- **D)** Interfețe mici, specifice clientului
+- A) O clasă are un singur motiv de schimbare
+- B) Modulele de nivel înalt și cele de nivel jos depind ambele de abstracții (nu de concrete)
+- C) Deschis extensiei, închis modificării
+- D) Interfețe mici, specifice clientului
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1053,10 +1053,10 @@ Diagrame: structurale (clase), comportamentale (use case), interacțiune (secven
 </details>
 
 **15.** Principiul **L** (Liskov) afirmă că:
-- **A)** Subtipurile trebuie să fie **substituibile** pentru tipurile de bază, fără a strica comportamentul așteptat
-- **B)** Clientul nu depinde de metode pe care nu le folosește
-- **C)** O clasă = o singură responsabilitate
-- **D)** Se depinde de abstracții, nu de detalii
+- A) Subtipurile trebuie să fie substituibile pentru tipurile de bază, fără a strica comportamentul așteptat
+- B) Clientul nu depinde de metode pe care nu le folosește
+- C) O clasă = o singură responsabilitate
+- D) Se depinde de abstracții, nu de detalii
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1064,10 +1064,10 @@ Diagrame: structurale (clase), comportamentale (use case), interacțiune (secven
 </details>
 
 **16.** **Coeziunea** (cohesion) în GRASP măsoară:
-- **A)** Câte alte clase depinde o clasă
-- **B)** Cât de **strâns legate/focalizate** sunt responsabilitățile unei clase
-- **C)** Numărul de linii de cod
-- **D)** Viteza de execuție
+- A) Câte alte clase depinde o clasă
+- B) Cât de strâns legate/focalizate sunt responsabilitățile unei clase
+- C) Numărul de linii de cod
+- D) Viteza de execuție
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1075,10 +1075,10 @@ Diagrame: structurale (clase), comportamentale (use case), interacțiune (secven
 </details>
 
 **17.** **Cuplajul redus** (low coupling) este de dorit pentru că:
-- **A)** Face clasele să depindă de multe altele
-- **B)** O clasă cu cuplaj mic **nu depinde de multe alte clase** → mai ușor de înțeles, refolosit, întreținut
-- **C)** Crește numărul de bug-uri
-- **D)** Elimină nevoia de interfețe
+- A) Face clasele să depindă de multe altele
+- B) O clasă cu cuplaj mic nu depinde de multe alte clase → mai ușor de înțeles, refolosit, întreținut
+- C) Crește numărul de bug-uri
+- D) Elimină nevoia de interfețe
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1086,10 +1086,10 @@ Diagrame: structurale (clase), comportamentale (use case), interacțiune (secven
 </details>
 
 **18.** Rolurile în **Scrum** sunt:
-- **A)** Manager, Analist, Tester
-- **B)** **Product Owner, Scrum Master, Development Team**
-- **C)** Client, Server, Database
-- **D)** Frontend, Backend, DevOps
+- A) Manager, Analist, Tester
+- B) Product Owner, Scrum Master, Development Team
+- C) Client, Server, Database
+- D) Frontend, Backend, DevOps
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1097,10 +1097,10 @@ Diagrame: structurale (clase), comportamentale (use case), interacțiune (secven
 </details>
 
 **19.** **Artefactele** în Scrum sunt:
-- **A)** Sprint, Daily, Retrospective
-- **B)** **Product Backlog, Sprint Backlog, Increment**
-- **C)** Model, View, Controller
-- **D)** Roluri, valori, reguli
+- A) Sprint, Daily, Retrospective
+- B) Product Backlog, Sprint Backlog, Increment
+- C) Model, View, Controller
+- D) Roluri, valori, reguli
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1108,10 +1108,10 @@ Diagrame: structurale (clase), comportamentale (use case), interacțiune (secven
 </details>
 
 **20.** Care este un **eveniment** (ceremonie) Scrum?
-- **A)** Product Backlog
-- **B)** **Sprint Planning / Daily Scrum / Sprint Review / Retrospective**
-- **C)** Product Owner
-- **D)** Increment
+- A) Product Backlog
+- B) Sprint Planning / Daily Scrum / Sprint Review / Retrospective
+- C) Product Owner
+- D) Increment
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1119,10 +1119,10 @@ Diagrame: structurale (clase), comportamentale (use case), interacțiune (secven
 </details>
 
 **21.** Metodologia **Kanban** se caracterizează prin:
-- **A)** Iterații fixe (sprinturi) cu roluri stricte
-- **B)** **Vizualizarea** fluxului de lucru, livrare **just-in-time**, schimbare evolutivă, fără roluri prescrise
-- **C)** Documentație extinsă înainte de a scrie cod
-- **D)** Programare în perechi obligatorie
+- A) Iterații fixe (sprinturi) cu roluri stricte
+- B) Vizualizarea fluxului de lucru, livrare just-in-time, schimbare evolutivă, fără roluri prescrise
+- C) Documentație extinsă înainte de a scrie cod
+- D) Programare în perechi obligatorie
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1130,10 +1130,10 @@ Diagrame: structurale (clase), comportamentale (use case), interacțiune (secven
 </details>
 
 **22.** Un principiu **Agile** este:
-- **A)** Modificările târzii în cerințe trebuie respinse
-- **B)** **Livrare continuă** de software funcțional; modificările (chiar târzii) sunt **binevenite**; colaborare strânsă cu clientul
-- **C)** Documentația e mai importantă decât software-ul funcțional
-- **D)** Comunicarea se face doar prin rapoarte scrise
+- A) Modificările târzii în cerințe trebuie respinse
+- B) Livrare continuă de software funcțional; modificările (chiar târzii) sunt binevenite; colaborare strânsă cu clientul
+- C) Documentația e mai importantă decât software-ul funcțional
+- D) Comunicarea se face doar prin rapoarte scrise
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1141,10 +1141,10 @@ Diagrame: structurale (clase), comportamentale (use case), interacțiune (secven
 </details>
 
 **23.** **Reverse engineering** este procesul de a:
-- **A)** Scrie cod pornind de la cerințe spre implementare
-- **B)** **Descoperi principiile** unui sistem prin **analiza structurii, funcției și operării** sale
-- **C)** Compila codul sursă
-- **D)** Sorta datele
+- A) Scrie cod pornind de la cerințe spre implementare
+- B) Descoperi principiile unui sistem prin analiza structurii, funcției și operării sale
+- C) Compila codul sursă
+- D) Sorta datele
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1152,10 +1152,10 @@ Diagrame: structurale (clase), comportamentale (use case), interacțiune (secven
 </details>
 
 **24.** La reverse engineering-ul **software**, cele două situații principale sunt:
-- **A)** Cu compilator / fără compilator
-- **B)** **Cod sursă disponibil** (dar slab documentat) / **fără cod sursă**
-- **C)** Static / dinamic
-- **D)** Manual / automat
+- A) Cu compilator / fără compilator
+- B) Cod sursă disponibil (dar slab documentat) / fără cod sursă
+- C) Static / dinamic
+- D) Manual / automat
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1163,10 +1163,10 @@ Diagrame: structurale (clase), comportamentale (use case), interacțiune (secven
 </details>
 
 **25.** Care este **cea mai importantă etapă** în dezvoltarea unui proiect software?
-- **A)** Scrierea codului (implementarea)
-- **B)** **Ingineria/Analiza cerințelor** (atenția insuficientă aici e cea mai frecventă cauză de eșec)
-- **C)** Deployment-ul
-- **D)** Întreținerea
+- A) Scrierea codului (implementarea)
+- B) Ingineria/Analiza cerințelor (atenția insuficientă aici e cea mai frecventă cauză de eșec)
+- C) Deployment-ul
+- D) Întreținerea
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1174,10 +1174,10 @@ Diagrame: structurale (clase), comportamentale (use case), interacțiune (secven
 </details>
 
 **26.** Diferența între **validare** și **verificare**:
-- **A)** Validare = „construim corect produsul?"; Verificare = „construim produsul corect?"
-- **B)** Validare = **„construim produsul corect?"** (îndeplinește cerințele clientului); Verificare = **„construim corect produsul?"** (corect tehnic)
-- **C)** Sunt sinonime
-- **D)** Validarea se face doar de client, verificarea doar de manager
+- A) Validare = „construim corect produsul?"; Verificare = „construim produsul corect?"
+- B) Validare = „construim produsul corect?" (îndeplinește cerințele clientului); Verificare = „construim corect produsul?" (corect tehnic)
+- C) Sunt sinonime
+- D) Validarea se face doar de client, verificarea doar de manager
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1185,10 +1185,10 @@ Diagrame: structurale (clase), comportamentale (use case), interacțiune (secven
 </details>
 
 **27.** Un **dezavantaj** al modelului în **cascadă** (waterfall):
-- **A)** Nu împarte munca în pași
-- **B)** **Erorile se propagă între pași**, iar clientul vede produsul abia la final
-- **C)** Ia în calcul riscul la fiecare pas
-- **D)** Nu produce niciun rezultat intermediar
+- A) Nu împarte munca în pași
+- B) Erorile se propagă între pași, iar clientul vede produsul abia la final
+- C) Ia în calcul riscul la fiecare pas
+- D) Nu produce niciun rezultat intermediar
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1196,10 +1196,10 @@ Diagrame: structurale (clase), comportamentale (use case), interacțiune (secven
 </details>
 
 **28.** Ce aduce în plus modelul în **spirală** față de cascadă?
-- **A)** Programarea în perechi
-- **B)** Analiza/gestiunea **riscului** la fiecare iterație
-- **C)** Livrarea zilnică de software
-- **D)** Eliminarea etapei de testare
+- A) Programarea în perechi
+- B) Analiza/gestiunea riscului la fiecare iterație
+- C) Livrarea zilnică de software
+- D) Eliminarea etapei de testare
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1207,10 +1207,10 @@ Diagrame: structurale (clase), comportamentale (use case), interacțiune (secven
 </details>
 
 **29.** Care e relația între **Quality Assurance (QA)** și **testare**?
-- **A)** QA = corecția defectelor; testarea = prevenție
-- **B)** QA = **prevenție** (procese, îmbunătățire continuă); testarea = parte din **Quality Control** (corecție)
-- **C)** Sunt exact același lucru
-- **D)** Testarea înlocuiește complet QA
+- A) QA = corecția defectelor; testarea = prevenție
+- B) QA = prevenție (procese, îmbunătățire continuă); testarea = parte din Quality Control (corecție)
+- C) Sunt exact același lucru
+- D) Testarea înlocuiește complet QA
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1218,10 +1218,10 @@ Diagrame: structurale (clase), comportamentale (use case), interacțiune (secven
 </details>
 
 **30.** **Code coverage** la testare măsoară:
-- **A)** Numărul de bug-uri găsite
-- **B)** **Procentul de cod** (instrucțiuni/ramuri/căi) **executat de teste**
-- **C)** Timpul de execuție al testelor
-- **D)** Numărul total de teste scrise
+- A) Numărul de bug-uri găsite
+- B) Procentul de cod (instrucțiuni/ramuri/căi) executat de teste
+- C) Timpul de execuție al testelor
+- D) Numărul total de teste scrise
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1229,10 +1229,10 @@ Diagrame: structurale (clase), comportamentale (use case), interacțiune (secven
 </details>
 
 **31.** Un **avantaj** al testării **automate** față de cea manuală:
-- **A)** E mai bună pentru verificarea aspectului vizual/UI
-- **B)** **Ieftin de repetat**, rapid, predictibil și planificabil
-- **C)** Nu necesită deloc scrierea de cod
-- **D)** Nu poate fi planificată
+- A) E mai bună pentru verificarea aspectului vizual/UI
+- B) Ieftin de repetat, rapid, predictibil și planificabil
+- C) Nu necesită deloc scrierea de cod
+- D) Nu poate fi planificată
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1240,10 +1240,10 @@ Diagrame: structurale (clase), comportamentale (use case), interacțiune (secven
 </details>
 
 **32.** Care este un tip de testare **NEfuncțională**?
-- **A)** Unit testing
-- **B)** **Performance/Load, Security, Usability, Internationalization**
-- **C)** Testarea unei funcții specifice
-- **D)** Testarea unei condiții de business
+- A) Unit testing
+- B) Performance/Load, Security, Usability, Internationalization
+- C) Testarea unei funcții specifice
+- D) Testarea unei condiții de business
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1251,10 +1251,10 @@ Diagrame: structurale (clase), comportamentale (use case), interacțiune (secven
 </details>
 
 **33.** **Unit testing** (testarea unitară):
-- **A)** Testează sistemul complet integrat
-- **B)** Testează o **unitate mică** (funcție/clasă), rulată de programatori, cu rezultate documentate (simulatoare I/O)
-- **C)** E făcută de client înainte de acceptare
-- **D)** Verifică doar interfața grafică
+- A) Testează sistemul complet integrat
+- B) Testează o unitate mică (funcție/clasă), rulată de programatori, cu rezultate documentate (simulatoare I/O)
+- C) E făcută de client înainte de acceptare
+- D) Verifică doar interfața grafică
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1262,10 +1262,10 @@ Diagrame: structurale (clase), comportamentale (use case), interacțiune (secven
 </details>
 
 **34.** O diagramă **Use Case** conține:
-- **A)** Clase, atribute, metode
-- **B)** **Actori, use case-uri și relații** (asociere, generalizare, `<<include>>`/`<<extend>>`)
-- **C)** Stări și tranziții
-- **D)** Mesaje ordonate în timp
+- A) Clase, atribute, metode
+- B) Actori, use case-uri și relații (asociere, generalizare, `<<include>>`/`<<extend>>`)
+- C) Stări și tranziții
+- D) Mesaje ordonate în timp
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1273,10 +1273,10 @@ Diagrame: structurale (clase), comportamentale (use case), interacțiune (secven
 </details>
 
 **35.** Relația `<<include>>` între două use case-uri înseamnă:
-- **A)** Un use case **extinde opțional** comportamentul altuia
-- **B)** Un use case **folosește (obligatoriu)** comportamentul definit în alt use case
-- **C)** O relație de moștenire între actori
-- **D)** O asociere actor–use case
+- A) Un use case extinde opțional comportamentul altuia
+- B) Un use case folosește (obligatoriu) comportamentul definit în alt use case
+- C) O relație de moștenire între actori
+- D) O asociere actor–use case
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1284,10 +1284,10 @@ Diagrame: structurale (clase), comportamentale (use case), interacțiune (secven
 </details>
 
 **36.** Care este o **relație** corectă într-o diagramă de **clase**?
-- **A)** Sprint, Backlog, Increment
-- **B)** **Generalizare (moștenire), Asociere, Agregare, Dependență**
-- **C)** GET, POST, PUT, DELETE
-- **D)** Create, Read, Update, Delete
+- A) Sprint, Backlog, Increment
+- B) Generalizare (moștenire), Asociere, Agregare, Dependență
+- C) GET, POST, PUT, DELETE
+- D) Create, Read, Update, Delete
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1295,10 +1295,10 @@ Diagrame: structurale (clase), comportamentale (use case), interacțiune (secven
 </details>
 
 **37.** De ce **modelăm** un sistem software?
-- **A)** Pentru a scrie mai mult cod
-- **B)** Pentru a **înțelege** mai bine, a ne concentra pe un aspect, a oferi un **șablon** și a **documenta** deciziile
-- **C)** Pentru a evita testarea
-- **D)** Pentru a mări dimensiunea proiectului
+- A) Pentru a scrie mai mult cod
+- B) Pentru a înțelege mai bine, a ne concentra pe un aspect, a oferi un șablon și a documenta deciziile
+- C) Pentru a evita testarea
+- D) Pentru a mări dimensiunea proiectului
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1306,10 +1306,10 @@ Diagrame: structurale (clase), comportamentale (use case), interacțiune (secven
 </details>
 
 **38.** Principiul **stabilității pachetelor** (Stable Dependencies) spune că:
-- **A)** Toate pachetele trebuie să fie instabile
-- **B)** Un pachet ar trebui să depindă doar de pachete **mai stabile** decât el
-- **C)** Pachetele stabile trebuie să fie concrete
-- **D)** Dependențele pot forma cicluri
+- A) Toate pachetele trebuie să fie instabile
+- B) Un pachet ar trebui să depindă doar de pachete mai stabile decât el
+- C) Pachetele stabile trebuie să fie concrete
+- D) Dependențele pot forma cicluri
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1317,10 +1317,10 @@ Diagrame: structurale (clase), comportamentale (use case), interacțiune (secven
 </details>
 
 **39.** Când **NU** e neapărat necesar să aplici riguros ingineria programării (metodologii/principii)?
-- **A)** La un sistem bancar de milioane de linii
-- **B)** La un **proiect mic, personal** (ex. un scraper de uz propriu) — nu aplici SCRUM etc., ai pierde timp aiurea
-- **C)** La un sistem de control al traficului aerian
-- **D)** La o aplicație folosită de mii de utilizatori
+- A) La un sistem bancar de milioane de linii
+- B) La un proiect mic, personal (ex. un scraper de uz propriu) — nu aplici SCRUM etc., ai pierde timp aiurea
+- C) La un sistem de control al traficului aerian
+- D) La o aplicație folosită de mii de utilizatori
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1328,10 +1328,10 @@ Diagrame: structurale (clase), comportamentale (use case), interacțiune (secven
 </details>
 
 **40.** Ce este **GoF** (Gang of Four)?
-- **A)** Un limbaj de modelare
-- **B)** Cei **4 autori** ai cărții „Design Patterns: Elements of Reusable Object-Oriented Software" (Gamma, Helm, Johnson, Vlissides)
-- **C)** O metodologie Agile
-- **D)** Un framework de testare
+- A) Un limbaj de modelare
+- B) Cei 4 autori ai cărții „Design Patterns: Elements of Reusable Object-Oriented Software" (Gamma, Helm, Johnson, Vlissides)
+- C) O metodologie Agile
+- D) Un framework de testare
 
 <details><summary>✅ Răspuns</summary>
 

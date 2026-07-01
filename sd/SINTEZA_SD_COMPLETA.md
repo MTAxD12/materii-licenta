@@ -1504,10 +1504,10 @@ O(n):    counting (întregi în interval), bucket (uniform distribuit)
 > Întrebări bazate pe subiectele date la licență. Apasă pe **„Răspuns"** pentru a-l dezvălui. Variantele greșite sunt **confuzii frecvente reale**.
 
 **1.** Notația **O(g(n))** reprezintă:
-- **A)** O margine inferioară (cel puțin la fel de mare ca g)
-- **B)** O **margine superioară** (cel mult la fel de mare ca g) a timpului de execuție
-- **C)** Marginea exactă (și superioară, și inferioară)
-- **D)** Timpul mediu de execuție
+- A) O margine inferioară (cel puțin la fel de mare ca g)
+- B) O margine superioară (cel mult la fel de mare ca g) a timpului de execuție
+- C) Marginea exactă (și superioară, și inferioară)
+- D) Timpul mediu de execuție
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1515,10 +1515,10 @@ O(n):    counting (întregi în interval), bucket (uniform distribuit)
 </details>
 
 **2.** `f(n) = Ω(g(n))` înseamnă că:
-- **A)** f crește cel mult la fel de repede ca g
-- **B)** f crește **cel puțin** la fel de repede ca g (margine inferioară)
-- **C)** f și g au exact același ordin
-- **D)** f este egală cu g
+- A) f crește cel mult la fel de repede ca g
+- B) f crește cel puțin la fel de repede ca g (margine inferioară)
+- C) f și g au exact același ordin
+- D) f este egală cu g
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1526,10 +1526,10 @@ O(n):    counting (întregi în interval), bucket (uniform distribuit)
 </details>
 
 **3.** `Θ(g(n)) = O(g(n)) ∩ Ω(g(n))` înseamnă că f are:
-- **A)** ordin cel mult egal cu g
-- **B)** **exact același ordin** de creștere ca g (mărginit și superior, și inferior)
-- **C)** ordin cel puțin egal cu g
-- **D)** niciun raport cu g
+- A) ordin cel mult egal cu g
+- B) exact același ordin de creștere ca g (mărginit și superior, și inferior)
+- C) ordin cel puțin egal cu g
+- D) niciun raport cu g
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1537,10 +1537,10 @@ O(n):    counting (întregi în interval), bucket (uniform distribuit)
 </details>
 
 **4.** La **căutarea secvențială** într-un tablou de n elemente, cazul cel mai **nefavorabil** are complexitatea:
-- **A)** O(1)
-- **B)** O(log n)
-- **C)** O(n)
-- **D)** O(n²)
+- A) O(1)
+- B) O(log n)
+- C) O(n)
+- D) O(n²)
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1548,10 +1548,10 @@ O(n):    counting (întregi în interval), bucket (uniform distribuit)
 </details>
 
 **5.** Ordonează crescător după ordinul de creștere:
-- **A)** O(n) < O(log n) < O(n²) < O(2ⁿ)
-- **B)** O(log n) < O(n) < O(n log n) < O(n²) < O(2ⁿ)
-- **C)** O(1) < O(n²) < O(n) < O(log n)
-- **D)** O(2ⁿ) < O(n²) < O(n) < O(log n)
+- A) O(n) < O(log n) < O(n²) < O(2ⁿ)
+- B) O(log n) < O(n) < O(n log n) < O(n²) < O(2ⁿ)
+- C) O(1) < O(n²) < O(n) < O(log n)
+- D) O(2ⁿ) < O(n²) < O(n) < O(log n)
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1559,10 +1559,10 @@ O(n):    counting (întregi în interval), bucket (uniform distribuit)
 </details>
 
 **6.** **Teorema Master** se folosește pentru:
-- **A)** A sorta un tablou
-- **B)** A rezolva recurențe de forma **T(n) = a·T(n/b) + f(n)** (complexitatea algoritmilor recursivi divide-et-impera)
-- **C)** A calcula complexitatea algoritmilor iterativi
-- **D)** A echilibra un arbore
+- A) A sorta un tablou
+- B) A rezolva recurențe de forma T(n) = a·T(n/b) + f(n) (complexitatea algoritmilor recursivi divide-et-impera)
+- C) A calcula complexitatea algoritmilor iterativi
+- D) A echilibra un arbore
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1570,10 +1570,10 @@ O(n):    counting (întregi în interval), bucket (uniform distribuit)
 </details>
 
 **7.** Teorema Master **NU** se poate aplica când:
-- **A)** a ≥ 1 și b > 1
-- **B)** f(n) nu e **polinomial** comparabilă cu n^(log_b a) (ex. diferă doar printr-un factor logaritmic, ca la `T(n)=2T(n/2)+n log n`)
-- **C)** f(n) este un polinom
-- **D)** subproblemele au dimensiuni egale
+- A) a ≥ 1 și b > 1
+- B) f(n) nu e polinomial comparabilă cu n^(log_b a) (ex. diferă doar printr-un factor logaritmic, ca la `T(n)=2T(n/2)+n log n`)
+- C) f(n) este un polinom
+- D) subproblemele au dimensiuni egale
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1581,10 +1581,10 @@ O(n):    counting (întregi în interval), bucket (uniform distribuit)
 </details>
 
 **8.** Metoda **substituției** pentru rezolvarea recurențelor presupune:
-- **A)** Desfășurarea recurenței până la cazul de bază și însumarea termenilor
-- **B)** **Ghicirea** soluției și demonstrarea prin **inducție matematică**
-- **C)** Construirea unui arbore de costuri pe niveluri
-- **D)** Aplicarea directă a unei formule
+- A) Desfășurarea recurenței până la cazul de bază și însumarea termenilor
+- B) Ghicirea soluției și demonstrarea prin inducție matematică
+- C) Construirea unui arbore de costuri pe niveluri
+- D) Aplicarea directă a unei formule
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1592,10 +1592,10 @@ O(n):    counting (întregi în interval), bucket (uniform distribuit)
 </details>
 
 **9.** Structura **Union-Find** (colecții de mulțimi disjuncte) e folosită pentru:
-- **A)** Sortarea rapidă a datelor
-- **B)** Gestionarea **partițiilor** — a afla rapid din ce submulțime face parte un element și a **reuni** submulțimi (ex. componente conexe, algoritmul lui Kruskal)
-- **C)** Căutarea binară
-- **D)** Parcurgerea în lățime a unui graf
+- A) Sortarea rapidă a datelor
+- B) Gestionarea partițiilor — a afla rapid din ce submulțime face parte un element și a reuni submulțimi (ex. componente conexe, algoritmul lui Kruskal)
+- C) Căutarea binară
+- D) Parcurgerea în lățime a unui graf
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1603,10 +1603,10 @@ O(n):    counting (întregi în interval), bucket (uniform distribuit)
 </details>
 
 **10.** Cele două operații de bază ale union-find sunt:
-- **A)** push și pop
-- **B)** **find și union**
-- **C)** insert și delete
-- **D)** enqueue și dequeue
+- A) push și pop
+- B) find și union
+- C) insert și delete
+- D) enqueue și dequeue
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1614,10 +1614,10 @@ O(n):    counting (întregi în interval), bucket (uniform distribuit)
 </details>
 
 **11.** Ce optimizări țin arborii union-find joși (aproape O(1) amortizat)?
-- **A)** Rotații stânga/dreapta
-- **B)** **Union ponderat** (weighted) + **aplatizarea drumului** (path compression)
-- **C)** Recolorarea nodurilor
-- **D)** Rehashing
+- A) Rotații stânga/dreapta
+- B) Union ponderat (weighted) + aplatizarea drumului (path compression)
+- C) Recolorarea nodurilor
+- D) Rehashing
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1625,10 +1625,10 @@ O(n):    counting (întregi în interval), bucket (uniform distribuit)
 </details>
 
 **12.** **Stiva** este o structură de tip:
-- **A)** FIFO (primul intrat, primul ieșit)
-- **B)** **LIFO** (ultimul intrat, primul ieșit)
-- **C)** cu acces aleator
-- **D)** ordonată după prioritate
+- A) FIFO (primul intrat, primul ieșit)
+- B) LIFO (ultimul intrat, primul ieșit)
+- C) cu acces aleator
+- D) ordonată după prioritate
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1636,10 +1636,10 @@ O(n):    counting (întregi în interval), bucket (uniform distribuit)
 </details>
 
 **13.** Operația de eliminare dintr-o **coadă** (FIFO) scoate:
-- **A)** ultimul element introdus
-- **B)** **primul element introdus** (cel mai vechi)
-- **C)** elementul cu prioritatea maximă
-- **D)** elementul din mijloc
+- A) ultimul element introdus
+- B) primul element introdus (cel mai vechi)
+- C) elementul cu prioritatea maximă
+- D) elementul din mijloc
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1647,10 +1647,10 @@ O(n):    counting (întregi în interval), bucket (uniform distribuit)
 </details>
 
 **14.** Într-un **max-heap**, elementul din rădăcină este:
-- **A)** minimul
-- **B)** **maximul**
-- **C)** mediana
-- **D)** ultimul inserat
+- A) minimul
+- B) maximul
+- C) mediana
+- D) ultimul inserat
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1658,10 +1658,10 @@ O(n):    counting (întregi în interval), bucket (uniform distribuit)
 </details>
 
 **15.** Într-un heap reprezentat cu **tablou**, fiul **stâng** al nodului de la indexul i este la indexul:
-- **A)** i/2
-- **B)** **2i + 1**
-- **C)** i + 1
-- **D)** 2i + 2
+- A) i/2
+- B) 2i + 1
+- C) i + 1
+- D) 2i + 2
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1669,10 +1669,10 @@ O(n):    counting (întregi în interval), bucket (uniform distribuit)
 </details>
 
 **16.** Inserarea/eliminarea într-un heap cu n elemente are complexitatea:
-- **A)** O(1)
-- **B)** **O(log n)**
-- **C)** O(n)
-- **D)** O(n log n)
+- A) O(1)
+- B) O(log n)
+- C) O(n)
+- D) O(n log n)
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1680,10 +1680,10 @@ O(n):    counting (întregi în interval), bucket (uniform distribuit)
 </details>
 
 **17.** Într-un **arbore binar de căutare (ABC)**, pentru orice nod:
-- **A)** subarborele stâng conține valori mai mari, cel drept mai mici
-- **B)** subarborele stâng conține valori **mai mici**, cel drept **mai mari** decât nodul
-- **C)** toți fiii au aceeași valoare
-- **D)** frunzele sunt mereu la aceeași adâncime
+- A) subarborele stâng conține valori mai mari, cel drept mai mici
+- B) subarborele stâng conține valori mai mici, cel drept mai mari decât nodul
+- C) toți fiii au aceeași valoare
+- D) frunzele sunt mereu la aceeași adâncime
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1691,10 +1691,10 @@ O(n):    counting (întregi în interval), bucket (uniform distribuit)
 </details>
 
 **18.** Parcurgerea în **inordine** (stânga–rădăcină–dreapta) a unui ABC produce valorile:
-- **A)** în ordine descrescătoare
-- **B)** în ordine **crescătoare** (sortate)
-- **C)** pe niveluri
-- **D)** în ordine aleatoare
+- A) în ordine descrescătoare
+- B) în ordine crescătoare (sortate)
+- C) pe niveluri
+- D) în ordine aleatoare
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1702,10 +1702,10 @@ O(n):    counting (întregi în interval), bucket (uniform distribuit)
 </details>
 
 **19.** Complexitatea căutării într-un ABC în cazul cel mai **nefavorabil** (arbore degenerat) este:
-- **A)** O(log n)
-- **B)** **O(n)**
-- **C)** O(1)
-- **D)** O(n log n)
+- A) O(log n)
+- B) O(n)
+- C) O(1)
+- D) O(n log n)
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1713,10 +1713,10 @@ O(n):    counting (întregi în interval), bucket (uniform distribuit)
 </details>
 
 **20.** Un arbore **AVL** este echilibrat dacă pentru orice nod:
-- **A)** numărul de noduri din stânga = numărul din dreapta
-- **B)** diferența de **înălțime** dintre subarborele stâng și drept este cel mult **1**
-- **C)** toate frunzele au aceeași culoare
-- **D)** rădăcina e cea mai mare valoare
+- A) numărul de noduri din stânga = numărul din dreapta
+- B) diferența de înălțime dintre subarborele stâng și drept este cel mult 1
+- C) toate frunzele au aceeași culoare
+- D) rădăcina e cea mai mare valoare
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1724,10 +1724,10 @@ O(n):    counting (întregi în interval), bucket (uniform distribuit)
 </details>
 
 **21.** O proprietate corectă a arborilor **roșu-negru** este:
-- **A)** Un nod roșu are ambii fii roșii
-- **B)** Orice drum de la un nod la frunze are **același număr de noduri negre**
-- **C)** Rădăcina este roșie
-- **D)** Toate nodurile sunt roșii
+- A) Un nod roșu are ambii fii roșii
+- B) Orice drum de la un nod la frunze are același număr de noduri negre
+- C) Rădăcina este roșie
+- D) Toate nodurile sunt roșii
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1735,10 +1735,10 @@ O(n):    counting (întregi în interval), bucket (uniform distribuit)
 </details>
 
 **22.** Reprezentarea unui graf cu **matrice de adiacență** are complexitatea de spațiu:
-- **A)** O(n + m)
-- **B)** **O(n²)**
-- **C)** O(m)
-- **D)** O(log n)
+- A) O(n + m)
+- B) O(n²)
+- C) O(m)
+- D) O(log n)
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1746,10 +1746,10 @@ O(n):    counting (întregi în interval), bucket (uniform distribuit)
 </details>
 
 **23.** DFS folosește o ..., iar BFS folosește o ...:
-- **A)** coadă / stivă
-- **B)** **stivă / coadă**
-- **C)** heap / listă
-- **D)** ambele o coadă
+- A) coadă / stivă
+- B) stivă / coadă
+- C) heap / listă
+- D) ambele o coadă
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1757,10 +1757,10 @@ O(n):    counting (întregi în interval), bucket (uniform distribuit)
 </details>
 
 **24.** O **componentă tare conexă** într-un digraf este o mulțime maximală de vârfuri în care:
-- **A)** există drum de la un vârf la altul (într-un singur sens)
-- **B)** între oricare două vârfuri u, v există drum **u→v ȘI v→u**
-- **C)** toate vârfurile au același grad
-- **D)** nu există cicluri
+- A) există drum de la un vârf la altul (într-un singur sens)
+- B) între oricare două vârfuri u, v există drum u→v ȘI v→u
+- C) toate vârfurile au același grad
+- D) nu există cicluri
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1768,10 +1768,10 @@ O(n):    counting (întregi în interval), bucket (uniform distribuit)
 </details>
 
 **25.** Sortarea prin **numărare** (counting sort):
-- **A)** Se bazează pe comparații între elemente
-- **B)** Presupune valori întregi într-un **interval mic {1..k}** și are complexitate **O(n+k)**
-- **C)** Are complexitate O(n log n)
-- **D)** Funcționează doar pe date distribuite uniform în [0,1)
+- A) Se bazează pe comparații între elemente
+- B) Presupune valori întregi într-un interval mic {1..k} și are complexitate O(n+k)
+- C) Are complexitate O(n log n)
+- D) Funcționează doar pe date distribuite uniform în [0,1)
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1779,10 +1779,10 @@ O(n):    counting (întregi în interval), bucket (uniform distribuit)
 </details>
 
 **26.** Ce algoritm ai folosi pentru un **set foarte mare** de date când vrei garanție **O(n log n)** ȘI stabilitate?
-- **A)** Bubble sort
-- **B)** **Merge sort**
-- **C)** Quick sort
-- **D)** Insertion sort
+- A) Bubble sort
+- B) Merge sort
+- C) Quick sort
+- D) Insertion sort
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1790,10 +1790,10 @@ O(n):    counting (întregi în interval), bucket (uniform distribuit)
 </details>
 
 **27.** Într-o tabelă de dispersie, o **coliziune** apare când:
-- **A)** tabela este plină
-- **B)** două chei **diferite** produc **aceeași valoare hash** (aceeași poziție)
-- **C)** o cheie nu există în tabelă
-- **D)** funcția hash returnează 0
+- A) tabela este plină
+- B) două chei diferite produc aceeași valoare hash (aceeași poziție)
+- C) o cheie nu există în tabelă
+- D) funcția hash returnează 0
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1801,10 +1801,10 @@ O(n):    counting (întregi în interval), bucket (uniform distribuit)
 </details>
 
 **28.** Rezolvarea coliziunilor prin **înlănțuire** (dispersie externă) înseamnă:
-- **A)** Căutarea unei alte poziții libere în tabelă (examinare liniară/pătratică)
-- **B)** Fiecare slot păstrează o **listă** cu toate elementele care au aceeași valoare hash
-- **C)** Mărirea automată a tabelei
-- **D)** Ignorarea celei de-a doua chei
+- A) Căutarea unei alte poziții libere în tabelă (examinare liniară/pătratică)
+- B) Fiecare slot păstrează o listă cu toate elementele care au aceeași valoare hash
+- C) Mărirea automată a tabelei
+- D) Ignorarea celei de-a doua chei
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1812,10 +1812,10 @@ O(n):    counting (întregi în interval), bucket (uniform distribuit)
 </details>
 
 **29.** Accesul la al k-lea element este O(1) la ... și O(n) la ...:
-- **A)** listă înlănțuită / tablou
-- **B)** **tablou / listă înlănțuită**
-- **C)** ambele O(1)
-- **D)** ambele O(n)
+- A) listă înlănțuită / tablou
+- B) tablou / listă înlănțuită
+- C) ambele O(1)
+- D) ambele O(n)
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1823,10 +1823,10 @@ O(n):    counting (întregi în interval), bucket (uniform distribuit)
 </details>
 
 **30.** Un **tip de date abstract (TAD)** definește:
-- **A)** doar implementarea concretă a structurii
-- **B)** **obiectele și operațiile** permise (CE face), separat de implementare (CUM)
-- **C)** doar sintaxa unui limbaj de programare
-- **D)** modul de alocare a memoriei
+- A) doar implementarea concretă a structurii
+- B) obiectele și operațiile permise (CE face), separat de implementare (CUM)
+- C) doar sintaxa unui limbaj de programare
+- D) modul de alocare a memoriei
 
 <details><summary>✅ Răspuns</summary>
 

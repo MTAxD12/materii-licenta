@@ -1298,10 +1298,10 @@ Responsive (RWD): aceeași pagină se adaptează la dispozitiv
 > Întrebări bazate pe subiectele date la licență. Apasă pe **„Răspuns"** pentru a-l dezvălui. Variantele greșite sunt **confuzii frecvente reale**.
 
 **1.** Un **server web** are rolul de a:
-- **A)** Genera dinamic logica de business și a rula codul aplicației
-- **B)** **Îndeplini cereri HTTP** și a servi resurse (reprezentări) clienților
-- **C)** Stoca datele într-o bază de date relațională
-- **D)** Rula JavaScript în browser
+- A) Genera dinamic logica de business și a rula codul aplicației
+- B) Îndeplini cereri HTTP și a servi resurse (reprezentări) clienților
+- C) Stoca datele într-o bază de date relațională
+- D) Rula JavaScript în browser
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1309,10 +1309,10 @@ Responsive (RWD): aceeași pagină se adaptează la dispozitiv
 </details>
 
 **2.** Diferența dintre un **proxy** web și un **gateway** web:
-- **A)** Proxy-ul e **lângă client** (poate acționa în numele lui); gateway-ul **ascunde serverul țintă** (clientul nu știe de el)
-- **B)** Proxy-ul ascunde serverul; gateway-ul e lângă client
-- **C)** Sunt același lucru
-- **D)** Proxy-ul rulează pe client, gateway-ul în browser
+- A) Proxy-ul e lângă client (poate acționa în numele lui); gateway-ul ascunde serverul țintă (clientul nu știe de el)
+- B) Proxy-ul ascunde serverul; gateway-ul e lângă client
+- C) Sunt același lucru
+- D) Proxy-ul rulează pe client, gateway-ul în browser
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1320,10 +1320,10 @@ Responsive (RWD): aceeași pagină se adaptează la dispozitiv
 </details>
 
 **3.** Diferența principală între **server web** și **server de aplicații web**:
-- **A)** Serverul web generează conținut dinamic; app server-ul servește doar fișiere statice
-- **B)** Serverul web servește resurse/rutează cereri HTTP; app server-ul **generează dinamic** reprezentări și rulează logica aplicației
-- **C)** Nu există nicio diferență
-- **D)** App server-ul rulează în browser
+- A) Serverul web generează conținut dinamic; app server-ul servește doar fișiere statice
+- B) Serverul web servește resurse/rutează cereri HTTP; app server-ul generează dinamic reprezentări și rulează logica aplicației
+- C) Nu există nicio diferență
+- D) App server-ul rulează în browser
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1331,10 +1331,10 @@ Responsive (RWD): aceeași pagină se adaptează la dispozitiv
 </details>
 
 **4.** Un **avantaj** al arhitecturii pe straturi (N-tier / layered):
-- **A)** Modificările dintr-un strat **nu afectează** celelalte (izolare, mentenanță ușoară)
-- **B)** Performanță maximă, fără niciun overhead
-- **C)** Elimină nevoia de testare
-- **D)** Un singur strat face tot
+- A) Modificările dintr-un strat nu afectează celelalte (izolare, mentenanță ușoară)
+- B) Performanță maximă, fără niciun overhead
+- C) Elimină nevoia de testare
+- D) Un singur strat face tot
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1342,10 +1342,10 @@ Responsive (RWD): aceeași pagină se adaptează la dispozitiv
 </details>
 
 **5.** Metoda HTTP **GET** este:
-- **A)** Nesigură (unsafe) și neidempotentă
-- **B)** **Sigură (safe) și idempotentă**
-- **C)** Folosită în principal pentru a crea resurse
-- **D)** Potrivită pentru a trimite date mari în body
+- A) Nesigură (unsafe) și neidempotentă
+- B) Sigură (safe) și idempotentă
+- C) Folosită în principal pentru a crea resurse
+- D) Potrivită pentru a trimite date mari în body
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1353,10 +1353,10 @@ Responsive (RWD): aceeași pagină se adaptează la dispozitiv
 </details>
 
 **6.** De ce **NU** pui date sensibile (parole) într-o cerere **GET**?
-- **A)** GET e mai lent
-- **B)** Datele apar în **URL** → ajung în istoric, bookmark-uri, loguri de server, header Referer
-- **C)** GET nu suportă HTTPS
-- **D)** GET criptează datele automat
+- A) GET e mai lent
+- B) Datele apar în URL → ajung în istoric, bookmark-uri, loguri de server, header Referer
+- C) GET nu suportă HTTPS
+- D) GET criptează datele automat
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1364,10 +1364,10 @@ Responsive (RWD): aceeași pagină se adaptează la dispozitiv
 </details>
 
 **7.** De ce **GET** e potrivit pentru navigare, iar **POST** nu?
-- **A)** POST e mai rapid
-- **B)** URL-urile GET sunt **bookmark-abile, partajabile, cache-abile**; re-trimiterea unui POST cere confirmare
-- **C)** POST nu poate trimite date
-- **D)** GET modifică starea serverului
+- A) POST e mai rapid
+- B) URL-urile GET sunt bookmark-abile, partajabile, cache-abile; re-trimiterea unui POST cere confirmare
+- C) POST nu poate trimite date
+- D) GET modifică starea serverului
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1375,10 +1375,10 @@ Responsive (RWD): aceeași pagină se adaptează la dispozitiv
 </details>
 
 **8.** Ce atribut de cookie îl face **inaccesibil din JavaScript** (protecție contra XSS)?
-- **A)** `secure`
-- **B)** `httpOnly`
-- **C)** `sameSite`
-- **D)** `expires`
+- A) `secure`
+- B) `httpOnly`
+- C) `sameSite`
+- D) `expires`
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1386,10 +1386,10 @@ Responsive (RWD): aceeași pagină se adaptează la dispozitiv
 </details>
 
 **9.** Unde se stochează datele unei **sesiuni web**?
-- **A)** Complet în cookie, la client
-- **B)** Pe **server** (fișiere/BD); la client stă doar **SID-ul** (într-un cookie)
-- **C)** Mereu în URL
-- **D)** În RAM-ul browserului, criptat
+- A) Complet în cookie, la client
+- B) Pe server (fișiere/BD); la client stă doar SID-ul (într-un cookie)
+- C) Mereu în URL
+- D) În RAM-ul browserului, criptat
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1397,10 +1397,10 @@ Responsive (RWD): aceeași pagină se adaptează la dispozitiv
 </details>
 
 **10.** Care e relația corectă între **SOA** și **MVC**?
-- **A)** Sunt sinonime
-- **B)** MVC = arhitectură **internă** a unei aplicații (model/view/controller); SOA = arhitectură de **sistem** (funcționalitatea = servicii independente); o aplicație MVC poate consuma/expune un serviciu SOA
-- **C)** SOA este un design pattern din MVC
-- **D)** MVC înlocuiește SOA
+- A) Sunt sinonime
+- B) MVC = arhitectură internă a unei aplicații (model/view/controller); SOA = arhitectură de sistem (funcționalitatea = servicii independente); o aplicație MVC poate consuma/expune un serviciu SOA
+- C) SOA este un design pattern din MVC
+- D) MVC înlocuiește SOA
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1408,10 +1408,10 @@ Responsive (RWD): aceeași pagină se adaptează la dispozitiv
 </details>
 
 **11.** O diferență corectă între **serviciile web (SOA)** și **microservicii**:
-- **A)** SOA = share-as-little; microservicii = share-as-much
-- **B)** SOA tinde spre **share-as-much** (contract formal, eventual middleware); microserviciile spre **share-as-little** (un proces mic, independent deployabil, construit să fie înlocuit)
-- **C)** Microserviciile rulează doar în browser
-- **D)** Sunt exact același lucru
+- A) SOA = share-as-little; microservicii = share-as-much
+- B) SOA tinde spre share-as-much (contract formal, eventual middleware); microserviciile spre share-as-little (un proces mic, independent deployabil, construit să fie înlocuit)
+- C) Microserviciile rulează doar în browser
+- D) Sunt exact același lucru
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1419,10 +1419,10 @@ Responsive (RWD): aceeași pagină se adaptează la dispozitiv
 </details>
 
 **12.** Legătura dintre **REST, hipermedia, URI și teoria automatelor**:
-- **A)** O aplicație REST e un **automat finit**: stările = reprezentările resurselor, tranzițiile = metodele HTTP, iar hipermedia (link-urile) conduce schimbarea stării (**HATEOAS**)
-- **B)** REST e un limbaj de programare bazat pe automate
-- **C)** URI e starea, iar hipermedia oferă o singură tranziție deterministă
-- **D)** Nu există nicio legătură
+- A) O aplicație REST e un automat finit: stările = reprezentările resurselor, tranzițiile = metodele HTTP, iar hipermedia (link-urile) conduce schimbarea stării (HATEOAS)
+- B) REST e un limbaj de programare bazat pe automate
+- C) URI e starea, iar hipermedia oferă o singură tranziție deterministă
+- D) Nu există nicio legătură
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1430,10 +1430,10 @@ Responsive (RWD): aceeași pagină se adaptează la dispozitiv
 </details>
 
 **13.** Poate fi creat arborele **DOM** dacă documentul XML/HTML e doar **bine-formatat**, dar NU validat?
-- **A)** Nu, e nevoie obligatoriu de validare (DTD/Schema)
-- **B)** **Da** — pentru DOM e suficient ca documentul să fie **bine-formatat** (well-formed); validarea e o etapă **separată și opțională**
-- **C)** Da, dar doar pentru HTML, nu XML
-- **D)** Nu, DOM necesită și well-formed ȘI valid
+- A) Nu, e nevoie obligatoriu de validare (DTD/Schema)
+- B) Da — pentru DOM e suficient ca documentul să fie bine-formatat (well-formed); validarea e o etapă separată și opțională
+- C) Da, dar doar pentru HTML, nu XML
+- D) Nu, DOM necesită și well-formed ȘI valid
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1441,10 +1441,10 @@ Responsive (RWD): aceeași pagină se adaptează la dispozitiv
 </details>
 
 **14.** Ce verifică în **plus** un parser **CU validare** față de unul fără validare?
-- **A)** Doar dacă marcajele sunt corect închise/imbricate
-- **B)** Conformitatea cu o **gramatică** (DTD / XML Schema) — structura și semantica
-- **C)** Viteza de parsare
-- **D)** Codarea caracterelor
+- A) Doar dacă marcajele sunt corect închise/imbricate
+- B) Conformitatea cu o gramatică (DTD / XML Schema) — structura și semantica
+- C) Viteza de parsare
+- D) Codarea caracterelor
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1452,10 +1452,10 @@ Responsive (RWD): aceeași pagină se adaptează la dispozitiv
 </details>
 
 **15.** Diferența dintre **autentificare** și **autorizare**:
-- **A)** Autentificare = ce ai voie să faci; Autorizare = cine ești
-- **B)** Autentificare = **cine ești** (verificarea identității); Autorizare = **ce ai voie** să faci (permisiuni)
-- **C)** Sunt sinonime
-- **D)** Autentificarea se face doar cu parolă, autorizarea doar cu biometrie
+- A) Autentificare = ce ai voie să faci; Autorizare = cine ești
+- B) Autentificare = cine ești (verificarea identității); Autorizare = ce ai voie să faci (permisiuni)
+- C) Sunt sinonime
+- D) Autentificarea se face doar cu parolă, autorizarea doar cu biometrie
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1463,10 +1463,10 @@ Responsive (RWD): aceeași pagină se adaptează la dispozitiv
 </details>
 
 **16.** Un token **JWT** e folosit în API-uri pentru a:
-- **A)** Cripta întreaga bază de date
-- **B)** Transporta între client și API informații de identitate/autorizare **semnate** (verificabile), incluse la fiecare cerere
-- **C)** Stoca fișiere pe server
-- **D)** Genera HTML
+- A) Cripta întreaga bază de date
+- B) Transporta între client și API informații de identitate/autorizare semnate (verificabile), incluse la fiecare cerere
+- C) Stoca fișiere pe server
+- D) Genera HTML
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1474,10 +1474,10 @@ Responsive (RWD): aceeași pagină se adaptează la dispozitiv
 </details>
 
 **17.** Diferența esențială între **JSON** și **HTML**:
-- **A)** JSON e pentru prezentare vizuală, HTML pentru date
-- **B)** HTML = **marcare pentru prezentarea** conținutului către om; JSON = format de **schimb de date** procesabile de software
-- **C)** Sunt același format
-- **D)** JSON este un limbaj de programare
+- A) JSON e pentru prezentare vizuală, HTML pentru date
+- B) HTML = marcare pentru prezentarea conținutului către om; JSON = format de schimb de date procesabile de software
+- C) Sunt același format
+- D) JSON este un limbaj de programare
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1485,10 +1485,10 @@ Responsive (RWD): aceeași pagină se adaptează la dispozitiv
 </details>
 
 **18.** În **cascada CSS**, la conflict între reguli, ordinea de departajare este:
-- **A)** Ordinea în sursă → specificitate → importanță
-- **B)** **Origine + importanță → specificitate → ordine** în sursă
-- **C)** Doar cine e scris ultimul câștigă mereu
-- **D)** Regula cu selectorul cel mai scurt câștigă
+- A) Ordinea în sursă → specificitate → importanță
+- B) Origine + importanță → specificitate → ordine în sursă
+- C) Doar cine e scris ultimul câștigă mereu
+- D) Regula cu selectorul cel mai scurt câștigă
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1496,10 +1496,10 @@ Responsive (RWD): aceeași pagină se adaptează la dispozitiv
 </details>
 
 **19.** Care selector CSS are cea mai mare **specificitate**?
-- **A)** un element (`p`)
-- **B)** un **`#id`**
-- **C)** o clasă (`.intro`)
-- **D)** selectorul universal (`*`)
+- A) un element (`p`)
+- B) un `#id`
+- C) o clasă (`.intro`)
+- D) selectorul universal (`*`)
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1507,10 +1507,10 @@ Responsive (RWD): aceeași pagină se adaptează la dispozitiv
 </details>
 
 **20.** **Responsive Web Design** înseamnă:
-- **A)** O versiune separată a site-ului pentru mobil (ex. `m.site.com`)
-- **B)** **Aceeași** pagină se **adaptează automat** la dispozitiv (layout fluid + media queries + imagini flexibile)
-- **C)** Un site care se încarcă rapid
-- **D)** Un site fără CSS
+- A) O versiune separată a site-ului pentru mobil (ex. `m.site.com`)
+- B) Aceeași pagină se adaptează automat la dispozitiv (layout fluid + media queries + imagini flexibile)
+- C) Un site care se încarcă rapid
+- D) Un site fără CSS
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1518,10 +1518,10 @@ Responsive (RWD): aceeași pagină se adaptează la dispozitiv
 </details>
 
 **21.** Un **avantaj** al conținutului **static** față de cel dinamic:
-- **A)** Personalizare per utilizator
-- **B)** **Performanță și scalabilitate** mai bune (servit direct, ușor de pus în CDN/cache)
-- **C)** Conținut generat din baza de date la fiecare cerere
-- **D)** Necesită un server de aplicații
+- A) Personalizare per utilizator
+- B) Performanță și scalabilitate mai bune (servit direct, ușor de pus în CDN/cache)
+- C) Conținut generat din baza de date la fiecare cerere
+- D) Necesită un server de aplicații
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1529,10 +1529,10 @@ Responsive (RWD): aceeași pagină se adaptează la dispozitiv
 </details>
 
 **22.** Un **template engine** (sistem de șabloane):
-- **A)** Compilează cod C++
-- **B)** Combină o **machetă (template)** cu **date** și **substituie** variabilele → generează HTML-ul final
-- **C)** Este un tip de bază de date
-- **D)** Rulează în kernelul sistemului de operare
+- A) Compilează cod C++
+- B) Combină o machetă (template) cu date și substituie variabilele → generează HTML-ul final
+- C) Este un tip de bază de date
+- D) Rulează în kernelul sistemului de operare
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1540,10 +1540,10 @@ Responsive (RWD): aceeași pagină se adaptează la dispozitiv
 </details>
 
 **23.** O diferență corectă între **SOAP** și **REST**:
-- **A)** SOAP e un stil arhitectural, REST e un protocol
-- **B)** SOAP e un **protocol** (doar XML, strict, WSDL); REST e un **stil arhitectural** (orice format, uzual JSON, folosește verbele HTTP)
-- **C)** Ambele folosesc obligatoriu WSDL
-- **D)** REST folosește doar XML
+- A) SOAP e un stil arhitectural, REST e un protocol
+- B) SOAP e un protocol (doar XML, strict, WSDL); REST e un stil arhitectural (orice format, uzual JSON, folosește verbele HTTP)
+- C) Ambele folosesc obligatoriu WSDL
+- D) REST folosește doar XML
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1551,10 +1551,10 @@ Responsive (RWD): aceeași pagină se adaptează la dispozitiv
 </details>
 
 **24.** Un **avantaj** al GraphQL față de REST:
-- **A)** Are mai multe endpoint-uri independente
-- **B)** Un **singur endpoint**; clientul cere **exact** datele dorite → rezolvă over/under-fetching
-- **C)** Nu folosește tipuri
-- **D)** Nu poate face interogări
+- A) Are mai multe endpoint-uri independente
+- B) Un singur endpoint; clientul cere exact datele dorite → rezolvă over/under-fetching
+- C) Nu folosește tipuri
+- D) Nu poate face interogări
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1562,10 +1562,10 @@ Responsive (RWD): aceeași pagină se adaptează la dispozitiv
 </details>
 
 **25.** Principiul **DRY** în web apare, de exemplu, prin:
-- **A)** Copierea aceluiași HTML pe fiecare pagină
-- **B)** Reutilizarea unui **layout/partial** (header/footer) prin template engine + o singură sursă de logică în Model (MVC)
-- **C)** Scrierea aceleiași logici în fiecare controller
-- **D)** Valori „magice" repetate în tot codul
+- A) Copierea aceluiași HTML pe fiecare pagină
+- B) Reutilizarea unui layout/partial (header/footer) prin template engine + o singură sursă de logică în Model (MVC)
+- C) Scrierea aceleiași logici în fiecare controller
+- D) Valori „magice" repetate în tot codul
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1573,10 +1573,10 @@ Responsive (RWD): aceeași pagină se adaptează la dispozitiv
 </details>
 
 **26.** De ce folosesc aplicațiile web mari **mai multe limbaje** de programare?
-- **A)** Din obligație legală
-- **B)** **„Right tool for the job"** — fiecare limbaj pentru ce excelează (Python pt ML, JS pt front-end...); microserviciile pot fi în limbaje diferite
-- **C)** Pentru a face codul mai lent
-- **D)** Nu folosesc niciodată mai multe limbaje
+- A) Din obligație legală
+- B) „Right tool for the job" — fiecare limbaj pentru ce excelează (Python pt ML, JS pt front-end...); microserviciile pot fi în limbaje diferite
+- C) Pentru a face codul mai lent
+- D) Nu folosesc niciodată mai multe limbaje
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1584,10 +1584,10 @@ Responsive (RWD): aceeași pagină se adaptează la dispozitiv
 </details>
 
 **27.** Ce face **browserul** la primirea unui cod HTTP **3xx** (ex. 301/302)?
-- **A)** Randează o pagină de eroare
-- **B)** Face **redirect automat** către altă adresă
-- **C)** Închide conexiunea fără a afișa nimic
-- **D)** Retrimite aceeași cerere la infinit
+- A) Randează o pagină de eroare
+- B) Face redirect automat către altă adresă
+- C) Închide conexiunea fără a afișa nimic
+- D) Retrimite aceeași cerere la infinit
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1595,10 +1595,10 @@ Responsive (RWD): aceeași pagină se adaptează la dispozitiv
 </details>
 
 **28.** Un exemplu concret de **design pattern** în dezvoltarea web:
-- **A)** Bubble sort
-- **B)** **MVC** (arhitectura aplicației) sau **Singleton** (o singură conexiune la BD), Front Controller (routing), Observer (evenimente)
-- **C)** Notația O-mare
-- **D)** Teorema Master
+- A) Bubble sort
+- B) MVC (arhitectura aplicației) sau Singleton (o singură conexiune la BD), Front Controller (routing), Observer (evenimente)
+- C) Notația O-mare
+- D) Teorema Master
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1606,10 +1606,10 @@ Responsive (RWD): aceeași pagină se adaptează la dispozitiv
 </details>
 
 **29.** Un **dezavantaj** al folosirii expresiilor regulate pentru validarea formularelor:
-- **A)** Sunt imposibil de scris
-- **B)** Greu de citit/întreținut, risc de **ReDoS**, iar validarea pe **client** trebuie oricum **repetată pe server**
-- **C)** Nu pot valida adrese de email
-- **D)** Funcționează doar în PHP
+- A) Sunt imposibil de scris
+- B) Greu de citit/întreținut, risc de ReDoS, iar validarea pe client trebuie oricum repetată pe server
+- C) Nu pot valida adrese de email
+- D) Funcționează doar în PHP
 
 <details><summary>✅ Răspuns</summary>
 
@@ -1617,10 +1617,10 @@ Responsive (RWD): aceeași pagină se adaptează la dispozitiv
 </details>
 
 **30.** Ce permite **Ajax** (XMLHttpRequest / Fetch)?
-- **A)** Compilarea codului pe server
-- **B)** Transfer **asincron** de date între browser și server, **fără reîncărcarea completă** a paginii
-- **C)** Criptarea automată a cookie-urilor
-- **D)** Rularea SQL direct în browser
+- A) Compilarea codului pe server
+- B) Transfer asincron de date între browser și server, fără reîncărcarea completă a paginii
+- C) Criptarea automată a cookie-urilor
+- D) Rularea SQL direct în browser
 
 <details><summary>✅ Răspuns</summary>
 

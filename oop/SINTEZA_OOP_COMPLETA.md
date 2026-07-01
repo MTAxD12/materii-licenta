@@ -2120,10 +2120,10 @@ Chain of Resp: pasează cererea de-a lungul unui lanț
 > Întrebări bazate pe subiectele date la licență în anii anteriori. Apasă pe **„Răspuns"** pentru a-l dezvălui. Variantele greșite sunt **greșeli frecvente reale**, nu evident false — citește cu atenție.
 
 **1.** Principiul Dependențelor Inversate (DIP) afirmă că:
-- **A)** Modulele de nivel înalt trebuie să depindă direct de cele de nivel jos, pentru eficiență
-- **B)** Atât modulele de nivel înalt, cât și cele de nivel jos trebuie să depindă de **abstracții**
-- **C)** O clasă trebuie să aibă un singur motiv de schimbare
-- **D)** Entitățile trebuie să fie deschise extensiei și închise modificării
+- A) Modulele de nivel înalt trebuie să depindă direct de cele de nivel jos, pentru eficiență
+- B) Atât modulele de nivel înalt, cât și cele de nivel jos trebuie să depindă de abstracții
+- C) O clasă trebuie să aibă un singur motiv de schimbare
+- D) Entitățile trebuie să fie deschise extensiei și închise modificării
 
 <details><summary>✅ Răspuns</summary>
 
@@ -2131,10 +2131,10 @@ Chain of Resp: pasează cererea de-a lungul unui lanț
 </details>
 
 **2.** Care este o violare tipică a DIP și soluția corectă?
-- **A)** O clasă are prea multe metode → o împarți în interfețe mici
-- **B)** O subclasă schimbă comportamentul bazei → nu mai suprascrii metoda
-- **C)** O clasă instanțiază direct cu `new` o clasă **concretă** → injectezi o **abstracție** (interfață) prin constructor
-- **D)** O funcție folosește `switch` pe tip → înlocuiești cu polimorfism
+- A) O clasă are prea multe metode → o împarți în interfețe mici
+- B) O subclasă schimbă comportamentul bazei → nu mai suprascrii metoda
+- C) O clasă instanțiază direct cu `new` o clasă concretă → injectezi o abstracție (interfață) prin constructor
+- D) O funcție folosește `switch` pe tip → înlocuiești cu polimorfism
 
 <details><summary>✅ Răspuns</summary>
 
@@ -2142,10 +2142,10 @@ Chain of Resp: pasează cererea de-a lungul unui lanț
 </details>
 
 **3.** La instanțierea unui obiect dintr-o clasă derivată, ordinea de apelare a constructorilor este:
-- **A)** Derivat → membri → bază
-- **B)** Bază → membri (în ordinea declarării) → derivat
-- **C)** Membri → bază → derivat
-- **D)** Bază → derivat → membri
+- A) Derivat → membri → bază
+- B) Bază → membri (în ordinea declarării) → derivat
+- C) Membri → bază → derivat
+- D) Bază → derivat → membri
 
 <details><summary>✅ Răspuns</summary>
 
@@ -2153,10 +2153,10 @@ Chain of Resp: pasează cererea de-a lungul unui lanț
 </details>
 
 **4.** De ce trebuie ca destructorul unei clase de bază polimorfice să fie declarat `virtual`?
-- **A)** Pentru a putea supraîncărca destructorul
-- **B)** Pentru ca `delete` printr-un pointer la bază să apeleze **destructorul clasei derivate reale**
-- **C)** Pentru a evita apelarea destructorului de două ori
-- **D)** Pentru a permite copierea obiectului
+- A) Pentru a putea supraîncărca destructorul
+- B) Pentru ca `delete` printr-un pointer la bază să apeleze destructorul clasei derivate reale
+- C) Pentru a evita apelarea destructorului de două ori
+- D) Pentru a permite copierea obiectului
 
 <details><summary>✅ Răspuns</summary>
 
@@ -2164,10 +2164,10 @@ Chain of Resp: pasează cererea de-a lungul unui lanț
 </details>
 
 **5.** Polimorfismul **dinamic** se realizează prin ... și are loc la ...:
-- **A)** supraîncărcare (overloading), la compilare
-- **B)** metode virtuale (overriding), la **execuție (runtime)**
-- **C)** template-uri, la compilare
-- **D)** supraîncărcarea operatorilor, la execuție
+- A) supraîncărcare (overloading), la compilare
+- B) metode virtuale (overriding), la execuție (runtime)
+- C) template-uri, la compilare
+- D) supraîncărcarea operatorilor, la execuție
 
 <details><summary>✅ Răspuns</summary>
 
@@ -2175,10 +2175,10 @@ Chain of Resp: pasează cererea de-a lungul unui lanț
 </details>
 
 **6.** Diferența dintre supraîncărcare (overloading) și suprascriere (overriding):
-- **A)** Overloading = redefinirea unei metode în derivată; overriding = aceeași metodă cu semnături diferite
-- **B)** Sunt sinonime
-- **C)** Overloading = aceeași metodă cu **semnături diferite** (compile-time); overriding = redefinirea unei **metode virtuale** în derivată (runtime)
-- **D)** Overloading necesită `virtual`, overriding nu
+- A) Overloading = redefinirea unei metode în derivată; overriding = aceeași metodă cu semnături diferite
+- B) Sunt sinonime
+- C) Overloading = aceeași metodă cu semnături diferite (compile-time); overriding = redefinirea unei metode virtuale în derivată (runtime)
+- D) Overloading necesită `virtual`, overriding nu
 
 <details><summary>✅ Răspuns</summary>
 
@@ -2186,10 +2186,10 @@ Chain of Resp: pasează cererea de-a lungul unui lanț
 </details>
 
 **7.** Șablonul **Composite** se folosește pentru a:
-- **A)** Adăuga dinamic responsabilități unui obiect
-- **B)** Compune obiecte în **structuri arborescente parte-întreg**, tratate uniform (nod/frunză)
-- **C)** Oferi o interfață simplificată unui subsistem
-- **D)** Converti o interfață incompatibilă
+- A) Adăuga dinamic responsabilități unui obiect
+- B) Compune obiecte în structuri arborescente parte-întreg, tratate uniform (nod/frunză)
+- C) Oferi o interfață simplificată unui subsistem
+- D) Converti o interfață incompatibilă
 
 <details><summary>✅ Răspuns</summary>
 
@@ -2197,10 +2197,10 @@ Chain of Resp: pasează cererea de-a lungul unui lanț
 </details>
 
 **8.** Relația de **agregare** (spre deosebire de compoziție) presupune că:
-- **A)** Partea nu poate exista fără întreg (ciclu de viață dependent)
-- **B)** Partea **poate exista independent** de întreg (ciclu de viață independent)
-- **C)** Este o relație de moștenire
-- **D)** Întregul și partea sunt aceeași clasă
+- A) Partea nu poate exista fără întreg (ciclu de viață dependent)
+- B) Partea poate exista independent de întreg (ciclu de viață independent)
+- C) Este o relație de moștenire
+- D) Întregul și partea sunt aceeași clasă
 
 <details><summary>✅ Răspuns</summary>
 
@@ -2208,10 +2208,10 @@ Chain of Resp: pasează cererea de-a lungul unui lanț
 </details>
 
 **9.** Care sunt cazuri particulare ale relației de **asociere**?
-- **A)** Moștenirea și derivarea
-- **B)** **Agregarea și compoziția**
-- **C)** Supraîncărcarea și suprascrierea
-- **D)** Interfața și clasa abstractă
+- A) Moștenirea și derivarea
+- B) Agregarea și compoziția
+- C) Supraîncărcarea și suprascrierea
+- D) Interfața și clasa abstractă
 
 <details><summary>✅ Răspuns</summary>
 
@@ -2219,10 +2219,10 @@ Chain of Resp: pasează cererea de-a lungul unui lanț
 </details>
 
 **10.** Șablonul **Factory (Object Factory)** rezolvă problema:
-- **A)** Garantării unei singure instanțe a unei clase
-- **B)** Creării de obiecte **fără a expune/specifica clasa concretă** instanțiată
-- **C)** Parcurgerii secvențiale a unei colecții
-- **D)** Notificării automate a mai multor obiecte
+- A) Garantării unei singure instanțe a unei clase
+- B) Creării de obiecte fără a expune/specifica clasa concretă instanțiată
+- C) Parcurgerii secvențiale a unei colecții
+- D) Notificării automate a mai multor obiecte
 
 <details><summary>✅ Răspuns</summary>
 
@@ -2230,10 +2230,10 @@ Chain of Resp: pasează cererea de-a lungul unui lanț
 </details>
 
 **11.** Care este o deosebire **corectă** între o clasă abstractă și o interfață (în C++)?
-- **A)** Interfața poate avea date membre și constructori, clasa abstractă nu
-- **B)** Clasa abstractă poate avea **date membre, constructori și metode concrete**; interfața (convenție) are **doar metode pur virtuale**
-- **C)** O clasă poate moșteni mai multe clase abstracte, dar o singură interfață
-- **D)** Interfața se poate instanția direct, clasa abstractă nu
+- A) Interfața poate avea date membre și constructori, clasa abstractă nu
+- B) Clasa abstractă poate avea date membre, constructori și metode concrete; interfața (convenție) are doar metode pur virtuale
+- C) O clasă poate moșteni mai multe clase abstracte, dar o singură interfață
+- D) Interfața se poate instanția direct, clasa abstractă nu
 
 <details><summary>✅ Răspuns</summary>
 
@@ -2241,10 +2241,10 @@ Chain of Resp: pasează cererea de-a lungul unui lanț
 </details>
 
 **12.** Când e mai potrivită o **interfață** decât o clasă abstractă?
-- **A)** Când ai deja o implementare parțială comună
-- **B)** Când vrei **doar să impui un contract**, fără a ști cum se va implementa
-- **C)** Când vrei o singură instanță
-- **D)** Când clasele au date membre comune
+- A) Când ai deja o implementare parțială comună
+- B) Când vrei doar să impui un contract, fără a ști cum se va implementa
+- C) Când vrei o singură instanță
+- D) Când clasele au date membre comune
 
 <details><summary>✅ Răspuns</summary>
 
@@ -2252,10 +2252,10 @@ Chain of Resp: pasează cererea de-a lungul unui lanț
 </details>
 
 **13.** Cum se realizează apelul (dispatch-ul) unei metode virtuale la runtime?
-- **A)** Prin căutarea numelui în tabela de simboluri
-- **B)** Prin pointerul **vfptr** al obiectului către **vtable**-ul clasei sale reale
-- **C)** Prin rezolvare la compilare de către compilator
-- **D)** Prin `dynamic_cast` / RTTI
+- A) Prin căutarea numelui în tabela de simboluri
+- B) Prin pointerul vfptr al obiectului către vtable-ul clasei sale reale
+- C) Prin rezolvare la compilare de către compilator
+- D) Prin `dynamic_cast` / RTTI
 
 <details><summary>✅ Răspuns</summary>
 
@@ -2263,10 +2263,10 @@ Chain of Resp: pasează cererea de-a lungul unui lanț
 </details>
 
 **14.** O clasă parametrizată (template) în C++:
-- **A)** Este instanțiată o singură dată, indiferent de tip
-- **B)** Generează **cod separat pentru fiecare tip** cu care e instanțiată, la compilare
-- **C)** Rezolvă tipurile la runtime
-- **D)** Necesită moștenire dintr-o clasă de bază comună
+- A) Este instanțiată o singură dată, indiferent de tip
+- B) Generează cod separat pentru fiecare tip cu care e instanțiată, la compilare
+- C) Rezolvă tipurile la runtime
+- D) Necesită moștenire dintr-o clasă de bază comună
 
 <details><summary>✅ Răspuns</summary>
 
@@ -2274,10 +2274,10 @@ Chain of Resp: pasează cererea de-a lungul unui lanț
 </details>
 
 **15.** Șablonul **Visitor** permite:
-- **A)** Restaurarea unui obiect la o stare anterioară
-- **B)** Definirea unei **operații noi** asupra unei structuri de obiecte, **fără a modifica clasele** elementelor
-- **C)** Încapsularea unei cereri ca obiect
-- **D)** Decuplarea unei abstracții de implementarea ei
+- A) Restaurarea unui obiect la o stare anterioară
+- B) Definirea unei operații noi asupra unei structuri de obiecte, fără a modifica clasele elementelor
+- C) Încapsularea unei cereri ca obiect
+- D) Decuplarea unei abstracții de implementarea ei
 
 <details><summary>✅ Răspuns</summary>
 
@@ -2285,10 +2285,10 @@ Chain of Resp: pasează cererea de-a lungul unui lanț
 </details>
 
 **16.** Mecanismul de tratare a excepțiilor în C++ folosește:
-- **A)** `try` / `catch` / `throw`, iar `catch`-urile se potrivesc **pe tip** (fără promovare implicită)
-- **B)** `try` / `except` / `raise`
-- **C)** Coduri de retur verificate manual după fiecare apel
-- **D)** `catch(...)` trebuie plasat **primul**
+- A) `try` / `catch` / `throw`, iar `catch`-urile se potrivesc pe tip (fără promovare implicită)
+- B) `try` / `except` / `raise`
+- C) Coduri de retur verificate manual după fiecare apel
+- D) `catch(...)` trebuie plasat primul
 
 <details><summary>✅ Răspuns</summary>
 
@@ -2296,10 +2296,10 @@ Chain of Resp: pasează cererea de-a lungul unui lanț
 </details>
 
 **17.** Principiul **Open-Closed (O)** afirmă că entitățile software trebuie să fie:
-- **A)** Deschise modificării, închise extensiei
-- **B)** Deschise **extensiei**, închise **modificării**
-- **C)** Cu o singură responsabilitate
-- **D)** Substituibile prin subtipurile lor
+- A) Deschise modificării, închise extensiei
+- B) Deschise extensiei, închise modificării
+- C) Cu o singură responsabilitate
+- D) Substituibile prin subtipurile lor
 
 <details><summary>✅ Răspuns</summary>
 
@@ -2307,10 +2307,10 @@ Chain of Resp: pasează cererea de-a lungul unui lanț
 </details>
 
 **18.** Principiul **Liskov (L)** este încălcat când:
-- **A)** O subclasă adaugă metode noi
-- **B)** O subclasă **schimbă comportamentul așteptat** al bazei (ex. `Square` redefinește `setWidth/setHeight` incompatibil cu `Rectangle`)
-- **C)** O clasă depinde de o abstracție
-- **D)** O interfață este prea mare
+- A) O subclasă adaugă metode noi
+- B) O subclasă schimbă comportamentul așteptat al bazei (ex. `Square` redefinește `setWidth/setHeight` incompatibil cu `Rectangle`)
+- C) O clasă depinde de o abstracție
+- D) O interfață este prea mare
 
 <details><summary>✅ Răspuns</summary>
 
@@ -2318,10 +2318,10 @@ Chain of Resp: pasează cererea de-a lungul unui lanț
 </details>
 
 **19.** La derivarea `class D : private B`, membrii **publici** ai lui B devin în D:
-- **A)** publici
-- **B)** **privați**
-- **C)** protejați
-- **D)** complet inaccesibili
+- A) publici
+- B) privați
+- C) protejați
+- D) complet inaccesibili
 
 <details><summary>✅ Răspuns</summary>
 
@@ -2329,10 +2329,10 @@ Chain of Resp: pasează cererea de-a lungul unui lanț
 </details>
 
 **20.** Care cast C++ face verificare **la runtime** și returnează `nullptr` la eșec (pentru pointeri)?
-- **A)** `static_cast`
-- **B)** `dynamic_cast`
-- **C)** `reinterpret_cast`
-- **D)** `const_cast`
+- A) `static_cast`
+- B) `dynamic_cast`
+- C) `reinterpret_cast`
+- D) `const_cast`
 
 <details><summary>✅ Răspuns</summary>
 
@@ -2340,10 +2340,10 @@ Chain of Resp: pasează cererea de-a lungul unui lanț
 </details>
 
 **21.** `const_cast` se folosește pentru:
-- **A)** Conversii numerice (int → double)
-- **B)** A **adăuga/elimina** calificatorul `const` (sau `volatile`)
-- **C)** Downcast în ierarhii polimorfice
-- **D)** Reinterpretarea biților unui pointer
+- A) Conversii numerice (int → double)
+- B) A adăuga/elimina calificatorul `const` (sau `volatile`)
+- C) Downcast în ierarhii polimorfice
+- D) Reinterpretarea biților unui pointer
 
 <details><summary>✅ Răspuns</summary>
 
@@ -2351,10 +2351,10 @@ Chain of Resp: pasează cererea de-a lungul unui lanț
 </details>
 
 **22.** **Object slicing** apare când:
-- **A)** Un obiect **derivat este copiat prin valoare** într-un obiect de tip bază, pierzând partea derivată
-- **B)** Un pointer la bază indică un obiect derivat
-- **C)** Se apelează un destructor de două ori
-- **D)** Se folosește `dynamic_cast`
+- A) Un obiect derivat este copiat prin valoare într-un obiect de tip bază, pierzând partea derivată
+- B) Un pointer la bază indică un obiect derivat
+- C) Se apelează un destructor de două ori
+- D) Se folosește `dynamic_cast`
 
 <details><summary>✅ Răspuns</summary>
 
@@ -2362,10 +2362,10 @@ Chain of Resp: pasează cererea de-a lungul unui lanț
 </details>
 
 **23.** Constructorul de **copiere** este apelat când:
-- **A)** Se creează un obiect nou **ca o copie** a unuia existent (inclusiv la pasarea prin valoare / return by value)
-- **B)** Un obiect deja existent primește valoarea altuia prin `=`
-- **C)** Se distruge un obiect
-- **D)** Se apelează o metodă virtuală
+- A) Se creează un obiect nou ca o copie a unuia existent (inclusiv la pasarea prin valoare / return by value)
+- B) Un obiect deja existent primește valoarea altuia prin `=`
+- C) Se distruge un obiect
+- D) Se apelează o metodă virtuală
 
 <details><summary>✅ Răspuns</summary>
 
@@ -2373,10 +2373,10 @@ Chain of Resp: pasează cererea de-a lungul unui lanț
 </details>
 
 **24.** Problema **diamantului** (moștenire multiplă) se rezolvă prin:
-- **A)** **Moștenire virtuală** (`class B : virtual public A`)
-- **B)** Destructor virtual
-- **C)** Funcții `friend`
-- **D)** `static_cast`
+- A) Moștenire virtuală (`class B : virtual public A`)
+- B) Destructor virtual
+- C) Funcții `friend`
+- D) `static_cast`
 
 <details><summary>✅ Răspuns</summary>
 
@@ -2384,10 +2384,10 @@ Chain of Resp: pasează cererea de-a lungul unui lanț
 </details>
 
 **25.** Ce reprezintă o **clasă** în raport cu obiectele?
-- **A)** O instanță concretă a unui obiect
-- **B)** Un **șablon** care descrie trăsăturile comune (atribute + metode) ale unui **grup de obiecte**
-- **C)** O funcție cu stare internă
-- **D)** Un modificator de acces
+- A) O instanță concretă a unui obiect
+- B) Un șablon care descrie trăsăturile comune (atribute + metode) ale unui grup de obiecte
+- C) O funcție cu stare internă
+- D) Un modificator de acces
 
 <details><summary>✅ Răspuns</summary>
 
@@ -2395,10 +2395,10 @@ Chain of Resp: pasează cererea de-a lungul unui lanț
 </details>
 
 **26.** Membrii `protected` ai unei clase sunt accesibili:
-- **A)** Doar din interiorul clasei
-- **B)** Din clasă **și din clasele derivate**
-- **C)** De oriunde
-- **D)** Doar din funcții `friend`
+- A) Doar din interiorul clasei
+- B) Din clasă și din clasele derivate
+- C) De oriunde
+- D) Doar din funcții `friend`
 
 <details><summary>✅ Răspuns</summary>
 
@@ -2406,10 +2406,10 @@ Chain of Resp: pasează cererea de-a lungul unui lanț
 </details>
 
 **27.** O clasă care conține cel puțin o metodă **pur virtuală** (`= 0`):
-- **A)** Poate fi instanțiată direct
-- **B)** Este **abstractă** și **nu poate fi instanțiată**
-- **C)** Nu poate avea date membre
-- **D)** Nu poate avea constructori
+- A) Poate fi instanțiată direct
+- B) Este abstractă și nu poate fi instanțiată
+- C) Nu poate avea date membre
+- D) Nu poate avea constructori
 
 <details><summary>✅ Răspuns</summary>
 
@@ -2417,10 +2417,10 @@ Chain of Resp: pasează cererea de-a lungul unui lanț
 </details>
 
 **28.** Șablonul **Singleton**:
-- **A)** Creează obiecte prin clonarea unui prototip
-- **B)** Garantează o **singură instanță** și oferă un **punct global de acces**
-- **C)** Compune obiecte în arbore
-- **D)** Adaugă responsabilități dinamic
+- A) Creează obiecte prin clonarea unui prototip
+- B) Garantează o singură instanță și oferă un punct global de acces
+- C) Compune obiecte în arbore
+- D) Adaugă responsabilități dinamic
 
 <details><summary>✅ Răspuns</summary>
 
@@ -2428,10 +2428,10 @@ Chain of Resp: pasează cererea de-a lungul unui lanț
 </details>
 
 **29.** Un membru sau o funcție `friend` a unei clase:
-- **A)** Se moștenește de către clasele derivate
-- **B)** Este reciprocă (dacă A e friend cu B, atunci B e friend cu A)
-- **C)** Poate accesa membrii **private și protected** ai clasei, deși **nu este** membru al ei
-- **D)** Este o formă de moștenire
+- A) Se moștenește de către clasele derivate
+- B) Este reciprocă (dacă A e friend cu B, atunci B e friend cu A)
+- C) Poate accesa membrii private și protected ai clasei, deși nu este membru al ei
+- D) Este o formă de moștenire
 
 <details><summary>✅ Răspuns</summary>
 
@@ -2439,10 +2439,10 @@ Chain of Resp: pasează cererea de-a lungul unui lanț
 </details>
 
 **30.** Care sunt cei **4 piloni (principii fundamentale)** ai POO?
-- **A)** Încapsulare, Abstractizare, Moștenire, Polimorfism
-- **B)** Single Responsibility, Open-Closed, Liskov, Dependency Inversion
-- **C)** Clase, Obiecte, Metode, Atribute
-- **D)** Constructor, Destructor, Copiere, Mutare
+- A) Încapsulare, Abstractizare, Moștenire, Polimorfism
+- B) Single Responsibility, Open-Closed, Liskov, Dependency Inversion
+- C) Clase, Obiecte, Metode, Atribute
+- D) Constructor, Destructor, Copiere, Mutare
 
 <details><summary>✅ Răspuns</summary>
 
@@ -2450,10 +2450,10 @@ Chain of Resp: pasează cererea de-a lungul unui lanț
 </details>
 
 **31.** **Încapsularea** înseamnă în primul rând:
-- **A)** Expunerea doar a esențialului și ascunderea complexității de implementare
-- **B)** Gruparea datelor + metodelor într-o clasă și **ascunderea datelor** (data hiding) prin modificatori de acces
-- **C)** Preluarea atributelor de la o clasă de bază
-- **D)** Același apel cu comportamente diferite
+- A) Expunerea doar a esențialului și ascunderea complexității de implementare
+- B) Gruparea datelor + metodelor într-o clasă și ascunderea datelor (data hiding) prin modificatori de acces
+- C) Preluarea atributelor de la o clasă de bază
+- D) Același apel cu comportamente diferite
 
 <details><summary>✅ Răspuns</summary>
 
@@ -2461,10 +2461,10 @@ Chain of Resp: pasează cererea de-a lungul unui lanț
 </details>
 
 **32.** Prin ce mecanism se realizează concret **abstractizarea** în C++?
-- **A)** Prin modificatorii `private`/`public`
-- **B)** Prin **clase abstracte și interfețe** (metode pur virtuale)
-- **C)** Prin template-uri
-- **D)** Prin `friend`
+- A) Prin modificatorii `private`/`public`
+- B) Prin clase abstracte și interfețe (metode pur virtuale)
+- C) Prin template-uri
+- D) Prin `friend`
 
 <details><summary>✅ Răspuns</summary>
 
