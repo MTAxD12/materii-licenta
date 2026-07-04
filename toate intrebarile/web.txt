@@ -1,0 +1,122 @@
+2025:
+1
+Despre Media Types – MIME si Ajax
+2
+De ce sunt mai multe parsers care e rolul lor si ce interdependente pot fi între ele?
+3
+Principalele asemanari si deosebiri intre server web, proxy web, gateway web, server de aplicatii web
+4
+Tipurile de stocare persistenta pe care le folosesti intr-o aplicatie web
+5
+Ce este un server web, ce implica acesta
+6
+Conexiunile dintre hipermedia, URI, REST și teoria automatelor
+7
+autentificare si autorizare in cadrul APIs, definitie, ce sunt, exemple
+8
+Flow-ul/legatura dintre MIME types, header-ele HTTP si Ajax. + 3 exemple de atribute dij header request
+9
+Poate fi DOM creat daca este doar bine formatat si nu validat HTML/XML? Argumentati.
+10
+Ceva legat de securitatea in cookie uri si sesiuni
+11
+Cascade în CSS
+12
+Defineste notiunea de "design Web Responsive". Cum si cand se pune in aplicare.
+13
+Discutați (des)avantajele utilizări arhitecturi pe straturi în dezvoltarea aplicațiilor Web (e.g. N-tier, layered systems)
+14
+Diferenta dintre JSON si HTML
+15
+Ce inseamna pentru securitatea aplicatiei web recurgerea la folosirea de cookie uri si sesiuni web. Exemple.
+16
+Servicii Web vs Microservicii web, asemanari si deosebiri
+17
+(Dez)avantaje MVC
+18
+Interdependenta intre SOA si MVC
+
+2024:
+● Context unde apare principiul DRY în aplicații web
+● Arborele DOM poate fi creat doar în condițiile în care documentul XML/HTML este
+bine-formatat sau exclusiv când este valid? Argumente, exemple
+● Care este conexiunea conceptuala (sau cv de genul) dintre HTML și DOM și
+transferul de date asincron. (în principal trebuie să vorbești despre cum este creat
+arborele dom pe baza html și dacă el se poate modifica după ce a fost creat)
+● Ce este si asemanari dintre “server Web”, “proxy web” , “gateway web”, “server de
+aplicatii web”.
+● Diferența dintre SOA și MVC, discuție și exemplificare și o interdependență între ele
++1
+● Autentificare și autorizare. Ce înseamnă, care e diferența între ele si cum se folosesc
+aceste doua notiuni in cadrul API-urilor web (un exemplu). (Eu pe langa definitii și
+explicații am detaliat cum funcționează astea 2 cu JWT)
+
+2023:
+● .SOA vs MVC +1+1+1
+● Arborele DOM poate fi creat doar in conditiile in care documentul XML/HTML este
+bine formatat sau exclusiv cand este valid? Argumentare si exemple; Q: La asta care
+e raspunsul corect? În ceea ce privește crearea unui arbore DOM, un document
+XML/HTML bine formatat poate fi parsat și convertit într-un arbore DOM fără
+=)1a fi nevoie de validare. Astfel, un parser poate construi structura ierarhică a
+documentului și să ofere un acces programatic la elemente și atribute. Pe de
+altă parte, pentru a valida un document XML/HTML, este necesară utilizarea
+unui proces de validare suplimentar, care implică utilizarea unui schema sau a
+unui DTD. Acest proces verifică conformitatea documentului curegulile
+specificate și determină dacă wdocumentul este valid sau nu. Validarea poate
+fi realizată folosind un parser XML/HTML care implementează validarea sau
+prin intermediul unor utilitare sau biblioteci externe.
+● Post vs Get
+● servicii veb vs microservicii veb :))
+● folosirea mai multor limbaje de programare in aplicatii web mari (de ce )+
+dezavantaje +1
+● Folosirea Get in defavoarea lui POST si avantaje/dezavantaje pentru securitate si
+navigare web.(sincer nu am inteles prea bine intrebarea)
+● R: - securitate: get se vad datele ca-s in url, post nu se vad ca-s in body
+● - navigare: esti nebun ? navighezi cu post ? si cum creezi resurse ? cu get, nu ?
+● (sigur nu e Post in defavoarea lui Get ???)
+● Asemanari si deosebiri intre “server web”, “server de aplicatii web”, “proxy web”,
+“gateway web”.
+● R:
+https://stackoverflow.com/questions/936197/what-is-the-difference-between-applicati
+on-server-and-web-server
+● GRAPHQL VS REST 🙂 (RIP) +1
+● (dez)avantaje pentru folosirea expresiilor regulate pentru validarea datelor din
+campurile form
+● rolul codurilor http in randarea paginii web (Status Code)
+● cum functioneaza si in ce context sunt folosite template engines
+● avatanaje/dezavantaje in folosirea mai multor limbaje intr-o aplicatie web
+● cascada (CSS) + exemple (!important)
+
+2022:
+Diferente si asemanari dintre HTML și JSON.[Html si json?? nu cumva XML si json?]
+Interdependența dintre SOA și MVC [aici care e raspunsul?]
+Construcția arborelui DOM. Este necesara corectitudinea formatarii documentului XML/HTML pentru ca arborele DOM sa fie creat? Sau exclusiv validitatea documentului? Argumentați și dați exemple. (Hint: niciuna dintre cele 2 nu e necesara) Ai raspuns ?:) Am răspuns greșit, m-au pus Panu si Arusoaie pe drumul cel bun:) Adica cu intrebari ajutătoare. In final am ajuns unde trebuie. Pai care e raspunsul teoretic ?:)) doar nu este necesar si atat? Da, browserul îți creează arborele DOM indiferent de cum e formatat asta sau daca exista html invalid, pur si simplu il ignora. Mersi <3 Np
+ce rol au codurile http + ce rol au în randarea html ului - aici le am zis despre fiecare grupa in parte ce seminifica (1xx,2xx,3xx,4xx,5xx), le am zis ca browser ul genereaza automat cod html pe baza unui 404 (gen cand intri pe site ul uaic.…/~lacra/ceva_random și nu gaseste fisierul, browser ul randeaza automat cod html cu “404 not found” sau pt internal server error; sau alt exemplu: face redirect cand primeste un 300 catre alta pagina). Cu raspunsul asta i am dat pe spate (ca stiam ce face fircare grupa de http response) și m au lasat in pace 
+Avantajele si dezavantajele generarii de continut static in comparatie cu generarea dinamica.
+SOAP vs REST (asemanari, diferente)
+Discutati (dez) avantajele abordarii recurgand la strate multiple pentru dezvoltarea de aplicatii Web(e.g. N-tier Web applications, layered systems)
+Cum funcționează și în ce context este utilizat un sistem de redare a conținutului pe baza machetelor(template engine)?
+Regex in validarea inputului scris de utilizatori, avantaje/dezavantaje
+Principiul Dry in programare web, (m-a intrebat cum il pot aplica in contextul css cu @media ) - raspuns: generalizezi si dupa suprascrii 
+Cookies si sesiuni din punctul de vedere al securității
+Legatura dintre hypermedia, URI si REST 
+
+2021:
+1. Beneficiile și dezavantajele livrării de conținut dinamic vs static
+2. Discutați care e rolul sabloanelor de proiectare în contextul dezvoltării unei
+aplicații web. Dați 2 exemple concrete
+3. Discutați care e rolul șabloanelor de proiectare (design patterns) în contextul
+dezvoltării unei aplicații Web. Prezentați minim 2 exemple de utilizare a acestora
+în situații concrete.
+4. asemanari si deosebiri între servicii web și microservicii web
+5. Explicați conceptul "design web" responsive și contextul/contextele de utilizare
+6. Principiul DRY în contextul dezvoltării web
+7. Nu era și una cu DOM?
+8. Implementarea in mai multe limbaje de programare a aplicatiei. avantaje/ dezavantaje
+9. Avantaje / Dezavantaje MVC in diverse tipuri de aplicatii web (aplicatii statice,
+e-commerce etc.)
+
+2019:   
+1. Ce este un server web, arhitectura acestuia.
+2. Discutați rolul structurilor de date (generice) în scopul Managementului Dom-ului.
+Discutați rolul WebIDL pentru aceste structuri de date. (Ceva de genul)

@@ -1,0 +1,140 @@
+2025:
+1
+Excepții
+2
+Constructor destructor. Scop, utilizare, cum initializam constructorul cand avem inheritance.
+3
+Relatii de asociere. Definitii, clasificari.
+4
+Constructor si Destructor. Definitie. Responsabilitati. Apelare in contextul derivarii
+5
+Clase virtuale și interfețe. Definiție, asemănări, deosebiri, implementare
+6
+Constructor si destructor, definitie, cum functioneaza, si cum se apeleaza
+7
+Principiul Open-Closed. Descriere, exemplu in care se incalca si solutia
+8
+clase si obiecte, cum sunt structurate obiectele in clase, clase abstracte, acess modifiers
+9
+Clase parametrizate. Implementare. Exemple canonice.
+10
+Open Closed. Ce e, un exemplu în care nu e respectat și o soluție pentru acel exemplu
+11
+Clase parametrizate. Definitii. Exemple canonice. Implementare
+12
+constructor si destructor - def, utilizare si cum se apeleaza din clase derivate
+13
+Suprascriere si polimorfism dinamic
+14
+Relația de asociere a claselor/obiectelor. Definiție. Clasificări. Implementare
+15
+Clase abstracte. Interfete. Definitii, asemanari, deosebiri. Metode virtuale
+16
+Suprascrierea metodelor si polimorfism dinamic
+17
+Clase abstracte. Interfețe. Asemănări. Deosebiri. Metode virtuale.
+18
+Obiecre, clase, clase abstracte, privat prot pub, inserarea obiectelor in clade? Aranjarea? Dispunerea?
+19
+Clase Parametrizate. Exemple canonice. Implementare
+20
+Suprascrierea si polimorfismul dinamic(+cum face polimorfismul acea alegere intre functii)
+
+
+2024:
+● Dependency inversion cu exemple (x2)
+● Constructori și destructori
+● Principiul dependințelor inversate. Definiție, exemplu unde nu e respectat, soluție.
+● Suprascrierea, polimorfism dinamic (x2)
+● Design pattern-ul Composite
+
+● Relatia de agregare; definite, exemple
+● Relatii de asociere intre clase / instante in OOP; definitie, tipuri, exemple
+● Design pattern-ul Object-Factory
+● Clase abstracte , interfețe : asemănări, deosebiri, utilizări, metode virtuale, (Întrebare
+Radulescu: când se folosesc una sau cealaltă : interfață când nu știi nimic despre
+cum trebuie implementat, abstractă: când ai o idee de funcționalitate) [din cursul de
+java, citire: “Extending an abstract class imposes a strong relationship among two
+classes. Implementing an interface is much lighter: it only specifies that a class is
+respecting a certain contract, making sure it conforms to some specifications.
+Interfaces and abstract classes do not exclude each other, they are used together in
+many situations: List → the contract; AbstractList → the common behaviour,
+LinkedList, ArrayList → specific behaviour “]
+● Clase parametrizate. Definiții. Exemple canonice. Implementare
+
+
+2023:
+● Visitor:) +1
+● Suprascrierea/overriding, polimorfism dinamic - ce e asta? R: (polimorfismul
+static are loc la compile time, se face prin method overloading, iar
+polimorfismul dinamic are loc la run time si se face prin metode virtuale, aka
+overriding)
+● Principiul dependetelor inversate, descriere, exemple, cand nu se respecta, solutie (
+care e solutia ?)
+● Clase parametrizare (adica Templateuri) +1
+● clasa abstractă si interfața, definiții, asemănări, deosebiri si metode virtuale ( cum
+se implementează interfața , clasa abstractă in c++, Java - daca ai facut in Java )
+x 2
+● Excepții. Definiție și mecanismul de administrare în POO (am zis de Chain of
+responsibility | Q: nu ar putea fi command (inglobeaza exceptia si informatiile despre
+ea si le trimite mai departe) sau composite (exceptiile sunt organizate ierarhic)? ). R:
+
+https://dzone.com/articles/exception-handling-with-chain-of-responsibility (yes, dar e
+singura varianta de raspuns ? nu as zice, as zice ca toate ar compune un rsp.
+● Relații de agregare între clase/obiecte. Definiții. Implementare. Exemple
+● O din SOLID (open-closed principle, a class is open to extension and closed to
+modification) +1
+● Factory
+● Principiul dependințelor inversate(adică D-ul din SOLID)
+● Clase si obiecte, gruparea obiectelor (R: o clasa reprezinta trasaturile comune a unui
+“grup de obiecte”), Clase abstracte, modificatori de acces
+● Relații de asociere între clase/obiecte. Definiții. Implementare. Exemple
+● Exceptii
+● sablon de proiectare : Composite
+● Suprascrierea metodelor. Polimorfism dinamic
+
+2022:
+Composite (din sabloane de proiectare)
+Supraincarcarea si suprascrierea metodelor
+Visitor
+Clase abstracte vs interfete: Asemanari, definitii, detalii de implementare
+Metode virtuale
+Constructori și destructori 
+Visitor
+Principiul dependințelor inversate. Descriere, exemplu cand nu e respectat, soluția 
+Clase parametrizate. Definitie, exemple canonice, implementare
+Principiul lui Liskov.
+Relatii de asociere intre clase/obiecte. Definite, clasificare, implementare.
+Clase si obiecte. Ce e un obiect, Gruparea obiectelor in clase. Clase Abstracte. Moificatori de acces pentru atribute
+Reguli de conversie (casting).
+O din SOLID, cand este folosit, cand este incalcat
+Excepții. Definiție, mecanismul de management al excepțiilor în POO.
+Constructor si Destructor. Definitie, responsabilitati, mod de apelare in cazul claselor derivate
+
+2021:
+1. Design Pattern: Visitor
+2. Relații de agregare, clasificare și implementare
+3. Object Factory
+4. Sabloane de proiectare: Composite
+5. Principiul Dependențelor Inversate ( exemple, cand nu este aplicată )
+6. Relații de asociere între clase/obiecte. Definiție, clasificare, implementare.
+7. Open closed principle
+8. Derivare si Mostenire (diferente, implementare)
+9. Clase abstracte și interfețe. Definiție, asemănări și diferențe. Metode virtuale.
+10. Relațiile de moștenire și de derivare. Clasificarea relației de derivare, când
+derivarea definește o moștenire, implementare.
+11. Reguli de conversie (cast)
+12. Relații de asociere între clase
+
+2019:
+1. Funcții pur virtuale în C++ (fără comparații cu alte limbaje de programare)
+2. Functii friend
+3. Supraîncărcarea metodelor
+4. Template-uri in C++
+Q: ce trebuie sa zici aici mai exact?
+5. Containere STL.
+6. Dependency Inversion - D-ul din SOLID.
+7. Polimorfism
+8. Pointeri si referinte ( + diferenta intre ele)
+9. Operatori C++
+

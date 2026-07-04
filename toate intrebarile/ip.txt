@@ -1,0 +1,191 @@
+2025:
+1
+SOLID, de detaliat principiul S
+2
+Design Patterns. GoF. De detaliat Flyweigh.
+3
+QA. Ce este code coverage? Cum se calculeaza?
+4
+Ce inseamna reverse engineering. Ce tipuri de reverse engineering exista
+5
+Testare automată vs testare manuală
+6
+Ce e SCRUM. ROLURI. ARTEFACTE. EVENIMENTE
+7
+Metodologia Kanban - caracteristici, detalii
+8
+Design Patterns. GOF. Design Patterns comportamentale. Detaliaza Mediator.
+9
+Design Patterns. GoF. Structurale. Detaliati decorator
+10
+SOLID. Ce principii are? Detaliază D
+11
+DP Structurale. GOF. Adapter
+12
+Agile, ce este, caracteristici
+13
+Care e scopul Ingineriei Programarii? Care sunt pasii dezvoltarii unei aplicatii de dimensiuni mari? Care e cel important pas.
+14
+Design Patterns. GOF. Design patterns comportalementale. Descrie Visitor
+15
+Open/Closed Principle - definitie, exemplu in care nu se respecta, solutia
+16
+SOLID. detaliaza S
+17
+Design Patterns. GOF. Design patternuri creationale. Detaliere Prototype
+18
+Design pattern - Mediator
+19
+Principiile SOLID. De detaliat I
+20
+Design Patternuri. Definitie. Elemente ce alcatuiesc un design pattern. Tipuri de design patternuri. Exemple.
+21
+Ce este Unit testing și un exemplu.
+22
+use case: definitie si exemple
+23
+Design patterns. Gof. Dp comportamentale. Chain of responsability
+24
+Quality Assurance; Testare Nefunctionala
+25
+Design Patterns. GOF. Design comportamentale.Observer
+26
+Modelare, de ce e folositoare ea. Exemple de limbaje de modelare
+27
+Reverse engineering a proiectelor software. Definitie, metode, exemple in care a avut loc
+28
+Design Patterns. GOF. Design pattern-uri comportamentale. Explicati Mediator
+29
+Quality Assurance. Testare nefunctionala.
+30
+Importanta IP-ului, statistici, exemple (cursul 1)
+31
+L-ul din SOLID
+32
+Principiile SOLID si descrierea pentru principiul I.
+33
+Ce este ingineria programării. Care sunt etapele realizării unui proiect și care este cea mai importantă etapă.
+34
+Ce este o diagramă de clase, tipuri de relații într-o astfel de diagramă. Un exemplu de diagramă de clase pe care m-au rugat să o desenez pe tablă.
+35
+GOF. Despre design pattern structural si Flyweight
+36
+Ce este reverse engineering? Cate tipuri de reverse engineering sunt?
+37
+Definiție QA. Testare manuala și testare automată
+38
+gof, dp structurale, adapter
+39
+Ce este reverse engineering în contextul dezvoltării produselor software? Dați un exemplu unde a fost folosit reverse engineering.
+40
+Modelele de dezvoltare în ingineria software. Descrieți, la alegere, unul dintre modelele: în Cascadă, Extreme Programming, în Spirală.
+
+
+2024:
+Design Patterns structurale. Exemplificare Adapter
+● Despre pachete și principiile OOP în crearea pachetelor +2
+● Ce reprezinta GRASP. Detalii despre coeziune + 1
+● Metodologia SCRUM. Ce este? Care sunt caracteristicile acesteia?
+● Care sunt principiile SOLID ? Explicați D din SOLID +1
+● Care sunt principiile SOLID? Explicați L din SOLID
+● Design Patterns. GoF. Observer
+● Unde se foloseste Ingineria Programarii? Un context in care e folosit
+● Ce este Ingineria Programarii, care sunt etapele de dezvoltare si care este cea mai
+importanta.
+● Dp. Proxy
+● Definiția IP, etapele realizării unui proiect și care este cea mai importantă etapă
+
+2023:
+● Ingineria programarii definitie, etape de dezvoltare, care este cea mai importantă
+etapa
+● Când ar trebui folosită ingineria programării, în ce tip de proiecte (plus să dau
+exemplu) și de ce am fi nevoiți să o folosim
+● modele de dezvoltare , def si de vorbit despre extreme programming,spirala si
+cascada (extreme programming? = XP)
+● Pachete - principii.
+● scrum (unde au disparut artefacte, evemiente, roluri din cursuri ?)))
+● SOLID, care sunt, detaliere S
+● SOLID, care sunt, detaliere L
+● design patterns. gof. dp structurale. decorator
+● use case, definitie exemple
+● dp. Gof.design patternuri creationale.prototype
+● Arhitectura pe n layere (Q: va da chat gpt raspuns bun daca cereti beneficii la
+arhitectura pe n layers, e pretty easy)
+● Design patterns. GOF. Designuri comportamentale. Detaliază Mediator. Exemple.
+● QA.Manual Testing vs Automation Testing
+● metodologia AGILE
+● design patterns. definitie. elemente. exemple.
+● Metodologia Agile. Ce este? Prezentati caracteristici.
+● Quality assurance. Ce este code coverage la testare? cum se calculeaza?
+● Reverse engineering, tipuri. (+1)
+● Principii POO in pachete: Principiul stabilitatii in pachete
+● SOLID si principiul i
+● Diagrame de clase. Exemplu de diagrama de clase, detaliere
+● L din Solid, si titlul fiecarui principiu
+● Quality assurance , def, metodologii de testing
+● testare manuala si automata
+● QA si Testare nefunctionala
+● Principii GRASP. Detaliaza cuplaj
+
+2022:
+Diagrame Use-Case. Elemente componente. Exemple.
+Importanța Ingineriei Programării.
+Metodologia SCRUM. Roluri. Artefacte. Evenimente. (Artefacte și evenimente ??? Stie cineva?xD) [artefactele sunt backlogul sprintului și backlogul total, evenimentele sunt: daily, retroperspectiva sprint, planning, demo la sfarsit de sprint] Ty! CP 
+Modele de dezvoltare software. Detalii despre cascada sau extreme programming sau spirala
+Reverse Engineering. Definitie. Tipuri . Care sunt tipurile știe cineva  ? in cod disponibil  si fara cod disponibil
+Metodologia Agile. Ce este? Dați elemente caracteristice acestei metodologii
+GoF
+Proxy
+In ce situatii este necesara aplicarea prinicipiilor de inginerie a programării? Dati un exemplu cand este necesara si un exemplu cand nu este necesara. [Cand nu este necesar???? Faci si tu un mic scraper pentru uz personal sa zicem, nu te apuci sa aplici metodologia SCRUM de exemplu, ca pierzi timp aiurea. Am zis fix asta, ca pierzi timp, a acceptat răspunsul.] Principii se referă la dry, solid sau scrum cascada etc. ? Toate, orice s-a facut la IP intra aici. Cred ca era formulat cu “elemente” sau ceva de genul, sa includa si principii si metodologii, nu mai stiu exact pentru ca nu mi-au lasat foaia cu intrebarile, zic din memorie
+SOLID - care sunt si detalii despre "O"
+Metodologia SCRUM. Ce este? Dati elemente caracteristice acestei metodologii.
+Unit Teste. De ce? Exemplu
+Pachete: Concepte/stabilitate 
+Principii POO in pachete: Stabilitatea pachetelor
+SOLID. Explicat Liskov in detaliu cu exemplu
+Definiti ingineria programării. Etapele dezvoltării programelor.
+Quality Assurance. Automation Testing vs Manual Testing.
+GoF. Design Pattern Creationale. Prototype definitie si exemple
+Metodologia Kanban. Definitie, caracteristici ale metodologiei. 
+Principiile GRASP. Explicati principiul de coeziune.
+Ingineria programarii: utilitate, statistici, exemple
+Qality Assurance. Testare nefunctionala
+
+
+2021:
+1. Ingineria cerințelor, Definiție, Cine? de ce? Pașii x2
+2. Scrum, artefacte, roluri și evenimente
+3. Reverse Engineering. Definitie. Tipuri.
+4. Modele de dezvoltare a proiectelor de inginerie software. Detalii despre cascada,
+extreme programming sau spirala.
+5. Ce rol are ingineria programării? Exemple. Statistici.
+6. Metodología Kanban. Ce este? Dați elemente caracteristice acestei metodologii.
+7. Scopul ingineriei programării cu statistici și exemple
+8. Modelare. De ce? Limbaje de modelare
+9. Principiile GRASP. Explicati notiunea de cuplaj
+10. Design Patterns. GOF. Design patterns comportamentale. Detaliați Chain of
+Responsibility.
+11. Principiile OOP pentru pachete. Principii de organizare ale pachetelor. Am găsit
+ceva despre asta la finalul cursului 12. Curs 9 - slide 3
+12. Principiile SOLID. Care sunt? Detaliere S.
+13. DP,GOF, DP creationale
+14. Clase parametrizate - what?
+15. Unit Testing
+
+
+2019:
+1. Testare software, definiții, dilema testării.
+Q: Care este dilema testării?
+A: Ca nu stii niciodata cand se finalizeaza testarea unei aplicatii.
+2. Xp, agile, kanban
+3. Design patterns comportamentale. Definitie. Exemple. De explicat unul la
+alegere.
+4. Creational Design Patterns.
+5. Solid. Enumerat toate si descris una dintre ele
+6. Etapele necesare dezvoltarii aplicatiilor de dimensiuni mari.
+7. Reverse Engineering. Definitii. Exemple.
+R: In cazul exemplelor, dupa ce dai un exemplu din produse software, posibil sa
+ti se ceara si unul din alt domeniu, cum ar fi domeniul militar
+
+8. Testare manuala vs testare automata
+9. Scrum. Evenimente, artefacte, roluri

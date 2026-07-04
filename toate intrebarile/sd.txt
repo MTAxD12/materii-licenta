@@ -1,0 +1,158 @@
+2025:
+1
+Arbori binari de căutare. Reprezentare și operații.
+2
+Stive si cozi
+3
+Arbori binari de cautare
+4
+Arbori digitali. Arbori digitali compactați
+5
+Grafuri. Digrafuri. Reprezentare. Parcurgere
+6
+Complexitati la functii recursive. metoda substitutiei, metoda iteratiei.
+7
+Tipurile abstracte Stiva si Coada.
+
+Extra: Ce e un tip abstract?
+8
+Coada cu prioritati. Max/min heap
+9
+Tipul abstract coada cu priorități. Structuri „Min/Max Heap”.
+10
+Arbori binari de cautare echilibrati - red black trees
+11
+Sortarea prin numarare. Sortarea prin distributie.
+12
+sa explic cum calculez costul de timp la recursie prin metodele de iteratie și substitutie
+13
+Analizati complexitati timp la algoritmi. Caz favorabil. Nefavorabil. Ordin de crestere
+14
+Sortare prin numarare. Sortare prin distribuire.
+15
+Eficiență și complexitate în timp. Caz favorabil/nefavorabil. Exemple. Ordinul de creștere.
+16
+cele 4 metode pt complexitatea recursiva(TOATE 4 M AU PUS CHIAR LA TOATE )
+17
+arboni binari de cautare
+18
+Componente conexe si componente tare conexe si alg pt a le afla
+19
+Complexitati. Notatia asimptotica. Algoritmi
+20
+grafuri digrafuri, implementare, parcurgeri
+21
+Complexitatea functiilor recursive. Arbori de recursie, Teorema Master
+22
+Tipul abstract Stiva si Coada
+23
+Sortare prin distribuire. Sortare prin numărare.
+24
+Determinarea componentelor conexe și componentelor tari conexe.
+25
+Tipurile abstracte de date Stiva si Coada.
+26
+Arbori binari de cautare echilibrati AVL
+27
+Distribution/Counting sort
+28
+Funcții recursive, metoda iterației, metoda substituției
+29
+metoda iterativa si a substitutiei pt recursivitate
+
+2024:
+● Tabele de dispersie. Ce se intampla în caz de coliziune
+
+● Teorema Master (cum răspunzi la asta? trebuie invatata pe de rost toata teorema?? -
+R: cred că trebuie să zici că se folosește ca să afli complexitatea la alg recursivi și să
+dai formula T(n) = a*T(n/b) + f(b) - Metoda master. Furnizează limite pentru recurențe
+de forma T(n) = aT(n/b) + f (n) și bănuiesc să dai câteva exemple unde se poate și
+unde nu se poate aplica: Curs 3 SD ultimele 3 slide-uri Analiza eficienței algoritmilor
+(uaic.ro))
+● Arbori binari de căutare
+● Structuri de tip union-find +1 (să învățați și la ce sunt folositoare. Eu am ignorat
+complet cuvintele alea din curs și m-a întrebat Gațu)
+● Arbori binari de căutare echilibrați AVL
+● Liste liniare. Definiție. Implementare
+● Funcții recursive și complexitatea timp, arbori de recursie, teorema master
+● Calcularea complexitatii algoritmilor recursivi folosind metoda substituției și metoda
+iteratiei
+● Grafuri. Digrafuri. Reprezentare si algoritmi de parcurgere.
+● Tabele de dispersie. Ce se întâmplă în caz de coliziune.
+● union-find
+● Sortări prin comparație.
+
+2023:
+● Eficienta si complexitate timp, exemplu algoritm caz favorabil/nefavorabil, notatii
+asimptotice(cum adica exemplu algoritm caz fav/nefav? sa dam noi un ex de alg si
+sa zicem care e cazul fav si cel nefav?) da, exemplu de algoritm si explicat care e
+cazul fav si care e nefav si complexitatile pt fiecare +1
+● .structuri union-find
+● Arbori binari de căutare echilibrati avl
+● Arbori binari de cautare, reprezentare, operatii (cum arata nodul, cum sunt datele
+aranjate)
+● Algoritmi de Sortare prin comparație
+● Count sort si bucket sort
+● Componente conexe si componente conexe tari
+● Structuri union find x2 :)))
+● listă liniară
+● stiva si coada
+● Teorema master
+● Grafuri. Digrafuri. Definitie. Moduri de reprezentare(liste, matrice de adiacenta).
+Algoritmi de parcurgere x3
+●
+● Liste implementare
+● Union-Find x3 :))
+● Eficient si complexitate timp, exemplu algoritm caz/nefavorabil, notatii asimptotice.
+ordine de crestere.
+● Arbori binari balansati “rosu-negru”
+● Tablouri, structuri de date, implementari, exemple (aici am vb de vectori si liste si a
+fost ok)
+● Sortari prin numarare si distribuire
+
+● algoritmi de sortare prin comparatie + ce algoritm ai folosi pentru a sorta un set de
+date foarte mare (merge sort I guess ?)
+● big o, theta, omega (ce sunt) + de spus tipurile de complextiati bog O (aici trebuia
+spus constant (O(1)), liniar (O(n)), logaritmic (O(log n)) ..... etc
+
+2022:
+Arbori binari de căutare roșu și negru.
+Clase de complexitate ( se referă la N, P , P-time etc… ), de explicat. După , de explicat ce e O, omega si teta. După, de zis complexitati în O al algoritmilor ( nu precizeaza ce algoritmi). 
+Sortarea prin numerare și sortarea prin distribuire (ce fac, nu trebuie sa stii complexitatile pe de rost).
+Tablouri și structuri. Definiții și exemple. notații, caz favorabil, nefavorabil, metode de estimare a timpului de execuție, din astea (este un curs în care e răspunsul la toate astea). Pe langa asta, paul m a întrebat ceva gen “ce știi despre complexitatea care creste in timp” or something.. nu mai știu și mi a dat ceata total
+Notații asimptotice, clasificare O, Omega, Theta, și clasificarile algoritmilor clasei O
+TIpuri de date. Definitie. Clasificare
+Coada cu priorități. Min/max heap
+Structuri de tipul Union-Find
+Tipurile de date abstracte Stiva și Coada (suplimentar am fost întrebat și de coada cu priorități și cum aș implementa-o)
+Liste liniare. Definitie + moduri de implementare
+Arbori binari de căutare, definiție + operații/funcții (am ajuns sa discut și despre AVL)
+TIpuri de date. Definitie. Clasificare
+
+2021:
+Arbori binari de căutare roșu și negru.
+Clase de complexitate ( se referă la N, P , P-time etc… ), de explicat. După , de explicat ce e O, omega si teta. După, de zis complexitati în O al algoritmilor ( nu precizeaza ce algoritmi). 
+Sortarea prin numerare și sortarea prin distribuire (ce fac, nu trebuie sa stii complexitatile pe de rost).
+Tablouri și structuri. Definiții și exemple. notații, caz favorabil, nefavorabil, metode de estimare a timpului de execuție, din astea (este un curs în care e răspunsul la toate astea). Pe langa asta, paul m a întrebat ceva gen “ce știi despre complexitatea care creste in timp” or something.. nu mai știu și mi a dat ceata total
+Notații asimptotice, clasificare O, Omega, Theta, și clasificarile algoritmilor clasei O
+TIpuri de date. Definitie. Clasificare
+Coada cu priorități. Min/max heap
+Structuri de tipul Union-Find
+Tipurile de date abstracte Stiva și Coada (suplimentar am fost întrebat și de coada cu priorități și cum aș implementa-o)
+Liste liniare. Definitie + moduri de implementare
+Arbori binari de căutare, definiție + operații/funcții (am ajuns sa discut și despre AVL)
+TIpuri de date. Definitie. Clasificare
+
+2019:
+Arbori binari de căutare roșu și negru.
+Clase de complexitate ( se referă la N, P , P-time etc… ), de explicat. După , de explicat ce e O, omega si teta. După, de zis complexitati în O al algoritmilor ( nu precizeaza ce algoritmi). 
+Sortarea prin numerare și sortarea prin distribuire (ce fac, nu trebuie sa stii complexitatile pe de rost).
+Tablouri și structuri. Definiții și exemple. notații, caz favorabil, nefavorabil, metode de estimare a timpului de execuție, din astea (este un curs în care e răspunsul la toate astea). Pe langa asta, paul m a întrebat ceva gen “ce știi despre complexitatea care creste in timp” or something.. nu mai știu și mi a dat ceata total
+Notații asimptotice, clasificare O, Omega, Theta, și clasificarile algoritmilor clasei O
+TIpuri de date. Definitie. Clasificare
+Coada cu priorități. Min/max heap
+Structuri de tipul Union-Find
+Tipurile de date abstracte Stiva și Coada (suplimentar am fost întrebat și de coada cu priorități și cum aș implementa-o)
+Liste liniare. Definitie + moduri de implementare
+Arbori binari de căutare, definiție + operații/funcții (am ajuns sa discut și despre AVL)
+TIpuri de date. Definitie. Clasificare
