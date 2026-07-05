@@ -1,0 +1,1102 @@
+Normalizare
+
+Baze de date relaţionale
+Normalizarea bazelor de date
+Nicolae-Cosmin Vârlan
+
+1/ 41
+Nicolae-Cosmin Vârlan
+
+Baze de date relaţionale Normalizarea bazelor de date
+
+Normalizare
+
+Gasirea cheilor folosind dependetele funcţionale
+Forme Normale: 1NF, 2NF, 3NF, BCNF, 4NF
+
+Modelul relaţional - chei (recapitulare de la primul curs)
+▶ Supercheie - un atribut sau o mulţime de atribute care
+identifică unic un tuplu ı̂ntr-o relaţie
+▶ Cheie candidat - o supercheie cu proprietatea că nici o
+submulţime proprie a sa nu este supercheie
+▶ Cheie primară - o cheie candidat selectată pentru a identifica
+ı̂n mod unic tuplele ı̂ntr-o relaţie
+▶ Cheie alternativă - Chei candidat care nu au fost selectate
+pentru a juca rolul de cheie primară
+▶ Cheie străină - un atribut sau o submulţime de atribute dintr-o
+relaţie care face referinţă la o cheie candidat a altei relaţii
+
+2/ 41
+Nicolae-Cosmin Vârlan
+
+Baze de date relaţionale Normalizarea bazelor de date
+
+Normalizare
+
+Gasirea cheilor folosind dependetele funcţionale
+Forme Normale: 1NF, 2NF, 3NF, BCNF, 4NF
+
+Găsirea cheilor candidat utilizând dependenţele funcţionale
+Intuitiv: Cheia candidat, este de fapt formată dintr-o combinaţie
+de atribute care pot determina unic linia. Dacă pot determina unic
+linia (deci oricare dintre valorile celorlalte atribute), atunci putem
+considera că avem o dependenţa funcţionala de la X ⊆ U către
+toate atributele din U atunci X este cheie ı̂n orice relaţie r
+construită peste R[U ].
+Formal: Fie R[U ] o schemă de relaţie şi Σ o mulţime de
+dependenţe funcţionale satisfăcute de R[U ]. X ⊆ U este cheie
+candidat d.dacă X + = U şi ∀X ′ ⊊ X, X ′+ ̸= U
+Un atribut se numeşte prim dacă face parte dintr-o cheie candidat.
+Un atribut este neprim dacă nu este parte din nicio cheie candidat.
+
+3/ 41
+Nicolae-Cosmin Vârlan
+
+Baze de date relaţionale Normalizarea bazelor de date
+
+Normalizare
+
+Gasirea cheilor folosind dependetele funcţionale
+Forme Normale: 1NF, 2NF, 3NF, BCNF, 4NF
+
+. . . reminder (din cursul 2)
+Fie X ⊆ U si RA regulile de inferenţă ale lui Armstrong. Notăm cu
++
+XR
+= {A|Σ ⊢RA X → A}
+A
+
+Regulile de inferenţă ale lui Armstrong:
+A1:
+
+A1 ...An →Ai , i = 1, n
+
+A2:
+
+A1 ,...Am →B1 ,...Br
+, j = 1, r
+A1 ...Am →Bj
+A1 ,...Am →Bj , j=1,r
+A1 ...Am →B1 ,...Br
+
+A3:
+
+A1 ,...Am →B1 ,...Br , B1 ,...Br →C1 ,...Cp
+A1 ...Am →C1 ,...Cp
+4/ 41
+Nicolae-Cosmin Vârlan
+
+Baze de date relaţionale Normalizarea bazelor de date
+
+Normalizare
+
+Gasirea cheilor folosind dependetele funcţionale
+Forme Normale: 1NF, 2NF, 3NF, BCNF, 4NF
+
+Revenim - Exemplul 1:
+Să considerăm U = {A, B, C} şi Σ = {A → B, B → C}. Vom
++
+construi mulţimea XR
+pentru fiecare dintre atribute:
+A
+A+
+RA = {A, B, C}
++
+BR
+= {B, C}
+A
+
+(A din A1 , B din A → B,
+C din A → B, B → C şi folosind A3 )
+(B din A1 , C din B → C)
+
++
+CR
+= {C}
+A
+
+(C din A1 )
+
+Se observă că A este cheie candidat pentru că de el depind
+(funcţional) celelalte atribute.
+Atribute prime: {A}
+Atribute neprime: {B, C}
+5/ 41
+Nicolae-Cosmin Vârlan
+
+Baze de date relaţionale Normalizarea bazelor de date
+
+Normalizare
+
+Gasirea cheilor folosind dependetele funcţionale
+Forme Normale: 1NF, 2NF, 3NF, BCNF, 4NF
+
+Să considerăm U = {A, B, C} si Σ = {A → B, B → C}. Vom
++
+construi mulţimea XR
+pentru fiecare dintre atribute:
+A
+Putem organiza atributele ţinând cont de locul unde apar ele ı̂n
+cadrul dependenţelor din Σ:
+▶ Stânga: Apar numai ı̂n partea stangă a dependenţelor din Σ.
+▶ Mijloc: Apar şi ı̂n stânga şi ı̂n dreapta dependenţelor din Σ.
+▶ Dreapta: Apar numai ı̂n partea dreaptă ı̂n dependeţele din Σ.
+Stânga
+A
+
+Mijloc
+B
+
+Dreapta
+C
+
+Regulă: ı̂ntotdeauna atributele din Stânga sunt atribute prime, cele
+din Dreapta sunt neprime. Cele din Mijloc pot fi ı̂n oricare dintre
+categorii.
+
+6/ 41
+Nicolae-Cosmin Vârlan
+
+Baze de date relaţionale Normalizarea bazelor de date
+
+Normalizare
+
+Gasirea cheilor folosind dependetele funcţionale
+Forme Normale: 1NF, 2NF, 3NF, BCNF, 4NF
+
+Exemplul 2:
+Fie U = {A, B, C, D, E, F } şi
+Σ = {A → BD, B → C, DE → F }. Care sunt cheile candidat ?
+
+7/ 41
+Nicolae-Cosmin Vârlan
+
+Baze de date relaţionale Normalizarea bazelor de date
+
+Normalizare
+
+Gasirea cheilor folosind dependetele funcţionale
+Forme Normale: 1NF, 2NF, 3NF, BCNF, 4NF
+
+Exemplul 2:
+Fie U = {A, B, C, D, E, F } şi
+Σ = {A → BD, B → C, DE → F }. Care sunt cheile candidat ?
+Stânga
+A, E
+
+Mijloc
+B, D
+
+Dreapta
+C, F
+
+A+
+RA = {A, B, C, D} - nu e cheie (nu conţine F), dar cu siguranţă
+apare ı̂n orice cheie.
+De fapt, am stabilit că fiecare cheie candidat va conţine toate
+atributele din “Stânga” - ı̂n cazul nostru pe A şi pe E:
++
+AER
+= {A, B, C, D, E, F }
+A
+AE = cheie multivaluată (este compusă din mai multe atribute).
+8/ 41
+Nicolae-Cosmin Vârlan
+
+Baze de date relaţionale Normalizarea bazelor de date
+
+Normalizare
+
+Gasirea cheilor folosind dependetele funcţionale
+Forme Normale: 1NF, 2NF, 3NF, BCNF, 4NF
+
+Exemplul 3:
+Fie U = {A, B} şi Σ = {A → B, B → A}. Care sunt cheile
+candidat ?
+
+9/ 41
+Nicolae-Cosmin Vârlan
+
+Baze de date relaţionale Normalizarea bazelor de date
+
+Normalizare
+
+Gasirea cheilor folosind dependetele funcţionale
+Forme Normale: 1NF, 2NF, 3NF, BCNF, 4NF
+
+Exemplul 3:
+Fie U = {A, B} şi Σ = {A → B, B → A}. Care sunt cheile
+candidat ?
+Stânga
+
+Mijloc
+A, B
+
+Dreapta
+
+A+
+RA = {A, B}
++
+BR
+= {A, B}
+A
+Ambele sunt chei candidat.
+Atribute prime: {A, B}
+Atribute neprime: ∅
+
+10/ 41
+Nicolae-Cosmin Vârlan
+
+Baze de date relaţionale Normalizarea bazelor de date
+
+Normalizare
+
+Gasirea cheilor folosind dependetele funcţionale
+Forme Normale: 1NF, 2NF, 3NF, BCNF, 4NF
+
+Dependenţe pline
+Fie R[U ] o schema de relaţie peste o mulţime de atribute U şi Σ o
+mulţime de dependenţe funcţionale ce au loc ı̂n R[U ]. O
+dependenţa X → A ∈ Σ+ se numeşte plină dacă ∄X ′ ⊂ X astfel
+ı̂ncât X ′ → A ∈ Σ+ .
+Exemplu:
+R[A, B, C, D]
+Σ = {AB → C, B → D, BC → A}
+Toate dependenţele din Σ sunt pline (e.g. nu avem ı̂n Σ+ nici una
+dintre dependenţele: A → C, B → C, B → A, C → A).
+AB → D nu este plină pentru că B ⊂ AB şi avem B → D ∈ Σ+
+
+11/ 41
+Nicolae-Cosmin Vârlan
+
+Baze de date relaţionale Normalizarea bazelor de date
+
+Normalizare
+
+Gasirea cheilor folosind dependetele funcţionale
+Forme Normale: 1NF, 2NF, 3NF, BCNF, 4NF
+
+Atribut tranzitiv dependent
+Fie R[U ] o schemă de relaţie peste o mulţime de atribute U şi Σ o
+mulţime de dependenţe funcţionale ce au loc ı̂n R[U ]. Un atribut
+A ∈ U se numeşte tranzitiv dependent de X (X ⊂ U, A ̸∈ X)
+dacă ∃Y ⊂ U astfel ı̂ncât:
+▶ A∈U −Y
+▶ X → Y ∈ Σ+
+▶ Y → A ∈ Σ+
+▶ Y → X ̸∈ Σ+
+Exemplu:
+R[A, B, C, D, E]
+Σ = {AB → C, AB → D, CD → E}
+E este tranzitiv dependent de AB (X = AB, Y = CD).
+Nicolae-Cosmin Vârlan
+
+Baze de date relaţionale Normalizarea bazelor de date
+
+12/ 41
+
+Normalizare
+
+Gasirea cheilor folosind dependetele funcţionale
+Forme Normale: 1NF, 2NF, 3NF, BCNF, 4NF
+
+Dependenţe triviale
+O dependenţă funcţională X → Y este trivială dacă şi numai dacă
+Y ⊆X
+O dependenţă multivaluată X ↠ Y este trivială dacă Y ⊆ X sau
+dacă Z = ∅ (X ∪ Y = U )
+
+13/ 41
+Nicolae-Cosmin Vârlan
+
+Baze de date relaţionale Normalizarea bazelor de date
+
+Normalizare
+
+Gasirea cheilor folosind dependetele funcţionale
+Forme Normale: 1NF, 2NF, 3NF, BCNF, 4NF
+
+Normalizarea schemelor bazelor de date
+Normalizarea este necesară din două motive:
+▶ Pentru eliminarea redundanţelor.
+▶ Pentru a păstra datele ı̂ntr-o manieră consistentă.
+Normalizarea trebuie făcută ı̂ncă din faza de proiectare a bazei de
+date şi din acest motiv este firesc să vorbim despre
+NORMALIZAREA SCHEMEI bazei de date şi nu despre
+normalizarea anumitor relaţii.
+Există mai multe forme normale (clasice), fiecare aducând ceva ı̂n
+plus faţă de forma precedentă: 1NF, 2NF, 3NF, BCNF, 4NF.
+Să vedem ı̂n ce constau. . .
+14/ 41
+Nicolae-Cosmin Vârlan
+
+Baze de date relaţionale Normalizarea bazelor de date
+
+Normalizare
+
+Gasirea cheilor folosind dependetele funcţionale
+Forme Normale: 1NF, 2NF, 3NF, BCNF, 4NF
+
+1NF (1971)
+Fie U o mulţime de atribute şi R[U ] o schema de relaţie.
+Spunem că schema de relaţie R[U ] este ı̂n Forma Normala 1 (1NF)
+dacă şi numai dacă domeniile atributelor sunt indivizibile şi fiecare
+valoare a fiecărui atribut este atomică.
+Pentru a avea o relaţie ı̂n 1NF, trebuie efectuate următoarele
+operaţii:
+▶ Eliminarea grupurilor repetitive din fiecare relaţie.
+▶ Identificarea tuplelor ce ar putea avea duplicate ı̂n coloană
+printr-o cheie.
+▶ Crearea unei noi scheme de relaţie având ca atribute:
+identificatorul de la punctul precedent şi valoarea repetată ca
+atribut atomic.
+15/ 41
+Nicolae-Cosmin Vârlan
+
+Baze de date relaţionale Normalizarea bazelor de date
+
+Normalizare
+
+Gasirea cheilor folosind dependetele funcţionale
+Forme Normale: 1NF, 2NF, 3NF, BCNF, 4NF
+
+1NF
+Exemplu:
+Avem schema: Studenti[nr matricol, nume, prenume, an] ı̂n care
+studenţii ar putea avea câte două prenume:
+
+r:
+
+nr matricol
+1
+2
+3
+
+nume
+Ionescu
+Popescu
+Vasilescu
+
+prenume
+Maria Ioana
+Vasile
+Vali Cristi
+
+an
+1
+1
+2
+
+Pasul 1: Eliminăm grupul repetitiv:
+
+r:
+
+nr matricol
+1
+2
+3
+
+nume
+Ionescu
+Popescu
+Vasilescu
+
+an
+1
+1
+2
+16/ 41
+
+Nicolae-Cosmin Vârlan
+
+Baze de date relaţionale Normalizarea bazelor de date
+
+Normalizare
+
+Gasirea cheilor folosind dependetele funcţionale
+Forme Normale: 1NF, 2NF, 3NF, BCNF, 4NF
+
+1NF
+Pasul 2: Identificam cheia:
+
+r:
+
+nr matricol
+1
+2
+3
+
+nume
+Ionescu
+Popescu
+Vasilescu
+
+an
+1
+1
+2
+
+Pasul 3: Creare relaţie ı̂n care fiecare valoare apare pe un rând nou
+şi e legată de relaţia principală prin intermediul cheii:
+
+r′ :
+
+nr matricol
+1
+1
+2
+3
+3
+
+prenume
+Maria
+Ioana
+Vasile
+Vali
+Cristi
+17/ 41
+
+Nicolae-Cosmin Vârlan
+
+Baze de date relaţionale Normalizarea bazelor de date
+
+Normalizare
+
+Gasirea cheilor folosind dependetele funcţionale
+Forme Normale: 1NF, 2NF, 3NF, BCNF, 4NF
+
+1NF
+Deşi ar putea părea că am utilizat efectiv relaţia care este
+construita peste R[U ], ı̂n fapt nu am facut decât să modificăm
+schema de realaţie R[U ] şi să construim o nouă schemă de relaţie
+ı̂n schema bazei noastre de date denumita R′ [U ].
+Pasul 1: de fapt a eliminat atributul “prenume” din mulţimea U .
+Pasul 2: de fapt a identificat o cheie candidat (ce se poate face
+direct din schemă - vezi cum am gasit o cheie candidat din
+dependenţele funcţionale).
+Pasul 3: de fapt a construit o nouă schemă de relaţie R′ [U ]
+S-ar putea ca ı̂n unele locuri să ı̂ntâlniţi ideea că relaţia este ı̂ntr-o
+anumită formă normală. Aceasta idee este incorectă datorită
+faptului că normalizarea se realizează ı̂nainte de a crea baza de
+date, ı̂n stadiul de proiectare a acesteia !
+Nicolae-Cosmin Vârlan
+
+Baze de date relaţionale Normalizarea bazelor de date
+
+18/ 41
+
+Normalizare
+
+Gasirea cheilor folosind dependetele funcţionale
+Forme Normale: 1NF, 2NF, 3NF, BCNF, 4NF
+
+2NF (1971)
+O schema de relaţie R[U ] care este ı̂n 1NF, ı̂mpreună cu o mulţime
+de dependenţe funcţionale Σ este ı̂n a doua formă normală (2NF)
+dacă orice atribut neprim din R[U ] este dependent plin de orice
+cheie a lui R[U ].
+Să reluăm exemplul de la dependenţe pline:
+R[A, B, C, D]
+Σ = {AB → C, B → D, BC → A}
+1. Gasiţi cheile
+2. Gasiţi atributele neprime
+3. Atributele neprime sunt dependente plin de cheile găsite ?
+
+19/ 41
+Nicolae-Cosmin Vârlan
+
+Baze de date relaţionale Normalizarea bazelor de date
+
+Normalizare
+
+Gasirea cheilor folosind dependetele funcţionale
+Forme Normale: 1NF, 2NF, 3NF, BCNF, 4NF
+
+2NF
+Sa reluam exemplul de la dependenţe pline:
+R[A, B, C, D]
+Σ = {AB → C, B → D, BC → A}
+Posibilele chei: AB, BC
+Atribute prime: A, B, C
+Atribute neprime: D
+B → D ∈ Σ+ . D nu este dependent plin de AB pentru că, avem
+AB → D ∈ Σ+ , dar şi B → D ∈ Σ+ rezultă că R[U ] ı̂mpreună cu
+Σ nu este ı̂n 2NF.
+Observaţie: dacă nu avem chei multivaluate, cu siguranţă R[U ]
+este ı̂n 2NF (pentru că avem numai dependenţe pline de la chei nu putem găsi submulţimi de atribute atunci când cheia este
+formată dintr-un singur atribut).
+Nicolae-Cosmin Vârlan
+
+Baze de date relaţionale Normalizarea bazelor de date
+
+20/ 41
+
+Normalizare
+
+Gasirea cheilor folosind dependetele funcţionale
+Forme Normale: 1NF, 2NF, 3NF, BCNF, 4NF
+
+2NF
+Având o schemă de relaţie R[U ] care nu este ı̂n 2NF, putem să o
+ducem ı̂n 2NF urmând următorii paşi:
+Pasul 1: Identificăm cheile candidat.
+Pasul 2: Găsim atributele neprime.
+Pasul 3: Pentru fiecare din atributele neprime A identificăm care
+sunt atributele dintr-o cheie de care depinde A.
+Pasul 4: Creăm o nouă relaţie R′ peste acele atribute identificate
+la pasul anterior ı̂mpreună cu atributul neprim pentru care s-a găsit
+dependenţa şi elimin din prima schemă de relaţie atributul neprim
+care era dependent de submulţime.
+Urmaţi cei patru paşi pentru exemplul anterior care nu era ı̂n 2NF.
+
+21/ 41
+Nicolae-Cosmin Vârlan
+
+Baze de date relaţionale Normalizarea bazelor de date
+
+Normalizare
+
+Gasirea cheilor folosind dependetele funcţionale
+Forme Normale: 1NF, 2NF, 3NF, BCNF, 4NF
+
+2NF
+Exemplu: Dacă avem schema de relaţie
+OS[nume, versiune, an, companie]
+nume
+Windows
+MacOS
+Ubuntu
+Windows
+MacOS
+
+versiune
+XP
+Sierra
+Bionic Beaver
+7
+Mojave
+
+an
+2001
+2017
+2018
+2009
+2018
+
+companie
+Microsoft
+Apple
+Ubuntu
+Microsoft
+Apple
+
+De obicei, cand ne exprimăm, spunem că Windows XP este facut
+de Microsoft. Avem dependenţa: nume,versiune → companie. În
+acelaşi timp, ştim că Windows este făcut numai de Microsoft şi
+MacOS numai de Apple. Deci avem şi nume → companie. Fiecare
+versiune este făcută ı̂ntr-un anumit an. Avem: versiune → an.
+22/ 41
+Nicolae-Cosmin Vârlan
+
+Baze de date relaţionale Normalizarea bazelor de date
+
+Normalizare
+
+Gasirea cheilor folosind dependetele funcţionale
+Forme Normale: 1NF, 2NF, 3NF, BCNF, 4NF
+
+2NF
+dependenţe:
+▶ nume,versiune → companie
+▶ nume → companie
+▶ versiune → an
+Cheie: (nume, versiune) (apar ı̂n stânga dependenţelor)
+Atribute neprime: companie
+companie nu este dependent plin pentru că, deşi avem
+nume,versiune → companie, totodată avem şi nume → companie.
+Vom elimina din schema OS atributul companie şi vom adăuga o
+schemă de relaţie R′ [nume, companie].
+Vom avea aşadar. . .
+23/ 41
+Nicolae-Cosmin Vârlan
+
+Baze de date relaţionale Normalizarea bazelor de date
+
+Normalizare
+
+Gasirea cheilor folosind dependetele funcţionale
+Forme Normale: 1NF, 2NF, 3NF, BCNF, 4NF
+
+2NF
+nume
+Windows
+MacOS
+Ubuntu
+Windows
+MacOS
+
+versiune
+XP
+Sierra
+Bionic Beaver
+7
+Mojave
+
+an
+2001
+2017
+2018
+2009
+2018
+
+şi
+nume
+Windows
+MacOS
+Ubuntu
+
+companie
+Microsoft
+Apple
+Ubuntu
+
+Este ı̂n 2NF ? Mai avem de verificat dacă an este dependent plin
+sau nu. . . să vedem cum faceţi asta voi :D
+Nicolae-Cosmin Vârlan
+
+Baze de date relaţionale Normalizarea bazelor de date
+
+24/ 41
+
+Normalizare
+
+Gasirea cheilor folosind dependetele funcţionale
+Forme Normale: 1NF, 2NF, 3NF, BCNF, 4NF
+
+3NF (1971)
+Schema de relaţie R[U] ı̂mpreună cu mulţimea de dependenţe
+funcţionale Σ este ı̂n forma a treia normală (3NF) dacă este ı̂n
+2NF şi orice atribut neprim din R NU este tranzitiv dependent de
+nici o cheie a lui R.
+(Adică e ı̂n 2NF şi orice atribut neprim depinde de chei şi nu de un
+alt atribut neprim sau grupare de atribute neprime)
+Exemplu:
+Considerăm schema de relaţie R[A, B, C] şi
+Σ = {AB → C, C → A}
+Chei: AB, BC
+Atribute neprime: ∅ - deci este ı̂n 2NF şi ı̂n 3NF.
+
+25/ 41
+Nicolae-Cosmin Vârlan
+
+Baze de date relaţionale Normalizarea bazelor de date
+
+Normalizare
+
+Gasirea cheilor folosind dependetele funcţionale
+Forme Normale: 1NF, 2NF, 3NF, BCNF, 4NF
+
+3NF - glumiţa de pe wikipedia. . . .
+An approximation of Codd’s definition of 3NF, paralleling the
+traditional pledge to give true evidence in a court of law, was given
+by Bill Kent: [Every] non-key [attribute] must provide a fact about
+the key, the whole key, and nothing but the key. 1
+A common variation supplements this definition with the oath: so
+help me Codd 2 .
+
+1
+
+Kent, William - A Simple Guide to Five Normal Forms in Relational
+Database Theory, Communications of the ACM 26 (2), Feb. 1983, pp. 120 −
+125.
+2
+Diehr, George. Database Management (Scott, Foresman, 1989), p. 331.
+Nicolae-Cosmin Vârlan
+
+Baze de date relaţionale Normalizarea bazelor de date
+
+26/ 41
+
+Normalizare
+
+Gasirea cheilor folosind dependetele funcţionale
+Forme Normale: 1NF, 2NF, 3NF, BCNF, 4NF
+
+3NF
+Exemplu de normalizare 3NF
+Fie schema: Concursuri[materie, an, castigator, IQ].
+Avem dependenţele funcţionale:
+Σ = {(materie, an) → castigator, castigator → IQ}
+Cheie primara: (materie, an)
+Atribute neprime: castigator, IQ (IQ este tranzitiv dependent)
+Se observă că (materie, an) → IQ ∈ Σ+ , şi ı̂n acelaşi timp
+materie → IQ ̸∈ Σ+ respectiv an → IQ ̸∈ Σ+ . Deci schema de
+relaţie se află ı̂n 2NF (atributele neprime fiind dependente plin de
+chei).
+Vom normaliza schema pentru
+Concursuri[materie, an, castigator, IQ] prin construirea a două
+scheme diferite: Concursuri[materie, an, castigator] şi
+Inteligenta[castigator, IQ].
+Nicolae-Cosmin Vârlan
+
+Baze de date relaţionale Normalizarea bazelor de date
+
+27/ 41
+
+Normalizare
+
+Gasirea cheilor folosind dependetele funcţionale
+Forme Normale: 1NF, 2NF, 3NF, BCNF, 4NF
+
+BCNF (Boyce-Codd Normal Form) ≡ 3.5NF (1975)
+O schemă de relaţie R[U ] ı̂mpreuna cu o mulţime de dependenţe Σ
+este ı̂n BCNF dacă este ı̂n 1NF şi pentru orice dependenţa
+funcţională netrivială X → A ∈ Σ+ , X este supercheie ı̂n R[U ].
+Observaţie: O schemă de relaţie ce este ı̂n BCNF este ı̂n 3NF.
+
+28/ 41
+Nicolae-Cosmin Vârlan
+
+Baze de date relaţionale Normalizarea bazelor de date
+
+Normalizare
+
+Gasirea cheilor folosind dependetele funcţionale
+Forme Normale: 1NF, 2NF, 3NF, BCNF, 4NF
+
+Obs: O schemă ce este ı̂n BCNF este şi ı̂n 3NF.
+Consideram (R, Σ) ı̂n BCNF - ı̂n 1NF este sigur din definiţie.
+a) PP (RA) că nu e ı̂n 2NF, adică există un atribut neprim A şi o
+cheie candidat K şi A nu este dep. plin de K. Adică există
+X ⊂ K a.i. X → A ∈ Σ+ . Deoarece nu considerăm dep. triviale
+avem că A ̸∈ K. Atunci X este cheie (pentru că (R, Σ) este ı̂n
+BCNF). Ceea ce ı̂nseamnă că K nu este cheie candidat (pentru că
+trebuia să fie minimală).
+b) Deci (R, Σ) ce este ı̂n BCNF trebuie să fie ı̂n 2NF. PP (RA) că
+nu ar fi ı̂n 3NF: adică există un atribut A tranzitiv dependent de o
+cheie X. Adica există Y a.ı̂. A ̸∈ X, A ̸∈ Y şi avem că:
+X → Y ∈ Σ+ ,Y → A ∈ Σ+ şi Y → X ̸∈ Σ+ . Y nu conţine nicio
+cheie pentru că altfel am avea Y → ∀ ∈ Σ+ deci şi Y → X ∈ Σ+ .
+Deoarece Y nu este cheie şi totusi am Y → A ∈ Σ+ avem că
+(R, Σ) NU este ı̂n BCNF - fals. Deci este şi 3NF
+Nicolae-Cosmin Vârlan
+
+Baze de date relaţionale Normalizarea bazelor de date
+
+29/ 41
+
+Normalizare
+
+Gasirea cheilor folosind dependetele funcţionale
+Forme Normale: 1NF, 2NF, 3NF, BCNF, 4NF
+
+Descompunerea de tip join fără pierdere
+Considerăm o schemă de relaţie R[A1 , A2 , . . . An ]. Spunem despre
+o mulţime ρ = {R1 [Ai11 , Ai12 , . . . Ai1 ], R2 [Ai21 , Ai22 , . . . Ai2 ] . . .
+k1
+
+k2
+
+Rt [Ait1 , Ait2 , . . . Ait ]} că este o descompunere de tip join a lui
+kt
+R[A1 , A2 , . . . An ] dacă:
+kp
+t [
+[
+
+Aipr = {A1 . . . An }
+
+p=1 r=1
+
+ρ este o descompunere de tip join fără pierdere cu privire la o
+multime de dependente functionale Σ dacă ∀r peste R ce satisface
+mulţimea de dependenţe funcţionale Σ, avem că
+r = r[Ai11 , Ai12 , ..Ai1 ] ▷◁ r[Ai21 , Ai22 , ..Ai2 ] ▷◁ .. r[Ait1 , Ait2 , ..Ait ].
+k1
+
+k2
+
+kt
+
+30/ 41
+Nicolae-Cosmin Vârlan
+
+Baze de date relaţionale Normalizarea bazelor de date
+
+Normalizare
+
+Gasirea cheilor folosind dependetele funcţionale
+Forme Normale: 1NF, 2NF, 3NF, BCNF, 4NF
+
+Descompunerea de tip join fără pierdere
+Teoremă: Dacă ρ = {R1 , R2 } este o descompunere a lui R şi Σ o
+mulţime de dependenţe funcţionale, atunci ρ este o decompunere
+de tip join fără pierdere cu privire la Σ dacă şi numai dacă
+R1 ∩ R2 → R1 − R2 ∈ Σ+ sau R1 ∩ R2 → R2 − R1 ∈ Σ+
+(operaţiile sunt de fapt pe atributele peste care sunt construite
+schemele)
+Exemplu: Considerăm R[A, B, C] şi Σ = {A → B}.
+ρ1 = {R1 [A, B], R2 [A, C]} este fără pierdere deoarece:
+AB ∩ AC = A, AB − AC = B şi A → B ∈ Σ+
+ρ2 = {R1 [A, B], R2 [B, C]} este cu pierdere deoarece:
+AB ∩ BC = B, AB − BC = A şi B → A ̸∈ Σ+
+AB ∩ BC = B, BC − AB = C şi B → C ̸∈ Σ+
+Testati cele doua desc. pentru r = {(1, 1, 2), (1, 1, 3), (2, 1, 2)}.
+31/ 41
+Nicolae-Cosmin Vârlan
+
+Baze de date relaţionale Normalizarea bazelor de date
+
+Normalizare
+
+Gasirea cheilor folosind dependetele funcţionale
+Forme Normale: 1NF, 2NF, 3NF, BCNF, 4NF
+
+Descompunerea de tip join fără pierdere
+Putem calcula Σi pentru Ri [Ui ] şi continua procesul de
+descompunere până când ajungem la scheme de relaţie ce sunt ı̂n
+BCNF. Σi = {X → Y |X, Y ∈ Ui } - adică, pentru Ri [Ui ] ce este
+un element al descompunerii ρ luăm acele dependenţe din Σ care
+sunt peste atributele ce sunt ı̂n Ui .
+Pentru exemplul precedent:
+Considerăm R[A, B, C] şi Σ = {A → B}.
+ρ1 = {R1 [A, B], R2 [A, C]} este fără pierdere deoarece:
+AB ∩ AC = A, AB − AC = B si A → B ∈ Σ+
+avem că Σ1 = {A → B} şi Σ2 = ∅
+
+32/ 41
+Nicolae-Cosmin Vârlan
+
+Baze de date relaţionale Normalizarea bazelor de date
+
+Normalizare
+
+Gasirea cheilor folosind dependetele funcţionale
+Forme Normale: 1NF, 2NF, 3NF, BCNF, 4NF
+
+Alg. pt. descompunerea ı̂n join fără pierdere de tip BCNF
+Intrare: (R, Σ)
+Ieşire: ρ = {(R1 , Σ1 ), . . . (Rt , Σt )} = descompunere fără pierdere
+a lui R cu privire la Σ. Unde (Ri , Σi ) ı̂n BCNF, ∀i ∈ {1..t}
+Pas 1: ρ = R = R1 ; se caculează Σ+ şi cheile din R (necesare
+verificarii formei BCNF).
+Pas 2: Cât timp există ı̂n ρ un cuplu (Ri , Σi ) ce nu e ı̂n BCNF
+(daca nu e in BCNF atunci exista X → A si X nu e supercheie):
+Pas 2.1: Alege X → A din Σi a.i. A ̸∈ X şi X nu conţine cheie
+Pas 2.2: S1 = X ∪ {A}; S2 = Ri − A;
+Pas 2.3: ρ = ρ − Ri ; ρ = ρ ∪ S1 ∪ S2 ;
++
+Pas 2.4: Se caculează Σ+
+S1 , ΣS2 şi cheile pentru S1 şi S2 .
+
+33/ 41
+Nicolae-Cosmin Vârlan
+
+Baze de date relaţionale Normalizarea bazelor de date
+
+Normalizare
+
+Gasirea cheilor folosind dependetele funcţionale
+Forme Normale: 1NF, 2NF, 3NF, BCNF, 4NF
+
+Exemplu
+Schema de relaţie:
+Absolvent(CNP, aNume, adresa,lCod, lNume, lOras, medie,
+prioritate)
+Σ ={ CNP → aNume,adresa,medie
+medie → prioritate
+lCod → lNume, lOras}
+Se descompune ı̂n:
+. . . calculati
+
+34/ 41
+Nicolae-Cosmin Vârlan
+
+Baze de date relaţionale Normalizarea bazelor de date
+
+Normalizare
+
+Gasirea cheilor folosind dependetele funcţionale
+Forme Normale: 1NF, 2NF, 3NF, BCNF, 4NF
+
+Exemplu
+Schema de relaţie:
+Absolvent(CNP, aNume, adresa,lCod, lNume, lOras, medie,
+prioritate)
+Σ ={ CNP → aNume,adresa,medie
+medie → prioritate
+lCod → lNume, lOras}
+Se descompune ı̂n:
+ρ = { R1[lCod, lNume, lOras], R2[medie, prioritate],
+R3[CNP, aNume, adresa, medie], R4[CNP, lCol]}
+
+35/ 41
+Nicolae-Cosmin Vârlan
+
+Baze de date relaţionale Normalizarea bazelor de date
+
+Normalizare
+
+Gasirea cheilor folosind dependetele funcţionale
+Forme Normale: 1NF, 2NF, 3NF, BCNF, 4NF
+
+Dependente multivaluate (quick reminder)
+Definition
+Relaţia r peste U satisface dependenţa multivaluată X ↠ Y dacă
+pentru oricare două tuple t1 , t2 ∈ r satisfăcând t1 [X] = t2 [X],
+există tuplele t3 şi t4 din r, astfel ı̂ncât:
+▶ t3 [X] = t1 [X], t3 [Y ] = t1 [Y ], t3 [Z] = t2 [Z];
+▶ t4 [X] = t2 [X], t4 [Y ] = t2 [Y ], t4 [Z] = t1 [Z]
+unde Z = U − XY (Z mai este denumită şi rest).
+Relaţia r peste U satisface dependenţa multivaluată X ↠ Y , dacă
+pentru orice t1 , t2 ∈ r cu t1 [X] = t2 [X] avem că
+MY (t1 [XZ]) = MY (t2 [XZ])
+unde MY (t[XZ]) = {t′ [Y ]|t′ ∈ r, t′ [XZ] = t[XZ]} .
+36/ 41
+Nicolae-Cosmin Vârlan
+
+Baze de date relaţionale Normalizarea bazelor de date
+
+Normalizare
+
+Gasirea cheilor folosind dependetele funcţionale
+Forme Normale: 1NF, 2NF, 3NF, BCNF, 4NF
+
+Dependenţe multivaluate (exercitiu)
+Arătaţi că AC ↠ BD:
+
+r:
+
+A
+8
+8
+9
+8
+8
+9
+
+B
+1
+9
+3
+1
+9
+3
+
+C
+2
+2
+2
+2
+2
+2
+
+D
+0
+2
+4
+0
+2
+4
+
+E
+4
+9
+9
+9
+4
+4
+
+Cand r[AC] = {(8, 2)} avem r[BD] = {(1, 0), (9, 2)} si
+r[E] = {(4), (9)}. Gasim toate produsele carteziene dintre cele 3 ?
+Cand r[AC] = {(9, 2)} avem r[BD] = {(3, 4)} si
+r[E] = {(4), (9)}. Gasim toate produsele carteziene ?
+DA (este MVD)
+37/ 41
+Nicolae-Cosmin Vârlan
+
+Baze de date relaţionale Normalizarea bazelor de date
+
+Normalizare
+
+Gasirea cheilor folosind dependetele funcţionale
+Forme Normale: 1NF, 2NF, 3NF, BCNF, 4NF
+
+4NF (Ronald Fagin) (1977)
+O schemă de relaţie R ı̂mpreuna cu o mulţime de dependenţe
+multivaluate ∆ (delta) este ı̂n 4NF dacă este ı̂n 1NF şi pentru
+orice dependenţa multivaluată netrivială X ↠ A ∈ ∆+ , X este
+supercheie pentru R.
+Observaţie: O schemă de relaţie ce este ı̂n 4NF este ı̂n BCNF.
+Putem presupune ca nu este in BCNF ceea ce inseamna ca exista
+d.f. a.i. X → A ∈ Σ+ si X nu este cheie. Atunci exista aceeasi
+dependenta si multivaluata (X ↠ A ∈ ∆+ ) si X nu este cheie:
+deci nu este 4NF
+
+38/ 41
+Nicolae-Cosmin Vârlan
+
+Baze de date relaţionale Normalizarea bazelor de date
+
+Normalizare
+
+Gasirea cheilor folosind dependetele funcţionale
+Forme Normale: 1NF, 2NF, 3NF, BCNF, 4NF
+
+Descompunere in 4NF
+Intrare: (R, Σ, ∆)
+Ieşire: ρ = {R1 , . . . , Rt } = descompunere fără pierdere a lui R cu
+privire la Σ. Unde (Ri , Σi , ∆i ) ı̂n 4NF, ∀i ∈ {1..t}
+Pas 1: ρ = R = R1 ; se caculează Σ+ .∆+ şi cheile din R (necesare
+verificarii formei 4NF).
+Pas 2: Cât timp există ı̂n ρ un triplet (Ri , Σi , ∆i ) ce nu e ı̂n 4NF
+(daca nu e in 4NF atunci exista X ↠ A si X nu e supercheie):
+Pas 2.1: Alege X ↠ A din Σi a.i. A ̸∈ X şi X nu e supercheie
+Pas 2.2: S1 = X ∪ {A}; S2 = Ri − A;
+Pas 2.3: ρ = ρ − Ri ; ρ = ρ ∪ S1 ∪ S2 ;
++
++
++
+Pas 2.4: Calculăm Σ+
+S1 , ∆S1 , ΣS2 , ∆S2 şi cheile pentru S1 şi S2 .
+
+39/ 41
+Nicolae-Cosmin Vârlan
+
+Baze de date relaţionale Normalizarea bazelor de date
+
+Normalizare
+
+Gasirea cheilor folosind dependetele funcţionale
+Forme Normale: 1NF, 2NF, 3NF, BCNF, 4NF
+
+Exemplu de descompunere in 4NF
+Consideram schema: Student[cnp, nume, facultate, pasiune]
+Studentul poate fi la doua facultati si sa aiba mai multe pasinui:
+cnp → nume;
+cnp,nume ↠ facultate;
+Se descompune in:
+ρ = {S1[cnp, nume], S2[cnp, facultate], S3[cnp, pasiune] }.
+
+40/ 41
+Nicolae-Cosmin Vârlan
+
+Baze de date relaţionale Normalizarea bazelor de date
+
+Normalizare
+
+Gasirea cheilor folosind dependetele funcţionale
+Forme Normale: 1NF, 2NF, 3NF, BCNF, 4NF
+
+Bibliografie
+▶ Further Normalization of the Data Base Relational Model. Frank Edgar Codd; IBM Research Report RJ909 (August,
+1971)
+▶ Baze de date relaţionale. Dependenţe - Victor Felea; Univ. Al.
+I. Cuza, 1996
+
+41/ 41
+Nicolae-Cosmin Vârlan
+
+Baze de date relaţionale Normalizarea bazelor de date
+
+

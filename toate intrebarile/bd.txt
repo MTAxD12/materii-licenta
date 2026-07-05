@@ -1,0 +1,113 @@
+2025:
+1
+legat de indecsi (cum se folosesc si de ce)
+2
+Explica 4nf
+3
+Algoritmul Boyce-Codd și 4NF. Definiție și relația dintre cele două (și justificare pt relație)
+4
+Formele normale BCNF si 4NF. Definitii. Relatia intre ele.
+5
+2 nf si 3 nf si exemple de tabele pt fiecare
+6
+Constrângeri ( chei si alte tipuri )
+7
+Constrangeri (chei,tipuri de chei)
+8
+Subinterogare necorelată. La întrebări suplimentare au cerut un exemplu
+9
+dedcompunere join cu si fara pierdere
+10
+Ce sunt dependentele multivaluate, unde se folosesc si exemple. Unde intervin ele in proiectarea bazei de date (ceva de genu)
+11
+Cheie candidat? Cum si unde se foloseste
+12
+Operatia de proiectie si cea de intersectie + cum e in sql(+din ce caregorie e fiecare operatie)
+13
+Tranzacțiile in SQL, Comenzi, Ce marchează începutul și încheierea unei tranzacții
+14
+Ce sunt arborii B+ și unde sunt folosiți? Complexitatea operațiilor de inserare/căutare/ștergere. Nu era în întrebare, dar m-a pus profu să desensez un arbore B+.
+15
+Triggere
+16
+FN2 si FN3
+17
+Dependente functionale. Definitie, exemple, si unde intervin aceste in procesul de modelare
+18
+Care sunt pasii unei interogari si care este planul de executie (cred, ceva legat de un plan al interogarii)
+19
+Indexare de tip hash si bitmap: structuri de date si eficienta
+20
+Tabele virtuale (view uri), ce sunt, tipurile si in ce cazuri se poate face actualizarea pe ele
+21
+Diferite tipuri de join
+22
+Ce este o tranzactie? Definiti ACID.
+23
+Dependente functionale: definiție, exemple
+
+2024:
+● Ce sunt dependentele multivaluate, unde se folosesc și exemple
+● Despre subinterogari corelate +2
+● Indecsi, cand, cum, de ce se folosesc
+● Table view, roluri, tipuri, cum au loc interogarile si update pe view (+1)
+● Pașii procesării interogărilor. Plan de execuție. (Q: ce este asta???) (A: Cum e
+procesat un query) mersi
+● Cheie candidat
+● Operatii din algebra relationala și echivalent in SQL
+● Chei candidat, definiție și exemple
+● Indecsi, ce sunt, cum si cand ii folosim.
+● Operația de intersectie și proiectie, echivalent în SQL
+
+2023:
+● cheie candidat - definitie si cum se obtin
+● Operatiile de proiectare si intersectie in algebra relationala. Cum sunt folosite in SQL.
+● 2NF si 3NF
+● BCNF si 4NF
+● dependente functionale - definitie + rol in proiectare
+● B+ arbori, complexitatea la cautare si inserare R: wtf O(log n)
+● Algoritmul de descompunere în 4NF
+● Dependențe multivaluate
+● Indexare - rol, structura, tipuri de indecsi
+● reuniunea + selectie in algebra relationala. Ex si echivalent sql
+● operatii de tip join si echivalent in sql
+
+2022:
+Indexarea. Structuri de date. Complexitati
+Agregarea înregistrărilor în algebra relațională și SQL
+Tranzactii, ACID, comenzi in SQL pentru tranzactii(procesul de tranzactie in SQLite)
+Formele normale toate, dar pe scurt 
+Forme normale pentru scheme relationale: roluri, definitii, relatii/legatura dintre acestea.
+
+2021:
+1. Ce este o tranzactie, ACID și cum se inițializează și încheie o tranzacție.
+2. Subinterogari în SQL. Ce intelegeti prin subinterogari necorelate și subinterogari
+corelate? Exemple de utilizare. Planul de execuție în cele două cazuri.
+3. Relații și operații cu relații în modelul relațional. Corespondența acestora în SQL.
+4. Tabele virtuale(views) - rol, tipuri, comportamentul la interogare si la operatii de
+actualizare lansate asupra lor
+5. Agregarea înregistrărilor
+6. Indexare - principiu, utilitate, structuri de date utilizate și eficienta fiecăruia
+7. Operația join. Join natural, join intern, joint exterior (stanga/dreapta), self join.
+Corespondenta acestora in limbajul SQL. Algoritm eficient de join.
+8. Dependențe funcționale și multivaluate: definiție, rol, exemplu, axiomele lui
+Armstrong, proprietăți
+
+2019:
+1. Algoritmi pentru Join-uri
+a. Q: Mai exact la ce se referă? Tipuri de joinuri sau?
+b. Q: Unde s-au facut algoritmi pentru join? Nu la PSGBD? Tipuri de join e la BD,
+doar nu intra si materia de PSGBD?
+
+2. 4NF, BCNF
+Q: Trebuie stiut si algoritmul de descompunere? Cam ce ar vrea sa ii zici?
+Q: Trebuie discutat despre amandoua? Sau doar despre 1 singura?
+3. Relatii si operatii cu relatii in modelul relational si corespondenta in SQL (cel
+putin 5 operatii).
+Q: Unde se gaseste aceasta informatie?
+A: Cursul 2 Virlan
+
+4. Multivalente
+Q: ?????
+5. Agregarea înregistrărilor
+6. Dependente functionale si multivaluate: definitii + exemple.

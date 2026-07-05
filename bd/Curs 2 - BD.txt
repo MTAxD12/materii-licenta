@@ -1,0 +1,917 @@
+Baze de date - Algebra relaţională
+
+Baze de date
+Algebra relaţională
+Nicolae-Cosmin Vârlan
+
+1/ 37
+Nicolae-Cosmin Vârlan
+
+Baze de date Algebra relaţională
+
+Baze de date - Algebra relaţională
+
+Modelul Relaţional
+Operaţii pe mulţimi ı̂n modelul relaţional
+Operaţii specifice algebrei relaţionale
+Exerciţii
+
+Elemente ale modelului relaţional
+▶ U mulţime de atribute: U = {A1 , A2 , . . . , An };
+▶ dom(Ai ) - domeniul valorilor atributului Ai ;
+Definim uplu peste U ca fiind funcţia:
+[
+φ:U →
+dom(Ai ) a.i. φ(Ai ) ∈ dom(Ai ), 1 ≤ i ≤ n
+1≤i≤n
+
+Fie valorile vi astfel ı̂ncât vi = φ(Ai ).
+Notăm cu {A1 : v1 , A2 : v2 , . . . , An : vn } asocierea dintre
+atributele existente ı̂n U şi valorile acestora. În cazul ı̂n care sunt
+considerate mulţimi ordonate (de forma (A1 , A2 , . . . , An )), notaţia
+va fi de forma: (v1 , v2 , . . . , vn ).
+2/ 37
+Nicolae-Cosmin Vârlan
+
+Baze de date Algebra relaţională
+
+Baze de date - Algebra relaţională
+
+Modelul Relaţional
+Operaţii pe mulţimi ı̂n modelul relaţional
+Operaţii specifice algebrei relaţionale
+Exerciţii
+
+Elemente ale modelului relaţional
+Considerăm mulţimea ordonată (A1 , A2 , . . . An ). Pentru orice uplu
+φ, există vectorul (v1 , v2 , . . . vn ) a.ı̂. φ(Ai ) = vi , 1 ≤ i ≤ n.
+Pentru un vector (v1 , v2 , . . . vn ) cu vi ∈ dom(Ai ), 1 ≤ i ≤ n există
+un uplu φ a.ı̂. φ(Ai ) = vi .
+În practică este considerată o anumită ordonare a atributelor.
+
+3/ 37
+Nicolae-Cosmin Vârlan
+
+Baze de date Algebra relaţională
+
+Baze de date - Algebra relaţională
+
+Modelul Relaţional
+Operaţii pe mulţimi ı̂n modelul relaţional
+Operaţii specifice algebrei relaţionale
+Exerciţii
+
+Elemente ale modelului relaţional
+O mulţime de uple peste U se numeşte relaţie şi se notează cu r.
+r poate varia ı̂n timp dar nu şi ı̂n structură.
+Exemplu:
+r = {(v11 , v12 , . . . v1n ), (v21 , v22 , . . . v2n ), . . . , (vm1 , vm2 , . . . vmn )}.
+Structura relaţiei se va nota cu R[U ] unde R se numeşte numele
+relaţiei iar U este mulţimea de atribute corespunzătoare.
+Notaţii echivalente R(U ), R(A1 , A2 , . . . , An ), R[A1 , A2 , . . . , An ].
+
+R[U ] se mai numeşte şi schemă de relaţie.
+
+4/ 37
+Nicolae-Cosmin Vârlan
+
+Baze de date Algebra relaţională
+
+Baze de date - Algebra relaţională
+
+Modelul Relaţional
+Operaţii pe mulţimi ı̂n modelul relaţional
+Operaţii specifice algebrei relaţionale
+Exerciţii
+
+Elemente ale modelului relaţional
+În practică, o relaţie r poate fi reprezentată printr-o matrice:
+
+r:
+
+A1
+v11
+...
+vm1
+
+A2
+v12
+...
+vm2
+
+...
+...
+...
+...
+
+An
+v1n
+...
+vmn
+
+unde (vi1 , vi2 , . . . , vin ) este un uplu din r, 1 ≤ i ≤ m şi
+vij ∈ dom(Aj ), 1 ≤ j ≤ n, 1 ≤ i ≤ m
+Vom nota cu ti linia (tuplul) cu numărul i din matrice:
+ti = (vi1 , vi2 , . . . , vin ), ∀i ∈ [1, m]
+
+5/ 37
+Nicolae-Cosmin Vârlan
+
+Baze de date Algebra relaţională
+
+Baze de date - Algebra relaţională
+
+Modelul Relaţional
+Operaţii pe mulţimi ı̂n modelul relaţional
+Operaţii specifice algebrei relaţionale
+Exerciţii
+
+Elemente ale modelului relaţional
+O mulţime finită D de scheme de relaţie se numeşte schemă de
+baze de date. Formal, D = {R1 [U1 ], . . . , Rh [Uh ]} unde Ri [Ui ] este
+o schemă de relaţie, 1 ≤ i ≤ h.
+O bază de date peste D este o corespondenţă ce asociază fiecărei
+scheme de relaţie din D o relaţie.
+Exemplu:
+r1 , r2 , . . . rh este o bază de date peste D = {R1 [U1 ], . . . , Rh [Uh ]}.
+Considerând D ca fiind ordonată D = (R1 [U1 ], . . . , Rh [Uh ]),
+putem nota baza de date sub forma (r1 , r2 , . . . rh )
+
+6/ 37
+Nicolae-Cosmin Vârlan
+
+Baze de date Algebra relaţională
+
+Baze de date - Algebra relaţională
+
+Modelul Relaţional
+Operaţii pe mulţimi ı̂n modelul relaţional
+Operaţii specifice algebrei relaţionale
+Exerciţii
+
+Corespondenţa cu terminologia din practică
+▶ atribut (Ai ) = denumirea unei coloane dintr-un tabel;
+▶ valoarea atributului Ai (φ(Ai ) sau vi ) = valoarea dintr-o
+celulă a tabelului
+▶ relaţie (r) = tabel
+▶ schema de relaţie (R[U ]) = schema tabelei
+▶ tuplu (ti ) = linie din tabel
+
+7/ 37
+Nicolae-Cosmin Vârlan
+
+Baze de date Algebra relaţională
+
+Baze de date - Algebra relaţională
+
+Modelul Relaţional
+Operaţii pe mulţimi ı̂n modelul relaţional
+Operaţii specifice algebrei relaţionale
+Exerciţii
+
+Operaţii
+Asupra unei mulţimi de relaţii putem efectua o serie de operaţii.
+Există două categorii de operatori:
+▶ Operatori din teoria mulţimilor: Reuniunea(∪), Intersecţia
+(∩), Diferenţa(−), Produsul Cartezian(×)
+▶ Operatori specifici algebrei relaţionale: Proiecţia (π),
+Selecţia(σ), Redenumirea(ρ), Joinul Natural(⋊
+⋉), θ-Joinul,
+equijoinul, Semijoinul(⋉ şi ⋊), Antijoinul(▷), Divizarea(÷),
+Joinul la Stânga ( ▷◁), Joinul la Dreapta(▷◁ ), Joinul
+Exterior( ▷◁ )
+
+8/ 37
+Nicolae-Cosmin Vârlan
+
+Baze de date Algebra relaţională
+
+Baze de date - Algebra relaţională
+
+Modelul Relaţional
+Operaţii pe mulţimi ı̂n modelul relaţional
+Operaţii specifice algebrei relaţionale
+Exerciţii
+
+Operaţii pe mulţimi de tuple - Reuniunea: ∪
+În cazul operaţiilor pe mulţimi (cu excepţia Produsului Cartezian),
+acestea se realizează ı̂ntre două relaţii r1 şi r2 care sunt
+NEAPĂRAT construite peste aceeaşi mulţime de atribute.
+Reuniunea a două relaţii r1 şi r2 , ambele peste o aceeaşi mulţime
+de atribute U (sau peste aceeaşi schemă de relaţie R[U ]), este o
+relaţie notată cu r1 ∪ r2 definită astfel:
+r1 ∪ r2 = {t | t = uplu, t ∈ r1 sau t ∈ r2 }
+În practică, acest lucru se realizează utilizând cuvântul cheie
+UNION. Studenţii din anii 1 şi 3 sunt selectaţi de interogarea:
+SELECT * FROM studenti WHERE an=1
+UNION
+SELECT * FROM studenti WHERE an=3;
+9/ 37
+Nicolae-Cosmin Vârlan
+
+Baze de date Algebra relaţională
+
+Baze de date - Algebra relaţională
+
+Modelul Relaţional
+Operaţii pe mulţimi ı̂n modelul relaţional
+Operaţii specifice algebrei relaţionale
+Exerciţii
+
+Operaţii pe mulţimi de tuple - Diferenţa: −
+Diferenţa a două relaţii r1 şi r2 , ambele peste o aceeaşi mulţime de
+atribute U (sau peste aceeaşi schemă de relaţie R[U ]), este o
+relaţie notată cu r1 − r2 definită astfel:
+r1 − r2 = {t | t = uplu, t ∈ r1 si t ̸∈ r2 }
+În practică, acest lucru se realizează utilizând cuvântul cheie
+MINUS. Pentru a-i selecta pe studenţii din anul 2 fără bursă,
+putem să ı̂i selectăm pe toţi studenţii din anul 2 şi apoi să ı̂i
+eliminăm pe cei cu bursă:
+SELECT * FROM studenti WHERE an=2
+MINUS
+SELECT * FROM studenti WHERE bursa IS NOT NULL;
+10/ 37
+Nicolae-Cosmin Vârlan
+
+Baze de date Algebra relaţională
+
+Baze de date - Algebra relaţională
+
+Modelul Relaţional
+Operaţii pe mulţimi ı̂n modelul relaţional
+Operaţii specifice algebrei relaţionale
+Exerciţii
+
+Operaţii pe mulţimi de tuple - Intersecţia: ∩
+Intersecţia a două relaţii r1 şi r2 , ambele peste o aceeaşi mulţime
+de atribute U (sau peste aceeaşi schemă de relaţie R[U ]), este o
+relaţie notată cu r1 ∩ r2 definită astfel:
+r1 ∩ r2 = {t | t = uplu, t ∈ r1 si t ∈ r2 }
+În practică, acest lucru se realizează utilizând cuvântul cheie
+INTERSECT. Putem afla care studenţi din anul 2 au bursă rulând:
+SELECT * FROM studenti WHERE an=2
+INTERSECT
+SELECT * FROM studenti WHERE bursa IS NOT NULL;
+Operatorul de intersecţie poate fi obţinut din ceilalţi doi:
+r1 ∩ r2 = r1 − (r1 − r2 ).
+11/ 37
+Nicolae-Cosmin Vârlan
+
+Baze de date Algebra relaţională
+
+Baze de date - Algebra relaţională
+
+Modelul Relaţional
+Operaţii pe mulţimi ı̂n modelul relaţional
+Operaţii specifice algebrei relaţionale
+Exerciţii
+
+Operaţii pe mulţimi de tuple - Produsul Cartezian: ×
+Produsul cartezian a două relaţii r1 definită peste R1 [U1 ] şi r2
+definită peste R2 [U2 ] cu U1 ∩ U2 = ∅ este o relaţie notată cu
+r1 × r2 definită astfel:
+r1 × r2 = {t | t = uplu peste U1 ∪ U2 , t[U1 ] ∈ r1 şi t[U2 ] ∈ r2 }
+De aceasta dată, cele două relaţii nu trebuie să fie peste aceeaşi
+mulţime de atribute. Rezultatul va fi o nouă relaţie peste o
+mulţime de atribute formată din atributele relaţiilor iniţiale.
+
+12/ 37
+Nicolae-Cosmin Vârlan
+
+Baze de date Algebra relaţională
+
+Baze de date - Algebra relaţională
+
+Modelul Relaţional
+Operaţii pe mulţimi ı̂n modelul relaţional
+Operaţii specifice algebrei relaţionale
+Exerciţii
+
+Operaţii pe mulţimi de tuple - Produsul Cartezian: ×
+Dacă un atribut s-ar repeta, el va fi identificat diferit. Spre
+exemplu, chiar dacă tabelele note şi cursuri au un acelaşi atribut
+(id curs), nu se face nici o sincronizare după acesta ci se vor crea
+două atribute diferite: note.id curs respectiv cursuri.id curs.
+Produsul cartezian ı̂ntre aceste tabele, ı̂n practică, se obţine
+executând interogarea:
+SELECT * FROM cursuri, note;
+
+13/ 37
+Nicolae-Cosmin Vârlan
+
+Baze de date Algebra relaţională
+
+Baze de date - Algebra relaţională
+
+Modelul Relaţional
+Operaţii pe mulţimi ı̂n modelul relaţional
+Operaţii specifice algebrei relaţionale
+Exerciţii
+
+Operaţii specifice algebrei relaţionale
+Operaţiile pe mulţimi aveau ca elemente tuplele. Uneori aceste
+tuple nu sunt compatibile (de exemplu nu putem reuni o relaţie
+peste R1 [U1 ] cu una peste R2 [U2 ] dacă U1 ̸= U2 ).
+Pentru a opera asupra atributelor ce definesc tuplele din rezultat,
+avem nevoie de o serie de operatori specifici algebrei relaţionale.
+
+14/ 37
+Nicolae-Cosmin Vârlan
+
+Baze de date Algebra relaţională
+
+Baze de date - Algebra relaţională
+
+Modelul Relaţional
+Operaţii pe mulţimi ı̂n modelul relaţional
+Operaţii specifice algebrei relaţionale
+Exerciţii
+
+Operaţii ı̂n algebra relaţională - Proiecţia: π
+Considerăm:
+▶ R[U ] = schemă de relaţie;
+▶ X ⊆ U;
+▶ t = uplu peste R[U ] (t ∈ r).
+Se numeşte proiecţia lui t relativă la X şi notată cu πX [t],
+restricţia lui t la mulţimea de atribute X. (Uneori vom scrie t[X])
+Exemplu:
+Dacă U = (A1 , A2 , . . . , An ) atunci t = (v1 , v2 , . . . , vn ).
+Considerăm X = (Ai1 , Ai2 , . . . , Aik ), 1 ≤ i1 < i2 < . . . < ik ≤ n.
+atunci πX [t] = (vi1 , vi2 , . . . , vik );
+15/ 37
+Nicolae-Cosmin Vârlan
+
+Baze de date Algebra relaţională
+
+Baze de date - Algebra relaţională
+
+Modelul Relaţional
+Operaţii pe mulţimi ı̂n modelul relaţional
+Operaţii specifice algebrei relaţionale
+Exerciţii
+
+Operaţii ı̂n algebra relaţională - Proiecţia: π
+Dacă r este o relaţie peste R[U ] şi X ⊆ U , atunci proiecţia lui r
+relativă la X este πX [r] = {πX [t] | t ∈ r}
+Exemplu:
+Dacă U = (A1 , A2 , . . . , An ) atunci
+r = {(v11 , v12 , . . . v1n ), (v21 , v22 , . . . v2n ), . . . , (vm1 , vm2 , . . . vmn )}.
+Considerăm X = (Ai1 , Ai2 , . . . , Aik ), 1 ≤ i1 < i2 < . . . < ik ≤ n.
+atunci
+πX [r] = {(v1i1 , v1i2 , . . . v1ik ), (v2i1 , . . . v2ik ), . . . , (vmi1 , . . . vmik )}
+În practică, proiecţia se realizează selectând doar anumite câmpuri
+ale tabelei (anumite atribute):
+SELECT nume, prenume FROM studenti;
+16/ 37
+Nicolae-Cosmin Vârlan
+
+Baze de date Algebra relaţională
+
+Baze de date - Algebra relaţională
+
+Modelul Relaţional
+Operaţii pe mulţimi ı̂n modelul relaţional
+Operaţii specifice algebrei relaţionale
+Exerciţii
+
+Operaţii ı̂n algebra relaţională - Proiecţia: π
+Ca şi exemplu, vom scrie o interogare care să returneze toate
+persoanele care trec pragul Facultăţii (studenţi şi profesori):
+SELECT nume, prenume FROM studenti
+UNION
+SELECT nume, prenume FROM profesori;
+În cazul ı̂n care cele două câmpuri (nume, prenume) din cele două
+tabele au acelaşi tip (de exemplu nume este de tip
+VARCHAR2(10) ı̂n ambele tabele), interogarea va afişa toate
+persoanele ce “trec pragul Facultăţii”.
+Observaţie: Pentru a modifica tipul nume din tabela profesori la
+VARCHAR2(10) executaţi comanda:
+ALTER TABLE profesori MODIFY nume VARCHAR2(10);
+17/ 37
+Nicolae-Cosmin Vârlan
+
+Baze de date Algebra relaţională
+
+Baze de date - Algebra relaţională
+
+Modelul Relaţional
+Operaţii pe mulţimi ı̂n modelul relaţional
+Operaţii specifice algebrei relaţionale
+Exerciţii
+
+Operaţii ı̂n algebra relaţională - Selecţia: σ
+Fie r o relaţie peste R[U ], A, B ∈ U şi c este o constantă
+O expresie elementară de selecţie este definită prin următoarea
+formulă (forma Backus-Naur):
+e = AφB | Aφc | cφB
+Unde φ este o relaţie booleană ı̂ntre operanzi.
+Se numeşte expresie de selecţie (forma Backus-Naur):
+θ = e | θ ∧ θ | θ ∨ θ | (θ)
+
+18/ 37
+Nicolae-Cosmin Vârlan
+
+Baze de date Algebra relaţională
+
+Baze de date - Algebra relaţională
+
+Modelul Relaţional
+Operaţii pe mulţimi ı̂n modelul relaţional
+Operaţii specifice algebrei relaţionale
+Exerciţii
+
+Operaţii ı̂n algebra relaţională - Selecţia: σ
+Fie θ o expresie de selecţie. Atunci:
+▶ când θ = A φ B, t satisface θ dacă are loc πA [t] φ πB [t],
+▶ când θ = A φ c, t satisface θ dacă are loc πA [t] φ c,
+▶ când θ = c φ B, t satisface θ dacă are loc c φ πB [t],
+▶ când θ = θ1 ∧ θ2 , t satisface θ dacă t satisface atât pe θ1 cât
+şi pe θ2 ,
+▶ când θ = θ1 ∨ θ2 , t satisface θ dacă t satisface măcar pe unul
+dintre θ1 şi θ2 .
+Dacă θ este o expresie de selecţie atunci selecţia se notează cu
+σθ (r) şi este definită ca:
+σθ (r) = {t|t ∈ r, t satisface θ}
+19/ 37
+Nicolae-Cosmin Vârlan
+
+Baze de date Algebra relaţională
+
+Baze de date - Algebra relaţională
+
+Modelul Relaţional
+Operaţii pe mulţimi ı̂n modelul relaţional
+Operaţii specifice algebrei relaţionale
+Exerciţii
+
+Operaţii ı̂n algebra relaţională - Selecţia: σ
+În SQL, selecţia se obţine utilizând o formulă logică ce are rolul de
+a selecta doar anumite rânduri.
+Exemplu:
+SELECT * FROM studenti
+WHERE ((an=2) AND (bursa IS NULL));
+În acest exemplu, θ1 este an = 2, θ2 este bursa IS N U LL,
+θ = θ1 ∧ θ2 şi r este mulţimea de rânduri din tabela studenţi.
+Rezultatul este mulţimea studenţilor din anul 2 care nu au bursă.
+
+20/ 37
+Nicolae-Cosmin Vârlan
+
+Baze de date Algebra relaţională
+
+Baze de date - Algebra relaţională
+
+Modelul Relaţional
+Operaţii pe mulţimi ı̂n modelul relaţional
+Operaţii specifice algebrei relaţionale
+Exerciţii
+
+Operaţii ı̂n algebra relaţională - Redenumirea: ρ
+Operatorul de redenumire are rolul de a schimba numele unui
+atribut cu alt nume. Formal, dacă dorim să schimbăm atributul A1
+ı̂n A′1 vom utiliza scrierea ρA1 /A′1 (r). Restul atributelor peste care
+a fost construit r vor rămâne neschimbate.
+În SQL, redenumirea se realizează prin utilizarea cuvântului AS:
+Exemplu:
+SELECT bursa * 1.25 AS “BursaNoua” FROM studenti;
+SELECT bursa + bursa/4 AS “BursaNoua” FROM studenti;
+Dacă nu am redenumi atributul nou obţinut, cele două relaţii ar fi
+considerate diferite (ı̂n prima numele atributului ar fi “bursa *
+1.25”, iar ı̂n a doua ar fi fost “bursa + bursa/4”)
+21/ 37
+Nicolae-Cosmin Vârlan
+
+Baze de date Algebra relaţională
+
+Baze de date - Algebra relaţională
+
+Modelul Relaţional
+Operaţii pe mulţimi ı̂n modelul relaţional
+Operaţii specifice algebrei relaţionale
+Exerciţii
+
+Operaţii ı̂n algebra relaţională - Join natural: ⋊
+⋉
+Considerăm:
+▶ r1 relaţie peste R1 [U1 ];
+▶ r2 relaţie peste R2 [U2 ];
+Se numeşte Join natural a relaţiilor r1 şi r2 , relaţia r1 ⋊
+⋉ r2 peste
+U1 ∪ U2 definită prin:
+r1 ⋊
+⋉ r2 = {t | t uplu peste U1 ∪ U2 , t[Ui ] ∈ ri , i = 1, 2}
+
+Dacă R este un nume pentru relaţia peste U1 ∪ U2 atunci r1 ⋊
+⋉ r2
+este definită peste R[U1 ∪ U2 ]
+Pentru simplitate vom nota U1 ∪ U2 cu U1 U2 .
+22/ 37
+Nicolae-Cosmin Vârlan
+
+Baze de date Algebra relaţională
+
+Baze de date - Algebra relaţională
+
+Modelul Relaţional
+Operaţii pe mulţimi ı̂n modelul relaţional
+Operaţii specifice algebrei relaţionale
+Exerciţii
+
+Operaţii ı̂n algebra relaţională - Join natural: ⋊
+⋉
+Exemplu:
+Fie R1 [A, B, C, D], R2 [C, D, E] şi r1 , r2 a.i.:
+C D E
+A B C D
+0 1 0 0
+1 1 0
+1 1 0 0
+1 1 1
+r2 :
+r1 :
+0 0 1 0
+0 0 0
+1 1 0 1
+1 0 0
+0 1 0 1
+1 0 1
+
+Atunci: r1 ⋊
+⋉ r2 :
+
+A
+0
+1
+0
+0
+
+B
+1
+1
+0
+0
+
+C
+0
+0
+1
+1
+
+D
+0
+0
+0
+0
+
+E
+0
+0
+0
+1
+23/ 37
+
+Nicolae-Cosmin Vârlan
+
+Baze de date Algebra relaţională
+
+Baze de date - Algebra relaţională
+
+Modelul Relaţional
+Operaţii pe mulţimi ı̂n modelul relaţional
+Operaţii specifice algebrei relaţionale
+Exerciţii
+
+Operaţii ı̂n algebra relaţională - Join natural: ⋊
+⋉
+Următoarea interogare identifică cui aparţine fiecare nota din
+tabelul note. Joinul se face după câmpul nr matricol ı̂ntre tabelele
+studenti şi note:
+SELECT nume, valoare FROM studenti
+NATURAL JOIN note;
+SELECT nume, valoare FROM studenti
+JOIN note ON studenti.nr matricol = note.nr matricol;
+Se poate observa că dacă din produsul cartezian am elimina acele
+cazuri ı̂n care câmpul “nr matricol” nu este identic ı̂n ambele
+tabele, am obţine, de fapt, acelaşi rezultat. Din acest motiv, joinul
+de mai sus poate fi scris şi sub forma:
+SELECT nume, valoare FROM studenti,note
+WHERE studenti.nr matricol = note.nr matricol;
+24/ 37
+Nicolae-Cosmin Vârlan
+
+Baze de date Algebra relaţională
+
+Baze de date - Algebra relaţională
+
+Modelul Relaţional
+Operaţii pe mulţimi ı̂n modelul relaţional
+Operaţii specifice algebrei relaţionale
+Exerciţii
+
+Proprietăţi ale Joinului natural
+▶ (r1 ⋊
+⋉ r2 )[U1 ] ⊆ r1
+▶ (r2 ⋊
+⋉ r1 )[U2 ] ⊆ r2
+Dacă X = U1 ∩ U2 şi:
+r1′ = {t1 |t1 ∈ r1 , ∃t2 ∈ r2 a.i. t1 [X] = t2 [X]} şi r1 ” = r1 − r1′ ,
+r2′ = {t2 |t2 ∈ r2 , ∃t1 ∈ r1 a.i. t1 [X] = t2 [X]} şi r2 ” = r2 − r2′ ,
+atunci: r1 ⋊
+⋉ r2 = r1′ ⋊
+⋉ r2′ , (r1 ⋊
+⋉ r2 )[U1 ] = r1′ , (r2 ⋊
+⋉ r1 )[U2 ] = r2′ .
+Dacă r1 ⊆ r1 , r2 ⊆ r2 şi r1 ⋊
+⋉ r2 = r1 ⋊
+⋉ r2 atunci r1′ ⊆ r1 si
+′
+r2 ⊆ r2
+Dacă U1 ∩ U2 = ∅ atunci r1 ⋊
+⋉ r2 = r1 × r2 .
+
+25/ 37
+Nicolae-Cosmin Vârlan
+
+Baze de date Algebra relaţională
+
+Baze de date - Algebra relaţională
+
+Modelul Relaţional
+Operaţii pe mulţimi ı̂n modelul relaţional
+Operaţii specifice algebrei relaţionale
+Exerciţii
+
+Extindere Join natural
+Fie ri relaţie peste Ri [Ui ], i = 1, h atunci:
+r1 ⋊
+⋉ r2 ⋊
+⋉ ... ⋊
+⋉ rh = {t|t uplu peste U1 , . . . Uh , a.ı̂. t[Ui ] ∈ ri , i = 1, h}
+Notaţii echivalente:
+▶ r1 ⋊
+⋉ r2 ⋊
+⋉ ... ⋊
+⋉ rh
+▶ ▷◁ ⟨ri , i = 1, h⟩
+▶ ∗⟨ri , i = 1, h⟩
+Operaţia join este asociativă.
+
+26/ 37
+Nicolae-Cosmin Vârlan
+
+Baze de date Algebra relaţională
+
+Baze de date - Algebra relaţională
+
+Modelul Relaţional
+Operaţii pe mulţimi ı̂n modelul relaţional
+Operaţii specifice algebrei relaţionale
+Exerciţii
+
+Operaţii ı̂n algebra relaţională - θ-join, equijoin
+Fie ri peste Ri [Ui ], i = 1, 2 cu Aα1 , Aα2 , . . . Aαk ∈ U1 şi
+Bβ1 , Bβ2 , . . . Bβk ∈ U2 şi
+θi : dom(Aαi ) × dom(Bβi ) → {true, f alse}, ∀i = 1, k
+θ-joinul a două relaţii r1 şi r2 , notat cu r1 ▷◁
+θ r2 , este definit prin:
+r1 ▷◁
+θ r2 = {(t1 , t2 )|t1 ∈ r1 , t2 ∈ r2 , t1 [Aαi ]θi t2 [Bβi ], i = 1, k}
+unde θ = (Aα1 θ1 Bβ1 ) ∧ (Aα2 θ2 Bβ2 ) ∧ . . . ∧ (Aαk θk Bβk )
+Daca θi este operatorul de egalitate, atunci θ-joinul se mai
+numeste si equijoin.
+
+27/ 37
+Nicolae-Cosmin Vârlan
+
+Baze de date Algebra relaţională
+
+Baze de date - Algebra relaţională
+
+Modelul Relaţional
+Operaţii pe mulţimi ı̂n modelul relaţional
+Operaţii specifice algebrei relaţionale
+Exerciţii
+
+Operaţii ı̂n algebra relaţională - θ-join, equijoin
+Observaţie 1: un join oarecare cu condiţia TRUE pentru orice
+combinaţie de tuple este un produs cartezian: r1 ▷◁
+true r2 = r1 × r2
+Observaţie 2: Joinul oarecare poate fi considerat ca fiind o filtrare
+după anumite criterii ale rezultatelor unui produs cartezian:
+r1 ▷◁
+θ r2 = σθ (r1 × r2 )
+Exemplu SQL:
+SELECT s.nume, p.nume FROM studenti s, profesori p
+WHERE s.nume > p.nume;
+
+28/ 37
+Nicolae-Cosmin Vârlan
+
+Baze de date Algebra relaţională
+
+Baze de date - Algebra relaţională
+
+Modelul Relaţional
+Operaţii pe mulţimi ı̂n modelul relaţional
+Operaţii specifice algebrei relaţionale
+Exerciţii
+
+Operaţii ı̂n algebra relaţională - Semijoin: ⋉ şi ⋊
+Operaţia de semijoin stâng selectează acele rânduri din relaţia
+aflată ı̂n partea stângă (⋉) care au corespondent (ı̂n sensul joinului
+natural) ı̂n relaţia din partea dreapta.
+Formal, definim semijoinul stâng a două relaţii r1 peste R1 [U1 ] şi
+r2 peste R2 [U2 ] ca fiind:
+r1 ⋉ r2 = πU1 (r1 ⋊
+⋉ r2 )
+Deja ı̂ntâlnit la proprietaţile Joinului natural sub denumirea r1′ .
+Semijoinul drept este definit similar dar preluând liniile din relaţia
+aflată ı̂n dreapta (doar cele ce au corespondent ı̂n relaţia din
+stânga).
+29/ 37
+Nicolae-Cosmin Vârlan
+
+Baze de date Algebra relaţională
+
+Baze de date - Algebra relaţională
+
+Modelul Relaţional
+Operaţii pe mulţimi ı̂n modelul relaţional
+Operaţii specifice algebrei relaţionale
+Exerciţii
+
+Operaţii ı̂n algebra relaţională - Antijoin: ▷
+Tuplele rămase din relaţia din stânga (care nu au fost preluate de
+semijoinul stâng), formează rezultatul operatorului Antijoin.
+Formal, definim antijoinul stâng a două relaţii r1 peste R1 [U1 ] şi r2
+peste R2 [U2 ] ca fiind:
+r1 ▷ r2 = r1 − πU1 (r1 ⋊
+⋉ r2 )
+
+. . . r1 ”
+
+30/ 37
+Nicolae-Cosmin Vârlan
+
+Baze de date Algebra relaţională
+
+Baze de date - Algebra relaţională
+
+Modelul Relaţional
+Operaţii pe mulţimi ı̂n modelul relaţional
+Operaţii specifice algebrei relaţionale
+Exerciţii
+
+Operaţii ı̂n algebra relaţională - Joinul la Stânga: ▷◁
+Fie r1 şi r2 două relaţii ı̂n care nu toate tuplele din r1 au un
+corespondent ı̂n r2 .
+Operaţia Join la Stanga a celor două relaţii r1 şi r2 este reuniunea
+dintre tuplele existente ı̂n r1 ⋊
+⋉ r2 şi tuplele din r1 ce nu sunt
+utilizate ı̂n join completate cu valoarea NULL pentru atributele din
+U2 .
+r1 ▷◁ r2 = r1 ⋊
+⋉ r2 UNION πU1 U2 (r1 − πU1 (r1 ⋊
+⋉ r2 ))
+Joinul la Dreapta este definit similar, de această dată preluând şi
+liniile ce nu s-au folosit in Joinul natural din tabela din dreapta
+(r2 ).
+
+31/ 37
+Nicolae-Cosmin Vârlan
+
+Baze de date Algebra relaţională
+
+Baze de date - Algebra relaţională
+
+Modelul Relaţional
+Operaţii pe mulţimi ı̂n modelul relaţional
+Operaţii specifice algebrei relaţionale
+Exerciţii
+
+Operaţii ı̂n algebra relaţională - Joinul Extern: ▷◁
+Operaţia de Join exterior cuprinde toate liniile din Joinul la Stânga
+şi din Joinul la Dreapta.
+r1 ▷◁ r2 = (r1 ▷◁ r2 ) ∪ (r1 ▷◁ r2 )
+
+32/ 37
+Nicolae-Cosmin Vârlan
+
+Baze de date Algebra relaţională
+
+Baze de date - Algebra relaţională
+
+Modelul Relaţional
+Operaţii pe mulţimi ı̂n modelul relaţional
+Operaţii specifice algebrei relaţionale
+Exerciţii
+
+Operaţii ı̂n algebra relaţională - Joinul Extern: ▷◁
+Exemple:
+SELECT * FROM studenti LEFT JOIN profesori ON
+studenti.prenume = profesori.prenume;
+(Toţi studenţii şi asociaţi cu profesorii cu acelaşi prenume când
+este cazul)
+SELECT * FROM studenti RIGHT JOIN profesori ON
+studenti.prenume = profesori.prenume;
+(Unii studenţi care sunt asociaţi cu profesorii având acelaşi
+prenume ı̂mpreună cu restul profesorilor)
+SELECT * FROM studenti FULL JOIN profesori ON
+studenti.prenume = profesori.prenume;
+(Studenţii şi profesorii şi asocierile ı̂ntre ei, dacă există)
+33/ 37
+Nicolae-Cosmin Vârlan
+
+Baze de date Algebra relaţională
+
+Baze de date - Algebra relaţională
+
+Modelul Relaţional
+Operaţii pe mulţimi ı̂n modelul relaţional
+Operaţii specifice algebrei relaţionale
+Exerciţii
+
+Notaţii (alternative) pentru operatorii din alg. relaţională
+Proiecţia (πU (r1 )): r1 [U ]
+Join natural (r1 ▷◁ r2 ): r1 ∗ r2
+Join oarecare (sau theta-join): r1 ▷◁
+θ r2
+Selecţia : σθ (r1 ) [obs: r1 ▷◁
+r
+=
+σ
+2
+θ (r1 × r2 )]
+θ
+Join la stânga: r1 ▷ ◦ ◁L r2
+Join la dreapta: r1 ▷ ◦ ◁R r2
+Full outer join : r1 ▷ ◦ ◁ r2
+Redenumirea: Dacă r este definit peste B1 , B2 , . . . , Bn şi vrem să
+redenumim numele atributelor, vom folosi operatorul de
+redenumire ρ : r′ = ρ(r1 )A1 ,A2 ,...,An - redenumirea atributelor lui r
+ı̂n A1 , A2 , . . . , An
+
+34/ 37
+Nicolae-Cosmin Vârlan
+
+Baze de date Algebra relaţională
+
+Baze de date - Algebra relaţională
+
+Modelul Relaţional
+Operaţii pe mulţimi ı̂n modelul relaţional
+Operaţii specifice algebrei relaţionale
+Exerciţii
+
+Exerciţii:
+1. Pentru r1 , r2 exemplificate la Joinul natural, construiţi restul
+tipurilor de Join studiate.
+2. Utilizând schema de baze de date de la laborator, scrieţi ı̂n
+algebra relaţională expresii de selecţie pentru următoarele:
+▶ Cursurile din facultate ı̂mpreună cu numele prof. ce le ţin.
+▶ Numele şi prenumele studenţilor din anul 1 şi care au bursă
+mai mare de 300 ron.
+▶ Prenumele studenţilor care au acelaşi nume de familie ca
+măcar unul din profesori.
+▶ Numele şi prenumele studenţilor, cursurile pe care le-au urmat
+şi notele pe care le-au obţinut.
+Scrieţi interogările SQL asociate formulelor din algebra relaţională
+scrise mai sus.
+Nicolae-Cosmin Vârlan
+
+Baze de date Algebra relaţională
+
+35/ 37
+
+Baze de date - Algebra relaţională
+
+Modelul Relaţional
+Operaţii pe mulţimi ı̂n modelul relaţional
+Operaţii specifice algebrei relaţionale
+Exerciţii
+
+Bibliografie
+▶ Baze de date relaţionale. Dependenţe - Victor Felea; Univ. Al.
+I. Cuza, 1996
+
+36/ 37
+Nicolae-Cosmin Vârlan
+
+Baze de date Algebra relaţională
+
+Baze de date - Algebra relaţională
+
+Modelul Relaţional
+Operaţii pe mulţimi ı̂n modelul relaţional
+Operaţii specifice algebrei relaţionale
+Exerciţii
+
+Software
+▶ Relational
+
+37/ 37
+Nicolae-Cosmin Vârlan
+
+Baze de date Algebra relaţională
+
+

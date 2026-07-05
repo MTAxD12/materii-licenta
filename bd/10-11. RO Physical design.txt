@@ -1,0 +1,499 @@
+BAZE DE DATE
+
+Implementarea constrângerilor
+Declanşatoare (Triggers)
+Tabele virtuale (Views)
+Mihaela Elena Breabăn
+© FII 2020-2021
+
+Proiectarea Bazelor de date Relaționale
+Metodologie
+1. Analiza cerințelor
+Specificații
+2. Modelarea conceptuală
+Diagrame E/A (UML)
+
+independent de
+considerente
+fizice
+
+3. Modelare logică
+Normalizare
+Schema relațională
+4. Modelare fizică
+Calibrare/optimizare
+2
+
+Specific dezvoltatorului
+SGBDR
+
+Conținut
+
+
+
+Constrângeri de integritate
+
+
+
+Declanşatoare
+
+
+
+Tabele virtuale
+
+3
+
+Constrângeri de integritate (statice)
+(1)
+ Restricţionează stările posibile ale bazei de date
+
+Pentru a elimina posibilitatea introducerii eronate de valori la operația de inserare
+ Pentru a satisface corectitudinea la actualizare/ștergere
+ Forţează consistenţa
+ Transmit sistemului informaţii utile stocării, procesării interogărilor
+
+
+ Tipuri
+
+Non-null
+ Chei
+ Integritate referenţială
+ Bazate pe atribut şi bazate pe tuplu
+ Aserţiuni generale
+
+
+4
+
+Constrângeri de integritate
+(2)
+ Declarare
+
+Odată cu schema (comanda CREATE)
+ După crearea schemei (comanda ALTER)
+
+
+ Realizare
+
+Verificare la fiecare comandă de modificare a datelor
+ Verificare la final de tranzacţie
+
+
+5
+
+Constrângeri de integritate peste 1 variabilă
+Implementare inline
+CREATE TABLE tabel (
+a1 tip not null, -- acceptă doar valori nenule
+a2 tip unique, --cheie candidat formată dintr-un singur atribut
+a3 tip primary key, -- cheie primară formată dintr-un singur atribut, implicit {not null,
+unique}
+a4 tip references tabel2 (b1), --cheie străină formată dintr-un singur atribut
+a5 tip check (condiţie) -- condiţia e o expresie booleana formulată peste atributul a5:
+(a5<11 and a5>4), (a5 between 5 and 10), (a5 in (5,6,7,8,9,10))…
+)
+
+6
+
+Constrângeri de integritate peste n variabile
+Implementare out-of-line
+CREATE TABLE tabel (
+a1 tip,
+a2 tip,
+a3 tip,
+a4 tip,
+primary key (a1,a2), --cheie primară formată din 2 (sau mai multe)
+atribute
+unique(a2,a3), -- cheie candidat formată din 2 (sau mai multe) atribute
+check (condiţie), -- expresie booleană peste variabile declarate anterior:
+((a1+a3)/2>=5)
+foreign key (a3,a4) references tabel2(b1,b2) -- cheie străină multi-atribut
+)
+7
+
+Integritate referenţială
+Definiţii
+Candidat
+
+Absolvent
+aID
+
+aNume
+
+medie
+
+liceu
+
+aID
+
+uNume
+
+specializare
+
+Universitate
+decizia
+
+uNume
+
+oraş
+
+înscrieri
+
+ Integritate referenţială de la R.A la S.B:
+
+fiecare valoare din coloana A a tabelului R trebuie să apară în
+coloana B a tabelului S
+ A se numeşte cheie străină
+ B trebuie să fie cheie primară pentru S sau măcar declarat unic
+ sunt permise chei străine multi-atribut
+
+
+8
+
+Integritate referenţială
+Realizare
+ Comenzi ce pot genera încălcarea restricţiilor:
+ inserări în R
+ ştergeri în S
+ actualizări pe R.A sau S.B
+
+ Acţiuni speciale:
+
+la ştergere din S:
+ON DELETE RESTRICT (implicit) | SET NULL | CASCADE
+ la actualizări pe S.B:
+ON UPDATE RESTRICT (implicit) | SET NULL | CASCADE
+
+
+9
+
+Integritate referenţială
+oul sau găina?
+CREATE TABLE chicken (cID INT PRIMARY KEY,
+eID INT REFERENCES egg(eID));
+CREATE TABLE egg(eID INT PRIMARY KEY,
+cID INT REFERENCES chicken(cID));
+CREATE TABLE chicken(cID INT PRIMARY KEY, eID INT);
+CREATE TABLE egg(eID INT PRIMARY KEY, cID INT);
+ALTER TABLE chicken ADD CONSTRAINT chickenREFegg
+FOREIGN KEY (eID) REFERENCES egg(eID)
+DEFERRABLE INITIALLY DEFERRED; -- Oracle
+ALTER TABLE egg ADD CONSTRAINT eggREFchicken
+FOREIGN KEY (cID) REFERENCES chicken(cID)
+DEFERRABLE INITIALLY DEFERRED; -- Oracle
+INSERT INTO chicken VALUES(1, 2);
+Cum rezolvaţi problema inserării dacă
+INSERT INTO egg VALUES(2, 1);
+verificarea constrângerii se efectuează
+imediat după fiecare inserare?
+COMMIT;
+
+Dar problema ştergerii tabelelor?
+10
+
+Aserţiuni
+create assertion Key
+check ((select count(distinct A) from T) =
+(select count(*) from T)));
+
+create assertion ReferentialIntegrity
+check (not exists (select * from Candidat
+where aID not in (select aID from Student)));
+
+11
+
+Constrângeri de integritate
+Abateri de la standardul SQL
+
+
+Postgres, SQLite, Oracle, MySQL(innodb) implementează și validează toate
+constrângerile anterioare
+
+
+
+Standardul SQL permite utilizarea de interogări în clauza check însă nici un SGBD nu
+le suportă
+
+
+
+Nici un SGBD nu a implementat aserţiunile din standardul SQL, funcţionalitatea lor
+fiind furnizată de declanşatoare
+
+12
+
+…DEMO…
+(fişierul constrângeri.sql)
+
+13
+
+Declanşatoare
+(constrangeri dinamice)
+ Monitorizează schimbările în baza de date, verifică anumite condiţii şi iniţiază
+
+acţiuni
+ Reguli eveniment-condiţie-acţiune
+
+Introduc elemente din logica aplicaţiei în SGBD
+ Forţează constrângeri care nu pot fi exprimate altfel
+ Sunt expresive
+ Pot întreprinde acţiuni de reparare
+ implementarea variază în funcţie de SGBD, exemplele de aici urmăresc standardul SQL
+
+
+14
+
+Declanşatoare
+Implementare
+Create Trigger nume
+Before|After|Instead Of evenimente
+[ variabile-referenţiate ]
+[ For Each Row ] -- actiune se execută pt fiecare linie modificată (tip row vs. statement)
+[ When ( conditie ) ] -- ca o condiţie WHERE din SQL
+actiune -- în standardul SQL e o comandă SQL, în SGBD-uri poate fi bloc procedural
+
+
+evenimente:
+
+
+
+
+
+
+INSERT ON tabel
+DELETE ON tabel
+UPDATE [OF a1,a2,…] ON tabel
+
+variabile-referenţiate (după declarare pot fi utilizate în condiţie şi acţiune):
+
+
+
+
+15
+
+OLD TABLE AS var
+NEW TABLE AS var
+OLD ROW AS var – pentru ev. DELETE, UPDATE
+NEW ROW AS var – pentru ev. INSERT, UPDATE
+
+doar pentru declanșatoare de tip
+linie/row
+
+Declanşatoare
+Exemplu (1)
+ integritate referenţială de la R.A la S.B cu ştergere în cascadă
+
+Create Trigger Cascade
+After Delete On S
+Referencing Old Row As O
+For Each Row
+[ fără condiţii ]
+Delete From R Where A = O.B
+
+16
+
+Create Trigger Cascade
+After Delete On S
+Referencing Old Table As OT
+[ For Each Row ]
+[ fără condiţii ]
+Delete From R Where
+A in (select B from OT)
+
+Declanşatoare
+Probleme potențiale
+ mai multe declanşatoare activate în acelaşi timp: care se execută primul?
+ acţiunea declanşatorului activează alte declanşatoare: înlănţuire sau auto-
+
+declanşare ce poate duce la ciclare
+
+17
+
+Declanşatoare
+Abateri de la standardul SQL
+
+
+Postgres
+
+
+
+
+
+
+SQLite
+
+
+
+
+
+
+
+
+doar tip row (fără old/new table)
+se execută imediat, după modificarea fiecărei linii (abatere comportamentală de la standard)
+permite definirea unui singur declanşator / eveniment asociat unui tabel
+
+Oracle
+
+
+
+
+
+
+
+18
+
+doar tip row (fără old/new table)
+se execută imediat, după modificarea fiecărei linii (abatere comportamentală de la standard)
+
+MySQL
+
+
+
+
+cel mai apropiat de standard
+implementează row+statement, old/new+row/table
+sintaxa suferă abateri de la standard
+
+implementează standardul: row+statement cu modificări uşoare de sintaxă
+tipul instead-of e permis numai pt. view-uri
+permite inserarea de blocuri procedurale
+introduce restricţii pentru a evita ciclarea
+aprofundate la laborator
+
+…DEMO…
+(fişierul declansatoare.sql)
+
+19
+
+View-uri – Tabele virtuale
+
+View_1
+
+View_2
+
+View_3
+
+View_n
+
+Cele 12 reguli ale lui Codd
+Conceptual level
+
+Internal level
+
+physical storage
+
+20
+
+Motivaţie
+ acces modular la baza de date
+
+ ascunderea unor date faţă de unii utilizatori
+ uşurarea formulării unor interogări
+
+ aplicaţiile reale tind să utilizeze foarte multe view-uri
+
+21
+
+Definire şi utilizare
+ Un view este în esenţă o interogare stocată formulată peste tabele sau alte view-uri
+ Schema view-ului este cea a rezultatului interogării
+ Conceptual, un view este interogat la fel ca orice tabel
+ În realitate, interogarea unui view este rescrisă prin inserarea interogării ce defineşte
+
+view-ul urmată de un proces de optimizare specific fiecărui SGBD
+ Sintaxa
+
+Create View numeView [a1,a2,…] As <frază_select>
+
+22
+
+Modificarea view-urilor
+ View-urile sunt în general utilizate doar în interogări însă pentru utilizatorii externi
+
+ele sunt tabele: trebuie să poată suporta comenzi de manipulare/modificare a datelor
+ Soluţia: modificări asupra view-ului trebuie să fie rescrise în comenzi de modificare a
+datelor în tabelele de bază
+de obicei este posibil
+ uneori există mai multe variante
+
+
+ Exemplu
+
+R(A,B),V(A)=R[A], Insert into V values(3)
+ R(N), V(A)=avg(N), update V set A=7
+
+
+23
+
+Modificarea view-urilor
+Abordări
+ creatorul view-ului rescrie toate comenzile de modificare posibile cu ajutorul
+
+declanşatorului de tip INSTEAD OF
+acoperă toate cazurile
+ garantează corectitudinea?
+
+
+ standardul SQL prevede existenţa de view-uri inerent actualizabile (updatable views)
+
+dacă:
+view-ul e creat cu comanda select fără clauza DISTINCT pe o singură tabelă T
+ atributele din T care nu fac parte din definiţia view-ului pot fi NULL sau iau valoare default
+ subinterogările nu fac referire la T
+ nu există clauza GROUP BY sau altă formă de agregare
+
+
+24
+
+View-uri materializate
+Create Materialized View V [a1,a2,…] As <frază_select>
+ are loc crearea unui nou tabel V cu schema dată de rezultatul interogării
+ tuplele rezultat al interogării sunt inserate în V
+ interogările asupra lui V se execută ca pe orice alt tabel
+ Avantaje:
+
+
+specifice view-urilor virtuale + creşte viteza interogărilor
+
+ Dezavantaje:
+
+V poate avea dimeniuni foarte mari
+ orice modificare asupra tabelelor de bază necesită refacerea lui V
+ problema modificării tabelelor de bază la modificarea view-ului rămâne
+
+
+25
+
+Cum alegem ce materializăm
+ dimensiunea datelor
+ complexitatea interogării
+ numărul de interogări asupra view-ului
+ numărul de modificări asupra tabelelor de bază ce afectează view-ul şi posibilitatea
+
+actualizării incrementale a view-ului
+ punem în balanţă timpul necesar execuţiei interogărilor şi timpul necesar actualizării
+
+view-ului
+
+26
+
+…DEMO…
+(fişierul views.sql)
+
+27
+
+Bibliografie
+ Hector Garcia-Molina, Jeff Ullman, Jennifer Widom: Database Systems: The
+
+Complete Book (2nd edition), Prentice Hall; (June 15, 2008)
+ Oracle:
+
+
+http://docs.oracle.com/cd/B28359_01/server.111/b28310/general005.htm
+
+http://www.oracle-base.com/articles/9i/MutatingTableExceptions.php
+ http://www.dba-oracle.com/t_avoiding_mutating_table_error.htm
+
+
+28
+
+

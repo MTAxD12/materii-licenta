@@ -1,0 +1,466 @@
+Baze de date relaţionale - Dependenţe funcţionale
+
+Baze de date
+Dependenţe funcţionale
+Nicolae-Cosmin Vârlan
+
+1/ 17
+Nicolae-Cosmin Vârlan
+
+Baze de date Dependenţe funcţionale
+
+Baze de date relaţionale - Dependenţe funcţionale
+
+Definiţie şi exemple
+Proprietăţi ale dependenţelor funcţionale
+
+Egalitatea a două tuple
+Considerăm U = {A1 , A2 . . . An } o mulţime de atribute şi două
+tuple t1 şi t2 construite peste această mulţime de atribute.
+Spunem că tuplele t1 şi t2 sunt egale, dacă şi numai dacă
+πAi [t1 ] = πAi [t2 ], ∀i ∈ {1..n}
+Cu alte cuvinte, tuplele t1 şi t2 sunt egale dacă ele sunt egale pe
+fiecare dintre componentele lor. Considerând că
+t1 = (v11 , v12 , . . . v1n ) şi t2 = (v21 , v22 , . . . v2n ), atunci t1 = t2
+dacă şi numai dacă v11 = v21 , v12 = v22 , . . . , v1n = v2n .
+În restul cursului, vom ı̂nlocui notaţia πX [t] cu t[X].
+
+2/ 17
+Nicolae-Cosmin Vârlan
+
+Baze de date Dependenţe funcţionale
+
+Baze de date relaţionale - Dependenţe funcţionale
+
+Definiţie şi exemple
+Proprietăţi ale dependenţelor funcţionale
+
+Dependenţe funcţionale
+Fie X, Y ⊆ U . Vom nota o dependenţă funcţională cu X → Y .
+O relaţie r peste U satisface dependenţa funcţională X → Y dacă:
+(∀t1 , t2 )(t1 , t2 ∈ r) t1 [X] = t2 [X] ⇒ t1 [Y ] = t2 [Y ]
+X = ∅ avem ∅ → Y dacă (∀t1 , t2 )(t1 , t2 ∈ r)[t1 [Y ] = t2 [Y ]]
+Y = ∅ atunci orice ∀r peste U avem că X → ∅
+Dacă r satisface X → Y , atunci există o funcţie φ : r[X] → r[Y ]
+definită prin φ(t) = t′ [Y ], unde t′ ∈ r şi t′ [X] = t ∈ r[X].
+Dacă r satisface X → Y spunem că X determină funcţional pe Y
+ı̂n r.
+3/ 17
+Nicolae-Cosmin Vârlan
+
+Baze de date Dependenţe funcţionale
+
+Baze de date relaţionale - Dependenţe funcţionale
+
+Definiţie şi exemple
+Proprietăţi ale dependenţelor funcţionale
+
+Exemplu
+Fie relaţia r peste mulţimea de atribute
+U = {nume, l(nume), data nastere, zodie, varsta}
+
+r:
+
+nume
+Ion
+Vasile
+Maria
+Cosmin
+Maria
+...
+
+l(nume)
+3
+6
+5
+6
+5
+...
+
+data nastere
+20.02.1990
+24.02.1992
+1.08.2014
+7.07.1978
+4.08.2010
+...
+
+zodie
+Pesti
+Pesti
+Leu
+Rac
+Leu
+...
+
+varsta
+28
+26
+4
+40
+8
+...
+
+Puteţi depista dependenţele funcţionale ?
+
+4/ 17
+Nicolae-Cosmin Vârlan
+
+Baze de date Dependenţe funcţionale
+
+Baze de date relaţionale - Dependenţe funcţionale
+
+Definiţie şi exemple
+Proprietăţi ale dependenţelor funcţionale
+
+Exemplu
+Fie relaţia r peste mulţimea de atribute
+U = {nume, l(nume), data nastere, zodie, varsta}
+
+r:
+
+nume
+Ion
+Vasile
+Maria
+Cosmin
+Maria
+...
+
+l(nume)
+3
+6
+5
+6
+5
+...
+
+data nastere
+20.02.1990
+24.02.1992
+1.08.2014
+7.07.1978
+4.08.2010
+...
+
+zodie
+Pesti
+Pesti
+Leu
+Rac
+Leu
+...
+
+varsta
+28
+26
+4
+40
+8
+...
+
+▶ nume → l(nume)
+▶ data nastere → varsta
+▶ data nastere → zodie
+▶ nume → zodie - discuţie
+Nicolae-Cosmin Vârlan
+
+5/ 17
+Baze de date Dependenţe funcţionale
+
+Baze de date relaţionale - Dependenţe funcţionale
+
+Definiţie şi exemple
+Proprietăţi ale dependenţelor funcţionale
+
+Proprietăţi ale dependenţelor funcţionale
+FD1. (Reflexivitate) Dacă Y ⊆ X, atunci r satisface X → Y ,
+∀r ∈ U .
+FD2. (Extensie) Dacă r satisface X → Y şi Z ⊆ W , atunci r
+satisface XW → Y Z.
+FD3. (Tranzitivitate) Dacă r satisface X → Y şi Y → Z, atunci r
+satisface X → Z.
+FD4. (Pseudotranzitivitate) Dacă r satisface X → Y şi Y W → Z,
+atunci r satisface XW → Z.
+
+6/ 17
+Nicolae-Cosmin Vârlan
+
+Baze de date Dependenţe funcţionale
+
+Baze de date relaţionale - Dependenţe funcţionale
+
+Definiţie şi exemple
+Proprietăţi ale dependenţelor funcţionale
+
+Proprietăţi ale dependenţelor funcţionale
+FD5. (Uniune) Dacă r satisface X → Y şi X → Z, atunci r
+satisface X → Y Z.
+FD6. (Descompunere) Dacă r satisface X → Y Z, atunci r
+satisface X → Y şi X → Z.
+FD7. (Proiectabilitate) Dacă r peste U satisface X → Y şi
+X ⊂ Z ⊆ U , atunci r[Z] satisface X → Y ∩ Z
+FD8. (Proiectabilitate inversă) Dacă X → Y este satisfacută de o
+proiecţie a lui r, atunci X → Y este satisfacută de r.
+
+7/ 17
+Nicolae-Cosmin Vârlan
+
+Baze de date Dependenţe funcţionale
+
+Baze de date relaţionale - Dependenţe funcţionale
+
+Definiţie şi exemple
+Proprietăţi ale dependenţelor funcţionale
+
+Dependenţe funcţionale - consecinţă şi acoperire
+Dacă Σ este o mulţime de dependenţe funcţionale peste U atunci
+spunem că X → Y este consecinţă din Σ dacă orice relaţie ce
+satisface toate dependenţele din Σ satisface şi X → Y .
+Notaţie: Σ |= X → Y
+Fie Σ∗ = {X → Y |Σ |= X → Y }. Fie Σ1 = mulţime de
+dependenţe funcţionale. Σ1 constituie o acoperire pentru Σ∗ dacă
+Σ∗1 = Σ∗ .
+Exerciţiu: Fie U = {A, B, C, D, E, F } şi
+Σ = {A → BD, B → C, DE → F } găsiţi cât mai multe elemente
+din Σ∗ − Σ.
+
+8/ 17
+Nicolae-Cosmin Vârlan
+
+Baze de date Dependenţe funcţionale
+
+Baze de date relaţionale - Dependenţe funcţionale
+
+Definiţie şi exemple
+Proprietăţi ale dependenţelor funcţionale
+
+Proprietăţi ale dependenţelor funcţionale
+Propoziţie
+Pentru orice mulţime Σ de dependenţe funcţionale există o
+acoperire Σ1 pentru Σ∗ , astfel ı̂ncat toate dependenţele din Σ1
+sunt de forma X → A, A fiind un atribut din U .
+
+Propoziţie
+Σ |= X → Y dacă şi numai dacă Σ |= X → Bj pentru j = 1, h,
+unde Y = B1 . . . Bh .
+
+9/ 17
+Nicolae-Cosmin Vârlan
+
+Baze de date Dependenţe funcţionale
+
+Baze de date relaţionale - Dependenţe funcţionale
+
+Definiţie şi exemple
+Proprietăţi ale dependenţelor funcţionale
+
+Reguli de deducere (la nivel sintactic)
+Fie R o mulţime de reguli de deducere pentru dependenţe
+funcţionale şi Σ o mulţime de dependenţe funcţionale.
+Spunem că X → Y este o demonstraţie ı̂n Σ utilizând regulile R şi
+vom nota Σ ⊢R X → Y , dacă există şirul σ1 , σ2 , . . . , σn , astfel
+ı̂ncât:
+▶ σn = X → Y şi
+▶ pentru ∀i = 1, n, σi ∈ Σ sau există ı̂n R o regulă de forma
+σj1 ,σj2 ,...σjk
+, unde j1 , j2 , . . . , jk < i.
+σi
+
+10/ 17
+Nicolae-Cosmin Vârlan
+
+Baze de date Dependenţe funcţionale
+
+Baze de date relaţionale - Dependenţe funcţionale
+
+Definiţie şi exemple
+Proprietăţi ale dependenţelor funcţionale
+
+Reguli de deducere (la nivel sintactic)
+Conform proprietăţilor FD1-FD6 putem defini regulile:
+FD1f:
+
+Y ⊆X
+X→Y
+
+FD4f:
+
+X→Y, Y W →Z
+XW →Z
+
+FD2f:
+
+X→Y, Z⊆W
+XW →Y Z
+
+FD5f:
+
+X→Y, X→Z
+X→Y Z
+
+FD3f:
+
+X→Y, Y →Z
+X→Z
+
+FD6f:
+
+X→Y Z X→Y Z
+X→Y , X→Z
+
+Propoziţie
+Regulile FD4f, FD5f, FD6f se exprimă cu ajutorul regulilor FD1f,
+FD2f, FD3f.
+Notăm cu R1 = {FD1f, FD2f, FD3f},
+şi cu R2 = R1 ∪ {FD4f, FD5f, FD6f}
+11/ 17
+Nicolae-Cosmin Vârlan
+
+Baze de date Dependenţe funcţionale
+
+Baze de date relaţionale - Dependenţe funcţionale
+
+Definiţie şi exemple
+Proprietăţi ale dependenţelor funcţionale
+
+Propoziţie
+Regulile FD4f, FD5f, FD6f se exprimă cu ajutorul regulilor FD1f,
+FD2f, FD3f.
+Idei de demonstratie:
+▶ FD4f: Se aplica FD2f pentru X → Y si W ⊆ W iar din
+rezultat si din Y W → Z prin FD3f se obtine rezultatul;
+▶ FD5f: Se aplica FD2f pentru X → Y si X ⊆ X si la fel pentru
+X → Z si Y ⊆ Y apoi FD3f (tranzitivitatea) intre rezultate;
+▶ FD6f: din FD1f avem ca Y Z → Y si Y Z → Z si din FD3f
+rezulta X → Y si X → Z
+
+12/ 17
+Nicolae-Cosmin Vârlan
+
+Baze de date Dependenţe funcţionale
+
+Baze de date relaţionale - Dependenţe funcţionale
+
+Definiţie şi exemple
+Proprietăţi ale dependenţelor funcţionale
+
+Axiomele lui Armstrong
+Armstrong a definit (ı̂n Dependency structures of database
+relationships Proc. IFIP 74, Amsterdam, 580-583) următoarele
+reguli de inferenţa (numite Axiomele lui Armstrong):
+A1:
+
+A1 ...An →Ai , i = 1, n
+
+A2:
+
+A1 ,...Am →B1 ,...Br
+, j = 1, r
+A1 ...Am →Bj
+A1 ,...Am →Bj , j=1,r
+A1 ...Am →B1 ,...Br
+
+A3:
+
+A1 ,...Am →B1 ,...Br , B1 ,...Br →C1 ,...Cp
+A1 ...Am →C1 ,...Cp
+
+unde Ai , Bj , Ck sunt atribute. Notăm RA = {A1, A2, A3}.
+Obs: regula A3 este de fapt FD3f (tranzitivitatea).
+13/ 17
+Nicolae-Cosmin Vârlan
+
+Baze de date Dependenţe funcţionale
+
+Baze de date relaţionale - Dependenţe funcţionale
+
+Definiţie şi exemple
+Proprietăţi ale dependenţelor funcţionale
+
+Propoziţie
+Regulile din R1 se exprimă prin cele din RA şi invers.
+Notaţie:
+Σ+
+R = {X → Y |Σ ⊢R X → Y }
+
+Propoziţie
+Fie R′1 si R′2 doua multimi de reguli astfel incat R′1 se exprima
+prin R′2 si invers. Atunci Σ+
+= Σ+
+pentru orice multime Σ de
+R′1
+R′2
+dependente functionale.
++
+Consecinta: Σ+
+R1 = ΣRA
+
+14/ 17
+Nicolae-Cosmin Vârlan
+
+Baze de date Dependenţe funcţionale
+
+Baze de date relaţionale - Dependenţe funcţionale
+
+Definiţie şi exemple
+Proprietăţi ale dependenţelor funcţionale
+
+Fie X ⊆ U si R o multime de reguli de inferenta. Notam cu
++
+XR
+= {A|Σ ⊢R X → A}
+
+Lema
++
+Σ ⊢R X → Y daca si numai daca Y ⊆ XR
+.
+1
+
+15/ 17
+Nicolae-Cosmin Vârlan
+
+Baze de date Dependenţe funcţionale
+
+Definiţie şi exemple
+Proprietăţi ale dependenţelor funcţionale
+
+Baze de date relaţionale - Dependenţe funcţionale
+
+Lema
+Fie Σ o multime de dependente functionale si σ : X → Y o
+dependenta functionala astfel incat Σ ⊬R1 X → Y . Atunci exista
+o relatie rσ ce satisface toate dependentele functionale din Σ si rσ
+nu satisface X → Y .
+
+Theorem
+Fie Σ o multime de dependente functionale. Atunci exista o relatie
+r0 ce satisface exact elementele lui Σ+
+R1 , adica:
+▶ r0 satisface τ , ∀τ ∈ Σ+
+R1 si
+▶ r0 nu satisface γ, ∀γ ̸∈ Σ+
+R
+
+1
+
+16/ 17
+Nicolae-Cosmin Vârlan
+
+Baze de date Dependenţe funcţionale
+
+Baze de date relaţionale - Dependenţe funcţionale
+
+Definiţie şi exemple
+Proprietăţi ale dependenţelor funcţionale
+
+Bibliografie
+▶ Baze de date relaţionale. Dependenţe - Victor Felea; Univ. Al.
+I. Cuza, 1996
+
+17/ 17
+Nicolae-Cosmin Vârlan
+
+Baze de date Dependenţe funcţionale
+
+

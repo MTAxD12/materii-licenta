@@ -1,0 +1,1398 @@
+CREATE BITMAP INDEX idx ON
+BAZE_DE_DATE (topic);
+
+SELECT * FROM BAZE_DE_DATE WHERE topic = ‘ INDECȘI’;
+
+Mihaela Elena Breabăn
+© FII 2024-2025
+
+Proiectarea Bazelor de date Relaționale
+Metodologie
+1. Analiza cerințelor
+Specificații
+2. Modelarea conceptuală
+Diagrame E/A (UML)
+
+independent de
+considerente
+fizice
+
+3. Modelare logică
+Normalizare
+Schema relațională
+4. Modelare fizică
+Calibrare/optimizare
+2
+
+Specific dezvoltatorului
+SGBDR
+
+Cuprins
+Stocare fizică și acces
+ Indexare – motivație și concepte de bază
+
+
+
+
+Structuri ordonate
+
+
+
+
+
+
+Hashing
+
+
+
+
+
+Indecși secvențiali
+B+-arbori
+Indecși multi-cheie
+Hashing static
+Hashing dinamic
+
+Acces multi-cheie și Indecși bitmap
+
+Suportul SQL pentru indexare
+ Indexarea în Oracle
+
+
+3
+
+Stocarea datelor și acces
+
+
+
+4
+
+ID
+
+prenume
+
+nota
+
+20
+
+Ioana
+
+9.5
+
+40
+
+Andrei
+
+8.66
+
+10
+
+Tudor
+
+8.55
+
+30
+
+Maria
+
+8.33
+
+70
+
+Alex
+
+9.33
+
+Timpul necesar pentru a aduce un bloc de date în memorie este determinat de:
+ Timpul de localizare (timpul necesar poziționării capului de citire pe pistă)
+ Latența rotațională (timpul de rotație a pistei/discului sub capul de citire)
+ Timpul de transfer (timpul necesar transferului datelor către memoria de lucru)
+ Pentru a optimiza timpul de acces, o bază de date relațională stochează datele în
+mod secvențial, înregistrare după înregistrare
+
+Indexare – Motivație (1)
+
+
+De obicei, SGBD-ul petrece majoritatea timpului rezolvând interogări
+(căutând)
+Cheie de căutare
+
+SELECT * FROM Student
+
+Cheie de sortare
+
+WHERE ID=40;
+Cum găsim înregistrările dorite?
+a) Ordonare aleatorie
+
+5
+
+b) Ordonare crescătoare după ID
+
+ID
+
+prenume
+
+nota
+
+ID
+
+prenume
+
+nota
+
+20
+
+Ioana
+
+9.5
+
+10
+
+Tudor
+
+8.55
+
+40
+
+Andrei
+
+8.66
+
+20
+
+Ioana
+
+9.5
+
+10
+
+Tudor
+
+8.55
+
+30
+
+Maria
+
+8.33
+
+30
+
+Maria
+
+8.33
+
+40
+
+Andrei
+
+8.66
+
+70
+
+Alex
+
+9.33
+
+70
+
+Alex
+
+9.33
+
+Indexare – Motivație (2)
+Când datele sunt sortate după cheia de căutare devine posibilă căutarea binară
+
+
+
+
+
+Complexitate timp: O(log2(N))
+(log2(100 000)=17)
+
+SELECT * FROM student
+WHERE prenume=‘Ioana’;
+Cum putem rezolva interogarea de mai sus eficient (datele nu sunt sortate după prenume)?
+Soluția: construim un fișier index
+
+6
+
+Concepte de bază în indexare
+
+
+
+
+
+Fișier de date – secvența de blocuri ce conțin înregistrările unui tabel
+Cheie de căutare – un atribut (sau o mulțime de atribute) care constituie criteriu de
+selcție/căutare
+Cheie de sortare – un atribut care decide oridonarea înregistrărilor în fișierul cu date
+Fișier index– este asociat unei chei de căutare într-un fișier cu date și conține înregistrări
+index de forma
+Valoare a cheii de căutare
+
+
+
+
+pointer
+
+Index dens – stochează câte o intrare pentru fiecare valoare existentă în fișiserul cu date a
+cheii de căutare
+Index rar – nu stochează toate valorile cheii de căutare
+
+Observații:
+ Un fișier cu date poate avea asociate mai multe fișiere index
+ Fișierele index sunt de obicei de dimensiuni mai mici comparativ cu fișierul de date
+7
+
+De reflectat asupra...
+
+CÂȚI indecși ar trebui sa folosim în practică ?
+ CÂND trebuie creați indecși și când nu trebuie creați indecși?
+
+
+
+
+CUM ar trebui să indexăm (ca structuri de date utilizate)?
+
+
+
+Considerente:
+
+
+Spațiul de stocare necesar
+
+
+
+
+
+Timpul de acces
+Timpul de inserare
+Timpul de ștergere
+
+
+
+Tipul interogărilor adresate
+
+
+
+8
+
+Tipuri de indecși
+
+
+
+
+
+Indecși ordonați: valorile cheii de căutare sunt ordonate
+
+
+Indecși secvențiali
+
+
+
+B+-arbori
+
+Indecși hash: valorile cheii de căutare sunt uniform distribuite în grupuri denumite buckets cu ajutorul
+unei funcții hash
+
+
+
+
+
+Bucket: unitate de stocare ce poate conține una sau mai multe înregistrări
+Funcție hash = funcție de dispersie – mapează date de dimensiune variabilă la o mulțime fixă de valori
+
+Indecși bitmap: asociați atributelor categoriale/discrete, codifică distribuția valorilor ca o matrice
+binară
+
+9
+
+Indecși ordonați:
+fișiere secvențiale
+
+10
+
+Indecși secvențiali
+
+
+Intrările index sunt sortate pe baza cheii de căutare
+ Ex: catalogul cu autori dintr-o bibliotecă
+
+
+
+Index primar: cheia de căutare (cheia indexului) este și cheie de sortare a fișierului cu
+date
+ Cheia de căutare/sortare în acest caz constituie de obicei (nu obligatoriu) chiar cheia
+primară a tabelului
+ Un tabel poate avea cel mult un index primar. DE CE?
+
+
+
+Index secundar: cheia de căutare dă o altă ordonare a înregistrărilor decât cea din
+fișierul de date
+
+11
+
+Indecși denși
+Index dens: conține intrări pentru fiecare valoare a cheii de căutare existentă în fișierul cu date.
+ Dacă indexul este primar, conține un singur pointer pentru toate înregistrările cu aceeași valoare a
+cheii de căutare (un pointer către prima înregistrare din serie). DE CE?
+ Dacă indexul este secundar, mai multe intrări pot fi necesare pentru o aceeași valoare. DE CE?
+
+
+Index dens primar – cheia de căutare este aceeași cu cheia
+de sortare a fișierului cu date
+12
+
+Indecși rari
+
+
+
+
+Indecșii rari NU conțin ca intrări toate valorile cheii de căutare
+
+
+Aplicabili doar pentru înregistrări care sunt ordonate pe baza cheii de căutare (când atributul cheie de căutare este și cheie
+de sortare a fișierului cu date)
+
+
+
+De obicei o intrare în index trimite către un bloc din fișierul cu date
+
+Pentru a localiza o intrare cu valoarea k a cheii de căutare în fișierul cu date:
+
+
+
+Găsim intrarea din index care corespunde la cea mai mare valoare mai mică decât k
+Ne uităm secvențial în fișierul cu date începând cu înregistrarea la care ne trimite indexul
+
+Index rar: cheia de căutare este întotdeauna și cheie de sortare a
+fișierului cu date
+13
+
+Index secundar
+Interogare: Găsiți toți studenții care locuiesc în Cluj (fișierul cu date este sortat pe
+baza numelor studenților!)
+ Soluția: indexul secundar (dens!)
+ Pentru a implementa eficient asocierea de tip unu-la-mulți dintre index și
+fișierul cu date, blocuri cu pointeri sunt utilizate
+
+
+14
+
+Indecși multi-nivel
+
+
+Index multi-nivel: un index poate fi asociat altui index și nu direct fișierului de date; acesta este un
+index rar
+ Necesar când fișierul index asociat fișierului cu date are dimensiuni considerabile sau nu încape în
+memoria de lucru
+ Index intern – indexul construit peste fisierul de date
+ Index extern – indexul rar construit peste indexul intern
+
+
+
+Când indexul extern este prea mare un alt index rar poate fi construit peste acesta, etc…
+
+
+
+Indecșii de pe toate nivelurile trebuie actualizați când fișierul cu date suferă modificări prin operații
+DML
+
+15
+
+Indecși multi-nivel
+Exemplu
+
+16
+
+Actualizarea indecșilor secvențiali
+Ștergeri în date
+Se gasește înregistrarea ce trebuie ștearsă – se poate apela la index;
+2.
+Se șterge înregistrarea din fișierul cu date;
+3.
+Se actualizează indecșii asociați tabelului:
+1.
+Dacă mai există și alte înregistrări cu aceeași valoare a cheii de căutare, se șterge doar pointerul
+2.
+Dacă înregistrarea ștearsă este singura cu valoarea cheii k, aceasta trebuie ștearsă din index
+1.
+
+Ștergerea din indexul dens: e similară ștergerii dintr-un fișier de date
+ Ștergerea dintr-un index rar:
+
+
+Dacă există intrarea k în index, aceasta este înlocuită de următoarea valoare a cheii de căutare (din ordonarea
+valorilor cheii de căutare existente în fișierul cu date)
+ Dacă următoare valoare există deja în index, intrarea corespunzătoare lui k este ștearsă.
+
+
+17
+
+Actualizarea indecșilor secvențiali
+Inserări
+Se inserează tuplul în fișierul cu date
+Se caută în index valoarea cheii de căutare corespunzătoare noului tuplu și se actualizează indexul
+astfel:
+
+1.
+2.
+
+
+
+Indexul dens: daca valoarea nu apare în index, va fi inserată; altfel, dacă indexul este secundar se adaugă doar
+pointerul
+Indexul rar: dacă indexul menține o intrare pentru fiecare bloc a fișierului cu date, doar când un nou bloc este creat
+în fișierul cu date, o nouă intrare va fi adăugată în index, trimițând la prima înregistrare a blocului.
+
+
+
+Inserările în fișierul cu date și în fișierul index poate necesita crearea unor blocuri de exces =>
+structura secvențială degenerează
+
+
+
+Inserarea și ștergerea în indecșii multi-nivel sunt extensii simple ale cazurilor discutate
+
+18
+
+Indecși ordonați:
+B+-arbori
+
+19
+
+Indecși bazați pe structuri B+-arbori
+Motivație
+
+
+Structurile secvențiale ordonate se degradează dupa multe operații DML
+
+
+
+Reconstruirea indecșilor este necesară dar costisitoare
+
+
+
+B+-arborii
+ Măresc viteza de găsire a datelor și elimină necesitatea de reorganizare continuă
+ Sunt utilizați extensiv pentru indexarea datelor în SGBD-urile relaționale
+
+20
+
+Structura unui B+-arbore (1)
+
+
+Un arbore echilibrat a.i. toate frunzele sunt pe același nivel
+
+
+
+Structura unui nod:
+
+
+
+
+
+Ki – valori ale cheii de căutare
+
+
+
+Pi pointeri către
+Noduri de pe nivelul imediat inferior
+
+
+
+Dacă nodul este frunză, către o înregistrare din fișierul cu date sau către blocuri de pointeri către înregistrări
+
+Arborele este caracterizat de o constantă m ce specifică numărul maxim de valori ce pot fi
+stocate într-un nod (numărul maxim de pointeri sau descendeți ai nodului este m+1)
+
+
+
+
+
+
+De regulă m este calculat a.i. dimensiunea unui nod să fie egală cu cea a unui bloc de date
+
+Valorile cheii de căutare sunt ordonate crescător în cadrul fiecărui nod
+K1 < K2 < K3 < . . . < Km
+
+21
+
+Structura unui B+-arbore (2)
+
+
+
+Pentru un nod cu m+1 pointeri:
+
+
+
+
+22
+
+Toate valorile cheii de căutare ce apar în subarborele către care trimite P1 sunt mai mici decât K1
+Pentru pointerul Pi, 2  i  m, toate valorile cheii de căutare din subarborele spre care acesta trimite sunt mai
+mari decît sau egale cu Ki–1 și mai mici decât Ki
+Toate valorile cheii de căutare din subarborele spre care trimite Pm+1 sunt mai mari decât sau egale cu Km
+
+Reguli pentru ocuparea nodurilor
+
+
+Nu e obligatoriu ca nodurile să fie complet ocupate:
+
+
+
+
+23
+
+Rădăcina are cel puțin 2 și cel mult m + 1 pointeri/descendenți (respectiv, cel puțin 1 și cel mult m valori, ordonate
+crescător)
+Fiecare nod de pe un nivel intern are cel puțin ⌈(m+1)/2⌉ și cel mult m + 1 pointeri/descendenți (echivalent, cel
+puțin ⌊m/2⌋ și cel mult m valori ordonate crescător)
+Fiecare nod frunză are cel puțin ⌈m/2⌉ și cel mult m valori; toți pointerii trimit către fișierul de date, exceptând
+ultimul pointer care trimite către următorul nod frunză (cu valori mai mari).
+
+B+-arbori – parametrul m
+Exemplu
+
+
+Presupunând că
+
+
+
+
+
+1 bloc de memorie = 1024 octeți
+Cheia de căutare = un șir de maxim 20 caractere (1 caracter = 1 octet)
+1pointer = 8 octeți
+
+Care este constanta arborelui, adică numărul maxim de valori într-un nod?
+
+
+Răspuns
+
+
+
+
+
+Identificăm cea mai mare valoare m care satisface 20m + 8(m + 1) <= 1024.
+m=36
+
+Structura arborelui
+
+
+
+
+
+24
+
+Rădăcina: cel puțin 2 pointeri,cel mult 37 pointeri (echivalent: intre una și 36 valori)
+Nod intern: cel puțin19, cel mult 37 pointeri
+Nod frunză: cel puțin18, cel mult 36 valori (echivalent minim 18 si maxim 36 pointeri către fișierul cu date)
+
+B+-arbori
+Observații
+Pentru că nodurile sunt conectate prin pointeri, blocuri apropiate logic nu trebuie să fie neapărat și
+apropiate fizic
+ Toate nivelele exceptând nivelul frunză formează o ierarhie de indecși rari externi peste nivelul frunză
+ Nivelul frunză formează un index secvențial dens peste fișierul cu date
+
+
+
+
+B+-arborele conține un număr relativ mic de niveluri, in cazul cel mai nefavorabil:
+
+
+
+
+Cel mult log(m+1)/2(K) pentru K valori a cheii de căutare
+
+
+Nivelul 2: cel puțin 2 noduri
+
+
+
+Nivelul 3: cel puțin 2* (m+1)/2 noduri
+
+
+
+Nivelul 4: ce puțin 2* (m+1)/2 * (m+1)/2 noduri
+
+
+
+etc…
+
+Inserările și ștergerile sunt procesate eficient: restructurarea indexului necesită timp logaritmic
+
+25
+
+Interogări pe B+- arbori
+Scop: determinați toate înregistrările din fișierul de date care corespund valorii k a cheii de căutare
+N = rădăcina
+Repetă
+
+1.
+
+2.
+•
+•
+
+•
+
+Identifică în N cea mai mică valoare a cheii de căutare care e mai mare decât k
+Dacă o astfel de valoare Ki există, atunci N = Pi
+altfel N = Pn (k  Kn–1)
+
+până când N este frunză
+Dacă există Ki = k în frunza N, pointerul Pi trimite către înregistrarea dorită
+Altfel, nu există nici o înregistrare cu valoarea k a cheii de căutare
+
+3.
+
+26
+
+Interogări
+Exemple
+Cheia de căutare stochează toate valorile impare intre 1-19
+Reprezentați posibil arbori pentru m=3 și efectuați o interogare pentru cheia 15
+
+27
+
+Interogări pe B+-arbori
+Exercițiu
+Dat m=100 (fiecare nod are dimensiunea unui bloc!)
+ Pentru 1 milion de valori a cheii de căutare, cât de multe noduri (echivalent blocuri pe disc) sunt accesate la o
+căutare în B+-arbore? (R: 4)
+
+
+
+
+Dar dacă e utilizat un index secvențial? (R: 20)
+
+28
+
+Actualizări în B+-arbori
+Inserarea
+După inserarea unei înregistrări în fișierul de date cu valoarea k a cheii de căutare, la care
+trimite pointerul p:
+1.
+Găsește nodul frunză care ar trebui să conțină k
+Dacă valoarea există în nodul frunză:
+
+2.
+
+
+Adaugă pointerul p în bucketul corespunzător valorii k a cheii
+
+Dacă valoare nu există
+
+3.
+
+
+29
+
+Dacă este loc în nodul frunză, inserează perechea (p, k)
+Altfel, divide nodul frunză ->
+
+Actualizări în B+-arbori
+Inserare: divizarea unui nod
+
+
+Divizarea unui nod frunză la inserarea unei perechi noi (pi, ki):
+1.
+
+Se iau cele n perechi ordonate, inclusiv cea nou creată (pi, ki). Se păstrează primele n/2 perechi în nodul
+frunză existent și crează unul nou, P, care să conțină restul perechilor
+
+2.
+
+Fie k cea mai mică valoare din P. Inserează perechea (k,p) în nodul părinte a frunzei care s-a divizat – unde p
+este pointerul către noua frunză P.
+Dacă nodul părinte este plin, acesta trebuie să se dividă, propagând în sus divizarea până când se ajunge la un
+nod care nu e complet ocupat. În cel mai rău caz, nodul rădăcină este divizat, caz care crește adâncimea
+arborelul.
+
+3.
+
+
+
+Divizarea unui nod intern N la inserarea unei perechi (k,p)
+1.
+2.
+
+3.
+4.
+
+30
+
+Se creează un nod temporar M care stochează m+2 pointeri și m+1 valori; se inserează perechile din N
+împreună cu perechea (k,p), ordonate
+Se copiază P1,K1, …, K (m+1)/2-1,P (m+1)/2 din M înapoi în N
+Se copiază P(m+1)/2+1,K (m+1)/2+1,…,Km+1,Pm+2 din M într-un nod nou N’
+Se inserează (K (m+1)/2, pN’) în părintele nodului N
+
+Actualizări în B+-arbori
+Inserare: Exemplu (1)
+Inserăm valorile 14 și 16
+Pas1: căutăm 14
+
+Pas2: inserăm (P,14) în frunză
+
+Pas 3: căutam 16
+Pas 4: divizăm frunza și
+rearanjăm toate
+Perechile (p,k)
+
+31
+
+Pas 5: inserăm (15,P) in nodul părinte
+
+Actualizări în B+-arbori
+Inserare: Exemplu (2)
+Inserăm valorile 8 și 10
+
+32
+
+Actualizări în B+-arbori
+Ștergerea
+1.
+
+Se șterge înregistrarea din fișierul cu date; fie k valoarea cheii și p pointerul ce ne conduce către această
+înregistrare
+
+2.
+
+Se identifică în index frunza care conține valoarea k
+
+3.
+
+Dacă pointerul p către înregistrarea ștearsă face parte dintr-un bucket în index, p este șters din bucket. Altfel
+(sau dacă bucketul devine gol) se șterge din nodul frunză perechea (p, k)
+
+4.
+
+Dacă nodul frunză rămâne cu prea puține intrări și dacă există loc pentru acestea într-o frunză alăturată, un nod
+frunză este șters:
+1.
+Inserează toate intrările în frunza stângă și șterge frunza dreaptă
+2.
+Șterge perechea (Ki–1, Pi), unde Pi este pointerul către nodul frunză șters din nodul părinte. Dacă este
+necesar, se propagă în sus ștergerea. Dacă nodul rădăcină rămâne cu uns ingur pointer, acesta este șters și
+adâncimea arborelui scade.
+
+5.
+
+Altfel, dacă nu este suficient spațiu într-o frunză vecină, perechile (pointer, key_value) sunt
+redistibuite între nodul curent și o frunză vecină:
+1.
+Astfel încât minimul este statisfăcut în ambele
+2.
+Se actualizează o pereche (key_value, pointer) în nodul părinte dacă este necesar
+33
+
+Actualizări în B+-arbori
+Ștergere: Exemplu (1)
+Ștergerea valorilor17 și 19
+
+34
+
+Actualizări în B+-arbori
+Ștergere: Exemplu (2)
+Ștergerea valorilor 5 și 7
+
+35
+
+B+-arbori
+Efficiența
+
+
+Căutare: cel mult log(m+1)/2(K) blocuri transferate
+
+
+
+
+
+
+Deoarece nivelul frunză este conectat formând un index secvențial dens, interogările de tip interval sunt de
+asemenea rezolvate eficient; nivelul frunză este de obicei o listă dublu înlănțuită pentru a permite parcurgerea
+în ordine crescătoare și descrescătoare a valorilor.
+Ordonarea înregistrărilor unei interogări (order by) poate beneficia de existența unui index asociat atributului
+criteriu de ordonare
+
+Inserarea, ștergerea: cel mult 2 log(m+1)/2(K) blocuri transferate
+
+36
+
+Indecși ordonați:
+B-arbori
+
+37
+
+B-arbori
+
+
+Similari arborilor B+ dar permit o singură apariție a unei valori a cheii
+
+
+
+Nu toate valorile cheii apar astfel pe nivelul frunză
+
+
+Fiecare valoare vine cu un pointer în plus
+
+(a)
+
+
+
+38
+
+Nod într-un B+-arbore; (b) nod într-un B-arbore
+
+Pointerii Bi conduc către înregistrări din fișierul cu date sau buckets de pointeri către
+înregistrări
+
+Index B-arbore
+Exemplu*
+
+39
+
+* Avi Silberschatz Henry F. Korth S. Sudarshan. “Database System Concepts”.
+McGraw-Hill Science/Engineering/Math; 6 edition (January 27, 2010)
+
+Indecși B-arbore
+Observații
+
+
+Avantaje
+
+
+
+
+Dezavantaje
+
+
+
+
+
+
+Devine posibil ca înregistrarea căutată să fie localizată înainte de ajunge la nivelul frunză
+Nodurile interne conțin mai multă informație (dar mai puține chei) rezultând în arbori cu adâncime mai mare
+Inserările și ștergerile sunt mai complicate -> implementarea este mai dificilă
+Nu este posibil să scanăm un tabel pe baza nivelului frunză
+
+Avantajele nu cântăresc mai mult decât dezavantajele: B+-arborii sunt preferați în detrimentul Barborilor de către dezvoltatorii SGBD-urilor relaționale
+
+40
+
+Indecși ordonați:
+Indecși multi-cheie
+
+41
+
+Acces multi-cheie
+
+SELECT *
+FROM student
+WHERE judet= 'Bihor' AND an> 2010;
+
+
+Sunt posibile mai multe strategii pentru a rezolva interogări cu mai multe chei de căutare:
+Utilizarea unui index asociat atributului judet
+ Utilizarea unui index asociat atributului an
+ Utilizarea ambilor indecși de mai sus urmată de operația de intersecție a mulțimilor de pointeri
+
+
+Dar dacă doar una dintre condiții este satisfăcută de un număr mare de înregistrări?
+
+42
+
+Indecși multi-cheie
+Cheia de căutare este compusă din mai mult de un atribut
+ Ordinea lexicografică este utilizată: (a1, a2) < (b1, b2) dacă
+
+
+a1 < b1sau
+ a1=b1 și a2 < b2
+Ex. Considerăm indexul multi-cheie (judet, an)
+Rezolvă acesta la fel de eficient ambele interogări de mai jos?
+a)
+where judet = 'Bihor' AND an > 2010
+b)
+where judet > 'Bihor' AND an = 2010
+
+
+43
+
+Eficiența
+
+ Ordinea atributelor într-un index multi-cheie contează!
+ Eficiența depinde de selectivitatea atributelor
+
+44
+
+Indecși ordonați multi-cheie:
+kd-arbori
+
+45
+
+kd-arbori
+
+
+Nu sunt utilizați de regulă în bazele de date relaționale dar îi menționăm fiind o structură de căutare
+utilizată frecvent în bazele de date spațiale/geografice;
+
+
+
+Generalizare a arborelui binar de căutare:
+
+
+
+
+
+46
+
+k= numărul de atribute a cheii de căutare multi-atribut
+Fiecare nivel din arbore corespunde unuia dintre atribute
+Succesiunea de nivele reprezintă iterații peste mulțimea de atribute
+Pentru a obține arbori echilibrați, de obicei mediana este utilizată ca valoare în noduri interne
+
+Organizarea de tip hash și
+Indecși hash
+
+47
+
+Organizarea hash a fișierului cu date
+
+
+
+În organizarea de tip hash a fișierului cu date, înregistrările nu sunt ordonate pe baza valorilor unui
+atribut, ci sunt grupate în bucketuri cu ajutorul unei funcții hash (dimensiunea unui bucket corespunde,
+de regulă, unui bloc de memorie)
+
+
+
+Bucket: unitate de stocare ce poate conține una sau mai multe înregistrări
+Funcție hash = funcție de dispersie – mapează valori dintr-o mulțime de dimensiune variabilă la o mulțime fixă
+de valori
+
+
+
+Funcția hash h:K->B este în acest caz o funcție ce mapează valori ale cheii de căutare la o mulțime
+fixată de bucketuri
+
+
+
+Înregistrările cu valori diferite ale cheii de căutare pot fi mapate la același bucket
+ Căutarea implică parcurgerea scvențială a bucketului
+
+48
+
+Funcții hash
+
+
+
+Cerințe
+
+
+
+Distribuție uniformă
+Asignări aleatorii (spre deosebire de locality sensitive hashing)
+
+Funcțiile hash tipice utilizează operații pe reprezentarea binară (internă) a cheii de căutare
+ Pot să apară situații în care dimensiunea bucketului (a blocului de memorie) e prea mică pentru a
+stoca toate înregistrările mapate -> blocuri de exces sunt utilizate
+
+
+49
+
+Organizarea de tip hash a fișierului cu date
+Exemplu
+
+Atributul prenume este cheia de căutare iar numărul de bucketuri este fixat la 4:
+Funcția hash: h:Dom(nume)->{0,1,2,3} – calculează suma reprezentării binare modulo 4
+Ex:
+'Acatrinei‘:
+'1000001 1100011 1100001 1110100 1110010 1101001 1101110 1100101 1101001'
+h('Acatrinei') = 34%4 = 2.
+50
+
+Indecși de tip hash
+
+
+Organizează valorile cheii de căutare cu pointerii asociați într-o tabelă hash
+
+51
+
+Indecși hash
+Operații
+
+52
+
+Căutare:
+‘Sandu’: 01010011 01100001 01101110 01100100 01110101
+h(‘Sandu’) =20%4=0 -> scanează bucketul 0
+Inserare:
+‘Ionescu’: 01001001 01101111 01101110 01100101 01110011 01100011
+01110101
+H(Ionescu)=32%4=0 -> inserează mai întâi înregistrarea în fișierul de date
+și apoi intrarea index în bucketul 0
+Ștergere: calculează hashul, scanează bucketul, șterge
+
+Indecși hash
+Eficiență
+În căutarea unei singure valori, în absența coliziunilor, gasirea unei înregistrări necesită citirea unui
+singur bloc (O(1))
+ Pentru interogări de tip interval, indecșii hash nu sunt eficienți. DE CE?
+
+
+
+
+În practică:
+
+
+Postgres și SQLServer implementează indecșii hash
+
+
+
+Oracle implementează organizarea de tip hash a fișierului cu date dar nu și indecșii hash
+
+53
+
+Hash dinamic
+Motivație
+
+
+Funcția h mapează valorile cheii de căutare la o mulțime fixă de blocuri.
+
+
+
+
+
+
+Soluții:
+
+
+
+
+
+Dacă dimensiunea fișierului cu date crește, blocuri de exces sunt generate
+Dacă dimensiunea fișierului se micșorează, spațiu este alocat inutil
+Reorganizări periodice cu o nouă funcție hash (costisitor, necesită întreruperea operațiilor bazei de date)
+Modificarea dinamică, după necesități, a numărului de bucketuri
+
+Din a doua categorie, Hashul extensibil modifică funcția hash astfel:
+
+
+
+54
+
+Generează valori într-o mulțime mare, de regulă întregi pe 32 biți
+La un anumit moment utilizează doar un prefix (doar primii i biti) a cărui dimensiune crește sau descrește
+după necesități
+
+Organizarea de tip Hash extensibil
+Structura generală
+
+i=2, i2 = i3 = i, i1 = i – 1
+55
+
+Hash extensibil
+Implementare
+
+
+Fiecare bucket j are asociată o valoare ij care specifică lungimea prefixului
+
+
+
+
+Pentru a căuta o valoare cu cheia Kj:
+
+
+
+
+
+Toate intrările din bucketul j au aceleasi valoare pe primii ij biți
+
+Calculează h(Kj) = X
+Utilizează doar primii i biți ai X, scanează tabela de adrese și umărește pointerul către bucket
+
+Pentru a insera o înregistrare cu cheia de căutare Kj:
+
+
+
+
+56
+
+Găsește bucketul j ca mai sus
+Dacă este loc în bucket inserează înregistrarea
+Altfel, divide bucketul și reîncearcă inserarea ->
+
+Hash extensibil
+Divizarea bucketului la inserare
+Pemtru a diviza bucketul j la inserarea unei noi valori Kj:
+ Dacă i > ij
+1.
+Alocă un nou bucket z și inițializează ij = iz = (ij + 1)
+2.
+Actualizează a doua jumătate a tabelei de adrese ca să trimită către bucketul z
+3.
+Elimină înregistrările din j și reinsereaza-le în j sau z conform prefixului
+4.
+Recalculează adresa bucketului pentru Kj și execută inserarea
+1.
+
+Dacă i = ij
+1.
+Dacă din anumite motive există o limită pentru i și aceasta este atinsă, se utilizează blocuri de
+exces
+2.
+Altfel
+1.
+2.
+3.
+
+57
+
+Incrementează i și dublează dimensiunea tabelei de adrese
+Înlocuiește fiecare intrare din tabel cu alte două intrări, ambele trimițând la același bucket
+Recalculează adresa bucketului pentru Kj și realizează inserarea (acum i > ij)
+
+Hash extensibil
+Ștergere
+ Pentru a șterge o înregistrare
+
+Găsește bucketul și șterge înregistrarea din acesta
+ Dacă bucketul devine gol se efectuează modificările necesare în tabela de adrese
+
+
+Bucketurile care au aceeași valoare pentru ij și același prefix ij –1 sunt contopite
+ Descrește dimensiunea (i) a tabelei de adrese dacă este posibil
+
+
+58
+
+Hash extensibil
+Exemplu*
+
+Initial hash structure, bucket size = 2
+59
+
+* Avi Silberschatz Henry F. Korth S. Sudarshan. “Database System Concepts”.
+McGraw-Hill Science/Engineering/Math; 6 edition (January 27, 2010)
+
+Hash extensibil
+Exemplu*
+
+
+După inserarea unei înregistrări Brighton și a două înregistrări Downtown
+
+60
+
+* Avi Silberschatz Henry F. Korth S. Sudarshan. “Database System Concepts”.
+McGraw-Hill Science/Engineering/Math; 6 edition (January 27, 2010)
+
+Hash extensibil
+Exemplu*
+ După inserarea unei înregistrări Mianus
+
+61
+
+* Avi Silberschatz Henry F. Korth S. Sudarshan. “Database System Concepts”.
+McGraw-Hill Science/Engineering/Math; 6 edition (January 27, 2010)
+
+Hash extensibil
+Exemplu*
+ Dupa inserarea a trei înregistrări Perryridge
+
+62
+
+* Avi Silberschatz Henry F. Korth S. Sudarshan. “Database System Concepts”.
+McGraw-Hill Science/Engineering/Math; 6 edition (January 27, 2010)
+
+Hash extensibil
+Exemplu*
+ După inserarea înregistrărilor Redwood și Round Hill
+
+63
+
+* Avi Silberschatz Henry F. Korth S. Sudarshan. “Database System Concepts”.
+McGraw-Hill Science/Engineering/Math; 6 edition (January 27, 2010)
+
+Hash extensibil
+Eficiență
+
+
+Avantaje
+
+
+
+
+
+
+Performanța nu scade la creșterea dimensiunii fișierului
+Minimizează alocarea de spațiu de stocare
+
+Dezavantaje
+
+
+Tabela de adrese poate deveni foarte mare
+
+
+
+
+
+
+Soluția: utilizarea unui B+-arbore pentru o căutare eficientă în tabela cu adrese
+
+Modificarea dimensiunii tabelei de adrese este costisitoare
+
+În funcție de tipul interogării:
+
+
+64
+
+Ca și hashingul static, este eficient pentru interogări punctuale dar nu și de tip interval
+
+Indecși bitmap
+
+65
+
+Indecși bitmap
+
+
+Proiectați pentru a trata eficient interogări cu mai multe chei de căutare
+
+Aplicabili pentru atribute ce iau un număr mic de valori distincte
+ Tuplele relației sunt considerate a fi numerotate
+
+
+
+
+Structura:
+
+
+
+66
+
+Pentru fiecare valoare a cheii un > șir binar de lungime egală cu numărul de înregistrări
+Valoarea 1 în șir indică faptul că înregistrea de la poziția dată ia valoarea la care esta atașat șirul
+
+Indecși bitmap
+Observații
+
+
+Interogările cu mai multe selecții (chei de căutare) pot fi rezolvate cu operatori pe biți:
+Intersecția – AND
+ Reuniunea – OR
+ Complementarierea – NOT
+SELECT *
+FROM studenti
+WHERE judet IN ('Arad', 'Cluj') AND an <> 2010;
+ (Arad OR Cluj) AND NOT(2010)
+
+
+
+
+Implementare eficientă:
+La ștergere/inserare un șir binar de existență este actualizat
+ Structurile Bitmap sunt împachetate sub tipul word
+pe 32 sau 64 biți (operatorul AND necesită o instrucțiune CPU)
+
+
+67
+
+Definirea indecșilor în SQL
+
+68
+
+Declararea indecșilor în SQL
+Standardul nu reglementează mecanismele de indexare (țin de nivelul fizic), dar în practică
+dezvoltatorii au căzut de acord asupra sintaxei:
+ Creare:
+
+
+create index <index-name> on <relation-name>
+(<attribute-list>)
+E.g.: create index c-index on student(judet)
+
+
+Ștergere:
+
+drop index <index-name>
+
+Cele mai multe SGBD-uri permit specificarea structurii pentru indexare
+ Cele mai multe SGBD-uri creează implicit indecși la declararea constrângerii unique
+ Uneori indecși sunt generați și la declararea constrângerilor referențiale
+
+
+69
+
+Indexarea în Oracle
+
+
+Indecși pot fi creați pe:
+Atribute și liste de atribute
+ Rezultatele unei funcții peste atribute
+
+
+Oracle oferă suport implicit pentru B+-arbori
+ Indecșii bitmap sunt creați cu sintaxa
+
+
+create bitmap index <index-name> on <relation-name> (<attribute-list>)
+
+
+
+70
+
+Oracle nu oferă suport pentru indecșii hash dar implementează organizarea fișierului de date
+de tip hash
+
+Indexarea în Oracle
+Când și cum?
+Este recomandat ca crearea indecșilor să aibă loc după inserarea datelor în tabel (dar e posibil să
+creăm indexul în orice moment)
+ Se aleg coloanele potrivite:
+
+
+
+
+
+
+
+
+Care iau (majoritar) valori distincte
+Pentru care selecția filtrează un număr mic de tuple dintr-un tabel de dimensiuni mari (selectivitate ridicată ~
+15%)
+Care sunt utilizate în join
+
+Se alege structura de date potrivită pentru indexare:
+
+
+
+
+
+
+71
+
+Coloanele au un număr redus de valori distincte și avem condiții compuse -> bitmap
+Interogarea este de tip interval -> B+arbori
+Interogările punctuale sunt frecvente -> organizarea hash
+Selecție cu funcții -> indecși definiți peste funcții
+
+Bibliografie
+
+
+
+Capitolul 11 în Avi Silberschatz Henry F. Korth S. Sudarshan. “Database System Concepts”. McGraw-Hill
+Science/Engineering/Math; 6 edition (January 27, 2010)
+
+
+
+Se execută scriptul 12.1create și apoi comenzile din 12.2indexes cu inspectarea planurilor de execuție
+
+72
+
+

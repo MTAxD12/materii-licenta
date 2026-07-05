@@ -1,0 +1,1032 @@
+Baze de date - Introducere
+
+Baze de date
+Introducere
+Nicolae-Cosmin Vârlan
+
+October 1, 2020
+
+1/ 57
+Nicolae-Cosmin Vârlan
+
+Baze de date Introducere
+
+Baze de date - Introducere
+
+Istoric şi Motivaţie
+Sisteme de gestiune a bazelor de date (SGBD)
+Modele de baze de date
+Modelul relaţional
+
+Prima bază de date:
+
+2/ 57
+Nicolae-Cosmin Vârlan
+
+Baze de date Introducere
+
+Baze de date - Introducere
+
+Istoric şi Motivaţie
+Sisteme de gestiune a bazelor de date (SGBD)
+Modele de baze de date
+Modelul relaţional
+
+Cal (15.000 ı̂.H. - 13.000 ı̂.H.) - Lascaux, Franţa
+3/ 57
+Nicolae-Cosmin Vârlan
+
+Baze de date Introducere
+
+Baze de date - Introducere
+
+Istoric şi Motivaţie
+Sisteme de gestiune a bazelor de date (SGBD)
+Modele de baze de date
+Modelul relaţional
+
+Câte animale am (7.000 ı̂.H.) - Rio Pinturas, Argentina
+Nicolae-Cosmin Vârlan
+
+Baze de date Introducere
+
+4/ 57
+
+Baze de date - Introducere
+
+Istoric şi Motivaţie
+Sisteme de gestiune a bazelor de date (SGBD)
+Modele de baze de date
+Modelul relaţional
+
+Bazorelief (3200 ı̂.H. - 400) - Egipt
+Nicolae-Cosmin Vârlan
+
+5/ 57
+Baze de date Introducere
+
+Baze de date - Introducere
+
+Istoric şi Motivaţie
+Sisteme de gestiune a bazelor de date (SGBD)
+Modele de baze de date
+Modelul relaţional
+
+Scrierea cuneiformă (600 ı̂.H. - 300 ı̂.H.) - Persia
+Nicolae-Cosmin Vârlan
+
+Baze de date Introducere
+
+6/ 57
+
+Baze de date - Introducere
+
+Istoric şi Motivaţie
+Sisteme de gestiune a bazelor de date (SGBD)
+Modele de baze de date
+Modelul relaţional
+
+Mai recent. . .
+7/ 57
+Nicolae-Cosmin Vârlan
+
+Baze de date Introducere
+
+Baze de date - Introducere
+
+Istoric şi Motivaţie
+Sisteme de gestiune a bazelor de date (SGBD)
+Modele de baze de date
+Modelul relaţional
+
+Stocarea datelor: foarte interesant este faptul că datele sunt
+“citite” ı̂n paralel - stocarea melodiilor pare foarte tentantă.
+Nicolae-Cosmin Vârlan
+
+Baze de date Introducere
+
+8/ 57
+
+Baze de date - Introducere
+
+Istoric şi Motivaţie
+Sisteme de gestiune a bazelor de date (SGBD)
+Modele de baze de date
+Modelul relaţional
+
+9/ 57
+Nicolae-Cosmin Vârlan
+
+Baze de date Introducere
+
+Baze de date - Introducere
+
+Istoric şi Motivaţie
+Sisteme de gestiune a bazelor de date (SGBD)
+Modele de baze de date
+Modelul relaţional
+
+Ideea de cilindru a fost păstrată, dar datele au fost scrise mult mai
+dens. Se observă şi citirea “serială”
+10/ 57
+Nicolae-Cosmin Vârlan
+
+Baze de date Introducere
+
+Baze de date - Introducere
+
+Istoric şi Motivaţie
+Sisteme de gestiune a bazelor de date (SGBD)
+Modele de baze de date
+Modelul relaţional
+
+Citirea “serială”, de această dată pe un disc.
+Nicolae-Cosmin Vârlan
+
+Baze de date Introducere
+
+11/ 57
+
+Baze de date - Introducere
+
+Istoric şi Motivaţie
+Sisteme de gestiune a bazelor de date (SGBD)
+Modele de baze de date
+Modelul relaţional
+
+Discurile pe care le folosim azi au o densitate foarte mare şi pot fi
+“citite” cu aprox. 200Mb/s (atenţie la unele site-uri care zic că:)
+
+12/ 57
+Nicolae-Cosmin Vârlan
+
+Baze de date Introducere
+
+Baze de date - Introducere
+
+Istoric şi Motivaţie
+Sisteme de gestiune a bazelor de date (SGBD)
+Modele de baze de date
+Modelul relaţional
+
+De fapt ei nu zic nimic greşit, portul SATA III chiar merge cu
+600MB/s, dar nu şi HDD-urile clasice (cu platane).
+[imagine preluată de pe situl eMAG]
+13/ 57
+Nicolae-Cosmin Vârlan
+
+Baze de date Introducere
+
+Baze de date - Introducere
+
+Istoric şi Motivaţie
+Sisteme de gestiune a bazelor de date (SGBD)
+Modele de baze de date
+Modelul relaţional
+
+Realitatea este puţin diferită (aceasta este viteza HDD-ului meu de
+acasă):
+
+14/ 57
+Nicolae-Cosmin Vârlan
+
+Baze de date Introducere
+
+Baze de date - Introducere
+
+Istoric şi Motivaţie
+Sisteme de gestiune a bazelor de date (SGBD)
+Modele de baze de date
+Modelul relaţional
+
+Este adevarat că SSD-urile ajung la viteze mai mari. . . DAR. . .
+Nicolae-Cosmin Vârlan
+
+Baze de date Introducere
+
+15/ 57
+
+Baze de date - Introducere
+
+Istoric şi Motivaţie
+Sisteme de gestiune a bazelor de date (SGBD)
+Modele de baze de date
+Modelul relaţional
+
+Evident, de această dată se prezintă (şi) realitatea despre SSD:
+
+Se pare că viteza SATA III este prezentată ca o limitare (ceva de
+genu’ “de asta nu se poate mai mult”)
+16/ 57
+Nicolae-Cosmin Vârlan
+
+Baze de date Introducere
+
+Baze de date - Introducere
+
+Istoric şi Motivaţie
+Sisteme de gestiune a bazelor de date (SGBD)
+Modele de baze de date
+Modelul relaţional
+
+Cu toate acestea, există SSDuri pe interfeţe mai “noi” decât
+SATA. Este cazul SSD-urilor M.2 care folosesc standardul NVMe
+(Non Volatile Memory Express)
+
+Primii care au reuşit să atingă viteze de 3600MB/s la citire sunt
+cei de la Samsung.
+17/ 57
+Nicolae-Cosmin Vârlan
+
+Baze de date Introducere
+
+Baze de date - Introducere
+
+Istoric şi Motivaţie
+Sisteme de gestiune a bazelor de date (SGBD)
+Modele de baze de date
+Modelul relaţional
+
+18/ 57
+Nicolae-Cosmin Vârlan
+
+Baze de date Introducere
+
+Baze de date - Introducere
+
+Istoric şi Motivaţie
+Sisteme de gestiune a bazelor de date (SGBD)
+Modele de baze de date
+Modelul relaţional
+
+Aţi făcut aplicaţii care să utilizeze o bază de date ? [ce limbaj ?]
+
+19/ 57
+Nicolae-Cosmin Vârlan
+
+Baze de date Introducere
+
+Baze de date - Introducere
+
+Istoric şi Motivaţie
+Sisteme de gestiune a bazelor de date (SGBD)
+Modele de baze de date
+Modelul relaţional
+
+De ce credeţi că sunt importante ?
+De ce nu aş scrie ı̂ntr-un fişier informaţiile ?
+
+20/ 57
+Nicolae-Cosmin Vârlan
+
+Baze de date Introducere
+
+Baze de date - Introducere
+
+Istoric şi Motivaţie
+Sisteme de gestiune a bazelor de date (SGBD)
+Modele de baze de date
+Modelul relaţional
+
+De ce nu aş scrie ı̂ntr-un fişier informaţiile ?
+Iată câteva posibile răspunsuri:
+I separarea şi izolarea datelor (no joins);
+I posibilitatea duplicării datelor ı̂n mai multe fişiere (data
+integrity ?);
+I inter-dependenţa datelor (chei primare / străine);
+I formatele incompatibile ale diferitelor aplicaţii (logica stocării
+datelor este hardcodată ı̂n aplicaţie şi datele sunt dependente
+de aplicaţie);
+I interogări fixe specifice fiecărui fişier (nu există un limbaj de
+obţinere a datelor);
+
+21/ 57
+Nicolae-Cosmin Vârlan
+
+Baze de date Introducere
+
+Baze de date - Introducere
+
+Istoric şi Motivaţie
+Sisteme de gestiune a bazelor de date (SGBD)
+Modele de baze de date
+Modelul relaţional
+
+I un fişier este stocat pe un singur calculator, nu au acces mai
+mulţi utilizatori; chiar daca ar fi distribuit (e.g. Samba) tot nu
+poate fi editat simultan de mai mulţi utilizatori.
+I ACID trebuie construit la nivel manual de fiecare dată pentru a
+permite accesul mai multor utilizatori (simultan) la informaţie;
+Dezavantaje DBMS ?
+I fişiere de dimensiuni mari;
+I aplicaţii complexe ce depind de mentenanţa exterioară;
+I costuri (uneori mari);
+I costuri pentru hardware;
+I fişierele s-ar putea să fie accesate mai rapid dacă ştiu ce vreau;
+I toţi se bazează pe acelaşi DBMS - dacă acesta este ı̂nchis. . .
+22/ 57
+Nicolae-Cosmin Vârlan
+
+Baze de date Introducere
+
+Baze de date - Introducere
+
+Istoric şi Motivaţie
+Sisteme de gestiune a bazelor de date (SGBD)
+Modele de baze de date
+Modelul relaţional
+
+Sisteme de gestiune a bazelor de date (SGBD)
+Un sistem de gestiune de baze de date este alcătuit din:
+I Hardware
+I Software
+I Utilizatori
+I Date
+Scopul său este de a deservi rapid foarte mulţi utilizatori care fac
+interogări diferite ı̂ntr-o cantitate foarte mare de date.
+Securitate * Acces controlat la baza de date * Stocarea, regăsirea, actualizarea
+datelor * Integritate * Suport pentru tranzacţii * Control concurent *
+Recuperarea datelor * Catalog (dicţionar de date)
+
+23/ 57
+Nicolae-Cosmin Vârlan
+
+Baze de date Introducere
+
+Baze de date - Introducere
+
+Istoric şi Motivaţie
+Sisteme de gestiune a bazelor de date (SGBD)
+Modele de baze de date
+Modelul relaţional
+
+I Hardware
+I Software
+I Utilizatori
+I Date
+Hardware-ul poate varia de la un simplu PC până la reţele de
+calculatoare şi trebuie să asigure:
+I Persistenţa datelor (chiar ı̂n cazuri critice).
+I Stocarea unui volum mare de date.
+I Accesul rapid la date (vezi discuţia despre HDD-uri).
+
+24/ 57
+Nicolae-Cosmin Vârlan
+
+Baze de date Introducere
+
+Baze de date - Introducere
+
+Istoric şi Motivaţie
+Sisteme de gestiune a bazelor de date (SGBD)
+Modele de baze de date
+Modelul relaţional
+
+I Hardware
+I Software
+I Utilizatori
+I Date
+Hardware-ul poate varia de la un simplu PC până la reţele de
+calculatoare şi trebuie să asigure:
+I Persistenţa datelor (chiar ı̂n cazuri critice).
+I Stocarea unui volum mare de date.
+I Accesul rapid la date (vezi discuţia despre HDD-uri).
+
+25/ 57
+Nicolae-Cosmin Vârlan
+
+Baze de date Introducere
+
+Baze de date - Introducere
+
+Istoric şi Motivaţie
+Sisteme de gestiune a bazelor de date (SGBD)
+Modele de baze de date
+Modelul relaţional
+
+I Hardware
+I Software
+I Utilizatori
+I Date
+Partea de software trebuie să ofere (măcar) o metodă de definire a
+datelor şi una de manipulare a acestora [fox]:
+I DDL (Data Definition Language)
+I DML (Data Manipulation Language)
+Dar are şi rolul de manangement a utilizatorilor (Data Control
+Language - grant, revoke), realiza conexiuni cu software extern ce
+doreşte sa acceseze informaţiile din BD, control al tranzacţiilor
+(Transaction Control Language - savepoint, commit, rollback), etc.
+26/ 57
+Nicolae-Cosmin Vârlan
+
+Baze de date Introducere
+
+Baze de date - Introducere
+
+Istoric şi Motivaţie
+Sisteme de gestiune a bazelor de date (SGBD)
+Modele de baze de date
+Modelul relaţional
+
+I Hardware
+I Software
+I Utilizatori
+I Date
+Persoanele care interacţionează cu baza de date:
+I Administratorul
+I Proiectantul
+I Programatorii de aplicaţii
+I Utilizatorii ce folosesc aplicaţiile
+
+27/ 57
+Nicolae-Cosmin Vârlan
+
+Baze de date Introducere
+
+Baze de date - Introducere
+
+Istoric şi Motivaţie
+Sisteme de gestiune a bazelor de date (SGBD)
+Modele de baze de date
+Modelul relaţional
+
+I Hardware
+I Software
+I Utilizatori
+I Date
+Datele vor fi stocate ı̂n fişiere având formate specifice.
+De-a lungul timpului au existat mai multe modele de baze de date.
+Modelul relaţional, pe care ı̂l studiem, este ı̂n prezent cel utilizat de
+SGBD-uri precum MySQL, MariaDB, Oracle, Postgresql, SQL
+Server, SQL Lite, etc.
+Acelaşi limbaj: SQL.
+
+28/ 57
+Nicolae-Cosmin Vârlan
+
+Baze de date Introducere
+
+Baze de date - Introducere
+
+Istoric şi Motivaţie
+Sisteme de gestiune a bazelor de date (SGBD)
+Modele de baze de date
+Modelul relaţional
+
+Modele de baze de date
+În trecut:
+I Modelul ierarhic (IBM’s IMS, sf. ’60)
+I Modelul reţea (CODASYL 1971)
+I Modelul relaţional (Codd, ’70)
+I Modelul obiect-relaţional (’90)
+În prezent:
+I Modelul relaţional (cel al lui Codd)
+I Diverse modele nerelaţionale (2000s) - peste 225 variante
+(despre care puteţi citi la http://nosql-database.org/) ce nu
+constituie subiectul acestui curs.
+29/ 57
+Nicolae-Cosmin Vârlan
+
+Baze de date Introducere
+
+Baze de date - Introducere
+
+Istoric şi Motivaţie
+Sisteme de gestiune a bazelor de date (SGBD)
+Modele de baze de date
+Modelul relaţional
+
+Modele de baze de date
+În trecut:
+I Modelul ierarhic (IBM’s IMS, sf. ’60)
+I Modelul reţea (CODASYL 1971)
+I Modelul relaţional (Codd, ’70)
+I Modelul obiect-relaţional (’90)
+În prezent:
+I Modelul relaţional (cel al lui Codd)
+I Diverse modele nerelaţionale (2000s) http://nosql-database.org/
+30/ 57
+Nicolae-Cosmin Vârlan
+
+Baze de date Introducere
+
+Baze de date - Introducere
+
+Istoric şi Motivaţie
+Sisteme de gestiune a bazelor de date (SGBD)
+Modele de baze de date
+Modelul relaţional
+
+Modele de baze de date - modelul ierarhic
+Datele sunt organizate ı̂ntr-un arbore, fiecare nod reprezentând o
+linie din tabel. Baza de date are şi un nod rădăcina care nu conţine
+nimic.
+Exemplu:
+S = {1-Vasile-verde, 2-Ion-galben, 3-Ana-albastru, 4-Catalin-gri}
+N = {a-5-fizica, b-7-istorie, c-10-matematica, d-9-informatica,
+e-10-sport}
+Muchii = {(null,1), (null,2), (null,3), (null,4), (1,a), (1,b), (2,e),
+(3,c), (4,d)}
+
+31/ 57
+Nicolae-Cosmin Vârlan
+
+Baze de date Introducere
+
+Baze de date - Introducere
+
+Istoric şi Motivaţie
+Sisteme de gestiune a bazelor de date (SGBD)
+Modele de baze de date
+Modelul relaţional
+
+Modelul ierarhic permite unui nod sa aibă doar un singur părinte.
+
+32/ 57
+Nicolae-Cosmin Vârlan
+
+Baze de date Introducere
+
+Baze de date - Introducere
+
+Istoric şi Motivaţie
+Sisteme de gestiune a bazelor de date (SGBD)
+Modele de baze de date
+Modelul relaţional
+
+Modele de baze de date
+În trecut:
+I Modelul ierarhic (IBM’s IMS, sf. ’60)
+I Modelul reţea (CODASYL 1971)
+I Modelul relaţional (Codd, ’70)
+I Modelul obiect-relaţional (’90)
+În prezent:
+I Modelul relaţional (cel al lui Codd)
+I Diverse modele nerelaţionale (2000s) http://nosql-database.org/
+33/ 57
+Nicolae-Cosmin Vârlan
+
+Baze de date Introducere
+
+Baze de date - Introducere
+
+Istoric şi Motivaţie
+Sisteme de gestiune a bazelor de date (SGBD)
+Modele de baze de date
+Modelul relaţional
+
+Modele de baze de date - modelul reţea
+Considerăm o mulţime de studenţi şi o mulţime de note. În
+modelul ierarhic se construieşte o a treia mulţime de cupluri din
+conţinând identificatori ai elementelor primei mulţimi respectivi ai
+elementelor celei de-a doua mulţimi.
+Exemplu:
+S = {1-Vasile-verde, 2-Ion-galben, 3-Ana-albastru, 4-Catalin-gri}
+N = {a-5-fizica, b-7-istorie, c-10-matematica, d-9-informatica,
+e-10-sport}
+C = {(1,a), (1,b), (2,e), (3,c), (4,d)}
+
+34/ 57
+Nicolae-Cosmin Vârlan
+
+Baze de date Introducere
+
+Baze de date - Introducere
+
+Istoric şi Motivaţie
+Sisteme de gestiune a bazelor de date (SGBD)
+Modele de baze de date
+Modelul relaţional
+
+35/ 57
+Nicolae-Cosmin Vârlan
+
+Baze de date Introducere
+
+Baze de date - Introducere
+
+Istoric şi Motivaţie
+Sisteme de gestiune a bazelor de date (SGBD)
+Modele de baze de date
+Modelul relaţional
+
+Modele de baze de date
+În trecut:
+I Modelul ierarhic (IBM’s IMS, sf. ’60)
+I Modelul reţea (CODASYL 1971)
+I Modelul relaţional (Codd, ’70)
+I Modelul obiect-relaţional (’90)
+În prezent:
+I Modelul relaţional (cel al lui Codd)
+I Diverse modele nerelaţionale (2000s) http://nosql-database.org/
+36/ 57
+Nicolae-Cosmin Vârlan
+
+Baze de date Introducere
+
+Baze de date - Introducere
+
+Istoric şi Motivaţie
+Sisteme de gestiune a bazelor de date (SGBD)
+Modele de baze de date
+Modelul relaţional
+
+Modele de baze de date - modelul relaţional
+În modelul relaţional se stabilesc care sunt entităţile ce trebuie să
+fie memorate ı̂n baza de date şi se construiesc asocieri ı̂ntre tabele.
+În exemplul nostru, entităţile sunt elevii şi notele sunt doar
+asociate acestora. În continuare informaţiile sunt stocate ca
+mulţimi, relaţiile dintre elementele acestora este realizată ı̂n baza
+unor chei primare / străine.
+Exemplu:
+S = {1-Vasile-verde, 2-Ion-galben, 3-Ana-albastru, 4-Catalin-gri}
+N = {a-5-fizica-1, b-7-istorie-1, c-10-matematica-3,
+d-9-informatica-4, e-10-sport-2}
+37/ 57
+Nicolae-Cosmin Vârlan
+
+Baze de date Introducere
+
+Baze de date - Introducere
+
+Istoric şi Motivaţie
+Sisteme de gestiune a bazelor de date (SGBD)
+Modele de baze de date
+Modelul relaţional
+
+Informaţia din coloana “id” din primul tabel este cea pe baza
+careia se face legătura dintre cele două tabele. Valorile din coloana
+“ref id” din cel de-al doilea tabel fac referinţă către această colană.
+38/ 57
+Nicolae-Cosmin Vârlan
+
+Baze de date Introducere
+
+Baze de date - Introducere
+
+Istoric şi Motivaţie
+Sisteme de gestiune a bazelor de date (SGBD)
+Modele de baze de date
+Modelul relaţional
+
+Modele de baze de date
+În trecut:
+I Modelul ierarhic (IBM’s IMS, sf. ’60)
+I Modelul reţea (CODASYL 1971)
+I Modelul relaţional (Codd, ’70)
+I Modelul obiect-relaţional (’90) - impedance mismatch problem
+În prezent:
+I Modelul relaţional (cel al lui Codd)
+I Diverse modele nerelaţionale (2000s) http://nosql-database.org/
+39/ 57
+Nicolae-Cosmin Vârlan
+
+Baze de date Introducere
+
+Baze de date - Introducere
+
+Istoric şi Motivaţie
+Sisteme de gestiune a bazelor de date (SGBD)
+Modele de baze de date
+Modelul relaţional
+
+În prezent:
+I Modelul relaţional (cel al lui Codd)
+I Diverse modele nerelaţionale (2000s) http://nosql-database.org/
+Relaţional vs Nerelaţional - Oare cine câştigă ?
+
+40/ 57
+Nicolae-Cosmin Vârlan
+
+Baze de date Introducere
+
+Baze de date - Introducere
+
+Istoric şi Motivaţie
+Sisteme de gestiune a bazelor de date (SGBD)
+Modele de baze de date
+Modelul relaţional
+
+În prezent:
+I Modelul relaţional (cel al lui Codd)
+I Diverse modele nerelaţionale (2000s) http://nosql-database.org/
+Relaţional vs Nerelaţional - Oare cine câştigă ?
+Dar mai ı̂ntâi, o poveste: cea a dublei rezervări a unei camere de
+hotel. . .
+
+41/ 57
+Nicolae-Cosmin Vârlan
+
+Baze de date Introducere
+
+Baze de date - Introducere
+
+Istoric şi Motivaţie
+Sisteme de gestiune a bazelor de date (SGBD)
+Modele de baze de date
+Modelul relaţional
+
+În prezent:
+I Modelul relaţional (cel al lui Codd)
+I Diverse modele nerelaţionale (2000s) http://nosql-database.org/
+Relaţional vs Nerelaţional - Oare cine câştigă ?
+Proprietăţile ce s-ar dori pentru un sistem (distribuit):
+I Consistenţă (Consistency)
+I Disponibilitate (Availability)
+I Distribuirea pe mai multe calculatoare (Partition Tolerance)
+Teorema CAP afirmă că un sistem distribuit poate satisface doar
+două dintre aceste proprietăţi.
+42/ 57
+Nicolae-Cosmin Vârlan
+
+Baze de date Introducere
+
+Baze de date - Introducere
+
+Istoric şi Motivaţie
+Sisteme de gestiune a bazelor de date (SGBD)
+Modele de baze de date
+Modelul relaţional
+
+CAP (continuare / demonstraţie)
+Sistemele distribuite (presupunem formate din două calculatoare
+C1 şi C2 ) se bazează pe reţea care poate eşua (fail). Atunci:
+A) Păstrarea disponibilităţii: C1 poate continua operaţiile fără a se
+sincroniza cu C2 şi poate obţine rezultate care din cauză că
+depindeau de C2 sunt eronate (pentru că nu a putut obţine
+informaţii de la C2 ) - de exemplu poate vinde stocul de produse ce
+a fost deja vândut de C2 (dar va fi disponibil).
+B) Păstrarea consistenţei: C1 poate să NU servească nici un client
+pentru a nu obţine date eronate (dar va fi consistent).
+Evident, dacă reţeaua funcţionează, C1 poate să se sincronizeze cu
+C2 şi sincronizarea va duce atât la disponibilitate cât şi la
+consistenţă. Pot să fiu sigur că reţeaua funcţionează doar dacă nu
+depind de ea; deci sistemul nu mai e distribuit / partiţionat.
+43/ 57
+Nicolae-Cosmin Vârlan
+
+Baze de date Introducere
+
+Baze de date - Introducere
+
+Istoric şi Motivaţie
+Sisteme de gestiune a bazelor de date (SGBD)
+Modele de baze de date
+Modelul relaţional
+
+Tranzacţia ı̂n BD relaţionale este ACID
+I Atomică - Toate operaţiile din tranzacţie sunt executate (ca o
+singură entitate atomică) sau, ı̂n caz contrar, toate sunt
+ignorare şi BD revine la starea iniţiala.
+I Consistenţă - La sfârşitul tranzacţiei, datele sunt aşa cum ar
+trebui să fie conform logicii tranzacţiei.
+I Izolarea - Tranzacţiile nu ştiu una de alta şi nu se
+influenţează, chiar dacă sunt executate simultan. Fiecare
+tranzaţie crede ca ı̂n momentul ı̂n care ea se execută, nimeni
+altcineva nu mai interacţioneaza cu BD.
+I Durabilitate - Dacă tranzacţia s-a terminat şi s-a facut
+commit, nimeni şi nimic nu o mai pot aduce ı̂ntr-o stare
+anterioară.
+44/ 57
+Nicolae-Cosmin Vârlan
+
+Baze de date Introducere
+
+Baze de date - Introducere
+
+Istoric şi Motivaţie
+Sisteme de gestiune a bazelor de date (SGBD)
+Modele de baze de date
+Modelul relaţional
+
+Tranzacţia ı̂n BD nerelaţionale este BASE
+I Basic Availability - Baza de date pare că este funcţională de
+cele mai multe ori (adică, “ ı̂n principiu este disponibilă”).
+I Soft-state - Locurile din reţea unde este stocată baza de date
+nu trebuie neapărat să fie consistente unele cu celălalte (deşi
+se ı̂ncearcă).
+I Eventual consistency - Uneori datele vor fi consistente (când
+se sincronizează)
+
+45/ 57
+Nicolae-Cosmin Vârlan
+
+Baze de date Introducere
+
+Baze de date - Introducere
+
+Istoric şi Motivaţie
+Sisteme de gestiune a bazelor de date (SGBD)
+Modele de baze de date
+Modelul relaţional
+
+Relaţional vs Nerelaţional; De ce Oracle ?
+
+https://db-engines.com (01-oct.-2018)
+Nicolae-Cosmin Vârlan
+
+Baze de date Introducere
+
+46/ 57
+
+Baze de date - Introducere
+
+Istoric şi Motivaţie
+Sisteme de gestiune a bazelor de date (SGBD)
+Modele de baze de date
+Modelul relaţional
+
+Relaţional vs Nerelaţional; De ce Oracle ?
+
+https://db-engines.com (01-oct.-2020)
+47/ 57
+Nicolae-Cosmin Vârlan
+
+Baze de date Introducere
+
+Baze de date - Introducere
+
+Istoric şi Motivaţie
+Sisteme de gestiune a bazelor de date (SGBD)
+Modele de baze de date
+Modelul relaţional
+
+https://db-engines.com (01-oct.-2020)
+48/ 57
+Nicolae-Cosmin Vârlan
+
+Baze de date Introducere
+
+Baze de date - Introducere
+
+Istoric şi Motivaţie
+Sisteme de gestiune a bazelor de date (SGBD)
+Modele de baze de date
+Modelul relaţional
+
+Concluzia ?
+Bazele de date relaţionale şi cele nerelaţionale vor coexista, fiecare
+având avantajele lor.
+Cu siguranţă cele relaţionale nu vor dispărea ı̂n următoarele două
+secole.
+Dovada:
+Enterprise still uses SQL in 23th century [Star Trek Discovery]
+
+49/ 57
+Nicolae-Cosmin Vârlan
+
+Baze de date Introducere
+
+Baze de date - Introducere
+
+Istoric şi Motivaţie
+Sisteme de gestiune a bazelor de date (SGBD)
+Modele de baze de date
+Modelul relaţional
+
+Modelul relaţional - concepte (intuitiv)
+Momentan vom da câteva concepte la nivel intuitiv, dar vom
+formaliza ı̂n cursul viitor.
+
+Relaţie = Tabel (cu roşu)
+
+50/ 57
+Nicolae-Cosmin Vârlan
+
+Baze de date Introducere
+
+Baze de date - Introducere
+
+Istoric şi Motivaţie
+Sisteme de gestiune a bazelor de date (SGBD)
+Modele de baze de date
+Modelul relaţional
+
+Modelul relaţional - concepte (intuitiv)
+
+Atribute (cu roşu)
+
+51/ 57
+Nicolae-Cosmin Vârlan
+
+Baze de date Introducere
+
+Baze de date - Introducere
+
+Istoric şi Motivaţie
+Sisteme de gestiune a bazelor de date (SGBD)
+Modele de baze de date
+Modelul relaţional
+
+Modelul relaţional - concepte (intuitiv)
+
+Tuplu sau linie
+
+52/ 57
+Nicolae-Cosmin Vârlan
+
+Baze de date Introducere
+
+Baze de date - Introducere
+
+Istoric şi Motivaţie
+Sisteme de gestiune a bazelor de date (SGBD)
+Modele de baze de date
+Modelul relaţional
+
+Modelul relaţional - concepte (intuitiv)
+
+Valoare (a atributului nume din tuplul t3 )
+
+53/ 57
+Nicolae-Cosmin Vârlan
+
+Baze de date Introducere
+
+Baze de date - Introducere
+
+Istoric şi Motivaţie
+Sisteme de gestiune a bazelor de date (SGBD)
+Modele de baze de date
+Modelul relaţional
+
+Modelul relaţional - concepte (intuitiv)
+
+Domeniul unui atribut = mulţimea de elemente din care se poate
+selecta valoarea unui atribut (e.g.{Vasile, Ion, Ana, Catalin})
+
+54/ 57
+Nicolae-Cosmin Vârlan
+
+Baze de date Introducere
+
+Baze de date - Introducere
+
+Istoric şi Motivaţie
+Sisteme de gestiune a bazelor de date (SGBD)
+Modele de baze de date
+Modelul relaţional
+
+Modelul relaţional
+I Fiecare element al relaţiei conţine
+informaţie (null este informaţie).
+I Fiecare atribut este unic.
+I Valorile unui atribut sunt din acelaşi
+domeniu.
+I Nu există linii identice ı̂n tabel.
+I Ordinea rândurilor şi coloanelor este
+arbitrară.
+I Are la bază algebra relaţională introdusă
+de Edgar Frank Codd.
+
+E.F. Codd
+
+55/ 57
+Nicolae-Cosmin Vârlan
+
+Baze de date Introducere
+
+Baze de date - Introducere
+
+Istoric şi Motivaţie
+Sisteme de gestiune a bazelor de date (SGBD)
+Modele de baze de date
+Modelul relaţional
+
+Modelul relaţional - chei
+I Supercheie - un atribut sau o mulţime de atribute care
+identifică unic un tuplu ı̂ntr-o relaţie
+I Cheie candidat - o supercheie cu proprietatea că nici o
+submulţime proprie a sa nu este supercheie
+I Cheie primară - o cheie candidat selectată pentru a identifica
+ı̂n mod unic tuplele ı̂ntr-o relaţie
+I Cheie alternativă - Chei candidat care nu au fost selectate
+pentru a juca rolul de cheie primară
+I Cheie străină - un atribut sau o submulţime de atribute dintr-o
+relaţie care face referinţă la o cheie candidat a altei relaţii
+
+56/ 57
+Nicolae-Cosmin Vârlan
+
+Baze de date Introducere
+
+Baze de date - Introducere
+
+Istoric şi Motivaţie
+Sisteme de gestiune a bazelor de date (SGBD)
+Modele de baze de date
+Modelul relaţional
+
+Bibliografie
+I Database Systems - A Practical Approach to Design,
+Implementation, and Management, Thomas Connolly, Carolyn
+Begg ; Pearson, 2015
+I Database System Concepts, Abraham Silberschatz. Henry F.
+Korth, S. Sudarshan; McGrawHill, 2011
+
+57/ 57
+Nicolae-Cosmin Vârlan
+
+Baze de date Introducere
+
+

@@ -1,0 +1,2186 @@
+BAZE DE DATE
+
+Procesarea interogărilor
+
+Mihaela Elena Breabăn
+© FII 2024-2025
+
+Cuprins
+ Etapele procesării interogărilor
+ Expresii în algebra relaţională
+
+Operatori (revizitat)
+ Expresii
+ Echivalenţa expresiilor
+
+
+ Estimarea costului interogării
+ Algoritmi pentru evaluarea operatorilor/expresiilor în algebra relaţională
+ Oracle: planuri de execuție, statistici, indicații pentru optimizator
+
+2
+
+Etapele procesării interogărilor
+ Compilarea interogării
+
+
+Analiza sintactică
+
+Parsare
+
+ Parsare
+
+Preprocesare
+
+ Arbore de parsare
+
+
+
+Analiza semantică
+
+Generare a planului logic
+
+ Preprocesare si rescriere în AR
+ Selecţia reprezentării algebrice
+
+Generare a planului fizic
+
+ Plan logic
+
+ Selecţia algoritmilor şi a ordinii
+ Plan fizic
+
+ Execuția planului fizic
+
+Execuţia interogării
+metadate
+
+3
+
+Compilarea
+interogării
+
+Optimizarea
+interogării
+
+Analiza sintactică
+
+
+Gramatică independentă de context
+<query> ::= <SFW> | (<query>)
+<SFW> ::= SELECT <select_list> FROM <table_list> WHERE <where_cond>
+<select_list> ::= <identifier>, <select_list> | <identifier>
+<table_list> ::= <identifier>, <table_list> | <identifier >
+…
+
+
+
+Rezultatul parsării: arbore de parsare
+
+
+
+Gramatica SQL in forma BNF: http://savage.net.au/SQL/index.html
+4
+
+Analiza semantică
+Preprocesare
+
+
+Rescrierea apelurilor la view-uri
+
+
+
+Verificarea existenței tabelelor
+
+
+
+Verificarea existenței atributelor şi a ambiguităţii
+
+
+
+Verificarea tipurilor
+
+Dacă arborele de parsare este valid el este transformat într-o expresie cu operatori din algebra
+relaţională
+
+5
+
+Analiza semantică
+Rescriere în AR (1)
+<Query>
+<SFW>
+
+SELECT < select_list >
+
+FROM
+
+< table_list >
+
+< identifier >
+
+< identifier >
+
+title
+
+StarsIn
+
+WHERE
+
+< where_cond >
+
+<Tuple> IN <Query>
+
+< identifier >
+
+( <Query> )
+
+starName
+SELECT
+
+6
+
+< select_list >
+
+FROM
+
+< table_list >
+
+WHERE
+
+<SFW>
+< where_cond >
+
+< identifier >
+
+< identifier >
+
+< identifier > LIKE <Pattern>
+
+name
+
+MovieStar
+
+birthDate
+
+‘%1960’
+
+Analiza semantică
+Rescriere în AR (2)
+
+title
+
+
+title
+<where_cond>
+
+starName=name
+
+
+StarsIn
+
+<tuple>
+
+<attribute>
+starName
+7
+
+IN
+
+name
+
+StarsIn
+
+name
+
+birthdate LIKE ‘%1960’
+
+birthdate LIKE ‘%1960’
+
+MovieStar
+
+MovieStar
+
+Analiza semantică
+Optimizarea planului logic
+SELECT Theater
+FROM Movie, Schedule
+WHERE
+Movie.Title = Schedule.Title
+AND M.Actor=“Winger”
+
+Parsare/
+Conversie
+
+
+
+ Theater
+
+
+JOIN
+Movie
+
+Movie.Title=Schedule.Title AND Movie.Actor=“Winger”
+
+x
+Movie
+
+alt plan logic
+
+Schedule
+
+Generatorul de planuri logice
+aplică rescrieri algebrice
+
+ Theater
+
+Movie.Actor=“Winger”
+Movie.Title=
+=Schedule.Title
+
+Generatorul
+de planuri
+logice
+
+Schedule
+
+
+
+
+alt plan logic
+
+Movie.Actor=“Winger”
+Movie.Title=Schedule.Title
+
+x
+Movie
+
+8
+
+plan logic iniţial
+
+ Theater
+
+Schedule
+
+Analiza semantică
+Optimizarea planului logic
+ Theater
+
+ Theater
+
+ Movie.Actor=“Winger”
+Movie.Title=
+=Schedule.Title
+
+Movie
+
+Schedule.Title=Movie.Title
+
+Generatorul
+de planuri
+logice
+
+ Actor=“Winger”
+Schedule Movie
+
+Schedule
+
+cond dacă cond
+R
+9
+
+S
+
+face referire
+doar la S
+
+
+R
+
+S
+
+Analiza semantică
+Optimizarea planului fizic
+ Theater
+Schedule.Title=Movie.Title
+
+
+Schedule
+
+Actor=“Winger”
+
+Generatorul de
+plan fizic
+
+Movie
+
+Generatorul de plan fizic alege
+primitivele de execuţie
+index pe Actor şi
+ Theater
+Title, tabele nesortate
+LEFT INDEX
+Schedule.Title=Movie.Title
+ INDEX
+Actor=“Winger”
+Schedule
+
+Movie
+
+Plan fizic1
+10
+
+index pe Actor, tabelul
+Schedule sortat pe Title,
+ Theater
+SORT-MERGE
+Schedule.Title=Movie.Title
+ INDEX
+Actor=“Winger”
+
+Schedule
+
+Movie
+
+Plan fizic 2
+
+Operatori în algebra relaţională
+(revizitat)
+ Şase operatori de bază
+
+Selecţia: 
+ Proiecţia: 
+ Reuniunea: 
+ Diferenţa: –
+ Produsul cartezian: x
+ Redenumirea: 
+
+
+ Operatorii iau ca intrare una sau două relaţii şi generează o noua relaţie
+
+11
+
+Operatorul de selecţie
+ Relaţia r
+
+ A=B ^ D > 5 (r)
+
+12
+
+A
+
+B
+
+C
+
+D
+
+
+
+
+
+1
+
+7
+
+
+
+
+
+5
+
+7
+
+
+
+
+
+12
+
+3
+
+
+
+
+
+23 10
+
+A
+
+B
+
+C
+
+D
+
+
+
+
+
+1
+
+7
+
+
+
+
+
+23 10
+
+Operatorul de proiecţie
+ Relaţia r
+
+ A,C (r)
+
+13
+
+A
+
+B
+
+C
+
+
+
+10
+
+1
+
+
+
+20
+
+1
+
+
+
+30
+
+1
+
+
+
+40
+
+2
+
+A
+
+C
+
+A
+
+C
+
+
+
+1
+
+
+
+1
+
+
+
+1
+
+
+
+1
+
+
+
+1
+
+
+
+2
+
+
+
+2
+
+Operatorul reuniune
+ Relaţiile r şi s
+
+A
+
+B
+
+A
+
+B
+
+
+
+1
+
+
+
+2
+
+
+
+2
+
+
+
+3
+
+
+
+1
+
+s
+
+r
+
+ r  s:
+
+14
+
+A
+
+B
+
+
+
+1
+
+
+
+2
+
+
+
+1
+
+
+
+3
+
+Operatorul diferenţă
+ Relaţiile r şi s
+A
+
+B
+
+A
+
+B
+
+
+
+1
+
+
+
+2
+
+
+
+2
+
+
+
+3
+
+
+
+1
+
+s
+
+r
+
+ r-s
+
+15
+
+A
+
+B
+
+
+
+1
+
+
+
+1
+
+Produsul cartezian
+ Relaţiile r şi s
+
+A
+
+B
+
+C
+
+D
+
+E
+
+
+
+1
+
+
+
+2
+
+
+
+
+
+
+10
+10
+20
+10
+
+a
+a
+b
+b
+
+r
+
+s
+
+ rxs
+
+16
+
+A
+
+B
+
+C
+
+D
+
+E
+
+
+
+
+
+
+
+
+
+
+1
+1
+1
+1
+2
+2
+2
+2
+
+
+
+
+
+
+
+
+
+
+10
+10
+20
+10
+10
+10
+20
+10
+
+a
+a
+b
+b
+a
+a
+b
+b
+
+Operatorul de redenumire
+  x (E) - returnează expresia E sub numele X
+ Dacă o expresie E în algebra relaţională are aritate n atunci
+
+ x ( A ,A ,..., A ) (E )
+returnează rezultatul expresiei E sub numele X şi atributele redenumite în A1 , A2 , …., An
+.
+1
+
+17
+
+2
+
+n
+
+Compunerea operatorilor
+ A=C(r x s)
+
+1.
+
+rxs
+
+2.
+
+A=C(r x s)
+
+18
+
+A
+
+B
+
+C
+
+D
+
+E
+
+
+
+
+
+
+
+
+
+
+1
+1
+1
+1
+2
+2
+2
+2
+
+
+
+
+
+
+
+
+
+
+10
+10
+20
+10
+10
+10
+20
+10
+
+a
+a
+b
+b
+a
+a
+b
+b
+
+A
+
+B
+
+C
+
+D
+
+E
+
+
+
+
+
+1
+2
+2
+
+
+
+
+
+10
+10
+20
+
+a
+a
+b
+
+Expresii în algebra relaţională
+Cea mai simpla expresie este o relaţie în baza de date
+ Fie E1 şi E2 expresii în algebra relaţională; următoarele sunt expresii în algebra relatională:
+
+
+
+
+E1  E2
+
+
+
+E1 – E2
+
+
+
+E1 x E2
+
+
+
+p (E1), P este un predicat peste atribute din E1
+
+
+
+s(E1), S este o listă de atribute din E1
+
+
+
+ x (E1), x este noul nume pentru rezultatul lui E1
+
+19
+
+Exprimarea interogărilor în algebra relaţională
+
+
+
+Împumuturile (loan) mai mari de 1200
+
+amount > 1200 (loan)
+
+
+
+Numărul împrumutului (loan_number) pentru împrumuturi mai mari de 1200
+
+
+
+loan_number (amount > 1200 (loan))
+Numele clienţilor care au un împrumut, un depozit sau ambele la bancă
+
+customer_name (borrower)  customer_name (depositor)
+20
+
+Interogări
+
+
+Numele tuturor clienţilor care au un împrumut la filiala Perryridge
+
+customer_name (branch_name = “Perryridge” (
+borrower.loan_number = loan.loan_number (borrower x loan)))
+customer_name(loan.loan_number = borrower.loan_number (
+(branch_name = “Perryridge” (loan)) x borrower))
+
+21
+
+Interogări
+
+
+
+Numele tuturor clienţilor care au un împrumut la filiala Perryridge dar nu au un depozit la nici o filială
+a băncii
+customer_name (branch_name = “Perryridge”
+(borrower.loan_number = loan.loan_number(borrower x loan))) –
+customer_name(depositor)
+22
+
+Operatori adiţionali
+Intersecţia pe mulţimi
+ Joinul natural
+ Agregarea
+ Joinul extern
+ Teta-joinul
+
+
+ Toţi cu excepţia agregării pot fi exprimaţi utilizând operatori de bază
+
+23
+
+Intersecţia pe mulţimi
+ Relaţiile r şi s
+A
+
+B
+
+
+
+
+
+1
+2
+1
+r
+
+ rs
+
+24
+
+A
+
+B
+
+
+
+
+2
+3
+s
+
+A
+
+B
+
+
+
+2
+
+Joinul natural
+ Relaţiile r şi s
+
+A
+
+B
+
+C
+
+D
+
+B
+
+D
+
+E
+
+
+
+
+
+
+
+1
+2
+4
+1
+2
+
+
+
+
+
+
+
+a
+a
+b
+a
+b
+
+1
+3
+1
+2
+3
+
+a
+a
+a
+b
+b
+
+
+
+
+
+
+
+r
+
+ r
+
+s
+
+s
+
+A
+
+B
+
+C
+
+D
+
+E
+
+
+
+
+
+
+
+1
+1
+1
+1
+2
+
+
+
+
+
+
+
+a
+a
+a
+a
+b
+
+
+
+
+
+
+
+ r.A, r.B, r.C, r.D, s.E (r.B = s.B  r.D = s.D (r
+25
+
+x s))
+
+Agregare
+Exemplu
+
+
+Cea mai mare balanţă din tabela account
+
+balance(account) - account.balance
+(account.balance < d.balance (account x d (account)))
+
+26
+
+Funcţii de agregare şi operatori
+
+
+Funcţii de agregare:
+
+
+
+
+
+
+
+
+
+
+avg
+min
+max
+sum
+count
+var
+
+Operatorul de agregare în algebra relaţională
+G1 ,G2 , ,Gn
+
+F ( A ), F ( A ), , F ( A ) ( E )
+1
+
+1
+
+2
+
+2
+
+n
+
+n
+
+E – expresie în algebra relaţională
+ G1, G2 …, Gn o listă de atribute de grupare (poate fi goală)
+ Fiecare Fi este o funcţie de agregare
+ Fiecare Ai este un atribut
+
+
+27
+
+Agregare
+Exemplu
+
+
+
+
+relaţia r
+
+A
+
+B
+
+C
+
+
+
+
+
+7
+
+
+
+
+
+7
+
+
+
+
+
+3
+
+
+
+
+
+10
+
+g sum(c) (r)
+sum(c )
+27
+
+
+
+Care operaţii de agregare nu pot fi exprimate pe baza celorlalţi operatori relaţionali?
+
+28
+
+Join extern
+relaţia loan
+
+ loan
+
+ loan
+
+29
+
+relaţia borrower
+loan_number
+
+branch_name
+
+amount
+
+customer_name
+
+loan_number
+
+L-170
+L-230
+L-260
+
+Downtown
+Redwood
+Perryridge
+
+3000
+4000
+1700
+
+Jones
+Smith
+Hayes
+
+L-170
+L-230
+L-155
+
+borrower (join natural)
+loan_number
+
+branch_name
+
+amount
+
+customer_name
+
+L-170
+L-230
+
+Downtown
+Redwood
+
+3000
+4000
+
+Jones
+Smith
+
+borrower (join extern stânga)
+loan_number
+
+branch_name
+
+amount
+
+customer_name
+
+L-170
+L-230
+L-260
+
+Downtown
+Redwood
+Perryridge
+
+3000
+4000
+1700
+
+Jones
+Smith
+null
+
+Join extern
+➢ Join extern dreapta
+
+loan
+
+borrower
+
+loan_number
+
+branch_name
+
+amount
+
+customer_name
+
+L-170
+L-230
+L-155
+
+Downtown
+Redwood
+null
+
+3000
+4000
+null
+
+Jones
+Smith
+Hayes
+
+loan_number
+
+branch_name
+
+amount
+
+customer_name
+
+L-170
+L-230
+L-260
+L-155
+
+Downtown
+Redwood
+Perryridge
+null
+
+3000
+4000
+1700
+null
+
+Jones
+Smith
+null
+Hayes
+
+➢ Join extern plin
+
+loan
+
+30
+
+borrower
+
+Exemple interogări
+
+
+Numele clienţilor care au un împrumut şi un depozit la bancă
+
+customer_name (borrower)  customer_name (depositor)
+
+
+Numele clienţilor care au un împrumut la bancă şi suma împrumutată
+customer_name, loan_number, amount (borrower
+
+
+
+loan)
+
+Clienţii care au depozite la ambele filiale Downtown şi Uptown
+customer_name (branch_name = “Downtown” (depositor
+
+customer_name (branch_name = “Uptown” (depositor
+
+31
+
+account )) 
+
+account))
+
+Echivalenţa expresiilor
+ Două expresii în algebra relaţională sunt echivalente dacă acestea generează acelaşi
+
+set de tuple pe orice instanţă a bazei de date
+
+
+ordinea tuplelor e irelevantă
+
+ Obs: SQL lucrează cu multiseturi
+
+
+32
+
+în versiunea multiset a algebrei relaţionale echivalenţa se verifică relativ la multiseturi de tuple
+
+Reguli de echivalenţă
+selecţia pe bază de conjuncţii e echivalentă cu o secvenţă de selecţii
+
+1.
+
+   ( E ) =   (  ( E ))
+1
+
+2
+
+1
+
+2
+
+operaţiile de selecţie sunt comutative
+
+2.
+
+  (  ( E )) =   (  ( E ))
+1
+
+2
+
+2
+
+1
+
+într-un şir de proiecţii consecutive doar ultima efectuată e necesară
+
+3.
+
+ L1 ( L2 (( Ln ( E )) )) =  L1 ( E )
+selecţiile pot fi combinate cu produsul cartezian şi teta joinurile
+
+4.
+
+a. (E1 X E2) = E1  E2
+b. 1(E1 2 E2) = E1 1 2 E2
+33
+
+Reguli de echivalenţă
+5.
+
+operaţiile de teta-join şi de join natural sunt comutative
+E1  E2 = E2  E1
+
+6.
+
+a) Operaţiile de join natural sunt asociative
+(E1 E2) E3 = E1 (E2 E3)
+
+b) Operaţiile de teta-join sunt asociative astfel:
+(E1 1 E2) 2 3 E3 = E1 1 3 (E2 2 E3)
+unde 2 implică atribute doar din E2 şi E3
+
+34
+
+Reguli de echivalenţă
+
+35
+
+Reguli de echivalenţă
+Distribuţia selecţiei asupra operatorului de teta-join
+
+7.
+a)
+
+când 0 implică atribute doar din una dintre expresiile (E1) din join:
+
+0(E1
+b)
+
+ E2) = (0(E1))
+
+când  1 implică numai atribute din E1 şi 2 implică numai atribute din E2:
+
+1 (E1
+
+36
+
+ E2
+
+ E2) =
+
+(1(E1))
+
+ ( (E2))
+
+Reguli de echivalenţă
+Distribuţia proiecţiei asupra teta-joinului
+
+8.
+a)
+
+dacă  implică numai atribute din L1  L2:
+
+ L1 L2 ( E1
+
+
+
+E2 ) = ( L1 ( E1 ))
+
+
+
+( L2 ( E2 ))
+
+Fie joinul E1  E2
+Fie L1 şi L2 mulţimi de atribute din E1 şi respectiv E2
+Fie L3 atribute din E1 care sunt implicate în condiţia de join , dar nu sunt în L1  L2,
+Fie L4 atribute dinE2 care sunt implicate în condiţia de join , dar nu sunt în L1  L2
+b)
+
+ L1  L2 ( E1
+
+37
+
+ E 2 ) =  L1  L2 (( L1  L3 ( E1 ))
+
+(
+
+ L2  L4 ( E2 )))
+
+Reguli de echivalenţă
+9.
+
+Operaţiile de reuniune şi intersecţie pe mulţimi sunt comutative
+
+10.
+
+E1  E2 = E2  E1
+E1  E2 = E2  E1
+Reuniunea şi intersecţia pe mulţimi sunt asociative
+(E1  E2)  E3 = E1  (E2  E3)
+(E1  E2)  E3 = E1  (E2  E3)
+
+11.
+
+Selecţia se distribuie peste ,  şi –.
+
+ (E1 – E2) =  (E1) – (E2)
+similar pentru  şi  în locul –
+
+ (E1 – E2) = (E1) – E2
+similar pentru  in locul –, dar nu pentru 
+12.
+
+Proiecţia se distribuie peste reuniune
+L(E1  E2) = (L(E1))  (L(E2))
+
+38
+
+Optimizarea planului logic
+
+39
+
+Optimizări
+Împingerea selecţiilor
+
+
+Numele clienţilor care au un cont la o filială din Brooklyn
+
+customer_name(branch_city = “Brooklyn”(branch
+
+
+(account
+
+Pe baza regulii 7a
+
+customer_name ((branch_city =“Brooklyn” (branch))
+
+
+40
+
+depositor)))
+
+(account
+
+depositor))
+
+Realizarea selecţiei în primele etape reduce dimensiunea relaţiei care participă în join
+
+Optimizări
+Împingerea selecţiilor
+
+
+Numele clienţilor cu un cont la o filială din Brooklyn care are balanţa peste
+1000
+
+customer_name(branch_city = “Brooklyn”  balance > 1000
+(branch (account
+depositor)))
+
+
+Regula 6a (asociativitatea la join)
+
+customer_name((branch_city = “Brooklyn”  balance > 1000
+(branch account))
+depositor)
+
+
+A doua formă furnizează oportunitatea de a efectua selecţia devreme
+
+branch_city = “Brooklyn” (branch)
+
+41
+
+ balance > 1000 (account)
+
+Vizualizare sub formă de arbori
+
+42
+
+Optimizări
+Împingerea proiecţiilor
+customer_name((branch_city = “Brooklyn” (branch)
+
+
+
+43
+
+depositor)
+
+Eliminarea atributelor care nu sunt necesare din rezultatele intermediare
+
+customer_name ((
+account_number (branch_city = “Brooklyn” (branch)
+depositor )
+
+
+account)
+
+account )
+
+Realizarea devreme a proiecţiei reduce dimensiunea relaţiilor din join
+
+Optimizări
+Ordonarea joinurilor
+Pentru orice relaţii r1, r2, si r3,
+(r1 r2) r3 = r1 (r2 r3 )
+ Dacă r2 r3 are dimensiuni mari şi r1 r2 e de dimensiuni mai mici, alegem
+(r1 r2) r3
+ Exemplu
+
+
+customer_name ((branch_city = “Brooklyn” (branch))
+(account depositor))
+Numai un mic procent din clienţi au conturi în filiale din Brooklyn deci e mai
+bine să se execute mai întâi
+branch_city = “Brooklyn” (branch) account
+ Pentru n relaţii există (2(n – 1))!/(n – 1)! ordonări diferite pentru join.
+
+
+
+
+44
+
+n = 7 -> 665280, n = 10 ->176 miliarde!
+
+Pentru a reduce numărul de ordonări supuse evaluării se poate utiliza
+programarea dinamică
+
+Estimarea costurilor la nivelul planurilor logice
+lr: dimensiunea unui tuplu din r.
+ nr : numărul de tuple în relaţia r.
+ br: numărul de blocuri conţinând tuple din r.
+ fr : factorul de bloc al lui r — nr. de tuple din r ce intră într-un bloc
+ Dacă tuplele lui r sunt stocate împreună într-un fişier, atunci:
+
+
+
+
+
+
+
+nr 
+br =
+f r 
+
+
+V(A, r): numărul de valori distincte care apar in r pentru atributul A; e echivalent cu dimensiunea
+proiecţiei A(r) (pe seturi).
+
+
+
+Estimarea vizează numărul de tuple rezultat iar optimizarea vizează reducerea numărului și dimensiunii
+tuplelor cât mai devreme
+45
+
+Estimarea dimensiunii selecţiei
+
+
+A=v(r)
+
+
+
+
+
+
+nr / V(A,r) : numărul de înregistrări ce satisfac selecţia
+pentru atribut cheie: 1
+
+AV(r) (cazul A  V(r) este simetric)
+
+
+dacă sunt disponibile min(A,r) şi max (A,r)
+
+
+
+46
+
+0 dacă v < min(A,r)
+v − min( A, r )
+nr .
+max( A, r ) − min( A, r )
+
+altfel
+
+
+
+dacă sunt disponibile histograme se poate rafina estimarea anterioară
+
+
+
+în lipsa oricărei informaţii statistice dimensiunea se consideră a fi nr / 2.
+
+Estimarea dimensiunii selecţiilor complexe
+
+
+Selectivitatea unei condiţii i este probabilitatea ca un tuplu în relaţia r să satisfacă i
+
+
+
+
+dacă numărul de tuple ce satisfac i este si , selectivitatea e si /nr.
+
+Conjuncţia (în ipoteza independenţei)
+1 2. . .  n (r):
+
+
+
+Disjuncţia
+
+1 2 . . .  n (r):
+
+
+Negaţia
+
+(r):
+
+47
+
+nr – size((r))
+
+s  s2  . . .  sn
+nr  1
+nrn
+
+sn 
+s1
+s2
+
+nr  1 − (1 − )  (1 − )  ...  (1 − ) 
+nr
+nr
+nr 
+
+
+Estimarea dimensiunii joinului
+pentru produsul cartezian r x s: nr * ns tuple, fiecare tuplu ocupă sr + ss octeţi
+ pentru r
+s
+
+
+
+
+R  S = : nr * ns
+
+
+
+R  S este o (super)cheie pentru R: <= ns
+
+
+
+R  S = {A} nu e cheie pentru R sau S:
+
+48
+
+sau
+
+nr  n s
+V ( A, s )
+
+nr  ns
+V ( A, r )
+
+
+
+minimul este considerat de acurateţe mai mare
+
+
+
+dacă sunt disponibile histograme se calculează formulele anterioare pe fiecare celulă pentru cele două relaţii
+
+Estimarea dimensiunii pentru alte operaţii
+
+
+Proiecţia A(r) : V(A,r)
+
+
+
+Agregarea: AgF(r) : V(A,r)
+
+
+
+Operaţii pe mulţimi
+
+
+r  s : nr + ns.
+r  s : min(nr , ns)
+
+
+
+r-s : nr
+
+
+
+
+
+Join extern
+
+
+
+r
+r
+
+s: dim(r
+s) + nr
+s = dim(r
+s) + nr + ns
+
+ 1 (r)  2 (r) echivalent cu 1 2 (r)
+
+
+49
+
+Estimatorii furnizează în general margini superioare
+
+Optimizarea planului fizic
+
+50
+
+Estimarea costului la nivelul planului fizic
+Costul e în general măsurat ca durata de timp necesară pentru returnarea răspunsului
+ Accesul la disc este costul predominant
+ Numărul de căutări * tS (timpul pentru o localizare a unui bloc pe disc)
+ Numărul de blocuri citite/scrise * tT (timpul de transfer)
+ costul CPU e ignorat pentru simplitate
+ Costul pentru transferul a b blocuri plus S căutări pe disc:
+
+
+b * tT + S * tS
+
+51
+
+Algoritmi pentru selectie
+
+
+Căutare liniară (full scan)
+ cost: br * tT + tS
+ dacă selecţia e pe un atribut cheie, costul estimativ: br/2 * tT + tS
+ poate fi aplicată indiferent de condiţia de selecţie, ordonarea înregistrărilor în fişier, existenţa indecşilor
+
+
+
+Căutarea binară
+ aplicabilă pentru condiţii de selecţie de tip egalitate pe atributul după care e ordonat fişierul
+ costul găsirii primului tuplu ce satisface condiţia: log2(br) * (tT + tS); dacă există mai multe tuple se adaugă
+timpul de transfer al blocurilor
+
+
+
+Scanarea indexului – condiţia de selecţie = cheia de căutare a indexului
+ index primar pe cheie candidat, egalitate: (hi + 1) * (tT + tS)
+ index primar pe non-cheie, egalitate: hi * (tT + tS) + tS + tT * b
+ index secundar, egalitate, n tuple returnate: (hi + n) * (tT + tS)
+ index primar, comparaţie: hi * (tT + tS) + tS + tT * b
+
+52
+
+Algoritmi pentru selecţii complexe
+ Conjuncţie: 1 2. . . n(r)
+
+utilizarea unui index pentru I şi verificarea celorlalte condiţii pe măsură ce tuplele sunt aduse în
+memorie
+ utilizarea unui index multi-cheie
+ intersecţia identificatorilor (pointerilor la înregistrări) returnaţi de indecşii asociaţi condiţiilor
+urmată de citirea înregistrărilor
+
+
+ Disjuncţie: 1 2 . . . n (r)
+
+
+53
+
+reuniunea identificatorilor
+
+Algoritmi pentru join
+
+
+Algoritmi:
+
+
+
+
+
+
+join cu bucle imbricate (nested-loop join)
+join indexat cu bucle imbricate
+join cu fuziune (merge join)
+join hash
+
+Alegerea se face pe baza estimării costului
+ Sunt necesare estimări realizate la nivelul planului logic
+
+
+54
+
+Join cu bucle imbricate
+
+
+Pentru teta-join: r
+
+ s
+
+for each tuplu tr in r do begin
+for each tuplu ts in s do begin
+if (tr,ts) satisface 
+adaugă tr • ts la rezultat
+end
+end
+ relaţia interioară – s
+ relaţia exterioară – r
+
+
+Costul estimat: (nr  bs + br)*tT + (nr + br )*tS
+
+55
+
+Join indexat cu bucle imbricate
+
+
+Căutările în index pot înlocui scanarea fişierelor dacă:
+
+
+
+e un echi-join sau join natural
+există un index pe atributul de join al relaţiei interioare
+
+
+
+pentru fiecare tuplu tr în relaţia exterioară r se utilizează indexul pentru localizarea tuplelor
+din s care satisfac condiţia de join cu uplul tr.
+
+
+
+costul: br (tT + tS) + nr  c
+
+
+
+
+
+c este costul parcurgerii indexului pentru a returna tuple din s care se potrivesc pentru un tuplu din
+r (echivalent cu selecţia pe s cu condiţia de join)
+dacă există indecşi pentru ambele relaţii, relaţia cu mai puţine tuple va fi preferată drept relaţie
+exterioară în join
+
+Exemplu
+
+
+
+
+56
+
+depositor customer, depositor relaţie exterioară
+customer are asociat un index primar de tip B+-arbore pe atributul de join customer-name, cu 20
+intrări pe nod
+customer: 10,000 tuple(f=25), depositor:5000 tuple (f=50)
+ costul: 100 + 5000 * 5 = 25,100 blocuri transferate şi căutări (corespondentul în joinul
+neindexat:2,000,100 blocuri transferate şi = 5100 căutări)
+
+Join cu fuziune
+Algoritm
+
+
+1.
+
+2.
+
+se sortează ambele relaţii în funcţie de atributul de join
+are loc fuziunea relaţiilor
+
+Poate fi utilizat doar pentru echi-joinuri
+Costul:
+
+
+
+
+
+
+br + bs blocuri transferate
++ costul sortării relaţiilor
+
+Join cu fuziune hibrid: o relaţie este sortată iar a doua are un index secundar pe atributul de join de tip B+-arbore
+
+
+
+
+57
+
+relaţia sortată fuzionează cu intrările de pe nivelul frunză al arborelui
+
+Join hash
+aplicabil pentru echi-join
+ o funcţie hash h ce ia la intrare atributele de join partiţionează tuplele ambelor relaţii în blocuri ce
+încap în memorie
+
+
+
+
+
+
+
+r1, r2,…rn
+s1,s2,…sn
+
+tuplele din ri sunt comparate doar cu tuplele din si
+
+58
+
+Joinuri complexe
+
+
+Condiţie de tip conjuncţie: r
+
+
+
+
+
+
+
+
+(r
+
+59
+
+bucle imbricate cu verificarea tuturor condiţiilor sau
+se calculează un join mai simplu r i s şi se realizează selecţia pentru celelalte
+condiţii
+
+Condiţie de tip disjuncţie: r
+
+
+1  2...   n s
+
+1  2 ...  n s
+
+bucle imbricate cu verificarea condiţiilor sau
+calculul reuniunii joinurilor individuale (aplicabil numai versiunii set a reuniunii)
+1 s)  (r
+
+2 s)  . . .  (r
+
+n s)
+
+Eliminarea duplicatelor
+
+ Sortarea tuplelor sau hashing
+ Fiindca e costisitoare, SGBD-urile nu elimina duplicatele decat la cerere
+
+60
+
+Evaluarea expresiilor
+ Operatorii sunt evaluați la nivelul arborelui (planului logic) începând de la ultimul
+
+nivel și urcând spre rădăcină
+ Opțiuni:
+
+Materializarea: (sub)expresiile sunt materializate sub forma unor relaţii stocate pe disc pentru a fi
+date ca intrare operatorilor de pe nivele superioare
+ Pipelining: tuple sunt date ca intrare operaţiilor de pe nivele superioare imediat ce acestea sunt
+returnate în timpul procesării unui operator
+
+
+
+
+nu e întotdeauna posibil (sortare, join hash)
+
+varianta la cerere: nivelul superior solicită noi tuple
+ varianta la producător: operatorul scrie în buffer tuple iar părintele scoate din buffer (la umplerea bufferului există
+timpi de aşteptare)
+
+
+61
+
+Planuri de executie
+Oracle
+
+
+Inregistreaza planul:
+
+EXPLAIN PLAN
+[SET STATEMENT_ID = <id>]
+[INTO <table_name>]
+FOR <sql_statement>;
+
+
+Pentru orice comanda DML
+
+Vizualizeaza planul:
+SELECT * FROM table(dbms_xplan.display);
+sau
+select * from plan_table [where statement_id = <id>];
+
+
+http://www.oracle.com/technetwork/database/bi-datawarehousing/twp-explain-the-explain-plan-052011393674.pdf
+62
+
+Planuri de executie
+Oracle-statistici
+
+
+Table statistics
+Number of rows
+ Number of blocks
+ Average row length
+
+
+
+
+Column statistics
+Number of distinct values (NDV) in column
+ Number of nulls in column
+ Data distribution (histogram)
+
+
+
+
+Index statistics
+Number of leaf blocks
+ Levels
+ Clustering factor
+
+
+
+
+System statistics
+I/O performance and utilization
+ CPU performance and utilization
+
+
+63
+
+Planuri de executie
+Colectarea statisticilor
+
+
+Proceduri Oracle din pachetul DBMS_STATS:
+
+
+
+GATHER_INDEX_STATS
+
+
+
+
+GATHER_TABLE_STATS
+
+
+
+
+Statistics for all objects in a database
+
+GATHER_SYSTEM_STATS
+
+
+
+
+Statistics for all objects in a schema
+
+GATHER_DATABASE_STATS
+
+
+
+
+Table, column, and index statistics
+
+GATHER_SCHEMA_STATS
+
+
+
+
+Index statistics
+
+CPU and I/O statistics for the system
+
+http://docs.oracle.com/cd/B10500_01/server.920/a96533/stats.htm
+64
+
+Planuri de executie
+Hints
+
+
+In cadrul unei comenzi DML este posibil a instrui optimizatorul Oracle asupra planului de executie:
+
+SELECT /*+ USE_MERGE(employees departments) */ * FROM employees, departments WHERE employees.department_id =
+departments.department_id;
+
+http://docs.oracle.com/cd/B19306_01/server.102/b14200/sql_elements006.htm
+
+65
+
+Bibliografie
+
+
+Capitolele 13 şi 14 în Avi Silberschatz Henry F. Korth S. Sudarshan. “Database System Concepts”. McGrawHill Science/Engineering/Math; 4th edition
+
+66
+
+

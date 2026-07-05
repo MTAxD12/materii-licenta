@@ -1,0 +1,1072 @@
+SELECT curs
+FROM BAZE_DE_DATE
+
+WHERE INITCAP(capitol) = ‘Proiectarea Bazelor De Date Relaționale’
+AND topic = ‘ Modelul Entitate/Asociere’
+
+Mihaela Elena Breabăn
+© FII 2024-2025
+
+Baze de date – cuprinsul cursului
+
+2
+
+
+
+Concepte din Baze de date (C1)
+
+
+
+Algebra relațională (C2-C3)
+
+
+
+Dependențe funcționale și multivaluate (C4-C5)
+
+
+
+Normalizare (C6-C7)
+
+
+
+Proiectarea conceptuală: Modelarea Entitate/Asociere (C9)
+
+
+
+Proiectarea fizică (C10-C11)
+
+
+
+Indexarea (C12-C13)
+
+
+
+Procesarea interogărilor (C14)
+
+Proiectarea
+și optimizarea
+Bazelor de date
+Relaționale
+
+Proiectarea Bazelor de date Relaționale
+Metodologie
+1. Analiza cerințelor
+Specificații
+2. Modelarea conceptuală
+Diagrame E/A (UML)
+
+independent de
+considerente
+fizice
+
+3. Modelare logică
+Normalizare
+Schema relațională
+4. Modelare fizică
+Calibrare/optimizare
+3
+
+Specific dezvoltatorului
+SGBDR
+
+Planul prelegerii
+
+ Problematica proiectării schemei
+ Proiectarea E/A în notația lui Chen
+
+Concepte E/A
+ Modelarea constrângerilor
+ Capcane de conectare
+
+
+ Proiectarea E/A în UML
+ Din E/A în schemă relațională
+
+4
+
+Proiectarea schemei bazei de date
+
+
+Pentru o bază de date putem propune mai multe scheme
+
+
+Unele sunt (mult) mai bune decât altele
+
+
+Redundanță?
+
+
+
+Eficiență?
+
+
+
+Consistență?
+
+
+
+Cum generăm scheme bune?
+
+
+
+Două abordări:
+
+
+
+
+
+Descompunere - normalizare (Codd, ’70-’74)
+Modelarea E/A (Chen,’76)
+
+De obicei sunt aplicate împreună, în doi pași: se începe cu proiectarea E/A și se continuă cu
+normalizarea
+
+5
+
+Concepte E/A clasice
+(Chen 1976)
+
+
+Entitate
+
+
+
+
+
+
+Date ce pot fi modelate ca obiecte având existență idenpendentă
+Mulțime-entitate sau tip-entitate - corespunde unui grup de obiecte de acelaşi tip, deci unei mulțimi omogene de entități; este
+caracterizată de un nume și o listă de propietăți
+O instanţă – entitate este un obiect din grup și trebuie să fie unic identificabilă în cadrul mulțimii
+
+Asociere (Relationship)
+
+
+
+
+
+Conexiune/asociere între două sau mai multe entităţi de tip diferit sau de același tip
+Mulțime-asociere sau tip-asociere – corespunde unei mulțimi omogene de asocieri, modelează interacțiuni între mulțimientitate
+O instanță-asociere este identificabilă prin instanțele-entitate participante
+Gradul asocierii = numărul de mulțimi-entitate participante
+
+
+
+
+unare/recursive, binare, ternare…
+
+Atribut
+
+
+
+Pentru entități reprezintă proprietăți ce descriu obiectele/instanțele entitate
+Pentru asocieri
+
+
+
+6
+
+Atribute ale entităţilor implicate
+Atribute specifice asocierii ce reprezintă informații noi (atribute proprii)
+
+Diagrame E/A
+ Reprezentare grafică a conceptelor E/A
+
+
+Există mai multe standarde grafice, aici varianta Chen
+
+Mulțime
+Asociere
+
+Mulțime Entitate
+
+Atribut
+
+ Un graf
+
+Mulțimile-entitate, mulțimile-asociere şi atributele sunt noduri
+ Există muchii doar între
+
+
+noduri-entitate şi noduri-asociere
+ noduri-entitate şi noduri-atribute
+ noduri-asociere şi noduri-atribute
+
+
+7
+
+Exemplu
+ O bază de date ce conţine informaţii despre:
+
+Studenţi
+ Profesori
+ Cursuri
+ Note
+ Mentori
+
+Asociere binară
+
+
+
+STUDENŢI
+
+MENTORI
+
+NOTE
+
+PROFESORI
+
+Asociere ternară
+
+Asociere recursivă
+PRE
+
+CURSURI
+
+ Cerinţe:
+ Putem determina notele obţinute la cursuri pentru orice student, precum și profesorii care au pus
+notele
+ Putem determina mentorul (profesorul îndrumător al) oricărui student
+ Putem identifica condițiile necesare pentru a studia un curs (fiecare curs ar putea necesita
+cunoasterea informațiilor din alte cursuri)
+8
+
+Alte concepte E/A
+ Rol
+
+
+Explică semnificaţia entităţilor în asocieri
+rol
+
+ Cheie primară
+
+Un atribut sau o submulţime minimală de atribute ce identifică unic o instanţă-entitate sau
+o instanță-asociere
+ Obligatorie pentru entităţi, pentru a indica care instanţe participă în asocieri
+
+
+Cheie primară
+
+ Cheie străină pentru o asociere
+ Un atribut sau o mulţime de atribute care constituie cheie primară pentru
+
+entităţile implicate
+9
+
+Exemplu
+CNP
+
+nume
+
+prenume
+
+localitate
+
+STUDENŢI
+
+MENTORI
+
+îndrumat
+
+evaluat
+
+îndrumător
+
+sem
+
+NOTE
+
+an
+
+evaluator
+
+PROFESORI
+
+nota
+CNP
+
+nume
+
+prenume
+
+birou
+
+subiect
+
+este necesar
+
+CURSURI
+
+PRE
+
+necesită
+cod
+
+denumire
+
+credite
+
+Care sunt cheile străine pentru cele trei mulțimi de asocieri?
+10
+
+Constrângeri de conectivitate/participare
+ Modelul E/A permite declararea de constrângeri asupra numărului de instanţe-
+
+asociere în care o instanţă-entitate participă
+ Fie R o mulțime-asociere între n mulțimi-entitate Ei, i=1..n. Baza de date satisface
+
+constrângerea (Ei, u,v,R) dacă fiecare instanţă-entitate din Ei participă în cel puţin u şi
+cel mult v instanţe-asociere din R.
+
+u:v
+
+11
+
+Exemplu
+(Studenţi,1,1Mentori)
+ (Profesori,0,7,Mentori)
+ Fiecare student are un singur profesor drept mentor iar un
+profesor poate fi mentor pentru cel mult 7studenti
+
+
+CNP
+
+nume
+
+prenume
+
+STUDENŢI
+
+localitate
+
+MENTORI
+
+îndrumat
+1:1
+
+îndrumător
+0:7
+PROFESORI
+CNP
+
+12
+
+nume
+
+prenume
+
+birou
+
+Constrângeri de conectivitate pentru asocieri binare (1)
+
+a) Asociere unu la unu (incompletă)
+(A,0,1,R) (B,0,1,R)
+A
+13
+
+0:1
+
+R
+
+0:1
+
+B
+
+b) Asociere unu la mulţi
+(A,0,n,R) (B,0,1,R), n>1
+A
+
+0:n
+
+R
+
+0:1
+
+B
+
+Constrângeri de conectivitate pentru asocieri binare (2)
+
+a) Asociere mulţi la unu
+(A,0,1,R) (B,0,n,R)
+A
+14
+
+0:1
+
+R
+
+0:n
+
+b) Asociere mulţi la mulţi
+(A,0,m,R) (B,0,n,R), m,n>1
+B
+
+A
+
+0:m R
+
+0:n
+
+B
+
+Entitate slabă
+ O mulțime-entitate este slabă dacă existenţa instanţelor sale depinde de
+
+existenţa instanţelor altei mulțimi-entitate (dependenţă existenţială)
+Entitate tare
+0:n
+R
+1:1
+Entitate slabă
+
+ Nu are cheie
+
+ Satisface constrângerea de conectivitate (Entitate_slaba,1,1,R), deci participă
+
+într-o asociere de tip unu la mulţi relativ la entitatea tare
+15
+
+Exemplu
+
+STUDENTI
+0:10
+IMPRUMUTĂ
+1:1
+ÎMPRUMUTURI
+
+16
+
+Capcane de conectare
+(Fan traps)
+PROFESORI
+
+PROFESORI
+
+angajat
+
+angajat
+SALARIATI
+
+SALARIATI
+
+angajator
+
+angajator
+
+FACULTĂȚI
+
+UNIVERSITĂȚI
+
+componentă
+
+compus
+
+STRUCTURI
+
+STRUCTURI
+
+componentă
+
+FACULTĂȚI
+
+compus
+compoziţie
+(tip special de asociere)
+
+Problema:
+La ce facultate aparţine profesorul X?
+17
+
+UNIVERSITĂȚI
+
+Soluţia:
+Model restructurat
+
+Capcane de conectare
+(Chasm traps)
+FACULTĂȚI
+
+proprietar
+
+FACULTĂȚI
+
+oferă
+
+oferă
+
+PROGRAMA
+
+PROGRAMA
+
+oferit de
+CURSURI
+
+oferit de
+CURSURI
+
+RESURSE
+
+activitate
+
+activitate
+
+ORAR
+
+ORAR
+
+locaţie
+SĂLI
+
+Problema:
+Care sunt toate sălile ce aparţin unei facultăţi?
+18
+
+locaţie
+
+proprietate
+
+SĂLI
+
+Soluţia:
+Noi asocieri
+
+Modelul E/A extins
+Specializare
+ Subgrupuri distinctive de instanţe-entitate
+
+Au în plus anumite atribute sau/și participă în asocieri la care nu participă
+toate instanţele-entitate
+ Corespund unei mulțimi de entităţi specializate care se află într-o
+asociere de tip IS-A cu mulțimea de entități de bază
+
+
+STUDENTI
+IS A
+STUDENŢI
+STRĂINI
+19
+
+Constrângeri specifice specializării
+ Instanţele specializării moştenesc toate atributele şi asocierile mulțimii de
+
+entităţi de bază, inclusiv cheia
+ Clasificare
+
+
+O instanţă a unei mulțimi-entitate poate aparţine la una sau la mai multe specializări
+ Specializări disjuncte (exclusive)
+ Specializări cu suprapunere
+
+
+
+IS A
+
+{disjunct/suprapus}
+
+O instanţă a unei mulțimi-entitate trebuie sau nu să aparţină la cel puţin o specializare
+ Complet
+
+ Incomplet (parţial)
+
+IS A
+
+20
+
+{complet/parţial}
+
+Modelare UML
+ Unified Modeling Language
+
+Utilizat în ingineria software
+ Bazat pe concepte orientate obiect
+ Instrument de comunicare cu clientul în termenii utilizaţi în companie
+ Un limbaj bogat, utilizăm un set restrâns de elemente (diagrama de clase) pentru a
+modela o bază de date.
+
+
+21
+
+Mapare E/A – UML
+E/R
+
+UML
+
+Mulțime-entitate cu atribute
+
+Clasă
+
+Mulțime-asociere fără atribute
+proprii
+
+Asociere
+
+Mulțime-asociere cu atribute
+proprii
+
+Clasă de asociere
+
+Specializare
+
+Subclasă
+Compoziţie şi agregare
+
+22
+
+Clase
+ Componente: nume, atribute, metode
+
+ BD: nume, atribute (cheia primară)
+
+CNP
+
+nume
+
+prenume
+
+STUDENŢI
+
+23
+
+localitate
+
+Asocieri
+ Exprimă asocierea dintre obiectele aparţinând la două clase
+ BD: asocierea dintre instanţele a două mulțimi-entitate
+CNP
+
+nume
+
+prenume
+
+STUDENŢI
+
+localitate
+
+îndrumat
+1:1
+
+CNP
+
+MENTORI
+
+îndrumător
+0:7
+
+nume
+
+prenume
+
+birou
+
+PROFESORI
+
+ Obs: constrângerile de conectivitate se specifică invers decât în diagramele E/A
+24
+
+Asocieri
+Constrângeri de conectivitate/multiplicitate
+
+
+25
+
+Restricţii
+ (C1,u,v,A)
+ (C2,x,y,A)
+
+C1
+
+u:v
+
+A
+
+x:y
+
+C2
+
+
+
+Fiecare obiect (instanţă-entitate) din C1 este asociat cu cel puţin u şi cel mult v
+obiecte (instanţe-entitate) din C2
+
+
+
+Fiecare obiect (instanţă-entitate) din C2 este asociat cu cel puţin x şi cel mult y
+obiecte (instanţe-entitate) din C2
+x..y
+
+u..v
+
+Tip asociere
+
+0..1
+
+0..1
+
+unu la unu incompletă
+
+1..1 (1)
+
+1..1 (1)
+
+unu la unu completă
+
+0..1
+
+0..* (*)
+
+unu la multi incompletă
+
+…
+
+…
+
+…
+
+???
+
+
+Modelaţi asocierea dintre STUDENTI şi UNIVERSITĂŢI. Un student poate studia la cel mult 2
+universităţi si e necesar să studieze la cel putin una. O universitate primeşte cel mult 10.000 studenti.
+
+
+
+Fie asocierea
+
+2..4
+
+12..14
+
+Care e numărul minim de instanţe pentru mulțimea-entitate C1 şi pentru C2?
+
+26
+
+Asocieri recursive
+necesită
+
+PRE
+
+CURSURI
+
+este necesar
+cod
+
+27
+
+denumire
+
+credite
+
+Asocieri n-are
+
+28
+
+Clase de asociere
+
+STUDENTI
+
+LICENTA
+titlu
+
+29
+
+sesiune
+
+PROFESORI
+
+Clase de asociere
+CNP
+
+nume
+
+localitate
+
+prenume
+
+STUDENŢI
+cod denumire credite
+
+CURSURI
+
+evaluat
+NOTE
+
+subiect
+
+evaluator
+sem
+
+30
+
+CNP
+
+an
+
+nota
+
+nume
+
+prenume
+
+PROFESORI
+
+birou
+
+Eliminarea claselor de asociere
+ Atunci când avem multiplicitate 0..1 sau 1..1
+
+31
+
+Subclasă
+(1)
+ID
+
+nume
+
+prenume
+
+superclasă
+
+STUDENTI
+
+IS A
+
+STUDENŢI ROMÂNI
+
+STUDENŢI STRĂINI
+
+CNP
+
+tara
+
+(Specializare completă, disjunctă)
+
+32
+
+Subclasă
+(2)
+
+0..*
+
+(Specializare completă, cu suprapunere)
+
+33
+
+1..*
+
+(pk)
+
+Compoziţie şi agregare
+ Obiecte dintr-o clasă aparţin obiectelor din altă clasă
+ Tipuri speciale de asociere
+
+➢ Compoziţia: toate obiectele unei clase părţi aparţin obiectelor dintr-o clasă
+
+compusă; clasei părţi îi corespunde de obicei o entitate slabă (multiplicitate 1..1; fără
+cheie primară);
+➢ Agregarea: unele obiecte din clasa părţi aparţin obiectelor din clasa compusă
+(multiplicitate 0..1)
+34
+
+Mapare E/A, UML ->
+schema BD relaţională
+
+35
+
+E/A
+
+UML
+
+Schema relaţională
+
+Mulțime-entitate cu atribute
+
+Clasă
+
+Relaţie cu cheie primară
+
+Mulțime-asociere fără atribute proprii
+
+Asociere
+
+Relaţie cu chei străine
+
+Mulțime-asociere cu atribute proprii
+
+Clasă de asociere
+
+Relaţie cu chei străine şi alte
+atribute
+
+Specializare
+
+Subclasă
+
+Relaţie cu cheie primară (cea a
+superclasei) şi atribute
+particulare/specializate
+
+Compoziţie şi agregare
+
+Relaţie cu cheie străină şi
+atribute particulare
+
+Mulțimi-entitate/clase şi asocieri
+
+{C1(K1, X1), C2(K2, X2), A(K1,K2)}
+
+ Cheia primară pentru asociere depinde de multiplicitate
+
+36
+
+x..y
+
+u..v
+
+Cheia primară pt A
+
+Observaţii
+
+0..1
+1..1
+
+*
+
+K2
+
+Nu e necesară relaţia A
+{C1(K1, X1), C2(K2, X2,K1)}
+
+*
+
+0..1
+1..1
+
+K1
+
+Nu e necesară relaţia A
+{C1(K1, X1,K2), C2(K2, X2)}
+
+*
+
+*
+
+de obicei (K1,K2)
+
+???
+ Fie diagrama
+
+ Mai este posibilă renuntarea la relaţia corespunzătoare asocierii?
+
+37
+
+Asocieri recursive
+
+principal
+
+filială
+
+{CURSURI (cod, denumire, credite)
+PRE (cod1, cod2)}
+
+{UNIVERSITATI (cod, numeU,oras)
+SUBSIDIARE (codFiliala, codParinte)}
+sau
+UNIVERSITATI (codFiliala, codPrincipal, numeU,oras)
+
+38
+
+Clase de asociere
+
+{STUDENTI (ID, nume, prenume)
+UNIVERSITATI (cod, numeU, oras)
+APLICATII (ID, cod, data, rezultatul)}
+
+39
+
+Specializare/Subclase
+
+ Posibilităţi
+
+
+Relaţii subclasă ce conţin cheia superclasei şi atributele specializate
+C1(K1,X1), C2(K1,X2), C3(K1,X3)
+
+
+
+Relaţii subclasă ce conţin atributele superclasei (inclusiv atributul cheie) si atributele specializate;
+superclasa conţine doar tuple nespecializate
+C1(K1,X1), C2(K2,X1,X2), C3(K2,X1,X3)
+
+
+
+O singură relaţie ce conţine atributele din superclasă şi subclasă
+C(K1,X1,X2,X3)
+
+40
+
+???
+ Fie superclasa S cu un număr de subclase. Considerăm că relaţia de specializare este
+
+incompletă şi cu suprapunere. Dacă n1, n2 şi n3 reprezintă numărul total de tuple
+necesare fiecărei scheme de decodificare din cele 3 date anterior (în ordinea dată),
+care este relaţia dintre cele 3 valori?
+n1<n2<n3
+o n1n2n3
+o n3<n2<n1
+o n3 n2 n1
+o
+
+41
+
+Compoziţie şi agregare
+
+{ UNIVERSITATI(cod, numeU, oras)
+DEPARTAMENTE(codU, numeD, cladire)
+BIROURI (codU, adresa)}
+
+NU acceptă NULL
+
+acceptă NULL
+42
+
+Modelare EA/UML
+Sumar
+ PROS
+
+Tehnică populară de modelare conceptuală
+ Construcţii expresive, descriu punctul de vedere personal asupra aplicaţiei
+ Permite exprimarea unor tipuri de constrângeri (chei primare, străine, multiplicitate,
+exclusivitate…)
+
+
+ CONS
+
+Tehnică subiectivă (entitate sau atribut, entitate sau asociere, subclasare sau nu,
+compoziţie sau nu)
+ Nu permite modelarea tuturor dependentelor
+ Necesită utilizarea ulterioară a normalizării
+
+
+43
+
+Bibliografie
+
+
+
+Capitolele 11 și 12 in Thomas Connolly, Carolyn Begg: Database Systems: A Practical Approach to Design,
+Implementation and Management, (5th edition) Addison Wesley, 2009
+
+
+
+Instrumente:
+
+
+
+
+44
+
+https://creately.com (diagrame EA, diagrame UML de clasă)
+http://diagramo.com/ (diagrame EA)
+https://argouml-tigris-org.github.io/tigris/argouml/
+
+

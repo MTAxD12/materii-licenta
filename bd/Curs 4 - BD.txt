@@ -1,0 +1,464 @@
+Baze de date relaţionale
+Dependenţe multivaluate
+Nicolae-Cosmin Vârlan
+
+1/ 1
+Nicolae-Cosmin Vârlan
+
+Baze de date relaţionale Dependenţe multivaluate
+
+Exemplu
+Presupunem că persoana cu CNP = 1 a fost admisă la două
+facultăţi şi are permis de conducere pentru categoriile A şi B:
+r:
+
+CNP
+1
+1
+
+Admis la facult.
+Informatică
+Matematică
+
+Are permis categ.
+A
+B
+
+Deşi anumite rânduri nu sunt scrise ı̂n tabelă, putem să intuim că
+persoana cu CNP = 1 a dat la Facultatea de Informatică şi are
+permis de conducerea categoria B. Deci, deşi ı̂n r nu există t-uplul
+h 1,Informatica,B i, ar trebui să existe şi el (pentru că poate fi
+dedus din cele existente).
+Care alt t-uplu mai poate fi dedus ?
+
+2/ 1
+Nicolae-Cosmin Vârlan
+
+Baze de date relaţionale Dependenţe multivaluate
+
+Exemplu
+r:
+
+CNP
+1
+1
+1
+1
+
+Admis la facult.
+Informatică
+Matematică
+Informatică
+Matematică
+
+Are permis categ.
+A
+B
+B
+A
+
+t-uplele marcate cu roşu ar putea lipsi, ele fiind redundante
+deoarece pot fi obţinute din primele două t-uple.
+
+Prin intermediul dependenţelor funcţionale pot afla la care coloane
+pot renunţa astfel ı̂ncât să le pot reface ulterior.
+Prin intermediul dependenţelor multivaluate pot afla la care linii
+pot renunţa astfel ı̂ncât să le pot reface ulterior.
+
+3/ 1
+Nicolae-Cosmin Vârlan
+
+Baze de date relaţionale Dependenţe multivaluate
+
+Dependenţe multivaluate - definiţie
+Fie X, Y ⊆ U . O dependenţă multivaluată este notată cu X  Y .
+
+Definition
+Relaţia r peste U satisface dependenţa multivaluată X  Y dacă
+pentru oricare două tuple t1 , t2 ∈ r satisfăcând t1 [X] = t2 [X],
+există tuplele t3 şi t4 din r, astfel ı̂ncât:
+I t3 [X] = t1 [X], t3 [Y ] = t1 [Y ], t3 [Z] = t2 [Z];
+I t4 [X] = t2 [X], t4 [Y ] = t2 [Y ], t4 [Z] = t1 [Z]
+
+unde Z = U − XY (Z mai este denumită şi rest).
+
+4/ 1
+Nicolae-Cosmin Vârlan
+
+Baze de date relaţionale Dependenţe multivaluate
+
+Exemplul 2 (mai formal)
+
+r:
+
+A
+a1
+a1
+a1
+a1
+a2
+a2
+
+B
+b1
+b2
+b1
+b2
+b3
+b3
+
+C
+c1
+c2
+c1
+c2
+c1
+c1
+
+D
+d1
+d2
+d2
+d1
+d1
+d2
+
+t1
+t2
+t3
+t4
+
+t1 ”
+t2 ”
+
+r satisface A  BC
+
+t01 , t04
+t02 , t03
+
+Intrebare: cum alegem t3 ”, t4 ” ?
+Deoarece atunci când t1 [A] = t2 [A] avem că:
+t3 [A] = t1 [A], t3 [BC] = t1 [BC], t3 [D] = t2 [D] şi
+t4 [A] = t2 [A], t4 [BC] = t2 [BC], t4 [D] = t1 [D]
+
+5/ 1
+Nicolae-Cosmin Vârlan
+
+Baze de date relaţionale Dependenţe multivaluate
+
+Definiţie echivalentă
+Relaţia r peste U satisface dependenţa multivaluată X  Y , dacă
+pentru orice t1 , t2 ∈ r cu t1 [X] = t2 [X] avem că
+MY (t1 [XZ]) = MY (t2 [XZ])
+unde MY (t[XZ]) = {t0 [Y ]|t0 ∈ r, t0 [XZ] = t[XZ]} = valorile lui Y
+din diferite tuple ı̂n care XZ sunt egale (cu XZ-ul din parametru).
+A B C D
+a1 b1 c1 d1
+= t1
+a1 b2 c2 d2
+= t2
+a1 b1 c1 d2
+r:
+a1 b2 c2 d1
+a2 b3 c1 d1
+a2 b3 c1 d2
+MY (t1[AD]) = MY (t2[AD]) = {(b1 , c1 ), (b2 , c2 )}
+
+6/ 1
+Nicolae-Cosmin Vârlan
+
+Baze de date relaţionale Dependenţe multivaluate
+
+Observaţii
+I Dacă r satisface dependenţa funcţională X → Y , atunci
+
+pentru orice t ∈ r, avem MY (t[XZ]) = {t[Y ]}.
+I Dacă r satisface dependenţa funcţională X → Y , atunci r
+
+satisface şi dependenţa multivaluată X  Y .
+I Dacă r satisface dependenţa multivaluată X  Y , atunci
+
+putem defini o funcţie ψ : r[X] → P(r[Y ]), prin
+ψ(t[X]) = MY (t[XZ]), ∀t ∈ r (returnează valorile diferite din
+proiecţia pe Y). Când r satisface X → Y , atunci
+ψ : r[X] → r[Y ] (deoarece valorile pe Y nu sunt diferite ı̂n cadrul
+dependenţei funcţionale).
+
+7/ 1
+Nicolae-Cosmin Vârlan
+
+Baze de date relaţionale Dependenţe multivaluate
+
+Dependenţe multivaluate (exerciţiu)
+Arătaţi că AC  BD:
+
+r:
+
+A
+8
+8
+9
+8
+8
+9
+
+B
+1
+9
+3
+1
+9
+3
+
+C
+2
+2
+2
+2
+2
+2
+
+D
+0
+2
+4
+0
+2
+4
+
+E
+4
+9
+9
+9
+4
+4
+
+Când r[AC] = {(8, 2)} avem r[BD] = {(1, 0), (9, 2)} şi
+r[E] = {(4), (9)}. Găsim toate produsele carteziene dintre cele 3 ?
+Când r[AC] = {(9, 2)} avem r[BD] = {(3, 4)} şi
+r[E] = {(4), (9)}. Găsim toate produsele carteziene ?
+DA (este MVD)
+8/ 1
+Nicolae-Cosmin Vârlan
+
+Baze de date relaţionale Dependenţe multivaluate
+
+Proprietăţi ale dependenţelor multivaluate
+MVD0 (Complementariere) Fie X, Y, Z ⊆ U , asfel ı̂ncât
+XY Z = U şi Y ∩ Z ⊆ X. Dacă r satisface X  Y , atunci r
+satisface X  Z.
+MVD1 (Reflexivitate) Dacă Y ⊆ X, atunci orice relaţie r satisface
+X Y.
+MVD2 (Extensie) Fie Z ⊆ W şi r satisface X  Y . Atunci r
+satisface XW  Y Z
+MVD3 (Tranzitivitate) Dacă r satisface X  Y şi Y  Z, atunci
+r satisface X  Z − Y
+
+9/ 1
+Nicolae-Cosmin Vârlan
+
+Baze de date relaţionale Dependenţe multivaluate
+
+MVD0
+
+X
+
+Y
+1
+4
+
+2
+3
+
+5
+6
+
+7
+
+Z
+
+8
+
+U
+10/ 1
+
+Nicolae-Cosmin Vârlan
+
+Baze de date relaţionale Dependenţe multivaluate
+
+MVD1
+
+3
+
+X
+
+2
+
+1
+
+Y
+U
+11/ 1
+Nicolae-Cosmin Vârlan
+
+Baze de date relaţionale Dependenţe multivaluate
+
+MVD2
+
+X
+
+Y
+3
+
+1
+
+2
+
+4
+6
+
+8
+
+5
+7
+
+9
+10
+
+Z W
+11
+
+12
+
+U
+12/ 1
+
+Nicolae-Cosmin Vârlan
+
+Baze de date relaţionale Dependenţe multivaluate
+
+Proprietăţi ale dependenţelor multivaluate
+MVD4 (Pseudotranzitivitate) Dacă r satisface X  Y şi
+Y W  Z, atunci r satisface şi XW  Z − Y W .
+MVD5 (Uniune) Dacă r satisface X  Y şi X  Z atunci r
+satisface X  Y Z.
+MVD6 (Descompunere) Dacă r satisface X  Y şi X  Z,
+atunci r satisface X  Y ∩ Z, X  Y − Z, X  Z − Y
+
+13/ 1
+Nicolae-Cosmin Vârlan
+
+Baze de date relaţionale Dependenţe multivaluate
+
+Proprietăţi mixte ale dependenţelor multivaluate
+FD-MVD1. Dacă r satisface X → Y , atunci r satisface şi X  Y .
+FD-MVD2. Dacă r satisface X  Z şi Y → Z 0 , cu Z 0 ⊆ Z şi
+Y ∩ Z = ∅, atunci r satisface X → Z 0 .
+FD-MVD3. Dacă r satisface X  Y şi XY → Z, atunci r
+satisface X → Z − Y .
+
+14/ 1
+Nicolae-Cosmin Vârlan
+
+Baze de date relaţionale Dependenţe multivaluate
+
+Reguli de inferenţă
+MVD0f:
+
+XY Z=U, Y ∩Z⊆X, XY
+XZ
+
+MVD1f:
+
+Y ⊆X
+XY
+
+MVD2f:
+
+Z⊆W, XY
+XW Y Z
+
+MVD3f:
+
+XY, Y Z
+XZ−Y
+
+MVD4f:
+
+XY,Y W Z
+XW Z−Y W
+
+15/ 1
+Nicolae-Cosmin Vârlan
+
+Baze de date relaţionale Dependenţe multivaluate
+
+Reguli de inferenţă
+MVD5f:
+
+XY, XZ
+XY Z
+
+MVD6f:
+
+XY, XZ
+XY ∩Z, XY −Z, XZ−Y
+
+FD-MVD1f:
+
+X→Y
+XY
+
+FD-MVD2f:
+
+XZ, Y →Z 0 , Z 0 ⊆Z, Y ∩Z=∅
+X→Z 0
+
+FD-MVD3f:
+
+XY, XY →Z
+X→Z−Y
+
+16/ 1
+Nicolae-Cosmin Vârlan
+
+Baze de date relaţionale Dependenţe multivaluate
+
+Propoziţie
+Fie R o multime de reguli valide si γ o regula α1 ,α2β,...αk , astfel
+incat {α1 , . . . αk } `R β, atunci si regula γ este valida.
+
+Propoziţie
+Fie RF M = {FD1f − FD3f 1 , MVD0f − MVD3f ,
+FD − MVD1f − FD − MVD3f }. Avem:
+I FD − MVD3f
+I MVD2f
+
+se exprima cu celelalte regulid din RF M si F D
+
+se exprima prin celelalte reguli din RF M .
+
+Propoziţie
+Regulile MVD4f − MVD6f se exprima cu ajutorul regulilor
+MVD0f − MVD3f
+
+1
+
+cele de la dependente functionale
+Nicolae-Cosmin Vârlan
+
+17/ 1
+Baze de date relaţionale Dependenţe multivaluate
+
+Bibliografie
+I Baze de date relaţionale. Dependenţe - Victor Felea; Univ. Al.
+
+I. Cuza, 1996
+
+18/ 1
+Nicolae-Cosmin Vârlan
+
+Baze de date relaţionale Dependenţe multivaluate
+
+
