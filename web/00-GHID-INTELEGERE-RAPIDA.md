@@ -430,38 +430,51 @@ valoare = de câte ori a comandat.
 
 Matricea e **rară (sparse)**: majoritatea celulelor sunt 0 (nimeni nu comandă tot meniul).
 
-## Pas 3: ideea factorilor latenți (inima algoritmului)
+> **Atenție la ordine** — pașii 3/4/5 de mai jos NU se întâmplă cronologic în ordinea numerotării.
+> Ordinea reală e **4 → 5 → 3**: întâi pregătesc datele (4), apoi ANTRENEZ modelul rezolvând
+> problema de optimizare (5) — asta produce vectorii $x_u$, $y_i$ — și abia ATUNCI, având
+> vectorii gata calculați, pot face produsul scalar din pasul 3 ca să obțin un scor. Antrenarea
+> (4+5) se face rar, periodic (la 10 comenzi/10 min, vezi RabbitMQ). Scorul (3) se calculează de
+> fiecare dată când cineva cere o recomandare — e instant, doar o înmulțire de vectori deja gata.
+> I-am pus în ordinea asta (3 înainte de 4/5) ca să vezi întâi UNDE ajungem, apoi CUM ajungem acolo.
 
-Vreau să descriu FIECARE utilizator și FIECARE produs prin câte **32 de numere** (un vector).
-Aceste numere nu le aleg eu — le ÎNVAȚĂ modelul, și ajung să codifice concepte nescrise nicăieri:
-„cât de italian e produsul", „cât de dulce", „e băutură?"...
+## Pas 4: preferință și încredere — cum pregătesc datele pentru antrenare
 
-**Scorul potrivirii = produsul scalar** dintre vectorul utilizatorului și al produsului
-(înmulțești pozițiile între ele și aduni). Vector-utilizator „aliniat" cu vector-produs → scor
-mare → recomandă.
-
-```
-  Ion      = [ 0.9 italian,  0.1 dulce, 0.7 bere-lover, ...]
-  Tiramisu = [ 0.8 italian,  0.9 dulce, 0.0 bere,       ...]
-  scor(Ion, Tiramisu) = 0.9·0.8 + 0.1·0.9 + 0.7·0.0 + ... = ridicat → recomandă
-```
-
-(Etichetele „italian/dulce" sunt doar pentru intuiție — în realitate sunt dimensiuni anonime.)
-
-## Pas 4: preferință și încredere (specificul feedback-ului implicit)
-
-Din numărul brut de comenzi derivez două lucruri:
-- **Preferința p** = binar: 1 dacă a comandat vreodată, 0 dacă nu.
+Din numărul brut de comenzi (matricea de mai sus) derivez două lucruri, pentru fiecare celulă:
+- **Preferința p** = binar: 1 dacă utilizatorul a comandat produsul vreodată, 0 dacă nu.
 - **Încrederea c = 1 + α·r** (α=40, r = nr. de comenzi): a comandat de 5 ori → sunt FOARTE sigur
-  că-i place; n-a comandat → am încredere minimă în acel 0 (poate doar nu l-a văzut).
+  că-i place; n-a comandat niciodată → am încredere minimă în acel 0 (poate doar nu l-a văzut).
 
 Modelul încearcă să ghicească preferințele, dar greșelile pe celulele cu încredere mare „dor"
-mai tare la antrenare. Așa tratez corect zerourile nesigure.
+mai tare la antrenare. Așa tratez corect zerourile nesigure — asta e specificul feedback-ului
+implicit (vs. explicit, unde ai note directe).
 
-## Pas 5: de ce „Alternating Least Squares"
+## Pas 5: antrenarea — de ce „Alternating Least Squares" (aici se NASC vectorii)
 
-Trebuie găsite SIMULTAN toate vectorele de utilizatori (X) și de produse (Y) care aproximează
-matricea. Problema cu ambele necunoscute deodată e grea. Trucul:
+Acum, cu $p_{ui}$ și $c_{ui}$ calculate pentru toată matricea, caut vectorii $x_u$ (câte unul per
+utilizator) și $y_i$ (câte unul per produs), fiecare de **32 de numere**, care minimizează:
+
+$$\min_{X,\,Y} \; \sum_{u,i} c_{ui}\,\bigl(p_{ui} - x_u^{\top} y_i\bigr)^2 \;+\; \lambda \Bigl( \sum_u \lVert x_u \rVert^2 + \sum_i \lVert y_i \rVert^2 \Bigr)$$
+
+Citește-o bucată cu bucată:
+
+| Bucată | Ce înseamnă |
+|---|---|
+| $\sum_{u,i}$ | sumez peste TOATE perechile utilizator–produs, nu doar cele comandate |
+| $x_u^{\top} y_i$ | produsul scalar = predicția mea pentru cât de mult i-ar plăcea lui $u$ produsul $i$ |
+| $p_{ui} - x_u^{\top} y_i$ | diferența între adevăr (0/1) și predicție = cât de greșit am fost |
+| $(\ldots)^2$ | ridic la pătrat: greșelile mari contează disproporționat mai mult |
+| $c_{ui}\cdot(\ldots)^2$ | ponderez greșeala cu încrederea — o greșeală pe un produs comandat de 10 ori „doare" mult mai tare decât una pe un produs necomandat niciodată |
+| $\lambda(\sum\lVert x_u\rVert^2+\sum\lVert y_i\rVert^2)$ | regularizare: penalizez vectorii cu valori mari, ca modelul să nu memoreze datele (anti-supraînvățare / overfitting) |
+| $\min_{X,Y}$ | caut, din toate combinațiile posibile de vectori, pe aceea care face suma cea mai mică |
+
+Pe scurt: „găsește-mi vectori $x_u$, $y_i$ ale căror produse scalare aproximează cât mai bine
+preferințele observate, ponderate după cât de sigur sunt de fiecare, dar fără ca vectorii să
+devină uriași."
+
+Problema e grea dacă cauți $X$ și $Y$ **simultan** (nu are soluție directă în ambele deodată).
+Dar dacă **îngheț** $Y$, expresia rămasă e doar în funcție de $X$ — o problemă clasică de
+regresie ponderată cu cele mai mici pătrate, care ARE formulă exactă. Trucul:
 
 ```
   repetă de 15 ori:
@@ -472,13 +485,38 @@ matricea. Problema cu ambele necunoscute deodată e grea. Trucul:
 ```
 
 Fiecare pas rezolvă un sistem liniar mic (`numpy.linalg.solve` — mai stabil numeric decât
-inversarea explicită de matrice). Plus **regularizare λ=0.1** = penalizez vectorii cu valori
-mari, ca modelul să nu memoreze datele (protecție anti-supraînvățare / overfitting).
+inversarea explicită de matrice). După 15 iterații, $X$ și $Y$ se stabilizează — **acum am
+vectorii $x_u$ și $y_i$ pentru fiecare utilizator și produs.**
 
 Algoritmul e din lucrarea **Hu, Koren & Volinsky, 2008** (folosit la Netflix-era de aur a
 factorizării de matrice). **L-am implementat manual** cu numpy + scipy.sparse, pentru că
 biblioteca planificată inițial (LightFM) nu se instala pe Python 3.12/Windows (cerea compilator
 C). Avantaj real: îl pot explica și controla linie cu linie.
+
+## Pas 3: scorul — cum FOLOSESC vectorii deja antrenați (asta se întâmplă la fiecare cerere)
+
+Acum că $x_u$ (utilizator) și $y_i$ (produs) există deja (calculați la pasul 5), a recomanda
+înseamnă doar: **scor = produsul scalar** dintre cei doi vectori (înmulțești pozițiile între ele
+și aduni). Vector-utilizator „aliniat" cu vector-produs → scor mare → recomand.
+
+```
+  Ion      = [ 0.9,  0.1, 0.7, ...]   ← 32 de numere, învățate, FĂRĂ sens predefinit
+  Tiramisu = [ 0.8,  0.9, 0.0, ...]   ← la fel
+  scor(Ion, Tiramisu) = 0.9·0.8 + 0.1·0.9 + 0.7·0.0 + ... = ridicat → recomandă
+```
+
+**De unde știm că un produs e „italian" sau „băutură"? NU folosim tagurile/categoria/alergenii.**
+Asta e important: cele 32 de numere de mai sus **nu au niciun sens predefinit** și modelul NU
+primește niciodată categoria produsului, ingredientele sau alergenii ca input. Singurul lucru pe
+care-l vede e cine a comandat ce, împreună cu cine, cât de des — pur comportament, zero conținut.
+Dacă pizza și berea apar des în aceeași comandă, optimizarea de la pasul 5 ajunge — fără să
+„știe" de ce — să pună vectorii lor „aproape" într-un fel care reproduce acest tipar. Etichetele
+„italian/dulce" din exemplul de mai sus sunt doar o intuiție pe care ȚI-O DAU EU ca cititor, ca
+să-ți imaginezi ce-ar putea reprezenta o dimensiune — în realitate sunt anonime, nu există în cod.
+De aceea se numește **filtrare colaborativă**: recomandă din comportamentul colectiv, nu din
+proprietățile produsului (asta ar fi *content-based filtering*, o abordare diferită, neimplementată
+aici). Categoria și alergenii există în `MenuItem`, dar servesc altui scop — afișarea meniului,
+filtrul de alergeni al clientului — nu intră niciodată în ALS.
 
 ## Pas 6: coșul anonim — fold-in
 
